@@ -2,42 +2,38 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LEO Y APRENDO - Cartilla Completa</title>
-link href="https://fonts.googleapis.com/css2?family=Caveat<
+<title>LEO Y APRENDO - Cartilla Rubio</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Andika:wght@700&display=swap" rel="stylesheet">
 <style>
-:root{--rosa:#e8438a;--rosa2:#ff7ab2;--fondo:#fff6f9;--morado:#6c5ce7}
+:root{--rosa:#e8438a;--fondo:#fff6f9;--morado:#6c5ce7}
 *{box-sizing:border-box;font-family:system-ui,sans-serif}
 body{margin:0;background:var(--fondo)}
-header{background:linear-gradient(90deg,var(--rosa),var(--rosa2));color:white;padding:18px;text-align:center;font-size:28px;font-weight:900;position:sticky;top:0;z-index:10}
-.tabs{display:flex;overflow-x:auto;background:white;box-shadow:0 4px 12px rgba(0,0,0,.06);padding:8px;gap:8px;position:sticky;top:64px;z-index:9}
-.tabs button{white-space:nowrap;border:2px solid #ffe0ec;background:#fff;padding:10px 14px;border-radius:12px;font-weight:800;font-size:13px;cursor:pointer;color:var(--rosa)}
-.tabs button.activo{background:var(--rosa);color:white;border-color:var(--rosa)}
+header{background:linear-gradient(90deg,#e8438a,#ff7ab2);color:white;padding:18px;text-align:center;font-size:28px;font-weight:900}
+.tabs{display:flex;overflow-x:auto;background:white;padding:8px;gap:8px;position:sticky;top:0;z-index:9;box-shadow:0 4px 10px rgba(0,0,0,.06)}
+.tabs button{white-space:nowrap;border:2px solid #ffe0ec;background:#fff;padding:10px 14px;border-radius:12px;font-weight:800;font-size:13px;color:#e8438a;cursor:pointer}
+.tabs button.activo{background:#e8438a;color:white}
 .cont{max-width:900px;margin:auto;padding:12px}
 .card{background:white;border-radius:20px;padding:18px;box-shadow:0 10px 25px rgba(0,0,0,.07);margin:12px 0}
-.menu-tipos{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;background:#fff0f6;padding:10px;border-radius:14px;border:2px dashed #ffbdd7;margin-bottom:10px}
+.menu-tipos{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;background:#fff0f6;padding:12px;border-radius:14px;border:2px dashed #ffbdd7}
 .btn{border:0;padding:10px 14px;border-radius:10px;font-weight:800;cursor:pointer}
-.btn.tipo{background:white;color:var(--rosa);border:2px solid #ffbdd7}
-.btn.tipo.activo{background:var(--rosa);color:white}
-.grid-letras{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px}
-.item-letra{background:#fff;border:3px solid #ffe0ec;border-radius:18px;padding:12px;text-align:center;cursor:pointer;transition:.2s}
-.item-letra:hover{transform:translateY(-4px);border-color:var(--rosa)}
-.item-letra.emoji{font-size:48px}
-.item-letra.letra{font-size:42px;font-weight:900;color:var(--rosa);line-height:1}
-.item-letra.letra.minuscula{font-family:'Andika',sans-serif;text-transform:none}
-.item-letra.letra.mayuscula{text-transform:none}
-.item-letra.letra.ligada{font-family:'Caveat',cursive;font-size:52px;color:var(--morado)}
-.item-letra.ej{font-size:11px;font-weight:800;color:#666;margin-top:4px}
-.vista-grande{text-align:center;padding:10px}
-.emoji-big{font-size:100px;animation:flota 2s infinite}
-@keyframes flota{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.letra-big{font-size:120px;font-weight:900;color:var(--rosa);line-height:1}
+.btn.tipo{background:white;color:#e8438a;border:2px solid #ffbdd7}
+.btn.tipo.activo{background:#e8438a;color:white}
+.grid-letras{display:grid;grid-template-columns:repeat(auto-fill,minmax(125px,1fr));gap:12px}
+.item-letra{background:#fff;border:3px solid #ffe0ec;border-radius:18px;padding:10px;text-align:center;cursor:pointer}
+.item-letra:hover{border-color:#e8438a;transform:translateY(-3px)}
+.letra{font-size:42px;font-weight:900;color:#e8438a;line-height:1}
+.letra.minuscula{font-family:'Andika',sans-serif}
+.letra.ligada{font-family:'Dancing Script',cursive;font-size:52px;color:var(--morado)}
+.emoji{font-size:44px}
+.ej{font-size:11px;font-weight:800;color:#777}
+.emoji-big{font-size:90px}
+.letra-big{font-size:120px;font-weight:900;color:#e8438a;line-height:1}
 .letra-big.minuscula{font-family:'Andika',sans-serif;font-size:110px}
-.letra-big.mayuscula{font-family:system-ui,sans-serif}
-.letra-big.ligada{font-family:'Caveat',cursive;color:var(--morado);font-size:150px}
-.opciones{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-.op{padding:18px;border:3px solid #ffe0ec;border-radius:14px;font-size:28px;font-weight:900;cursor:pointer;background:#fff}
-.op.ligada{font-family:'Caveat',cursive;font-size:36px;color:var(--morado)}
-.op.minuscula{font-family:'Andika',sans-serif;font-size:28px}
+.letra-big.ligada{font-family:'Dancing Script',cursive;color:#6c5ce7;font-size:160px;font-weight:700}
+.opciones{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.op{padding:16px;border:3px solid #ffe0ec;border-radius:14px;font-size:28px;font-weight:900;background:#fff;cursor:pointer}
+.op.minuscula{font-family:'Andika',sans-serif}
+.op.ligada{font-family:'Dancing Script',cursive;font-size:38px;color:#6c5ce7}
 .op.correct{background:#c8f7c5;border-color:#2ecc71}
 .op.wrong{background:#ffd1d1;border-color:#e74c3c}
 </style>
@@ -56,81 +52,69 @@ header{background:linear-gradient(90deg,var(--rosa),var(--rosa2));color:white;pa
 <div class="menu-tipos">
 <button class="btn tipo activo" id="tMayus" onclick="setTipo('mayuscula')">A MAYÚSCULA</button>
 <button class="btn tipo" id="tMinus" onclick="setTipo('minuscula')">a minúscula</button>
-<button class="btn tipo" id="tLigada" onclick="setTipo('ligada')" style="font-family:'Caveat',cursive;font-size:18px">a ligada Rubio</button>
-<button class="btn" style="background:#6c5ce7;color:white" onclick="hablar()">🔊</button>
+<button class="btn tipo" id="tLigada" onclick="setTipo('ligada')" style="font-family:'Dancing Script',cursive;font-size:20px">a ligada Rubio</button>
 </div>
-<div class="card" id="vistaGrande">
-<div class="vista-grande">
+<div class="card" style="text-align:center">
 <div class="emoji-big" id="gEmoji">✈️</div>
 <div class="letra-big mayuscula" id="gLetra">A</div>
-<div style="font-weight:900;color:#6c5ce7;font-size:20px" id="gEjemplo">A de AVIÓN</div>
-<div id="gExtra" style="font-size:13px;color:#999;margin-top:4px"></div>
-</div>
+<div style="font-weight:900;color:#6c5ce7;font-size:22px" id="gEjemplo">A de AVIÓN</div>
+<button class="btn" style="background:#6c5ce7;color:white;margin-top:10px;padding:14px 24px;font-size:18px" onclick="hablar()">🔊 ESCUCHAR: A de AVIÓN</button>
 <div class="opciones" id="opciones"></div>
-<p id="mensaje" style="font-weight:800;min-height:20px;text-align:center"></p>
+<p id="mensaje" style="font-weight:800;min-height:20px"></p>
 </div>
 <div class="card">
-<h3 id="tituloSeccion" style="margin:4px 0 10px;color:var(--rosa)">🔤 LETRAS</h3>
+<h3 id="tituloSeccion" style="color:#e8438a;margin:0 0 10px">🔤 LETRAS</h3>
 <div class="grid-letras" id="grid"></div>
 </div>
 </div>
 <script>
-let tipo="mayuscula";
-let seccion="letras";
-let actual="A";
+let tipo="mayuscula", seccion="letras", actual="A";
 const DATA={
 letras:[
-{A:"A",e:"✈️",ex:"AVIÓN"}, {A:"B",e:"⚽",ex:"BALÓN"}, {A:"C",e:"🏠",ex:"CASA"}, {A:"D",e:"🐬",ex:"DELFÍN"}, {A:"E",e:"🐘",ex:"ELEFANTE"},
-{A:"F",e:"🦭",ex:"FOCA"}, {A:"G",e:"🐱",ex:"GATO"}, {A:"H",e:"🦛",ex:"HIPOPÓTAMO"}, {A:"I",e:"🏝️",ex:"ISLA"}, {A:"J",e:"🦒",ex:"JIRAFA"},
-{A:"K",e:"🥝",ex:"KIWI"}, {A:"L",e:"🌙",ex:"LUNA"}, {A:"M",e:"👩",ex:"MAMÁ"}, {A:"N",e:"👃",ex:"NARIZ"}, {A:"O",e:"🐻",ex:"OSO"},
-{A:"P",e:"👨",ex:"PAPÁ"}, {A:"Q",e:"🧀",ex:"QUESO"}, {A:"R",e:"🐭",ex:"RATÓN"}, {A:"S",e:"🐍",ex:"SERPIENTE"}, {A:"T",e:"🐢",ex:"TORTUGA"},
-{A:"U",e:"🍇",ex:"UVA"}, {A:"V",e:"🐄",ex:"VACA"}, {A:"W",e:"🌊",ex:"WATERPOLO"}, {A:"X",e:"🎷",ex:"XILÓFONO"}, {A:"Y",e:"🛶",ex:"YATE"}, {A:"Z",e:"🦊",ex:"ZORRO"}
+{A:"A",e:"✈️",ex:"AVIÓN",pal:"avión"}, {A:"B",e:"🚢",ex:"BARCO",pal:"barco"}, {A:"C",e:"🏠",ex:"CASA",pal:"casa"}, {A:"D",e:"🐬",ex:"DELFÍN",pal:"delfín"}, {A:"E",e:"🐘",ex:"ELEFANTE",pal:"elefante"},
+{A:"F",e:"🦭",ex:"FOCA",pal:"foca"}, {A:"G",e:"🐱",ex:"GATO",pal:"gato"}, {A:"H",e:"🦛",ex:"HIPOPÓTAMO",pal:"hipopótamo"}, {A:"I",e:"🏝️",ex:"ISLA",pal:"isla"}, {A:"J",e:"🦒",ex:"JIRAFA",pal:"jirafa"},
+{A:"K",e:"🥝",ex:"KIWI",pal:"kiwi"}, {A:"L",e:"🌙",ex:"LUNA",pal:"luna"}, {A:"M",e:"👩",ex:"MAMÁ",pal:"mamá"}, {A:"N",e:"👃",ex:"NARIZ",pal:"nariz"}, {A:"O",e:"🐻",ex:"OSO",pal:"oso"},
+{A:"P",e:"👨",ex:"PAPÁ",pal:"papá"}, {A:"Q",e:"🧀",ex:"QUESO",pal:"queso"}, {A:"R",e:"🐭",ex:"RATÓN",pal:"ratón"}, {A:"S",e:"🐍",ex:"SERPIENTE",pal:"serpiente"}, {A:"T",e:"🐢",ex:"TORTUGA",pal:"tortuga"},
+{A:"U",e:"🍇",ex:"UVA",pal:"uva"}, {A:"V",e:"🐄",ex:"VACA",pal:"vaca"}, {A:"W",e:"⌚",ex:"WATERPOLO",pal:"waterpolo"}, {A:"X",e:"🪓",ex:"XILÓFONO",pal:"xilófono"}, {A:"Y",e:"🛶",ex:"YATE",pal:"yate"}, {A:"Z",e:"🦊",ex:"ZORRO",pal:"zorro"}
 ],
 vocalicos:[
-{A:"AI",e:"🌬️",ex:"AIRE"}, {A:"AU",e:"🚗",ex:"AUTO"}, {A:"EI",e:"👑",ex:"REINA"}, {A:"EU",e:"💶",ex:"EURO"}, {A:"IA",e:"🎹",ex:"PIANO"},
-{A:"IE",e:"🥧",ex:"PIE"}, {A:"IO",e:"🦁",ex:"RÍO"}, {A:"IU",e:"🏙️",ex:"CIUDAD"}, {A:"UA",e:"💧",ex:"AGUA"}, {A:"UE",e:"🥚",ex:"HUEVO"}, {A:"UI",e:"🔊",ex:"RUIDO"}, {A:"OI",e:"👂",ex:"OÍDO"}
+{A:"AI",e:"🌬️",ex:"AIRE",pal:"aire"}, {A:"AU",e:"🚗",ex:"AUTO",pal:"auto"}, {A:"EI",e:"👑",ex:"REINA",pal:"reina"}, {A:"IA",e:"🎹",ex:"PIANO",pal:"piano"}, {A:"IE",e:"🥧",ex:"PIE",pal:"pie"}, {A:"UA",e:"💧",ex:"AGUA",pal:"agua"}, {A:"UE",e:"🥚",ex:"HUEVO",pal:"huevo"}
 ],
 directas:[
-{A:"MA",e:"👩",ex:"MAMÁ"}, {A:"ME",e:"🪑",ex:"MESA"}, {A:"MI",e:"😺",ex:"MIMI"}, {A:"MO",e:"🐒",ex:"MONO"}, {A:"MU",e:"🐮",ex:"MU"},
-{A:"PA",e:"👨",ex:"PAPÁ"}, {A:"PE",e:"⚽",ex:"PELOTA"}, {A:"PI",e:"🐦",ex:"PINO"}, {A:"PO",e:"🍲",ex:"POLLO"}, {A:"PU",e:"🐙",ex:"PULPO"},
-{A:"LA",e:"🌙",ex:"LUNA"}, {A:"LE",e:"🥛",ex:"LECHE"}, {A:"LI",e:"📚",ex:"LIBRO"}, {A:"LO",e:"🐺",ex:"LOBO"}, {A:"LU",e:"🔍",ex:"LUPA"}
+{A:"MA",e:"👩",ex:"MAMÁ",pal:"mamá"}, {A:"ME",e:"🪑",ex:"MESA",pal:"mesa"}, {A:"MI",e:"😺",ex:"MIMI",pal:"mimi"}, {A:"MO",e:"🐒",ex:"MONO",pal:"mono"}, {A:"MU",e:"🐮",ex:"mu",pal:"mu"},
+{A:"PA",e:"👨",ex:"PAPÁ",pal:"papá"}, {A:"PE",e:"⚽",ex:"PELOTA",pal:"pelota"}, {A:"PI",e:"🐦",ex:"PINO",pal:"pino"}, {A:"PO",e:"🍲",ex:"POLLO",pal:"pollo"}, {A:"PU",e:"🐙",ex:"PULPO",pal:"pulpo"}
 ],
 inversas:[
-{A:"AN",e:"🐜",ex:"HORMIGA"}, {A:"AS",e:"♠️",ex:"AS"}, {A:"AL",e:"🎒",ex:"AL"}, {A:"AR",e:"🎨",ex:"ARCO"}, {A:"AZ",e:"✌️",ex:"PAZ"},
-{A:"EN",e:"✉️",ex:"EN"}, {A:"ES",e:"🧹",ex:"ES"}, {A:"EL",e:"👉",ex:"EL"}, {A:"ER",e:"📗",ex:"SER"}, {A:"EM",e:"📧",ex:"EM"},
-{A:"IN",e:"🔵",ex:"SIN"}, {A:"IS",e:"🏝️",ex:"ISLA"}, {A:"OS",e:"🐻",ex:"OSO"}, {A:"ON",e:"🔛",ex:"CON"}, {A:"UN",e:"1️⃣",ex:"UNO"}
+{A:"AN",e:"🐜",ex:"HORMIGA",pal:"an"}, {A:"AL",e:"🎒",ex:"AL",pal:"al"}, {A:"AR",e:"🎨",ex:"ARCO",pal:"arco"}, {A:"AS",e:"♠️",ex:"AS",pal:"as"}, {A:"EN",e:"✉️",ex:"EN",pal:"en"}, {A:"ES",e:"🧹",ex:"ES",pal:"es"}, {A:"IN",e:"🔵",ex:"SIN",pal:"in"}, {A:"OS",e:"🐻",ex:"OSO",pal:"os"}
 ],
 palabras:[
-{A:"CASA",e:"🏠",ex:"CASA"}, {A:"MAMA",e:"👩",ex:"MAMÁ"}, {A:"PAPA",e:"👨",ex:"PAPÁ"}, {A:"LUNA",e:"🌙",ex:"LUNA"}, {A:"MESA",e:"🪑",ex:"MESA"}, {A:"SOPA",e:"🍲",ex:"SOPA"}, {A:"GATO",e:"🐱",ex:"GATO"}, {A:"PELOTA",e:"⚽",ex:"PELOTA"}
+{A:"CASA",e:"🏠",ex:"CASA",pal:"casa"}, {A:"LUNA",e:"🌙",ex:"LUNA",pal:"luna"}, {A:"GATO",e:"🐱",ex:"GATO",pal:"gato"}, {A:"MESA",e:"🪑",ex:"MESA",pal:"mesa"}
 ],
 oraciones:[
-{A:"MI MAMA ME MIMA",e:"👩‍👧",ex:"MI MAMÁ ME MIMA"}, {A:"LA LUNA SALE",e:"🌙",ex:"LA LUNA SALE"}, {A:"EL GATO DUERME",e:"🐱💤",ex:"EL GATO DUERME"}, {A:"PAPA LEE",e:"📖",ex:"PAPÁ LEE"}
+{A:"MI MAMA ME MIMA",e:"👩‍👧",ex:"MI MAMÁ ME MIMA",pal:"mi mamá me mima"}
 ]
 };
 
-function formato(txt){
- if(tipo==='mayuscula') return txt.toUpperCase();
- return txt.toLowerCase();
-}
+function formato(txt){ return tipo==='mayuscula'? txt.toUpperCase() : txt.toLowerCase(); }
 function setTipo(t){
  tipo=t;
  document.getElementById('tMayus').classList.remove('activo');
  document.getElementById('tMinus').classList.remove('activo');
  document.getElementById('tLigada').classList.remove('activo');
+ document.getElementById('tMayus').classList.add(t==='mayuscula'?'activo':'');
+ document.getElementById('tMinus').classList.add(t==='minuscula'?'activo':'');
+ document.getElementById('tLigada').classList.add(t==='ligada'?'activo':'');
  if(t==='mayuscula') document.getElementById('tMayus').classList.add('activo');
  if(t==='minuscula') document.getElementById('tMinus').classList.add('activo');
  if(t==='ligada') document.getElementById('tLigada').classList.add('activo');
- render();
- mostrar(actual);
+ render(); mostrar(actual);
 }
 function tab(s,btn){
  seccion=s;
  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('activo'));
  btn.classList.add('activo');
- const tit={letras:"🔤 LETRAS - Abecedario",vocalicos:"👀 GRUPOS VOCÁLICOS",directas:"➡️ SÍLABAS DIRECTAS",inversas:"⬅️ SÍLABAS INVERSAS",palabras:"📚 PALABRAS",oraciones:"💬 ORACIONES"};
- document.getElementById('tituloSeccion').textContent=tit[s];
- render();
- mostrar(DATA[s][0].A);
+ document.getElementById('tituloSeccion').textContent=s.toUpperCase();
+ render(); mostrar(DATA[s][0].A);
 }
 function render(){
  let grid=document.getElementById('grid');grid.innerHTML="";
@@ -143,35 +127,33 @@ function render(){
 }
 function mostrar(codigo){
  actual=codigo;
- let lista=DATA[seccion];
- let it=lista.find(x=>x.A===codigo)||lista[0];
+ let it=DATA[seccion].find(x=>x.A===codigo);
  document.getElementById('gEmoji').textContent=it.e;
- document.getElementById('gEjemplo').textContent=formato(it.ex);
- let l=document.getElementById('gLetra');
- l.textContent=formato(it.A);
- l.className="letra-big "+tipo;
- document.getElementById('gExtra').textContent=seccion.toUpperCase();
- let ops=[it.A];
- while(ops.length<4){let r=lista[Math.floor(Math.random()*lista.length)].A;if(!ops.includes(r))ops.push(r);}
+ document.getElementById('gLetra').textContent=formato(it.A);
+ document.getElementById('gLetra').className="letra-big "+tipo;
+ document.getElementById('gEjemplo').textContent=`${formato(it.A)} de ${formato(it.pal)}`;
+ document.querySelector('button[onclick="hablar()"]').textContent=`🔊 ESCUCHAR: ${formato(it.A)} de ${formato(it.pal)}`;
+ // juego
+ let ops=[it.A]; while(ops.length<4){let r=DATA[seccion][Math.floor(Math.random()*DATA[seccion].length)].A; if(!ops.includes(r)) ops.push(r);}
  ops=ops.sort(()=>Math.random()-0.5);
  let cont=document.getElementById('opciones');cont.innerHTML="";
  ops.forEach(o=>{
-  let div=document.createElement('div');
-  div.className='op '+tipo;
-  div.textContent=formato(o);
-  div.onclick=()=>comprobar(o,it.A,div);
-  cont.appendChild(div);
+  let div=document.createElement('div');div.className='op '+tipo;div.textContent=formato(o);div.onclick=()=>comprobar(o,it.A,div);cont.appendChild(div);
  });
 }
 function comprobar(sel,real,div){
- if(sel===real){div.classList.add('correct');document.getElementById('mensaje').textContent="¡Muy bien! 🎉";document.getElementById('mensaje').style.color="#2ecc71";}
- else{div.classList.add('wrong');document.getElementById('mensaje').textContent="Es "+formato(real)+" 💪";document.getElementById('mensaje').style.color="#e74c3c";}
- setTimeout(()=>{document.getElementById('mensaje').textContent="";div.classList.remove('correct','wrong');},1200);
+ if(sel===real){div.classList.add('correct');document.getElementById('mensaje').textContent="¡Muy bien! 🎉"; hablar();}
+ else{div.classList.add('wrong');document.getElementById('mensaje').textContent="Era "+formato(real);}
+ setTimeout(()=>{document.getElementById('mensaje').textContent="";},1000);
 }
 function hablar(){
  speechSynthesis.cancel();
- let t=document.getElementById('gLetra').textContent;
- let u=new SpeechSynthesisUtterance(t);u.lang="es-ES";u.rate=0.8;speechSynthesis.speak(u);
+ let it=DATA[seccion].find(x=>x.A===actual);
+ let texto = `${it.A} de ${it.pal}`; // dice A de avión
+ // para que suene natural, siempre en minúscula
+ let u=new SpeechSynthesisUtterance(texto.toLowerCase());
+ u.lang="es-ES"; u.rate=0.8;
+ speechSynthesis.speak(u);
 }
 render();mostrar("A");
 </script>
