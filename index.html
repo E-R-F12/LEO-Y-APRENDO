@@ -11,16 +11,20 @@ header{background:linear-gradient(90deg,var(--rosa),var(--rosa2));color:white;pa
 .cont{max-width:800px;margin:auto;padding:12px}
 .card{background:white;border-radius:20px;padding:20px;box-shadow:0 10px 25px rgba(0,0,0,.07);margin:12px 0}
 .btn{background:var(--rosa);color:white;border:0;padding:12px 18px;border-radius:12px;font-size:16px;font-weight:800;cursor:pointer;margin:5px}
-.btn.activo{background:#333;transform:scale(1.05)}
+.btn.activo{background:#333}
 .opciones{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}
 .op{padding:18px;border:3px solid #ffe0ec;border-radius:14px;font-size:24px;font-weight:900;cursor:pointer;background:#fff}
 .op.correct{background:#c8f7c5;border-color:#2ecc71}
 .op.wrong{background:#ffd1d1;border-color:#e74c3c}
-.letra{font-size:85px;font-weight:900;color:var(--rosa);margin:8px 0;min-height:110px;word-wrap:break-word}
+.letra{font-size:90px;font-weight:900;color:var(--rosa);margin:0;line-height:1}
+.ilustra{font-size:90px;margin:5px 0;animation:flota 2s infinite ease-in-out}
+@keyframes flota{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.ejemplo{font-size:18px;font-weight:900;color:#6c5ce7;letter-spacing:1px;margin-top:2px}
 .progreso{height:12px;background:#ffe0ec;border-radius:10px;overflow:hidden}
 .progreso i{display:block;height:100%;background:var(--rosa);width:0%;transition:.3s}
 .nivel{font-size:12px;background:#ffe0ec;color:var(--rosa);padding:5px 12px;border-radius:20px;font-weight:800}
 .menu-niveles{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:10px 0}
+.caja-letra{background:#fff0f6;border-radius:22px;padding:15px 10px;margin:10px 0;border:3px dashed #ffbdd7}
 </style>
 </head>
 <body>
@@ -35,8 +39,14 @@ header{background:linear-gradient(90deg,var(--rosa),var(--rosa2));color:white;pa
 </div>
 <span class="nivel" id="nivelTxt"></span>
 <div class="progreso" style="margin:10px 0"><i id="barra"></i></div>
-<h2 id="pregunta" style="margin:6px 0"></h2>
-<div class="letra" id="letra"></div>
+<h2 id="pregunta"></h2>
+
+<div class="caja-letra">
+<div class="ilustra" id="ilustra">✈️</div>
+<div class="letra" id="letra">A</div>
+<div class="ejemplo" id="ejemplo">AVIÓN</div>
+</div>
+
 <div class="opciones" id="opciones"></div>
 <p id="mensaje" style="min-height:22px;font-weight:800"></p>
 <button class="btn" onclick="hablar()">🔊 Escuchar</button>
@@ -47,37 +57,50 @@ header{background:linear-gradient(90deg,var(--rosa),var(--rosa2));color:white;pa
 <script>
 const niveles=[
 {nombre:"VOCALES", datos:["A","E","I","O","U"], preg:"¿Qué vocal es?"},
-{nombre:"SÍLABAS", datos:["MA","ME","MI","MO","MU","PA","PE","PI","PO","PU","LA","LE","LI","LO","LU","SA","SE","SI","SO","SU"], preg:"Lee la sílaba"},
-{nombre:"PALABRAS", datos:["MAMA","PAPA","LUNA","MESA","SOPA","CASA","GATO","PELOTA","SAPO","LUPA","MIMO","PUMA"], preg:"Lee la palabra"},
-{nombre:"ORACIONES", datos:["MI MAMA ME MIMA","LA LUNA SALE","EL GATO DUERME","PAPA LEE","MAMA AMA"], preg:"Lee la oración"}
+{nombre:"SÍLABAS", datos:["MA","ME","MI","MO","MU","PA","PE","PI","PO","PU","LA","LE","LI","LO","LU"], preg:"Lee la sílaba"},
+{nombre:"PALABRAS", datos:["MAMA","PAPA","LUNA","MESA","SOPA","CASA","GATO","PELOTA","SAPO","LUPA"], preg:"Lee la palabra"},
+{nombre:"ORACIONES", datos:["MI MAMA ME MIMA","LA LUNA SALE","EL GATO DUERME","PAPA LEE"], preg:"Lee la oración"}
 ];
+
+const dibujos={
+"A":{emoji:"✈️", texto:"A de AVIÓN"},
+"E":{emoji:"🐘", texto:"E de ELEFANTE"},
+"I":{emoji:"🏝️", texto:"I de ISLA"},
+"O":{emoji:"🐻", texto:"O de OSO"},
+"U":{emoji:"🍇", texto:"U de UVA"},
+"MA":{emoji:"👩", texto:"MA de MAMÁ"}, "ME":{emoji:"🍈", texto:"ME de MESA"}, "MI":{emoji:"😺", texto:"MI de MIMI"}, "MO":{emoji:"🙈", texto:"MO de MONO"}, "MU":{emoji:"🐮", texto:"MU de MUU"},
+"PA":{emoji:"👨", texto:"PA de PAPÁ"}, "PE":{emoji:"🐶", texto:"PE de PELOTA"}, "PI":{emoji:"🐦", texto:"PI de PIO"}, "PO":{emoji:"🍲", texto:"PO de SOPA"}, "PU":{emoji:"🐙", texto:"PU de PULPO"},
+"LA":{emoji:"🌙", texto:"LA de LUNA"}, "LE":{emoji:"📖", texto:"LE de LEE"}, "LI":{emoji:"📚", texto:"LI de LIBRO"}, "LO":{emoji:"🐺", texto:"LO de LOBO"}, "LU":{emoji:"🔍", texto:"LU de LUPA"},
+"MAMA":{emoji:"👩‍👧", texto:"MAMÁ"}, "PAPA":{emoji:"👨‍👧", texto:"PAPÁ"}, "LUNA":{emoji:"🌙", texto:"LUNA"}, "MESA":{emoji:"🪑", texto:"MESA"}, "SOPA":{emoji:"🍲", texto:"SOPA"}, "CASA":{emoji:"🏠", texto:"CASA"}, "GATO":{emoji:"🐱", texto:"GATO"}, "PELOTA":{emoji:"⚽", texto:"PELOTA"}, "SAPO":{emoji:"🐸", texto:"SAPO"}, "LUPA":{emoji:"🔍", texto:"LUPA"}
+};
+
 let nivel=0,idx=0,puntos=0,racha=0;
 function irNivel(n){nivel=n;idx=0;actualizarMenu();crearOpciones();}
 function actualizarMenu(){[0,1,2,3].forEach(i=>document.getElementById("b"+i).className=i===nivel?"btn activo":"btn");}
-function hablar(){speechSynthesis.cancel();let t=document.getElementById("letra").textContent;let u=new SpeechSynthesisUtterance(t);u.lang="es-ES";u.rate=0.7;speechSynthesis.speak(u);}
+function hablar(){speechSynthesis.cancel();let t=document.getElementById("letra").textContent;let u=new SpeechSynthesisUtterance(t+", "+document.getElementById("ejemplo").textContent);u.lang="es-ES";u.rate=0.7;speechSynthesis.speak(u);}
 function crearOpciones(){
  const actual=niveles[nivel].datos[idx];
  document.getElementById("letra").textContent=actual;
  document.getElementById("nivelTxt").textContent=`NIVEL ${nivel+1} - ${niveles[nivel].nombre} (${idx+1}/${niveles[nivel].datos.length})`;
  document.getElementById("pregunta").textContent=niveles[nivel].preg;
+ // ilustración
+ let info=dibujos[actual]||{emoji:"⭐",texto:actual};
+ document.getElementById("ilustra").textContent=info.emoji;
+ document.getElementById("ejemplo").textContent=info.texto;
  let ops=[actual];while(ops.length<4){let r=niveles[nivel].datos[Math.floor(Math.random()*niveles[nivel].datos.length)];if(!ops.includes(r))ops.push(r);}
  ops=ops.sort(()=>Math.random()-0.5);
  let cont=document.getElementById("opciones");cont.innerHTML="";
  ops.forEach(o=>{let d=document.createElement("div");d.className="op";d.textContent=o;d.onclick=()=>comprobar(o,d);cont.appendChild(d);});
  document.getElementById("barra").style.width=(idx/niveles[nivel].datos.length*100)+"%";
- setTimeout(hablar,300);
+ setTimeout(hablar,400);
 }
 function comprobar(sel,div){
  const actual=niveles[nivel].datos[idx];
- if(sel===actual){div.classList.add("correct");puntos+=10;racha++;document.getElementById("mensaje").textContent="¡Muy bien! 🎉";document.getElementById("mensaje").style.color="#2ecc71";setTimeout(siguiente,800);}
+ if(sel===actual){div.classList.add("correct");puntos+=10;racha++;document.getElementById("mensaje").textContent="¡Muy bien! 🎉";document.getElementById("mensaje").style.color="#2ecc71";setTimeout(siguiente,900);}
  else{div.classList.add("wrong");racha=0;document.getElementById("mensaje").textContent="Intenta otra vez 💪";document.getElementById("mensaje").style.color="#e74c3c";}
  document.getElementById("puntos").textContent=puntos;document.getElementById("racha").textContent=racha;
 }
-function siguiente(){
- document.getElementById("mensaje").textContent="";idx++;
- if(idx>=niveles[nivel].datos.length){idx=0;nivel++;if(nivel>=niveles.length){alert("¡FELICIDADES! Terminaste todo 🏆");nivel=0;}actualizarMenu();}
- crearOpciones();
-}
+function siguiente(){document.getElementById("mensaje").textContent="";idx++;if(idx>=niveles[nivel].datos.length){idx=0;nivel++;if(nivel>=niveles.length){alert("¡FELICIDADES! 🏆");nivel=0;}actualizarMenu();}crearOpciones();}
 actualizarMenu();crearOpciones();
 </script>
 </body>
