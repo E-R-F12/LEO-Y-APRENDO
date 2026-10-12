@@ -1,86 +1,75 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LEO v111 ISLA TROPICAL</title><link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Nunito:wght@800;900&display=swap" rel="stylesheet"><style>
-*{box-sizing:border-box}
-body{margin:0;font-family:'Nunito',sans-serif;overflow:hidden;height:100vh;background:linear-gradient(#c8f0f8 0%, #e6fbff 55%, #2ec4c8 55%, #25b9bd 62%, #f9d9a0 62%, #f7c87a 100%);position:relative}
-.palmera{position:absolute;bottom:0;width:260px;pointer-events:none;z-index:1}
-.palmera.izq{left:-30px;bottom:-20px;transform:scaleX(-1)}.palmera.der{right:-30px;bottom:-10px}
-.nube{position:absolute;background:#fff;border-radius:50px;opacity:.9;box-shadow:20px 10px 0 #fff,40px 5px 0 #fff}
-.totem{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:170px;z-index:3;display:flex;flex-direction:column;align-items:center}
-.totem-head{width:150px;height:110px;background:#c68a3d;border:6px solid #8a5a28;border-radius:18px 18px 10px 10px;position:relative;box-shadow:inset -10px -10px 0 #a06a2d}
-.totem-head::before{content:'👁️👁️';position:absolute;top:8px;left:50%;transform:translateX(-50%);font-size:28px}
-.totem-head::after{content:'';position:absolute;bottom:10px;left:15px;right:15px;height:34px;background:#e6c08a;border-radius:6px;background-image:linear-gradient(90deg,#e6c08a 20%,#8a5a28 20%,#8a5a28 22%,#e6c08a 22%,#e6c08a 45%,#8a5a28 45%,#8a5a28 47%,#e6c08a 47%)}
-.bloque{width:150px;height:72px;background:#8a5a28;border:4px solid #5e3d1d;margin-top:-4px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fbe8b0;position:relative;cursor:pointer}
-.bloque.activo{background:#ffb700;color:#5e3d1d;border-color:#5e3d1d}
-.bloque.let{font-size:38px;font-weight:900;line-height:1}.bloque.porc{font-size:11px;background:#3a2a14;color:#f9d9a0;padding:1px 6px;border-radius:4px}
-.candado{position:absolute;left:-18px;top:18px;font-size:20px;filter:drop-shadow(1px 1px 1px #000)}
-.btn-madera{position:absolute;left:20px;width:58px;height:58px;background:#6b4423;border:3px solid #402a15;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;box-shadow:2px 4px 0 #402a15;cursor:pointer;z-index:4}
-.btn-madera:active{transform:translateY(2px);box-shadow:0 2px 0 #402a15}
-.poste{position:absolute;right:12%;top:28%;width:320px;z-index:3}
-.poste-palo{width:22px;height:420px;background:#8a5a28;border:3px solid #5e3d1d;margin:0 auto;border-radius:10px}
-.cartel{width:300px;height:72px;background:#6b4423;border:3px solid #402a15;border-radius:14px;margin:-14px auto 0;display:flex;align-items:center;padding:8px 12px;cursor:pointer;box-shadow:0 6px 0 #402a15;position:relative}
-.cartel.activo{background:#8a5a28;transform:scale(1.05)}
-.cartel.cesta{width:54px;height:54px;background:#fff7a0;border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;border:2px solid #b89a00;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;color:#8a5a28}
-.cartel.txt{flex:1;text-align:center;font-family:'Cedarville Cursive',cursive;font-size:32px;color:#fff;text-shadow:1px 1px 0 #402a15}
-.letra-centro{position:absolute;left:50%;top:35%;transform:translate(-50%,-50%);z-index:2;text-align:center}
-.letra-centro.big{font-size:90px;font-weight:900;color:#333;text-shadow:2px 2px 0 #fff}
-.letra-centro.lig{font-family:'Cedarville Cursive',cursive;color:#1e3a8a}
-.abeja{position:absolute;left:55%;top:28%;font-size:30px;animation:vuela 3s infinite ease-in-out;z-index:5}
-@keyframes vuela{0%,100%{transform:translate(0,0)}50%{transform:translate(10px,-15px)}}
-.panel{position:absolute;bottom:0;left:0;right:0;height:36%;background:rgba(255,255,255,.88);backdrop-filter:blur(6px);border-top:4px solid #8a5a28;z-index:6;overflow:auto;padding:8px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:8px}
-.item{background:#fff;border:2px solid #f9d9a0;border-radius:14px;padding:6px;text-align:center;cursor:pointer}
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LEO v112 TODAS</title><link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Nunito:wght@800;900&display=swap" rel="stylesheet"><style>
+*{box-sizing:border-box}body{margin:0;font-family:'Nunito',sans-serif;height:100vh;overflow:hidden;background:linear-gradient(#c8f0f8 0%, #e6fbff 52%, #2ec4c8 52%, #25b9bd 60%, #f9d9a0 60%, #f7c87a 100%);position:relative}
+.palmera{position:absolute;bottom:0;font-size:160px;pointer-events:none;z-index:1;line-height:1}.palmera.izq{left:-10px;bottom:-10px}.palmera.der{right:-10px;bottom:-10px}
+.totem{position:absolute;left:50%;transform:translateX(-52%);bottom:0;width:168px;z-index:3;display:flex;flex-direction:column;align-items:center}
+.totem-head{width:148px;height:108px;background:linear-gradient(#c68a3d,#a06a2d);border:5px solid #5e3d1d;border-radius:18px 18px 10px 10px;position:relative;box-shadow:inset -8px -8px 0 rgba(0,0,0,.2)}
+.totem-head::after{content:'😠';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:50px}
+.bloque{width:148px;height:64px;background:#8a5a28;border:4px solid #5e3d1d;margin-top:-4px;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;color:#fbe8b0}
+.bloque.activo{background:#ffb700;color:#3a240f}.bloque b{font-size:34px}.bloque span{position:absolute;right:6px;bottom:2px;font-size:10px;background:#3a2a14;padding:1px 4px;border-radius:4px}
+.candado{position:absolute;left:-18px;top:14px;font-size:20px}
+.btn-madera{position:absolute;left:14px;width:54px;height:54px;background:#6b4423;border:3px solid #402a15;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;box-shadow:0 4px 0 #402a15;z-index:5;cursor:pointer}
+.poste{position:absolute;right:8%;top:22%;width:310px;z-index:4}.poste-palo{width:20px;height:430px;background:#8a5a28;border:3px solid #5e3d1d;margin:0 auto;border-radius:10px}
+.cartel{width:300px;height:66px;background:#6b4423;border:3px solid #402a15;border-radius:14px;margin:-10px auto 0;display:flex;align-items:center;padding:6px 10px;cursor:pointer;box-shadow:0 5px 0 #402a15}
+.cartel.activo{background:#9a6235;transform:scale(1.06)}.cesta{width:52px;height:52px;background:radial-gradient(#fffec0,#ffeb6a);border:2px solid #b89a00;border-radius:50% 50% 50% 50% / 65% 65% 35% 35%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:9px;color:#5e3d1d;font-weight:900}
+.txt{flex:1;text-align:center;font-family:'Cedarville Cursive',cursive;font-size:30px;color:#fff}
+.centro{position:absolute;left:50%;top:32%;transform:translate(-50%,-50%);z-index:2;text-align:center;width:340px}
+.centro.grande{font-size:82px;font-weight:900;line-height:.9;color:#222;text-shadow:2px 2px 0 #fff}
+.centro.lig{font-family:'Cedarville Cursive',cursive;color:#1e3a8a;font-size:44px}
+.panel{position:absolute;bottom:0;left:0;right:0;height:38%;background:rgba(255,255,255,.92);backdrop-filter:blur(4px);border-top:4px solid #8a5a28;z-index:6;overflow:auto;padding:8px 8px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:7px}
+.item{background:#fff;border:2px solid #ffe2a8;border-radius:14px;padding:6px;text-align:center;cursor:pointer}
 .item.activo{border-color:#e8438a;background:#fff0f6}
-.topbar{position:absolute;top:8px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:6}
-.topbar div{background:#fff7a0;border:2px solid #b89a00;border-radius:18px;padding:4px 12px;font-size:12px;font-weight:900;min-width:80px;text-align:center}
+.top{position:absolute;top:6px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:6}
+.top div{background:#fff9a0;border:2px solid #b89a00;border-radius:14px;padding:3px 10px;font-size:11px;font-weight:900}
 </style></head><body>
-<div class="nube" style="left:10%;top:8%;width:80px;height:30px"></div>
-<div class="nube" style="left:35%;top:5%;width:110px;height:36px"></div>
-<div class="nube" style="left:60%;top:12%;width:90px;height:28px"></div>
-
 <div class="palmera izq">🌴</div><div class="palmera der">🌴</div>
-
-<div class="btn-madera" style="top:12px" onclick="history.back()">⬅️</div>
-<div class="btn-madera" style="top:84px" onclick="setTipo('ligada')">a</div>
-<div class="btn-madera" style="top:156px">📊</div>
-<div class="btn-madera" style="top:240px">⚙️</div>
-<div class="btn-madera" style="right:20px;left:auto;top:12px">❓</div>
-
-<div class="topbar"><div>🟢 0 de 428</div><div>👾 0 de 144</div></div>
-
+<div class="btn-madera" style="top:10px" onclick="location.reload()">⬅️</div>
+<div class="btn-madera" style="top:76px" onclick="setTipo('ligada')">✍️</div>
+<div class="btn-madera" style="top:142px">📊</div>
+<div class="btn-madera" style="top:208px">⚙️</div>
+<div class="btn-madera" style="left:auto;right:14px;top:10px">❓</div>
+<div class="top"><div>🟢 Frutas 0/428</div><div>👾 Vocálicos 20</div><div>📚 155 sílabas</div></div>
 <div class="totem" id="totem"></div>
-
-<div class="abeja">🐝</div>
-<div class="letra-centro" id="centro"><div class="big" id="bigL">L</div><div class="big lig" style="font-size:40px" id="bigLig">l</div><div id="sub" style="background:#fff;padding:4px 12px;border-radius:10px;margin-top:8px;font-size:14px">✈️ ae - aeroplano<br><small>ae como en aeroplano</small></div><button onclick="hablar()" style="margin-top:8px;padding:10px 18px;border-radius:20px;border:0;background:#6c5ce7;color:#fff;font-weight:900">🔊 ae - aeroplano</button></div>
-
+<div class="centro" id="centroBox"><div class="grande" id="g1">AE</div><div class="grande lig" id="g2">ae</div><div id="sub" style="background:#fff;border-radius:12px;padding:6px;margin-top:6px;font-size:13px;box-shadow:0 2px 8px rgba(0,0,0,.1)">✈️ <b>ae - aeroplano</b><br><small>ae como en aeroplano</small></div><button onclick="hablar()" id="btnAud" style="margin-top:8px;padding:10px 16px;border-radius:20px;border:0;background:#6c5ce7;color:#fff;font-weight:900">🔊 ae - aeroplano</button></div>
 <div class="poste"><div class="poste-palo"></div>
-<div class="cartel activo" onclick="setSeccion('vocalicos')"><div class="cesta">🧺<b>20</b></div><div class="txt">vocales</div></div>
-<div class="cartel" onclick="setSeccion('directas')"><div class="cesta">🧺<b>115</b></div><div class="txt">sílabas</div></div>
-<div class="cartel" onclick="setSeccion('palabras')"><div class="cesta">🧺<b>40</b></div><div class="txt">palabras</div></div>
-<div class="cartel" onclick="setSeccion('frases')"><div class="cesta">🧺<b>20</b></div><div class="txt">frases</div></div>
+<div class="cartel activo" onclick="setSeccion('vocalicos',this)"><div class="cesta">🍎<span>20</span></div><div class="txt">vocales</div></div>
+<div class="cartel" onclick="setSeccion('directas',this)"><div class="cesta">🍎<span>115</span></div><div class="txt">sílabas</div></div>
+<div class="cartel" onclick="setSeccion('inversas',this)"><div class="cesta">🍎<span>40</span></div><div class="txt">inversas</div></div>
+<div class="cartel" onclick="setSeccion('trabadas',this)"><div class="cesta">🍎<span>55</span></div><div class="txt">trabadas</div></div>
 </div>
-
 <div class="panel"><div class="grid" id="grid"></div></div>
-
 <script>
 let tipo='ligada',seccion='vocalicos',actual='AE';
-const VOC=[
-{A:'AE',e:'✈️',p:'aeroplano',ej:'ae como en aeroplano'},{A:'AI',e:'🪁',p:'aire',ej:'ai como en aire'},{A:'AO',e:'🐟',p:'bacalao',ej:'ao como en bacalao'},{A:'AU',e:'🚗',p:'auto',ej:'au como en auto'},{A:'EA',e:'🎭',p:'teatro',ej:'ea como en teatro'},{A:'EI',e:'👑',p:'reina',ej:'ei como en reina'},{A:'EO',e:'🦁',p:'león',ej:'eo como en león'},{A:'EU',e:'💶',p:'euro',ej:'eu como en euro'},{A:'IA',e:'🎹',p:'piano',ej:'ia como en piano'},{A:'IE',e:'🦶',p:'pie',ej:'ie como en pie'},{A:'IO',e:'🌊',p:'río',ej:'io como en río'},{A:'IU',e:'🏙️',p:'ciudad',ej:'iu como en ciudad'},{A:'OA',e:'🐨',p:'koala',ej:'oa como en koala'},{A:'OE',e:'📜',p:'poeta',ej:'oe como en poeta'},{A:'OI',e:'👂',p:'oído',ej:'oi como en oído'},{A:'OU',e:'🧳',p:'tour',ej:'ou como en tour'},{A:'UA',e:'💧',p:'agua',ej:'ua como en agua'},{A:'UE',e:'🥚',p:'huevo',ej:'ue como en huevo'},{A:'UI',e:'🔊',p:'ruido',ej:'ui como en ruido'},{A:'UO',e:'🏛️',p:'antiguo',ej:'uo como en antiguo'}];
-const DIR=[{A:'BA',e:'👶',p:'bebé'},{A:'BE',e:'🐑',p:'bebé'},{A:'BI',e:'🚲',p:'bici'},{A:'BO',e:'⚽',p:'bola'},{A:'BU',e:'🦉',p:'búho'},{A:'CA',e:'🏠',p:'casa'},{A:'CE',e:'🦓',p:'cebra'},{A:'CI',e:'5️⃣',p:'cinco'},{A:'CO',e:'💜',p:'coco'},{A:'CU',e:'🐻',p:'cuna'},{A:'DA',e:'🎲',p:'dado'},{A:'DE',e:'🐬',p:'dedo'},{A:'DI',e:'🦖',p:'dino'},{A:'DO',e:'2️⃣',p:'dos'},{A:'DU',e:'🍭',p:'dulce'},{A:'FA',e:'🐘',p:'faro'},{A:'FE',e:'😃',p:'feo'},{A:'FI',e:'🎉',p:'fiesta'},{A:'FO',e:'🦭',p:'foca'},{A:'FU',e:'🔥',p:'fuego'},{A:'GA',e:'🐱',p:'gato'},{A:'GE',e:'👧',p:'gema'},{A:'GI',e:'🦒',p:'giro'},{A:'GO',e:'🐶',p:'gota'},{A:'GU',e:'👺',p:'gusano'},{A:'LA',e:'🌙',p:'luna'},{A:'LE',e:'🦁',p:'león'},{A:'LI',e:'📚',p:'libro'},{A:'LO',e:'🐺',p:'lobo'},{A:'LU',e:'💡',p:'luz'},{A:'MA',e:'👩',p:'mamá'},{A:'ME',e:'🍈',p:'mesa'},{A:'MI',e:'🐱',p:'mío'},{A:'MO',e:'🐒',p:'mono'},{A:'MU',e:'🐮',p:'muro'},{A:'NA',e:'🚢',p:'nave'},{A:'NE',e:'👶',p:'nene'},{A:'NI',e:'🪺',p:'nido'},{A:'NO',e:'👃',p:'noche'},{A:'NU',e:'☁️',p:'nube'},{A:'PA',e:'🍞',p:'papa'},{A:'PE',e:'🐶',p:'perro'},{A:'PI',e:'🐥',p:'pico'},{A:'PO',e:'🐙',p:'pollo'},{A:'PU',e:'🐙',p:'pulpo'},{A:'RA',e:'🐀',p:'rata'},{A:'RE',e:'👑',p:'rey'},{A:'RI',e:'😂',p:'risa'},{A:'RO',e:'🌹',p:'rosa'},{A:'RU',e:'🏃',p:'rueda'},{A:'SA',e:'🐸',p:'sapo'},{A:'SE',e:'🌙',p:'seda'},{A:'SI',e:'✅',p:'sí'},{A:'SO',e:'☀️',p:'sol'},{A:'SU',e:'⬆️',p:'sube'},{A:'TA',e:'🐢',p:'taza'},{A:'TE',e:'🍵',p:'té'},{A:'TI',e:'🐯',p:'tigre'},{A:'TO',e:'🐂',p:'toro'},{A:'TU',e:'👉',p:'tú'},{A:'VA',e:'🐄',p:'vaca'},{A:'VE',e:'👀',p:'ver'},{A:'VI',e:'🎻',p:'vino'},{A:'VO',e:'✈️',p:'vuelo'},{A:'VU',e:'🦅',p:'vuelo'},{A:'ZA',e:'👟',p:'zapato'},{A:'ZO',e:'🦊',p:'zorro'},{A:'ZU',e:'🧃',p:'zumo'}];
-const DATA={vocalicos:VOC,directas:DIR,palabras:[{A:'MAMA',e:'👩',p:'mamá'},{A:'PAPA',e:'👨',p:'papá'},{A:'LUNA',e:'🌙',p:'luna'},{A:'AGUA',e:'💧',p:'agua'}],frases:[{A:'MI MAMA ME MIMA',e:'💜',p:'mi mamá me mima'}]};
-
+const VOC=[{A:'AE',e:'✈️',p:'aeroplano',ej:'ae como en aeroplano'},{A:'AI',e:'🪁',p:'aire',ej:'ai como en aire'},{A:'AO',e:'🐟',p:'bacalao',ej:'ao como en bacalao'},{A:'AU',e:'🚗',p:'auto',ej:'au como en auto'},{A:'EA',e:'🎭',p:'teatro',ej:'ea como en teatro'},{A:'EI',e:'👑',p:'reina',ej:'ei como en reina'},{A:'EO',e:'🦁',p:'león',ej:'eo como en león'},{A:'EU',e:'💶',p:'euro',ej:'eu como en euro'},{A:'IA',e:'🎹',p:'piano',ej:'ia como en piano'},{A:'IE',e:'🦶',p:'pie',ej:'ie como en pie'},{A:'IO',e:'🌊',p:'río',ej:'io como en río'},{A:'IU',e:'🏙️',p:'ciudad',ej:'iu como en ciudad'},{A:'OA',e:'🐨',p:'koala',ej:'oa como en koala'},{A:'OE',e:'📜',p:'poeta',ej:'oe como en poeta'},{A:'OI',e:'👂',p:'oído',ej:'oi como en oído'},{A:'OU',e:'🧳',p:'tour',ej:'ou como en tour'},{A:'UA',e:'💧',p:'agua',ej:'ua como en agua'},{A:'UE',e:'🥚',p:'huevo',ej:'ue como en huevo'},{A:'UI',e:'🔊',p:'ruido',ej:'ui como en ruido'},{A:'UO',e:'🏛️',p:'antiguo',ej:'uo como en antiguo'}];
+const DIR_BASE=['B','C','D','F','G','H','J','K','L','M','N','Ñ','P','Q','R','S','T','V','W','X','Y','Z'];
+const VOCALES=['A','E','I','O','U'];
+let DIR=[];DIR_BASE.forEach(c=>{
+  VOCALES.forEach(v=>{
+    let sil=c+v; if(c==='Q') sil = 'QU'+v;
+    if(c==='Q' && v==='A') sil='QA'; if(c==='Q' && v==='E') sil='QUE'; if(c==='Q' && v==='I') sil='QUI'; if(c==='Q' && v==='O') sil='QO'; if(c==='Q' && v==='U') sil='QU';
+    let emoji={B:'👶',C:'🏠',D:'🎲',F:'🐘',G:'🐱',H:'🦛',J:'🦒',K:'🥝',L:'🌙',M:'👩',N:'🪺',Ñ:'🍍',P:'🍞',Q:'🧀',R:'🐀',S:'☀️',T:'🐢',V:'🐄',W:'🍉',X:'❌',Y:'🪀',Z:'👟'}[c]||'🔤';
+    let pal={BA:'bebé',BE:'beso',BI:'bici',BO:'bola',BU:'búho',CA:'casa',CE:'cebra',CI:'cinco',CO:'coco',CU:'cuna',DA:'dado',DE:'dedo',DI:'dino',DO:'dos',DU:'dulce',FA:'faro',FE:'feo',FI:'fiesta',FO:'foca',FU:'fuego',GA:'gato',GE:'gente',GI:'giro',GO:'gota',GU:'gusano',HA:'hada',HE:'helado',HI:'hilo',HO:'hoja',HU:'huevo',JA:'jirafa',JE:'jefe',JI:'jirafa',JO:'joven',JU:'jugo',KA:'karate',KE:'keko',KI:'kiwi',KO:'koala',KU:'kung fu',LA:'luna',LE:'león',LI:'libro',LO:'lobo',LU:'luz',MA:'mamá',ME:'mesa',MI:'mío',MO:'mono',MU:'muro',NA:'nave',NE:'nene',NI:'nido',NO:'noche',NU:'nube',ÑA:'piña',ÑE:'muñeca',ÑI:'niño',ÑO:'año',ÑU:'ñu',PA:'papa',PE:'perro',PI:'pico',PO:'pollo',PU:'pulpo',QA:'queso',QUE:'queso',QUI:'queso',QO:'queso',QU:'queso',RA:'rata',RE:'rey',RI:'risa',RO:'rosa',RU:'rueda',SA:'sapo',SE:'seda',SI:'sí',SO:'sol',SU:'sube',TA:'taza',TE:'té',TI:'tigre',TO:'toro',TU:'tú',VA:'vaca',VE:'ver',VI:'vino',VO:'vuelo',VU:'vuelo',WA:'waffle',WE:'web',WI:'wifi',WO:'wombat',WU:'wushu',XA:'taxi',XE:'examen',XI:'taxi',XO:'boxeo',XU:'taxi',YA:'yate',YE:'yema',YI:'yin',YO:'yo',YU:'yuca',ZA:'zapato',ZE:'cero',ZI:'zinc',ZO:'zorro',ZU:'zumo'}[sil]||sil.toLowerCase();
+    DIR.push({A:sil,e:emoji,p:pal,ej:`${sil.toLowerCase()} como en ${pal}`});
+  });
+});
+const FINALES=['N','S','L','R','M','Z','D','J'];let INV=[];['A','E','I','O','U'].forEach(v=>{
+  FINALES.forEach(f=>{
+    let sil=v+f;let emoji={N:'👼',S:'⭐',L:'⬆️',R:'🌳',M:'💛',Z:'💙',D:'🎁',J:'🕹️'}[f]||'⬅️';
+    let pal={AN:'ángel',AS:'asta',AL:'alto',AR:'árbol',AM:'amor',AZ:'azul',AD:'edad',AJ:'ajo',EN:'en',ES:'es',EL:'él',ER:'ser',EM:'embudo',EZ:'vez',ED:'red',EJ:'eje',IN:'in',IS:'isla',IL:'hilo',IR:'ir',IM:'imán',IZ:'izquierda',ID:'idea',IJ:'jinete',ON:'con',OS:'oso',OL:'sol',OR:'or',OM:'sombra',OZ:'voz',OD:'red',OJ:'ojo',UN:'un',US:'usted',UL:'pulgar',UR:'sur',UM:'suma',UZ:'luz',UD:'sud',UJ:'lujo'}[sil]||sil.toLowerCase();
+    INV.push({A:sil,e:emoji,p:pal,ej:`${sil.toLowerCase()} como en ${pal}`});
+  });
+});
+const DATA={vocalicos:VOC,directas:DIR,inversas:INV,trabadas:[{A:'BLA',e:'⚪',p:'blanco'},{A:'BRA',e:'💪',p:'brazo'},{A:'CLA',e:'🔑',p:'clase'},{A:'CRA',e:'🦀',p:'cangrejo'},{A:'DRA',e:'🐉',p:'dragón'},{A:'FLA',e:'🍮',p:'flan'},{A:'FRA',e:'🍓',p:'fresa'},{A:'GLA',e:'❄️',p:'globo'},{A:'GRA',e:'🍇',p:'grande'},{A:'PLA',e:'🍽️',p:'plato'},{A:'PRA',e:'🌿',p:'prado'},{A:'TRA',e:'🚂',p:'tren'}]};
 function buildTotem(){
-  let t=document.getElementById('totem');
-  t.innerHTML='<div class=\"totem-head\"></div>';
-  ['A','E','I','O','U','L','M','S','T'].forEach((l,i)=>{
-    let d=document.createElement('div');d.className='bloque'+(l===actual[0]?' activo':'');
-    d.innerHTML=`<div class=\"let\">${l}</div><div class=\"porc\">${i<2?'0%':'🔒'}</div>`+ (i>1?'<div class=\"candado\">🔒</div>':'');
-    d.onclick=()=>{actual=l;if(seccion==='vocalicos')actual=VOC[0].A;mostrar(actual);render()};
-    t.appendChild(d);
+  let t=document.getElementById('totem');t.innerHTML='<div class="totem-head"></div>';
+  ['A','E','I','O','U','L','M','S','T','P'].forEach((l,i)=>{
+    let d=document.createElement('div');d.className='bloque';d.innerHTML=`<b>${l}</b><span>${i<3?'0%':'🔒'}</span>`+(i>2?'<div class="candado">🔒</div>':'');
+    d.onclick=()=>{actual=l;let first=DATA[seccion][0].A;mostrar(first)};t.appendChild(d);
   });
 }
 function setTipo(t){tipo=t;mostrar(actual)}
-function setSeccion(s){
-  seccion=s;document.querySelectorAll('.cartel').forEach(c=>c.classList.remove('activo'));
-  event.currentTarget.classList.add('activo');
+function setSeccion(s,el){
+  seccion=s;document.querySelectorAll('.cartel').forEach(c=>c.classList.remove('activo'));if(el)el.classList.add('activo');
   render();mostrar(DATA[s][0].A);
 }
 function fmt(t){return tipo==='ligada'?t.toLowerCase():t.toUpperCase()}
@@ -88,27 +77,26 @@ function render(){
   let g=document.getElementById('grid');g.innerHTML='';
   DATA[seccion].forEach(it=>{
     let d=document.createElement('div');d.className='item'+(it.A===actual?' activo':'');
-    d.innerHTML=`<div style=\"font-size:26px\">${it.e}</div><div style=\"font-weight:900;color:#8a5a28\">${fmt(it.A)}</div><div style=\"font-size:10px;color:#6c5ce7\">${it.p}</div>`;
+    d.innerHTML=`<div style="font-size:24px">${it.e}</div><div style="font-weight:900;color:#8a5a28;font-size:16px">${fmt(it.A)}</div><div style="font-size:10px;color:#6c5ce7">${it.p}</div>`;
     d.onclick=()=>{mostrar(it.A);hablar()};g.appendChild(d);
   });
 }
 function mostrar(cod){
-  actual=cod;
-  let it=DATA[seccion].find(x=>x.A===cod)||DATA[seccion][0];
-  document.getElementById('bigL').textContent=fmt(it.A)[0]?.toUpperCase()||it.A[0];
-  document.getElementById('bigLig').textContent=fmt(it.A);
-  document.getElementById('sub').innerHTML=`${it.e} ${fmt(it.A)} - <b>${it.p}</b><br><small>${it.ej||it.A+' como en '+it.p}</small>`;
-  buildTotem();
+  actual=cod;let it=DATA[seccion].find(x=>x.A===cod)||DATA[seccion][0];
+  document.getElementById('g1').textContent=it.A;
+  document.getElementById('g2').textContent=fmt(it.A);
+  document.getElementById('sub').innerHTML=`${it.e} <b>${fmt(it.A)} - ${it.p}</b><br><small>${it.ej||''}</small>`;
+  document.getElementById('btnAud').textContent=`🔊 ${fmt(it.A)} - ${it.p}`;
 }
 function hablar(){
   speechSynthesis.cancel();
-  let it=DATA[seccion].find(x=>x.A===actual);let txt=it.A.toLowerCase();
+  let it=DATA[seccion].find(x=>x.A===actual);let txt=it.A.toLowerCase().replace('que','ke').replace('qui','ki');
   let voz=speechSynthesis.getVoices().find(v=>v.lang==='es-ES')||speechSynthesis.getVoices().find(v=>v.lang.startsWith('es'));
   let u=new SpeechSynthesisUtterance();u.lang='es-ES';u.volume=1;u.pitch=1.25;if(voz)u.voice=voz;
   if(seccion==='vocalicos'){
     if(txt==='ai'){u.text='a i';u.rate=0.32;} else if(txt==='au'){u.text='a u';u.rate=0.32;} else {u.text=txt;u.rate=0.42;}
     speechSynthesis.speak(u);
-    setTimeout(()=>{let u2=new SpeechSynthesisUtterance(it.p);u2.lang='es-ES';u2.rate=0.6;if(voz)u2.voice=voz;speechSynthesis.speak(u2);},800);
+    setTimeout(()=>{let u2=new SpeechSynthesisUtterance(it.p);u2.lang='es-ES';u2.rate=0.6;if(voz)u2.voice=voz;speechSynthesis.speak(u2);},750);
   } else {
     u.text=txt;u.rate=0.55;speechSynthesis.speak(u);
   }
