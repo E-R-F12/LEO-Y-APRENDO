@@ -1,105 +1,44 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LEO v112 TODAS</title><link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Nunito:wght@800;900&display=swap" rel="stylesheet"><style>
-*{box-sizing:border-box}body{margin:0;font-family:'Nunito',sans-serif;height:100vh;overflow:hidden;background:linear-gradient(#c8f0f8 0%, #e6fbff 52%, #2ec4c8 52%, #25b9bd 60%, #f9d9a0 60%, #f7c87a 100%);position:relative}
-.palmera{position:absolute;bottom:0;font-size:160px;pointer-events:none;z-index:1;line-height:1}.palmera.izq{left:-10px;bottom:-10px}.palmera.der{right:-10px;bottom:-10px}
-.totem{position:absolute;left:50%;transform:translateX(-52%);bottom:0;width:168px;z-index:3;display:flex;flex-direction:column;align-items:center}
-.totem-head{width:148px;height:108px;background:linear-gradient(#c68a3d,#a06a2d);border:5px solid #5e3d1d;border-radius:18px 18px 10px 10px;position:relative;box-shadow:inset -8px -8px 0 rgba(0,0,0,.2)}
-.totem-head::after{content:'😠';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:50px}
-.bloque{width:148px;height:64px;background:#8a5a28;border:4px solid #5e3d1d;margin-top:-4px;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;color:#fbe8b0}
-.bloque.activo{background:#ffb700;color:#3a240f}.bloque b{font-size:34px}.bloque span{position:absolute;right:6px;bottom:2px;font-size:10px;background:#3a2a14;padding:1px 4px;border-radius:4px}
-.candado{position:absolute;left:-18px;top:14px;font-size:20px}
-.btn-madera{position:absolute;left:14px;width:54px;height:54px;background:#6b4423;border:3px solid #402a15;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;box-shadow:0 4px 0 #402a15;z-index:5;cursor:pointer}
-.poste{position:absolute;right:8%;top:22%;width:310px;z-index:4}.poste-palo{width:20px;height:430px;background:#8a5a28;border:3px solid #5e3d1d;margin:0 auto;border-radius:10px}
-.cartel{width:300px;height:66px;background:#6b4423;border:3px solid #402a15;border-radius:14px;margin:-10px auto 0;display:flex;align-items:center;padding:6px 10px;cursor:pointer;box-shadow:0 5px 0 #402a15}
-.cartel.activo{background:#9a6235;transform:scale(1.06)}.cesta{width:52px;height:52px;background:radial-gradient(#fffec0,#ffeb6a);border:2px solid #b89a00;border-radius:50% 50% 50% 50% / 65% 65% 35% 35%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:9px;color:#5e3d1d;font-weight:900}
-.txt{flex:1;text-align:center;font-family:'Cedarville Cursive',cursive;font-size:30px;color:#fff}
-.centro{position:absolute;left:50%;top:32%;transform:translate(-50%,-50%);z-index:2;text-align:center;width:340px}
-.centro.grande{font-size:82px;font-weight:900;line-height:.9;color:#222;text-shadow:2px 2px 0 #fff}
-.centro.lig{font-family:'Cedarville Cursive',cursive;color:#1e3a8a;font-size:44px}
-.panel{position:absolute;bottom:0;left:0;right:0;height:38%;background:rgba(255,255,255,.92);backdrop-filter:blur(4px);border-top:4px solid #8a5a28;z-index:6;overflow:auto;padding:8px 8px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:7px}
-.item{background:#fff;border:2px solid #ffe2a8;border-radius:14px;padding:6px;text-align:center;cursor:pointer}
-.item.activo{border-color:#e8438a;background:#fff0f6}
-.top{position:absolute;top:6px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:6}
-.top div{background:#fff9a0;border:2px solid #b89a00;border-radius:14px;padding:3px 10px;font-size:11px;font-weight:900}
-</style></head><body>
-<div class="palmera izq">🌴</div><div class="palmera der">🌴</div>
-<div class="btn-madera" style="top:10px" onclick="location.reload()">⬅️</div>
-<div class="btn-madera" style="top:76px" onclick="setTipo('ligada')">✍️</div>
-<div class="btn-madera" style="top:142px">📊</div>
-<div class="btn-madera" style="top:208px">⚙️</div>
-<div class="btn-madera" style="left:auto;right:14px;top:10px">❓</div>
-<div class="top"><div>🟢 Frutas 0/428</div><div>👾 Vocálicos 20</div><div>📚 155 sílabas</div></div>
-<div class="totem" id="totem"></div>
-<div class="centro" id="centroBox"><div class="grande" id="g1">AE</div><div class="grande lig" id="g2">ae</div><div id="sub" style="background:#fff;border-radius:12px;padding:6px;margin-top:6px;font-size:13px;box-shadow:0 2px 8px rgba(0,0,0,.1)">✈️ <b>ae - aeroplano</b><br><small>ae como en aeroplano</small></div><button onclick="hablar()" id="btnAud" style="margin-top:8px;padding:10px 16px;border-radius:20px;border:0;background:#6c5ce7;color:#fff;font-weight:900">🔊 ae - aeroplano</button></div>
-<div class="poste"><div class="poste-palo"></div>
-<div class="cartel activo" onclick="setSeccion('vocalicos',this)"><div class="cesta">🍎<span>20</span></div><div class="txt">vocales</div></div>
-<div class="cartel" onclick="setSeccion('directas',this)"><div class="cesta">🍎<span>115</span></div><div class="txt">sílabas</div></div>
-<div class="cartel" onclick="setSeccion('inversas',this)"><div class="cesta">🍎<span>40</span></div><div class="txt">inversas</div></div>
-<div class="cartel" onclick="setSeccion('trabadas',this)"><div class="cesta">🍎<span>55</span></div><div class="txt">trabadas</div></div>
-</div>
-<div class="panel"><div class="grid" id="grid"></div></div>
-<script>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-cache"><title>LEO v113 ANTERIOR COMPLETA</title><link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Andika:wght@700&family=Nunito:wght@800;900&display=swap" rel="stylesheet"><style>
+body{margin:0;font-family:'Nunito',system-ui;background:#fff6f9;background-image:radial-gradient(#ffdeeb 2px, transparent 2px),radial-gradient(#d4f0ff 2px, transparent 2px);background-size:40px 40px;background-position:0 0,20px 20px}
+header{background:linear-gradient(90deg,#e8438a,#ff8f5a);color:#fff;padding:14px;text-align:center;font-weight:900;font-size:20px;position:sticky;top:0;z-index:10}
+.tipos{display:flex;gap:8px;justify-content:center;background:#fff;padding:12px;position:sticky;top:50px;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.btn{border:0;padding:10px 16px;border-radius:20px;font-weight:900;cursor:pointer;font-family:'Nunito',sans-serif}
+.btn.tipo{background:#fff0f6;color:#e8438a;border:2px solid #ffbdd7}.btn.tipo.activo{background:#e8438a;color:#fff;transform:scale(1.05)}
+.tabs{display:flex;overflow-x:auto;gap:8px;padding:12px;background:#fff;position:sticky;top:100px;z-index:10}
+.tabs button{border:0;background:#fff0f6;padding:10px 16px;border-radius:20px;font-weight:900;color:#e8438a;white-space:nowrap}
+.tabs button.activo{background:#e8438a;color:#fff}
+.card{background:#fff;border-radius:24px;padding:18px;margin:12px auto;box-shadow:0 12px 30px rgba(0,0,0,.08);text-align:center;max-width:1150px}
+.letra-big{font-size:130px;font-weight:900;line-height:.9}.letra-big.mayuscula{color:#e8438a}.letra-big.minuscula{font-family:'Andika',sans-serif;color:#e8438a}.letra-big.ligada{font-family:'Cedarville Cursive',cursive;color:#1a1a1a;font-weight:400;font-size:120px}
+.ejemplo{font-size:26px;font-weight:900;color:#6c5ce7;margin-top:6px;font-family:'Cedarville Cursive',cursive}.ejemplo small{font-family:'Nunito',sans-serif;font-size:14px;color:#ff8f5a;display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:10px}
+.item{border:2px solid #ffe0ec;border-radius:18px;padding:10px;background:#fff;cursor:pointer;transition:.2s}
+.item:hover{transform:translateY(-2px);border-color:#e8438a;box-shadow:0 8px 20px rgba(232,67,138,.15)}.item.activo{border-color:#e8438a;background:#fff0f6}
+.item.ico{font-size:36px}.item.txt{font-weight:900;color:#e8438a;font-size:18px}.item.pal{font-size:11px;font-weight:800;color:#6c5ce7;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+</style></head><body><header>🌈 LEO Y APRENDO v113 - COMPLETA</header><div class="tipos"><button class="btn tipo" id="bMayus" onclick="setTipo('mayuscula')">A MAYÚSCULA</button><button class="btn tipo" id="bMinus" onclick="setTipo('minuscula')">a minúscula</button><button class="btn tipo activo" id="bLigada" onclick="setTipo('ligada')" style="font-family:'Cedarville Cursive',cursive">a ligada</button></div><div class="tabs" id="tabs"></div><div class="card"><div id="emoji" style="font-size:70px">✈️</div><div id="letraG" class="letra-big ligada">ae</div><div id="textoG" class="ejemplo">ae - <b>aeroplano</b><small>✈️ ae como en aeroplano</small></div><button class="btn" style="background:linear-gradient(90deg,#6c5ce7,#a66cff);color:white;width:100%;margin-top:14px;padding:18px;font-size:22px;border-radius:16px" onclick="hablar()" id="btnAudio">🔊 ae - aeroplano</button></div><div class="card"><div class="grid" id="grid"></div></div><script>
 let tipo='ligada',seccion='vocalicos',actual='AE';
 const VOC=[{A:'AE',e:'✈️',p:'aeroplano',ej:'ae como en aeroplano'},{A:'AI',e:'🪁',p:'aire',ej:'ai como en aire'},{A:'AO',e:'🐟',p:'bacalao',ej:'ao como en bacalao'},{A:'AU',e:'🚗',p:'auto',ej:'au como en auto'},{A:'EA',e:'🎭',p:'teatro',ej:'ea como en teatro'},{A:'EI',e:'👑',p:'reina',ej:'ei como en reina'},{A:'EO',e:'🦁',p:'león',ej:'eo como en león'},{A:'EU',e:'💶',p:'euro',ej:'eu como en euro'},{A:'IA',e:'🎹',p:'piano',ej:'ia como en piano'},{A:'IE',e:'🦶',p:'pie',ej:'ie como en pie'},{A:'IO',e:'🌊',p:'río',ej:'io como en río'},{A:'IU',e:'🏙️',p:'ciudad',ej:'iu como en ciudad'},{A:'OA',e:'🐨',p:'koala',ej:'oa como en koala'},{A:'OE',e:'📜',p:'poeta',ej:'oe como en poeta'},{A:'OI',e:'👂',p:'oído',ej:'oi como en oído'},{A:'OU',e:'🧳',p:'tour',ej:'ou como en tour'},{A:'UA',e:'💧',p:'agua',ej:'ua como en agua'},{A:'UE',e:'🥚',p:'huevo',ej:'ue como en huevo'},{A:'UI',e:'🔊',p:'ruido',ej:'ui como en ruido'},{A:'UO',e:'🏛️',p:'antiguo',ej:'uo como en antiguo'}];
-const DIR_BASE=['B','C','D','F','G','H','J','K','L','M','N','Ñ','P','Q','R','S','T','V','W','X','Y','Z'];
-const VOCALES=['A','E','I','O','U'];
-let DIR=[];DIR_BASE.forEach(c=>{
-  VOCALES.forEach(v=>{
-    let sil=c+v; if(c==='Q') sil = 'QU'+v;
-    if(c==='Q' && v==='A') sil='QA'; if(c==='Q' && v==='E') sil='QUE'; if(c==='Q' && v==='I') sil='QUI'; if(c==='Q' && v==='O') sil='QO'; if(c==='Q' && v==='U') sil='QU';
-    let emoji={B:'👶',C:'🏠',D:'🎲',F:'🐘',G:'🐱',H:'🦛',J:'🦒',K:'🥝',L:'🌙',M:'👩',N:'🪺',Ñ:'🍍',P:'🍞',Q:'🧀',R:'🐀',S:'☀️',T:'🐢',V:'🐄',W:'🍉',X:'❌',Y:'🪀',Z:'👟'}[c]||'🔤';
-    let pal={BA:'bebé',BE:'beso',BI:'bici',BO:'bola',BU:'búho',CA:'casa',CE:'cebra',CI:'cinco',CO:'coco',CU:'cuna',DA:'dado',DE:'dedo',DI:'dino',DO:'dos',DU:'dulce',FA:'faro',FE:'feo',FI:'fiesta',FO:'foca',FU:'fuego',GA:'gato',GE:'gente',GI:'giro',GO:'gota',GU:'gusano',HA:'hada',HE:'helado',HI:'hilo',HO:'hoja',HU:'huevo',JA:'jirafa',JE:'jefe',JI:'jirafa',JO:'joven',JU:'jugo',KA:'karate',KE:'keko',KI:'kiwi',KO:'koala',KU:'kung fu',LA:'luna',LE:'león',LI:'libro',LO:'lobo',LU:'luz',MA:'mamá',ME:'mesa',MI:'mío',MO:'mono',MU:'muro',NA:'nave',NE:'nene',NI:'nido',NO:'noche',NU:'nube',ÑA:'piña',ÑE:'muñeca',ÑI:'niño',ÑO:'año',ÑU:'ñu',PA:'papa',PE:'perro',PI:'pico',PO:'pollo',PU:'pulpo',QA:'queso',QUE:'queso',QUI:'queso',QO:'queso',QU:'queso',RA:'rata',RE:'rey',RI:'risa',RO:'rosa',RU:'rueda',SA:'sapo',SE:'seda',SI:'sí',SO:'sol',SU:'sube',TA:'taza',TE:'té',TI:'tigre',TO:'toro',TU:'tú',VA:'vaca',VE:'ver',VI:'vino',VO:'vuelo',VU:'vuelo',WA:'waffle',WE:'web',WI:'wifi',WO:'wombat',WU:'wushu',XA:'taxi',XE:'examen',XI:'taxi',XO:'boxeo',XU:'taxi',YA:'yate',YE:'yema',YI:'yin',YO:'yo',YU:'yuca',ZA:'zapato',ZE:'cero',ZI:'zinc',ZO:'zorro',ZU:'zumo'}[sil]||sil.toLowerCase();
-    DIR.push({A:sil,e:emoji,p:pal,ej:`${sil.toLowerCase()} como en ${pal}`});
-  });
-});
-const FINALES=['N','S','L','R','M','Z','D','J'];let INV=[];['A','E','I','O','U'].forEach(v=>{
-  FINALES.forEach(f=>{
-    let sil=v+f;let emoji={N:'👼',S:'⭐',L:'⬆️',R:'🌳',M:'💛',Z:'💙',D:'🎁',J:'🕹️'}[f]||'⬅️';
-    let pal={AN:'ángel',AS:'asta',AL:'alto',AR:'árbol',AM:'amor',AZ:'azul',AD:'edad',AJ:'ajo',EN:'en',ES:'es',EL:'él',ER:'ser',EM:'embudo',EZ:'vez',ED:'red',EJ:'eje',IN:'in',IS:'isla',IL:'hilo',IR:'ir',IM:'imán',IZ:'izquierda',ID:'idea',IJ:'jinete',ON:'con',OS:'oso',OL:'sol',OR:'or',OM:'sombra',OZ:'voz',OD:'red',OJ:'ojo',UN:'un',US:'usted',UL:'pulgar',UR:'sur',UM:'suma',UZ:'luz',UD:'sud',UJ:'lujo'}[sil]||sil.toLowerCase();
-    INV.push({A:sil,e:emoji,p:pal,ej:`${sil.toLowerCase()} como en ${pal}`});
-  });
-});
-const DATA={vocalicos:VOC,directas:DIR,inversas:INV,trabadas:[{A:'BLA',e:'⚪',p:'blanco'},{A:'BRA',e:'💪',p:'brazo'},{A:'CLA',e:'🔑',p:'clase'},{A:'CRA',e:'🦀',p:'cangrejo'},{A:'DRA',e:'🐉',p:'dragón'},{A:'FLA',e:'🍮',p:'flan'},{A:'FRA',e:'🍓',p:'fresa'},{A:'GLA',e:'❄️',p:'globo'},{A:'GRA',e:'🍇',p:'grande'},{A:'PLA',e:'🍽️',p:'plato'},{A:'PRA',e:'🌿',p:'prado'},{A:'TRA',e:'🚂',p:'tren'}]};
-function buildTotem(){
-  let t=document.getElementById('totem');t.innerHTML='<div class="totem-head"></div>';
-  ['A','E','I','O','U','L','M','S','T','P'].forEach((l,i)=>{
-    let d=document.createElement('div');d.className='bloque';d.innerHTML=`<b>${l}</b><span>${i<3?'0%':'🔒'}</span>`+(i>2?'<div class="candado">🔒</div>':'');
-    d.onclick=()=>{actual=l;let first=DATA[seccion][0].A;mostrar(first)};t.appendChild(d);
-  });
-}
-function setTipo(t){tipo=t;mostrar(actual)}
-function setSeccion(s,el){
-  seccion=s;document.querySelectorAll('.cartel').forEach(c=>c.classList.remove('activo'));if(el)el.classList.add('activo');
-  render();mostrar(DATA[s][0].A);
-}
-function fmt(t){return tipo==='ligada'?t.toLowerCase():t.toUpperCase()}
-function render(){
-  let g=document.getElementById('grid');g.innerHTML='';
-  DATA[seccion].forEach(it=>{
-    let d=document.createElement('div');d.className='item'+(it.A===actual?' activo':'');
-    d.innerHTML=`<div style="font-size:24px">${it.e}</div><div style="font-weight:900;color:#8a5a28;font-size:16px">${fmt(it.A)}</div><div style="font-size:10px;color:#6c5ce7">${it.p}</div>`;
-    d.onclick=()=>{mostrar(it.A);hablar()};g.appendChild(d);
-  });
-}
-function mostrar(cod){
-  actual=cod;let it=DATA[seccion].find(x=>x.A===cod)||DATA[seccion][0];
-  document.getElementById('g1').textContent=it.A;
-  document.getElementById('g2').textContent=fmt(it.A);
-  document.getElementById('sub').innerHTML=`${it.e} <b>${fmt(it.A)} - ${it.p}</b><br><small>${it.ej||''}</small>`;
-  document.getElementById('btnAud').textContent=`🔊 ${fmt(it.A)} - ${it.p}`;
-}
+const DIR_BASE=['B','C','D','F','G','H','J','K','L','M','N','Ñ','P','Q','R','S','T','V','W','X','Y','Z'];const VOCALES=['A','E','I','O','U'];let DIR=[];DIR_BASE.forEach(c=>{VOCALES.forEach(v=>{let sil=c+v;if(c==='Q'){if(v==='A')sil='QA';if(v==='E')sil='QUE';if(v==='I')sil='QUI';if(v==='O')sil='QO';if(v==='U')sil='QU';}let emoji={B:'👶',C:'🏠',D:'🎲',F:'🐘',G:'🐱',H:'🦛',J:'🦒',K:'🥝',L:'🌙',M:'👩',N:'🪺',Ñ:'🍍',P:'🍞',Q:'🧀',R:'🐀',S:'☀️',T:'🐢',V:'🐄',W:'🍉',X:'❌',Y:'🪀',Z:'👟'}[c]||'🔤';let pal={BA:'bebé',BE:'beso',BI:'bici',BO:'bola',BU:'búho',CA:'casa',CE:'cebra',CI:'cinco',CO:'coco',CU:'cuna',DA:'dado',DE:'dedo',DI:'dino',DO:'dos',DU:'dulce',FA:'faro',FE:'feo',FI:'fiesta',FO:'foca',FU:'fuego',GA:'gato',GE:'gente',GI:'giro',GO:'gota',GU:'gusano',HA:'hada',HE:'helado',HI:'hilo',HO:'hoja',HU:'huevo',JA:'jirafa',JE:'jefe',JI:'jirafa',JO:'joven',JU:'jugo',KA:'karate',KE:'keko',KI:'kiwi',KO:'koala',KU:'kung fu',LA:'luna',LE:'león',LI:'libro',LO:'lobo',LU:'luz',MA:'mamá',ME:'mesa',MI:'mío',MO:'mono',MU:'muro',NA:'nave',NE:'nene',NI:'nido',NO:'noche',NU:'nube',ÑA:'piña',ÑE:'muñeca',ÑI:'niño',ÑO:'año',ÑU:'ñu',PA:'papa',PE:'perro',PI:'pico',PO:'pollo',PU:'pulpo',QA:'queso',QUE:'queso',QUI:'queso',QO:'queso',QU:'queso',RA:'rata',RE:'rey',RI:'risa',RO:'rosa',RU:'rueda',SA:'sapo',SE:'seda',SI:'sí',SO:'sol',SU:'sube',TA:'taza',TE:'té',TI:'tigre',TO:'toro',TU:'tú',VA:'vaca',VE:'ver',VI:'vino',VO:'vuelo',VU:'vuelo',WA:'waffle',WE:'web',WI:'wifi',WO:'wombat',WU:'wushu',XA:'taxi',XE:'examen',XI:'taxi',XO:'boxeo',XU:'taxi',YA:'yate',YE:'yema',YI:'yin',YO:'yo',YU:'yuca',ZA:'zapato',ZE:'cero',ZI:'zinc',ZO:'zorro',ZU:'zumo'}[sil]||sil.toLowerCase();DIR.push({A:sil,e:emoji,p:pal,ej:`${sil.toLowerCase()} como en ${pal}`});});});
+const FINALES=['N','S','L','R','M','Z','D','J'];let INV=[];['A','E','I','O','U'].forEach(v=>{FINALES.forEach(f=>{let sil=v+f;let emoji={N:'👼',S:'⭐',L:'⬆️',R:'🌳',M:'💛',Z:'💙',D:'🎁',J:'🕹️'}[f]||'⬅️';let pal={AN:'ángel',AS:'asta',AL:'alto',AR:'árbol',AM:'amor',AZ:'azul',AD:'edad',AJ:'ajo',EN:'en',ES:'es',EL:'él',ER:'ser',EM:'embudo',EZ:'vez',ED:'red',EJ:'eje',IN:'in',IS:'isla',IL:'hilo',IR:'ir',IM:'imán',IZ:'izquierda',ID:'idea',IJ:'jinete',ON:'con',OS:'oso',OL:'sol',OR:'or',OM:'sombra',OZ:'voz',OD:'red',OJ:'ojo',UN:'un',US:'usted',UL:'pulgar',UR:'sur',UM:'suma',UZ:'luz',UD:'sud',UJ:'lujo'}[sil]||sil.toLowerCase();INV.push({A:sil,e:emoji,p:pal,ej:`${sil.toLowerCase()} como en ${pal}`});});});
+const DATA={letras:[{A:'A',e:'🍎',p:'manzana',ej:'A de manzana'},{A:'B',e:'⚽',p:'balón',ej:'B de balón'},{A:'C',e:'🏠',p:'casa',ej:'C de casa'},{A:'D',e:'🐬',p:'delfín',ej:'D de delfín'},{A:'E',e:'🐘',p:'elefante',ej:'E de elefante'},{A:'F',e:'🐸',p:'foca',ej:'F de foca'},{A:'G',e:'🐱',p:'gato',ej:'G de gato'},{A:'H',e:'🦛',p:'hipo',ej:'H de hipo'},{A:'I',e:'🦎',p:'iguana',ej:'I de iguana'},{A:'J',e:'🦒',p:'jirafa',ej:'J de jirafa'},{A:'K',e:'🥝',p:'kiwi',ej:'K de kiwi'},{A:'L',e:'🦁',p:'león',ej:'L de león'},{A:'M',e:'🐒',p:'mono',ej:'M de mono'},{A:'N',e:'🪺',p:'nido',ej:'N de nido'},{A:'Ñ',e:'🪁',p:'ñu',ej:'Ñ de ñu'},{A:'O',e:'🐙',p:'oso',ej:'O de oso'},{A:'P',e:'🐼',p:'panda',ej:'P de panda'},{A:'Q',e:'🧀',p:'queso',ej:'Q de queso'},{A:'R',e:'🐀',p:'ratón',ej:'R de ratón'},{A:'S',e:'🐍',p:'serpiente',ej:'S de serpiente'},{A:'T',e:'🐢',p:'tortuga',ej:'T de tortuga'},{A:'U',e:'🦄',p:'unicornio',ej:'U de unicornio'},{A:'V',e:'🐄',p:'vaca',ej:'V de vaca'},{A:'W',e:'🍉',p:'watermelon',ej:'W de watermelon'},{A:'X',e:'❌',p:'xilófono',ej:'X de xilófono'},{A:'Y',e:'🪀',p:'yoyo',ej:'Y de yoyo'},{A:'Z',e:'🦊',p:'zorro',ej:'Z de zorro'}],vocalicos:VOC,directas:DIR,inversas:INV,trabadas:[{A:'BLA',e:'⚪',p:'blanco',ej:'bla como en blanco'},{A:'BLE',e:'⚪',p:'oble',ej:'ble como en cable'},{A:'BLI',e:'⚪',p:'obligo',ej:'bli como en ombligo'},{A:'BLO',e:'⚪',p:'bloque',ej:'blo como en bloque'},{A:'BLU',e:'⚪',p:'blusa',ej:'blu como en blusa'},{A:'BRA',e:'💪',p:'brazo',ej:'bra como en brazo'},{A:'BRE',e:'💪',p:'breva',ej:'bre como en breve'},{A:'BRI',e:'💪',p:'brisa',ej:'bri como en brisa'},{A:'BRO',e:'💪',p:'broma',ej:'bro como en broma'},{A:'BRU',e:'💪',p:'bruja',ej:'bru como en bruja'},{A:'CLA',e:'🔑',p:'clase',ej:'cla como en clase'},{A:'CLE',e:'🔑',p:'cable',ej:'cle como en cable'},{A:'CLI',e:'🔑',p:'clima',ej:'cli como en clima'},{A:'CLO',e:'🔑',p:'cloro',ej:'clo como en cloro'},{A:'CLU',e:'🔑',p:'club',ej:'clu como en club'},{A:'CRA',e:'🦀',p:'cangrejo',ej:'cra como en cangrejo'},{A:'CRE',e:'🦀',p:'crema',ej:'cre como en crema'},{A:'CRI',e:'🦀',p:'cría',ej:'cri como en cría'},{A:'CRO',e:'🦀',p:'cromo',ej:'cro como en cromo'},{A:'CRU',e:'🦀',p:'cruz',ej:'cru como en cruz'},{A:'DRA',e:'🐉',p:'dragón',ej:'dra como en dragón'},{A:'DRE',e:'🐉',p:'drenaje',ej:'dre como en drenaje'},{A:'DRI',e:'🐉',p:'drilo',ej:'dri como en cocodrilo'},{A:'DRO',e:'🐉',p:'droga',ej:'dro como en droga'},{A:'DRU',e:'🐉',p:'drum',ej:'dru como en druida'},{A:'FLA',e:'🍮',p:'flan',ej:'fla como en flan'},{A:'FLE',e:'🍮',p:'flecha',ej:'fle como en flecha'},{A:'FLI',e:'🍮',p:'fli',ej:'fli como en flipar'},{A:'FLO',e:'🍮',p:'flor',ej:'flo como en flor'},{A:'FLU',e:'🍮',p:'flúor',ej:'flu como en flúor'},{A:'FRA',e:'🍓',p:'fresa',ej:'fra como en fresa'},{A:'FRE',e:'🍓',p:'freno',ej:'fre como en freno'},{A:'FRI',e:'🍓',p:'frío',ej:'fri como en frío'},{A:'FRO',e:'🍓',p:'frote',ej:'fro como en frote'},{A:'FRU',e:'🍓',p:'fruta',ej:'fru como en fruta'},{A:'GLA',e:'❄️',p:'globo',ej:'gla como en globo'},{A:'GLE',e:'❄️',p:'igle',ej:'gle como en inglés'},{A:'GLI',e:'❄️',p:'iglú',ej:'gli como en iglú'},{A:'GLO',e:'❄️',p:'globo',ej:'glo como en globo'},{A:'GLU',e:'❄️',p:'glu',ej:'glu como en gluten'},{A:'GRA',e:'🍇',p:'grande',ej:'gra como en grande'},{A:'GRE',e:'🍇',p:'gre',ej:'gre como en sangre'},{A:'GRI',e:'🍇',p:'gris',ej:'gri como en gris'},{A:'GRO',e:'🍇',p:'gro',ej:'gro como en ogro'},{A:'GRU',e:'🍇',p:'grúa',ej:'gru como en grúa'},{A:'PLA',e:'🍽️',p:'plato',ej:'pla como en plato'},{A:'PLE',e:'🍽️',p:'ple',ej:'ple como en simple'},{A:'PLI',e:'🍽️',p:'pliegue',ej:'pli como en pliegue'},{A:'PLO',e:'🍽️',p:'plomo',ej:'plo como en plomo'},{A:'PLU',e:'🍽️',p:'pluma',ej:'plu como en pluma'},{A:'PRA',e:'🌿',p:'prado',ej:'pra como en prado'},{A:'PRE',e:'🌿',p:'premio',ej:'pre como en premio'},{A:'PRI',e:'🌿',p:'primo',ej:'pri como en primo'},{A:'PRO',e:'🌿',p:'profe',ej:'pro como en profe'},{A:'PRU',e:'🌿',p:'prueba',ej:'pru como en prueba'},{A:'TRA',e:'🚂',p:'tren',ej:'tra como en tren'}],palabras:[{A:'MAMÁ',e:'👩',p:'mamá',ej:'mamá'},{A:'PAPA',e:'👨',p:'papá',ej:'papá'},{A:'LUNA',e:'🌙',p:'luna',ej:'luna'}]};
+const SECCIONES=[{id:'letras',label:'🔤 LETRAS'},{id:'vocalicos',label:'👀 VOCÁLICOS (20)'},{id:'directas',label:'➡️ DIRECTAS (110)'},{id:'inversas',label:'⬅️ INVERSAS (40)'},{id:'trabadas',label:'🚂 TRABADAS'}];
+function initTabs(){let c=document.getElementById('tabs');SECCIONES.forEach(s=>{let b=document.createElement('button');b.textContent=s.label;b.id='tab_'+s.id;if(s.id==='vocalicos')b.classList.add('activo');b.onclick=()=>setSeccion(s.id);c.appendChild(b);});}
+function fmt(t){return tipo==='mayuscula'?t.toUpperCase():tipo==='minuscula'?t.toLowerCase():t.toLowerCase();}
+function setTipo(t){tipo=t;document.getElementById('bMayus').classList.toggle('activo',t==='mayuscula');document.getElementById('bMinus').classList.toggle('activo',t==='minuscula');document.getElementById('bLigada').classList.toggle('activo',t==='ligada');render();mostrar(actual);}
+function setSeccion(s){seccion=s;document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('activo'));document.getElementById('tab_'+s).classList.add('activo');render();mostrar(DATA[s][0].A);}
+function render(){let g=document.getElementById('grid');g.innerHTML='';DATA[seccion].forEach(it=>{let d=document.createElement('div');d.className='item'+(it.A===actual?' activo':'');d.innerHTML=`<div class="ico">${it.e}</div><div class="txt">${fmt(it.A)}</div><div class="pal">${it.p}</div>`;d.onclick=()=>{mostrar(it.A);hablar();};g.appendChild(d);});}
+function mostrar(cod){actual=cod;let it=DATA[seccion].find(x=>x.A===cod)||DATA[seccion][0];document.getElementById('emoji').textContent=it.e;let lg=document.getElementById('letraG');lg.textContent=fmt(it.A);lg.className='letra-big '+tipo;document.getElementById('textoG').innerHTML=`${fmt(it.A)} - <b>${it.p}</b><small>${it.e} ${it.ej}</small>`;document.getElementById('btnAudio').textContent=`🔊 ${fmt(it.A)} - ${it.p}`;}
 function hablar(){
   speechSynthesis.cancel();
   let it=DATA[seccion].find(x=>x.A===actual);let txt=it.A.toLowerCase().replace('que','ke').replace('qui','ki');
-  let voz=speechSynthesis.getVoices().find(v=>v.lang==='es-ES')||speechSynthesis.getVoices().find(v=>v.lang.startsWith('es'));
-  let u=new SpeechSynthesisUtterance();u.lang='es-ES';u.volume=1;u.pitch=1.25;if(voz)u.voice=voz;
+  let voz=speechSynthesis.getVoices().find(v=>v.lang==='es-ES'&&v.name.includes('Google'))||speechSynthesis.getVoices().find(v=>v.lang==='es-ES')||speechSynthesis.getVoices().find(v=>v.lang.startsWith('es'));
   if(seccion==='vocalicos'){
-    if(txt==='ai'){u.text='a i';u.rate=0.32;} else if(txt==='au'){u.text='a u';u.rate=0.32;} else {u.text=txt;u.rate=0.42;}
-    speechSynthesis.speak(u);
-    setTimeout(()=>{let u2=new SpeechSynthesisUtterance(it.p);u2.lang='es-ES';u2.rate=0.6;if(voz)u2.voice=voz;speechSynthesis.speak(u2);},750);
+    let u1=new SpeechSynthesisUtterance();u1.lang='es-ES';u1.volume=1;u1.pitch=1.3;if(voz)u1.voice=voz;
+    if(txt==='ai'){u1.text='a i';u1.rate=0.32;} else if(txt==='au'){u1.text='a u';u1.rate=0.32;} else {u1.text=txt;u1.rate=0.42;}
+    speechSynthesis.speak(u1);
+    setTimeout(()=>{let u2=new SpeechSynthesisUtterance(it.p);u2.lang='es-ES';u2.volume=1;u2.rate=0.6;if(voz)u2.voice=voz;speechSynthesis.speak(u2);},800);
   } else {
-    u.text=txt;u.rate=0.55;speechSynthesis.speak(u);
+    let u=new SpeechSynthesisUtterance(txt);u.lang='es-ES';u.volume=1;u.rate=0.55;u.pitch=1.2;if(voz)u.voice=voz;speechSynthesis.speak(u);
   }
 }
-buildTotem();render();mostrar('AE');
+initTabs();render();mostrar('AE');
 </script></body></html>
