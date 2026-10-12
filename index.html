@@ -1,86 +1,117 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-cache"><title>LEO v109 BONITO CON DIBUJOS</title><link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Andika:wght@700&family=Nunito:wght@800;900&display=swap" rel="stylesheet"><style>
-body{margin:0;font-family:'Nunito',system-ui;background:#fff6f9;background-image:radial-gradient(#ffdeeb 2px, transparent 2px),radial-gradient(#d4f0ff 2px, transparent 2px);background-size:40px 40px;background-position:0 0,20px 20px}
-header{background:linear-gradient(90deg,#e8438a,#ff8f5a);color:#fff;padding:14px;text-align:center;font-weight:900;font-size:20px;position:sticky;top:0;z-index:10;box-shadow:0 4px 15px rgba(232,67,138,.3)}
-.tipos{display:flex;gap:8px;justify-content:center;background:#fff;padding:12px;position:sticky;top:50px;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.05)}
-.btn{border:0;padding:10px 16px;border-radius:20px;font-weight:900;cursor:pointer;font-family:'Nunito',sans-serif}
-.btn.tipo{background:#fff0f6;color:#e8438a;border:2px solid #ffbdd7}
-.btn.tipo.activo{background:#e8438a;color:#fff;transform:scale(1.05)}
-.tabs{display:flex;overflow-x:auto;gap:8px;padding:12px;background:#fff;position:sticky;top:100px;z-index:10;scrollbar-width:none}
-.tabs button{border:0;background:#fff0f6;padding:10px 16px;border-radius:20px;font-weight:900;color:#e8438a;white-space:nowrap;font-family:'Nunito',sans-serif}
-.tabs button.activo{background:#e8438a;color:#fff}
-.card{background:#fff;border-radius:24px;padding:18px;margin:12px;box-shadow:0 12px 30px rgba(0,0,0,.08);text-align:center;max-width:1100px;margin:12px auto;position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;top:-20px;right:-20px;width:120px;height:120px;background:radial-gradient(#ffe0ec,#fff0 70%);opacity:.6;pointer-events:none}
-.letra-big{font-size:140px;font-weight:900;line-height:.9;position:relative;z-index:1}
-.letra-big.mayuscula{color:#e8438a}.letra-big.minuscula{font-family:'Andika',sans-serif;color:#e8438a}.letra-big.ligada{font-family:'Cedarville Cursive',cursive;color:#1a1a1a;font-weight:400;font-size:130px}
-.ejemplo{font-size:26px;font-weight:900;color:#6c5ce7;margin-top:6px;font-family:'Cedarville Cursive',cursive}
-.ejemplo small{font-family:'Nunito',sans-serif;font-size:14px;color:#ff8f5a;display:block}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px}
-.item{border:2px solid #ffe0ec;border-radius:20px;padding:10px;background:#fff;cursor:pointer;position:relative;overflow:hidden;transition:.2s}
-.item:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(232,67,138,.15);border-color:#e8438a}
-.item.ico{font-size:42px;line-height:1}
-.item.txt{font-weight:900;color:#e8438a;font-size:20px;margin-top:4px}
-.item.pal{font-size:11px;font-weight:800;color:#6c5ce7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-</style></head><body><header>🌈 LEO Y APRENDO v109</header><div class="tipos"><button class="btn tipo" id="bMayus" onclick="setTipo('mayuscula')">A MAYÚSCULA</button><button class="btn tipo" id="bMinus" onclick="setTipo('minuscula')">a minúscula</button><button class="btn tipo activo" id="bLigada" onclick="setTipo('ligada')" style="font-family:'Cedarville Cursive',cursive">a ligada</button></div><div class="tabs" id="tabs"></div><div class="card" id="cardMain"><div id="emoji" style="font-size:80px">✈️</div><div id="letraG" class="letra-big ligada">ae</div><div id="textoG" class="ejemplo">ae - <b>aeroplano</b><small>✈️ como en aeroplano</small></div><button class="btn" style="background:linear-gradient(90deg,#6c5ce7,#a66cff);color:white;width:100%;margin-top:14px;padding:18px;font-size:22px;border-radius:16px" onclick="hablar()" id="btnAudio">🔊 ae - aeroplano</button></div><div class="card"><div class="grid" id="grid"></div></div><script>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LEO v111 ISLA TROPICAL</title><link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Nunito:wght@800;900&display=swap" rel="stylesheet"><style>
+*{box-sizing:border-box}
+body{margin:0;font-family:'Nunito',sans-serif;overflow:hidden;height:100vh;background:linear-gradient(#c8f0f8 0%, #e6fbff 55%, #2ec4c8 55%, #25b9bd 62%, #f9d9a0 62%, #f7c87a 100%);position:relative}
+.palmera{position:absolute;bottom:0;width:260px;pointer-events:none;z-index:1}
+.palmera.izq{left:-30px;bottom:-20px;transform:scaleX(-1)}.palmera.der{right:-30px;bottom:-10px}
+.nube{position:absolute;background:#fff;border-radius:50px;opacity:.9;box-shadow:20px 10px 0 #fff,40px 5px 0 #fff}
+.totem{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:170px;z-index:3;display:flex;flex-direction:column;align-items:center}
+.totem-head{width:150px;height:110px;background:#c68a3d;border:6px solid #8a5a28;border-radius:18px 18px 10px 10px;position:relative;box-shadow:inset -10px -10px 0 #a06a2d}
+.totem-head::before{content:'👁️👁️';position:absolute;top:8px;left:50%;transform:translateX(-50%);font-size:28px}
+.totem-head::after{content:'';position:absolute;bottom:10px;left:15px;right:15px;height:34px;background:#e6c08a;border-radius:6px;background-image:linear-gradient(90deg,#e6c08a 20%,#8a5a28 20%,#8a5a28 22%,#e6c08a 22%,#e6c08a 45%,#8a5a28 45%,#8a5a28 47%,#e6c08a 47%)}
+.bloque{width:150px;height:72px;background:#8a5a28;border:4px solid #5e3d1d;margin-top:-4px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fbe8b0;position:relative;cursor:pointer}
+.bloque.activo{background:#ffb700;color:#5e3d1d;border-color:#5e3d1d}
+.bloque.let{font-size:38px;font-weight:900;line-height:1}.bloque.porc{font-size:11px;background:#3a2a14;color:#f9d9a0;padding:1px 6px;border-radius:4px}
+.candado{position:absolute;left:-18px;top:18px;font-size:20px;filter:drop-shadow(1px 1px 1px #000)}
+.btn-madera{position:absolute;left:20px;width:58px;height:58px;background:#6b4423;border:3px solid #402a15;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;box-shadow:2px 4px 0 #402a15;cursor:pointer;z-index:4}
+.btn-madera:active{transform:translateY(2px);box-shadow:0 2px 0 #402a15}
+.poste{position:absolute;right:12%;top:28%;width:320px;z-index:3}
+.poste-palo{width:22px;height:420px;background:#8a5a28;border:3px solid #5e3d1d;margin:0 auto;border-radius:10px}
+.cartel{width:300px;height:72px;background:#6b4423;border:3px solid #402a15;border-radius:14px;margin:-14px auto 0;display:flex;align-items:center;padding:8px 12px;cursor:pointer;box-shadow:0 6px 0 #402a15;position:relative}
+.cartel.activo{background:#8a5a28;transform:scale(1.05)}
+.cartel.cesta{width:54px;height:54px;background:#fff7a0;border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;border:2px solid #b89a00;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;color:#8a5a28}
+.cartel.txt{flex:1;text-align:center;font-family:'Cedarville Cursive',cursive;font-size:32px;color:#fff;text-shadow:1px 1px 0 #402a15}
+.letra-centro{position:absolute;left:50%;top:35%;transform:translate(-50%,-50%);z-index:2;text-align:center}
+.letra-centro.big{font-size:90px;font-weight:900;color:#333;text-shadow:2px 2px 0 #fff}
+.letra-centro.lig{font-family:'Cedarville Cursive',cursive;color:#1e3a8a}
+.abeja{position:absolute;left:55%;top:28%;font-size:30px;animation:vuela 3s infinite ease-in-out;z-index:5}
+@keyframes vuela{0%,100%{transform:translate(0,0)}50%{transform:translate(10px,-15px)}}
+.panel{position:absolute;bottom:0;left:0;right:0;height:36%;background:rgba(255,255,255,.88);backdrop-filter:blur(6px);border-top:4px solid #8a5a28;z-index:6;overflow:auto;padding:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:8px}
+.item{background:#fff;border:2px solid #f9d9a0;border-radius:14px;padding:6px;text-align:center;cursor:pointer}
+.item.activo{border-color:#e8438a;background:#fff0f6}
+.topbar{position:absolute;top:8px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:6}
+.topbar div{background:#fff7a0;border:2px solid #b89a00;border-radius:18px;padding:4px 12px;font-size:12px;font-weight:900;min-width:80px;text-align:center}
+</style></head><body>
+<div class="nube" style="left:10%;top:8%;width:80px;height:30px"></div>
+<div class="nube" style="left:35%;top:5%;width:110px;height:36px"></div>
+<div class="nube" style="left:60%;top:12%;width:90px;height:28px"></div>
+
+<div class="palmera izq">🌴</div><div class="palmera der">🌴</div>
+
+<div class="btn-madera" style="top:12px" onclick="history.back()">⬅️</div>
+<div class="btn-madera" style="top:84px" onclick="setTipo('ligada')">a</div>
+<div class="btn-madera" style="top:156px">📊</div>
+<div class="btn-madera" style="top:240px">⚙️</div>
+<div class="btn-madera" style="right:20px;left:auto;top:12px">❓</div>
+
+<div class="topbar"><div>🟢 0 de 428</div><div>👾 0 de 144</div></div>
+
+<div class="totem" id="totem"></div>
+
+<div class="abeja">🐝</div>
+<div class="letra-centro" id="centro"><div class="big" id="bigL">L</div><div class="big lig" style="font-size:40px" id="bigLig">l</div><div id="sub" style="background:#fff;padding:4px 12px;border-radius:10px;margin-top:8px;font-size:14px">✈️ ae - aeroplano<br><small>ae como en aeroplano</small></div><button onclick="hablar()" style="margin-top:8px;padding:10px 18px;border-radius:20px;border:0;background:#6c5ce7;color:#fff;font-weight:900">🔊 ae - aeroplano</button></div>
+
+<div class="poste"><div class="poste-palo"></div>
+<div class="cartel activo" onclick="setSeccion('vocalicos')"><div class="cesta">🧺<b>20</b></div><div class="txt">vocales</div></div>
+<div class="cartel" onclick="setSeccion('directas')"><div class="cesta">🧺<b>115</b></div><div class="txt">sílabas</div></div>
+<div class="cartel" onclick="setSeccion('palabras')"><div class="cesta">🧺<b>40</b></div><div class="txt">palabras</div></div>
+<div class="cartel" onclick="setSeccion('frases')"><div class="cesta">🧺<b>20</b></div><div class="txt">frases</div></div>
+</div>
+
+<div class="panel"><div class="grid" id="grid"></div></div>
+
+<script>
 let tipo='ligada',seccion='vocalicos',actual='AE';
-const DATA={
-letras:[{A:'A',e:'🍎',p:'manzana',ej:'A de manzana'},{A:'B',e:'⚽',p:'balón',ej:'B de balón'},{A:'C',e:'🏠',p:'casa',ej:'C de casa'},{A:'D',e:'🐬',p:'delfín',ej:'D de delfín'},{A:'E',e:'🐘',p:'elefante',ej:'E de elefante'},{A:'F',e:'🐸',p:'foca',ej:'F de foca'},{A:'G',e:'🐱',p:'gato',ej:'G de gato'},{A:'H',e:'🦛',p:'hipo',ej:'H de hipo'},{A:'I',e:'🦎',p:'iguana',ej:'I de iguana'},{A:'J',e:'🦒',p:'jirafa',ej:'J de jirafa'},{A:'K',e:'🥝',p:'kiwi',ej:'K de kiwi'},{A:'L',e:'🦁',p:'león',ej:'L de león'},{A:'M',e:'🐒',p:'mono',ej:'M de mono'},{A:'N',e:'🪺',p:'nido',ej:'N de nido'},{A:'Ñ',e:'🪁',p:'ñu',ej:'Ñ de ñu'},{A:'O',e:'🐙',p:'oso',ej:'O de oso'},{A:'P',e:'🐼',p:'panda',ej:'P de panda'},{A:'Q',e:'🧀',p:'queso',ej:'Q de queso'},{A:'R',e:'🐀',p:'ratón',ej:'R de ratón'},{A:'S',e:'🐍',p:'serpiente',ej:'S de serpiente'},{A:'T',e:'🐢',p:'tortuga',ej:'T de tortuga'},{A:'U',e:'🦄',p:'unicornio',ej:'U de unicornio'},{A:'V',e:'🐄',p:'vaca',ej:'V de vaca'},{A:'W',e:'🍉',p:'watermelon',ej:'W de watermelon'},{A:'X',e:'❌',p:'xilófono',ej:'X de xilófono'},{A:'Y',e:'🪀',p:'yoyo',ej:'Y de yoyo'},{A:'Z',e:'🦊',p:'zorro',ej:'Z de zorro'}],
-vocalicos:[
-{A:'AE',e:'✈️',p:'aeroplano',ej:'ae como en aeroplano'},
-{A:'AI',e:'🪁',p:'aire',ej:'ai como en aire'},
-{A:'AO',e:'🐟',p:'bacalao',ej:'ao como en bacalao'},
-{A:'AU',e:'🚗',p:'auto',ej:'au como en auto'},
-{A:'EA',e:'🎭',p:'teatro',ej:'ea como en teatro'},
-{A:'EI',e:'👑',p:'reina',ej:'ei como en reina'},
-{A:'EO',e:'🦁',p:'león',ej:'eo como en león'},
-{A:'EU',e:'💶',p:'euro',ej:'eu como en euro'},
-{A:'IA',e:'🎹',p:'piano',ej:'ia como en piano'},
-{A:'IE',e:'🦶',p:'pie',ej:'ie como en pie'},
-{A:'IO',e:'🌊',p:'río',ej:'io como en río'},
-{A:'IU',e:'🏙️',p:'ciudad',ej:'iu como en ciudad'},
-{A:'OA',e:'🐨',p:'koala',ej:'oa como en koala'},
-{A:'OE',e:'📜',p:'poeta',ej:'oe como en poeta'},
-{A:'OI',e:'👂',p:'oído',ej:'oi como en oído'},
-{A:'OU',e:'🧳',p:'tour',ej:'ou como en tour'},
-{A:'UA',e:'💧',p:'agua',ej:'ua como en agua'},
-{A:'UE',e:'🥚',p:'huevo',ej:'ue como en huevo'},
-{A:'UI',e:'🔊',p:'ruido',ej:'ui como en ruido'},
-{A:'UO',e:'🏛️',p:'antiguo',ej:'uo como en antiguo'}
-],
-directas:[{A:'BA',e:'👶',p:'bebé',ej:'ba como en bebé'},{A:'MA',e:'👩',p:'mamá',ej:'ma como en mamá'},{A:'PA',e:'🐾',p:'papa',ej:'pa como en papa'}],
-inversas:[{A:'AN',e:'👼',p:'angel',ej:'an como en angel'},{A:'AL',e:'👽',p:'alto',ej:'al como en alto'}],
-trabadas:[{A:'BRA',e:'💪',p:'brazo',ej:'bra como en brazo'},{A:'PLA',e:'🍽️',p:'plato',ej:'pla como en plato'}],
-palabras:[{A:'LA MESA',e:'🪑',p:'la mesa',ej:'la mesa'}]
-};
-const SECCIONES=[{id:'letras',label:'🔤 LETRAS'},{id:'vocalicos',label:'👀 VOCÁLICOS'},{id:'directas',label:'➡️ SÍLABAS'},{id:'inversas',label:'⬅️ INVERSAS'},{id:'trabadas',label:'🚂 TRABADAS'}];
-function initTabs(){let c=document.getElementById('tabs');SECCIONES.forEach(s=>{let b=document.createElement('button');b.textContent=s.label;b.id='tab_'+s.id;if(s.id==='vocalicos')b.classList.add('activo');b.onclick=()=>setSeccion(s.id);c.appendChild(b);});}
-function fmt(t){return tipo==='mayuscula'?t.toUpperCase():tipo==='minuscula'?t.toLowerCase():t.toLowerCase();}
-function setTipo(t){tipo=t;document.getElementById('bMayus').classList.toggle('activo',t==='mayuscula');document.getElementById('bMinus').classList.toggle('activo',t==='minuscula');document.getElementById('bLigada').classList.toggle('activo',t==='ligada');render();mostrar(actual);}
-function setSeccion(s){seccion=s;document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('activo'));document.getElementById('tab_'+s).classList.add('activo');render();mostrar(DATA[s][0].A);}
-function render(){let g=document.getElementById('grid');g.innerHTML='';DATA[seccion].forEach(it=>{let d=document.createElement('div');d.className='item';d.innerHTML=`<div class="ico">${it.e}</div><div class="txt">${fmt(it.A)}</div><div class="pal">${it.p}</div>`;d.onclick=()=>{mostrar(it.A);hablar();};g.appendChild(d);});}
-function mostrar(cod){actual=cod;let it=DATA[seccion].find(x=>x.A===cod)||DATA[seccion][0];document.getElementById('emoji').textContent=it.e;let lg=document.getElementById('letraG');lg.textContent=fmt(it.A);lg.className='letra-big '+tipo;document.getElementById('textoG').innerHTML=`${fmt(it.A)} - <b>${it.p}</b><small>${it.e} ${it.ej}</small>`;document.getElementById('btnAudio').textContent=`🔊 ${fmt(it.A)} - ${it.p}`;}
+const VOC=[
+{A:'AE',e:'✈️',p:'aeroplano',ej:'ae como en aeroplano'},{A:'AI',e:'🪁',p:'aire',ej:'ai como en aire'},{A:'AO',e:'🐟',p:'bacalao',ej:'ao como en bacalao'},{A:'AU',e:'🚗',p:'auto',ej:'au como en auto'},{A:'EA',e:'🎭',p:'teatro',ej:'ea como en teatro'},{A:'EI',e:'👑',p:'reina',ej:'ei como en reina'},{A:'EO',e:'🦁',p:'león',ej:'eo como en león'},{A:'EU',e:'💶',p:'euro',ej:'eu como en euro'},{A:'IA',e:'🎹',p:'piano',ej:'ia como en piano'},{A:'IE',e:'🦶',p:'pie',ej:'ie como en pie'},{A:'IO',e:'🌊',p:'río',ej:'io como en río'},{A:'IU',e:'🏙️',p:'ciudad',ej:'iu como en ciudad'},{A:'OA',e:'🐨',p:'koala',ej:'oa como en koala'},{A:'OE',e:'📜',p:'poeta',ej:'oe como en poeta'},{A:'OI',e:'👂',p:'oído',ej:'oi como en oído'},{A:'OU',e:'🧳',p:'tour',ej:'ou como en tour'},{A:'UA',e:'💧',p:'agua',ej:'ua como en agua'},{A:'UE',e:'🥚',p:'huevo',ej:'ue como en huevo'},{A:'UI',e:'🔊',p:'ruido',ej:'ui como en ruido'},{A:'UO',e:'🏛️',p:'antiguo',ej:'uo como en antiguo'}];
+const DIR=[{A:'BA',e:'👶',p:'bebé'},{A:'BE',e:'🐑',p:'bebé'},{A:'BI',e:'🚲',p:'bici'},{A:'BO',e:'⚽',p:'bola'},{A:'BU',e:'🦉',p:'búho'},{A:'CA',e:'🏠',p:'casa'},{A:'CE',e:'🦓',p:'cebra'},{A:'CI',e:'5️⃣',p:'cinco'},{A:'CO',e:'💜',p:'coco'},{A:'CU',e:'🐻',p:'cuna'},{A:'DA',e:'🎲',p:'dado'},{A:'DE',e:'🐬',p:'dedo'},{A:'DI',e:'🦖',p:'dino'},{A:'DO',e:'2️⃣',p:'dos'},{A:'DU',e:'🍭',p:'dulce'},{A:'FA',e:'🐘',p:'faro'},{A:'FE',e:'😃',p:'feo'},{A:'FI',e:'🎉',p:'fiesta'},{A:'FO',e:'🦭',p:'foca'},{A:'FU',e:'🔥',p:'fuego'},{A:'GA',e:'🐱',p:'gato'},{A:'GE',e:'👧',p:'gema'},{A:'GI',e:'🦒',p:'giro'},{A:'GO',e:'🐶',p:'gota'},{A:'GU',e:'👺',p:'gusano'},{A:'LA',e:'🌙',p:'luna'},{A:'LE',e:'🦁',p:'león'},{A:'LI',e:'📚',p:'libro'},{A:'LO',e:'🐺',p:'lobo'},{A:'LU',e:'💡',p:'luz'},{A:'MA',e:'👩',p:'mamá'},{A:'ME',e:'🍈',p:'mesa'},{A:'MI',e:'🐱',p:'mío'},{A:'MO',e:'🐒',p:'mono'},{A:'MU',e:'🐮',p:'muro'},{A:'NA',e:'🚢',p:'nave'},{A:'NE',e:'👶',p:'nene'},{A:'NI',e:'🪺',p:'nido'},{A:'NO',e:'👃',p:'noche'},{A:'NU',e:'☁️',p:'nube'},{A:'PA',e:'🍞',p:'papa'},{A:'PE',e:'🐶',p:'perro'},{A:'PI',e:'🐥',p:'pico'},{A:'PO',e:'🐙',p:'pollo'},{A:'PU',e:'🐙',p:'pulpo'},{A:'RA',e:'🐀',p:'rata'},{A:'RE',e:'👑',p:'rey'},{A:'RI',e:'😂',p:'risa'},{A:'RO',e:'🌹',p:'rosa'},{A:'RU',e:'🏃',p:'rueda'},{A:'SA',e:'🐸',p:'sapo'},{A:'SE',e:'🌙',p:'seda'},{A:'SI',e:'✅',p:'sí'},{A:'SO',e:'☀️',p:'sol'},{A:'SU',e:'⬆️',p:'sube'},{A:'TA',e:'🐢',p:'taza'},{A:'TE',e:'🍵',p:'té'},{A:'TI',e:'🐯',p:'tigre'},{A:'TO',e:'🐂',p:'toro'},{A:'TU',e:'👉',p:'tú'},{A:'VA',e:'🐄',p:'vaca'},{A:'VE',e:'👀',p:'ver'},{A:'VI',e:'🎻',p:'vino'},{A:'VO',e:'✈️',p:'vuelo'},{A:'VU',e:'🦅',p:'vuelo'},{A:'ZA',e:'👟',p:'zapato'},{A:'ZO',e:'🦊',p:'zorro'},{A:'ZU',e:'🧃',p:'zumo'}];
+const DATA={vocalicos:VOC,directas:DIR,palabras:[{A:'MAMA',e:'👩',p:'mamá'},{A:'PAPA',e:'👨',p:'papá'},{A:'LUNA',e:'🌙',p:'luna'},{A:'AGUA',e:'💧',p:'agua'}],frases:[{A:'MI MAMA ME MIMA',e:'💜',p:'mi mamá me mima'}]};
+
+function buildTotem(){
+  let t=document.getElementById('totem');
+  t.innerHTML='<div class=\"totem-head\"></div>';
+  ['A','E','I','O','U','L','M','S','T'].forEach((l,i)=>{
+    let d=document.createElement('div');d.className='bloque'+(l===actual[0]?' activo':'');
+    d.innerHTML=`<div class=\"let\">${l}</div><div class=\"porc\">${i<2?'0%':'🔒'}</div>`+ (i>1?'<div class=\"candado\">🔒</div>':'');
+    d.onclick=()=>{actual=l;if(seccion==='vocalicos')actual=VOC[0].A;mostrar(actual);render()};
+    t.appendChild(d);
+  });
+}
+function setTipo(t){tipo=t;mostrar(actual)}
+function setSeccion(s){
+  seccion=s;document.querySelectorAll('.cartel').forEach(c=>c.classList.remove('activo'));
+  event.currentTarget.classList.add('activo');
+  render();mostrar(DATA[s][0].A);
+}
+function fmt(t){return tipo==='ligada'?t.toLowerCase():t.toUpperCase()}
+function render(){
+  let g=document.getElementById('grid');g.innerHTML='';
+  DATA[seccion].forEach(it=>{
+    let d=document.createElement('div');d.className='item'+(it.A===actual?' activo':'');
+    d.innerHTML=`<div style=\"font-size:26px\">${it.e}</div><div style=\"font-weight:900;color:#8a5a28\">${fmt(it.A)}</div><div style=\"font-size:10px;color:#6c5ce7\">${it.p}</div>`;
+    d.onclick=()=>{mostrar(it.A);hablar()};g.appendChild(d);
+  });
+}
+function mostrar(cod){
+  actual=cod;
+  let it=DATA[seccion].find(x=>x.A===cod)||DATA[seccion][0];
+  document.getElementById('bigL').textContent=fmt(it.A)[0]?.toUpperCase()||it.A[0];
+  document.getElementById('bigLig').textContent=fmt(it.A);
+  document.getElementById('sub').innerHTML=`${it.e} ${fmt(it.A)} - <b>${it.p}</b><br><small>${it.ej||it.A+' como en '+it.p}</small>`;
+  buildTotem();
+}
 function hablar(){
   speechSynthesis.cancel();
-  let it=DATA[seccion].find(x=>x.A===actual);
-  let txt=it.A.toLowerCase();
-  let voz=speechSynthesis.getVoices().find(v=>v.lang==='es-ES'&&v.name.includes('Google'))||speechSynthesis.getVoices().find(v=>v.lang==='es-ES')||speechSynthesis.getVoices().find(v=>v.lang.startsWith('es'));
+  let it=DATA[seccion].find(x=>x.A===actual);let txt=it.A.toLowerCase();
+  let voz=speechSynthesis.getVoices().find(v=>v.lang==='es-ES')||speechSynthesis.getVoices().find(v=>v.lang.startsWith('es'));
+  let u=new SpeechSynthesisUtterance();u.lang='es-ES';u.volume=1;u.pitch=1.25;if(voz)u.voice=voz;
   if(seccion==='vocalicos'){
-    // 1º dice el grupo vocalico TODO JUNTO
-    let u1=new SpeechSynthesisUtterance();
-    u1.lang='es-ES';u1.volume=1;u1.pitch=1.3;
-    if(voz) u1.voice=voz;
-    if(txt==='ai'){u1.text='a i';u1.rate=0.32;} else if(txt==='au'){u1.text='a u';u1.rate=0.32;} else {u1.text=txt;u1.rate=0.42;}
-    speechSynthesis.speak(u1);
-    // 2º dice el ejemplo relacionado con el dibujo
-    setTimeout(()=>{
-      let u2=new SpeechSynthesisUtterance(it.p);
-      u2.lang='es-ES';u2.volume=1;u2.rate=0.6;u2.pitch=1.1;
-      if(voz) u2.voice=voz;
-      speechSynthesis.speak(u2);
-    },800);
+    if(txt==='ai'){u.text='a i';u.rate=0.32;} else if(txt==='au'){u.text='a u';u.rate=0.32;} else {u.text=txt;u.rate=0.42;}
+    speechSynthesis.speak(u);
+    setTimeout(()=>{let u2=new SpeechSynthesisUtterance(it.p);u2.lang='es-ES';u2.rate=0.6;if(voz)u2.voice=voz;speechSynthesis.speak(u2);},800);
   } else {
-    let u=new SpeechSynthesisUtterance(txt);u.lang='es-ES';u.volume=1;u.rate=0.6;u.pitch=1.2;if(voz)u.voice=voz;speechSynthesis.speak(u);
+    u.text=txt;u.rate=0.55;speechSynthesis.speak(u);
   }
 }
-speechSynthesis.onvoiceschanged=()=>{};
-initTabs();render();mostrar('AE');
+buildTotem();render();mostrar('AE');
 </script></body></html>
