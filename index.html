@@ -2,133 +2,168 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LEO Y APRENDO - Letra Rubio</title>
-<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Andika:wght@400;700&display=swap" rel="stylesheet">
+<title>LEO Y APRENDO</title>
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Andika:wght@700&display=swap" rel="stylesheet">
 <style>
 :root{--rosa:#e8438a;--fondo:#fff6f9}
-*{box-sizing:border-box}
 body{margin:0;background:var(--fondo);font-family:system-ui,sans-serif}
-header{background:linear-gradient(90deg,#e8438a,#ff7ab2);color:white;padding:18px;text-align:center;font-size:26px;font-weight:900}
-.tabs{display:flex;overflow-x:auto;background:white;padding:8px;gap:8px;box-shadow:0 4px 10px rgba(0,0,0,.06)}
-.tabs button{white-space:nowrap;border:2px solid #ffe0ec;background:#fff;padding:10px 14px;border-radius:12px;font-weight:800;font-size:13px;color:#e8438a;cursor:pointer}
-.tabs button.activo{background:#e8438a;color:white}
+header{background:linear-gradient(90deg,#e8438a,#ff7ab2);color:white;padding:16px;text-align:center;font-size:26px;font-weight:900}
 .cont{max-width:900px;margin:auto;padding:12px}
 .card{background:white;border-radius:20px;padding:20px;box-shadow:0 10px 25px rgba(0,0,0,.07);margin:12px 0;text-align:center}
-.menu-tipos{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;background:#fff0f6;padding:12px;border-radius:14px;border:2px dashed #ffbdd7;margin-bottom:10px}
-.btn{border:0;padding:10px 14px;border-radius:10px;font-weight:800;cursor:pointer}
-.btn.tipo{background:white;color:#e8438a;border:2px solid #ffbdd7}
-.btn.tipo.activo{background:#e8438a;color:white}
+.tipos{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;background:#fff0f6;padding:12px;border-radius:14px;border:2px dashed #ffbdd7}
+.btn{border:0;padding:12px 16px;border-radius:12px;font-weight:900;cursor:pointer}
+.btn.tipo{background:white;color:#e8438a;border:2px solid #ffbdd7;font-size:14px}
+.btn.tipo.activo{background:#e8438a;color:white;border-color:#e8438a}
+.tabs{display:flex;overflow-x:auto;gap:8px;padding:8px;background:white}
+.tabs button{border:2px solid #ffe0ec;background:#fff;padding:8px 12px;border-radius:10px;font-weight:800;color:#e8438a;cursor:pointer;white-space:nowrap}
+.tabs button.activo{background:#e8438a;color:white}
 
-/* ESTILOS DE LETRA */
-.letra-big{font-size:120px;font-weight:900;color:#e8438a;line-height:1}
+/* TIPOS DE LETRA */
+.letra-big{font-size:130px;line-height:1;font-weight:900;color:#e8438a}
 .letra-big.mayuscula{font-family:system-ui,sans-serif}
-.letra-big.minuscula{font-family:'Andika',sans-serif}
-.letra-big.ligada{
-  font-family:'Cedarville Cursive',cursive;
-  color:#222;
-  font-size:110px;
-  font-weight:400;
-  letter-spacing:1px;
-}
+.letra-big.minuscula{font-family:'Andika',sans-serif;text-transform:lowercase}
+.letra-big.ligada{font-family:'Cedarville Cursive',cursive;color:#111;font-weight:400;font-size:120px}
 
-.grid-letras{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-top:12px}
-.item-letra{background:#fff;border:3px solid #ffe0ec;border-radius:18px;padding:10px;text-align:center;cursor:pointer}
-.item-letra.letra{font-size:40px;font-weight:900;color:#e8438a}
-.item-letra.letra.ligada{font-family:'Cedarville Cursive',cursive;color:#222;font-size:44px;font-weight:400}
-.item-letra.letra.minuscula{font-family:'Andika',sans-serif}
-.opciones{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-.op{padding:16px;border:3px solid #ffe0ec;border-radius:14px;font-size:28px;font-weight:900;background:#fff;cursor:pointer}
-.op.ligada{font-family:'Cedarville Cursive',cursive;font-size:34px;color:#222;font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+.item{border:3px solid #ffe0ec;border-radius:16px;padding:10px;background:white;cursor:pointer}
+.item.l{font-size:38px;font-weight:900;color:#e8438a}
+.item.l.minuscula{font-family:'Andika',sans-serif}
+.item.l.ligada{font-family:'Cedarville Cursive',cursive;color:#111;font-weight:400;font-size:40px}
+.item.t{font-size:12px;font-weight:700;color:#666}
+
+.opciones{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.op{padding:18px;border:3px solid #ffe0ec;border-radius:14px;font-size:30px;font-weight:900;background:white;cursor:pointer}
 .op.minuscula{font-family:'Andika',sans-serif}
+.op.ligada{font-family:'Cedarville Cursive',cursive;color:#111;font-weight:400;font-size:36px}
 </style>
 </head>
 <body>
 <header>LEO Y APRENDO ✨</header>
-<div class="tabs">
-<button class="activo" onclick="tab('letras',this)">🔤 LETRAS</button>
-<button onclick="tab('directas',this)">➡️ DIRECTAS</button>
-<button onclick="tab('palabras',this)">📚 PALABRAS</button>
-<button onclick="tab('oraciones',this)">💬 ORACIONES</button>
-</div>
+
 <div class="cont">
-<div class="menu-tipos">
-<button class="btn tipo activo" id="tMayus" onclick="setTipo('mayuscula')">A MAYÚSCULA</button>
-<button class="btn tipo" id="tMinus" onclick="setTipo('minuscula')">a minúscula</button>
-<button class="btn tipo" id="tLigada" onclick="setTipo('ligada')" style="font-family:'Cedarville Cursive',cursive;font-size:20px;color:#222">a ligada fina</button>
+<div class="tipos">
+<button class="btn tipo activo" id="bMayus" onclick="cambiarTipo('mayuscula')">A MAYÚSCULA</button>
+<button class="btn tipo" id="bMinus" onclick="cambiarTipo('minuscula')">a minúscula</button>
+<button class="btn tipo" id="bLigada" onclick="cambiarTipo('ligada')" style="font-family:'Cedarville Cursive',cursive">a ligada</button>
+</div>
+
+<div class="tabs">
+<button class="activo" onclick="cambiarSeccion('letras',this)">🔤 LETRAS</button>
+<button onclick="cambiarSeccion('silabas',this)">➡️ SÍLABAS</button>
+<button onclick="cambiarSeccion('palabras',this)">📚 PALABRAS</button>
 </div>
 
 <div class="card">
-<div style="font-size:80px" id="gEmoji">✈️</div>
-<div class="letra-big mayuscula" id="gLetra">A</div>
-<div style="font-weight:900;color:#6c5ce7;font-size:22px" id="gTexto">a de avión</div>
-<button class="btn" style="background:#6c5ce7;color:white;margin-top:12px;padding:14px 28px;font-size:18px" onclick="hablar()">🔊</button>
+<div style="font-size:80px" id="emoji">✈️</div>
+<div class="letra-big mayuscula" id="letraGrande">A</div>
+<div id="textoGrande" style="font-weight:900;color:#6c5ce7;font-size:22px">A de AVIÓN</div>
+<button class="btn" style="background:#6c5ce7;color:white;margin-top:12px;width:100%;padding:16px;font-size:18px" onclick="hablar()" id="btnAudio">🔊 A de AVIÓN</button>
 <div class="opciones" id="opciones"></div>
 </div>
 
-<div class="card">
-<div class="grid-letras" id="grid"></div>
-</div>
+<div class="card"><div class="grid" id="grid"></div></div>
 </div>
 
 <script>
-let tipo="mayuscula", seccion="letras", actual="A";
-const DATA={
-letras:[
-{A:"A",e:"✈️",ex:"avión",pal:"avión"}, {A:"B",e:"🚢",ex:"barco",pal:"barco"}, {A:"C",e:"🏠",ex:"casa",pal:"casa"}, {A:"M",e:"👩",ex:"mesa",pal:"mesa"}, {A:"P",e:"👨",ex:"patata",pal:"patata"}, {A:"S",e:"🐍",ex:"sopa",pal:"sopa"}, {A:"T",e:"🐢",ex:"tela",pal:"tela"}, {A:"L",e:"🌙",ex:"luna",pal:"luna"}
+let tipoActual = 'mayuscula';
+let seccionActual = 'letras';
+let actual = 'A';
+
+const DATOS = {
+letras: [
+{A:'A', e:'✈️', p:'avión'}, {A:'B', e:'🚢', p:'barco'}, {A:'C', e:'🏠', p:'casa'}, {A:'D', e:'🐬', p:'delfín'},
+{A:'E', e:'🐘', p:'elefante'}, {A:'F', e:'🦭', p:'foca'}, {A:'G', e:'🐱', p:'gato'}, {A:'L', e:'🌙', p:'luna'},
+{A:'M', e:'👩', p:'mesa'}, {A:'P', e:'🥔', p:'patata'}, {A:'S', e:'🍲', p:'sopa'}, {A:'T', e:'🧵', p:'tela'}
 ],
-directas:[{A:"MA",e:"🗺️",ex:"mapa",pal:"mapa"}, {A:"ME",e:"🪑",ex:"mesa",pal:"mesa"}, {A:"PA",e:"🥔",ex:"patata",pal:"patata"}, {A:"SO",e:"🍲",ex:"sopa",pal:"sopa"}, {A:"SE",e:"🧵",ex:"seta",pal:"seta"}, {A:"TE",e:"🧣",ex:"tela",pal:"tela"}, {A:"TO",e:"🐂",ex:"topo",pal:"topo"}, {A:"PI",e:"🐤",ex:"tipi",pal:"tipi"}],
-palabras:[
-{A:"LA MESA",e:"🪑",ex:"la mesa",pal:"la mesa"}, {A:"EL MAPA",e:"🗺️",ex:"el mapa",pal:"el mapa"}, {A:"LA SOPA",e:"🍲",ex:"la sopa",pal:"la sopa"}, {A:"LA SETA",e:"🍄",ex:"la seta",pal:"la seta"}, {A:"EL TOPO",e:"🦡",ex:"el topo",pal:"el topo"}, {A:"EL TIPI",e:"⛺",ex:"el tipi",pal:"el tipi"}, {A:"LA PATATA",e:"🥔",ex:"la patata",pal:"la patata"}, {A:"LA TELA",e:"🧵",ex:"la tela",pal:"la tela"}
+silabas: [
+{A:'MA', e:'🗺️', p:'mapa'}, {A:'ME', e:'🪑', p:'mesa'}, {A:'PA', e:'🥔', p:'patata'}, {A:'SO', e:'🍲', p:'sopa'},
+{A:'SE', e:'🍄', p:'seta'}, {A:'TE', e:'🧵', p:'tela'}, {A:'TO', e:'🦡', p:'topo'}, {A:'PI', e:'⛺', p:'tipi'}
 ],
-oraciones:[{A:"LA MESA",e:"🪑",ex:"la mesa",pal:"la mesa"}]
+palabras: [
+{A:'LA MESA', e:'🪑', p:'la mesa'}, {A:'EL MAPA', e:'🗺️', p:'el mapa'}, {A:'LA SOPA', e:'🍲', p:'la sopa'},
+{A:'LA SETA', e:'🍄', p:'la seta'}, {A:'EL TOPO', e:'🦡', p:'el topo'}, {A:'LA TELA', e:'🧵', p:'la tela'}, {A:'LA PATATA', e:'🥔', p:'la patata'}
+]
 };
 
-function formato(t){return tipo==='mayuscula'?t.toUpperCase():t.toLowerCase();}
-function setTipo(t){
- tipo=t;
- document.querySelectorAll('.btn.tipo').forEach(b=>b.classList.remove('activo'));
- document.getElementById(t==='mayuscula'?'tMayus':t==='minuscula'?'tMinus':'tLigada').classList.add('activo');
- render(); mostrar(actual);
+function formato(txt){
+if(tipoActual==='mayuscula') return txt.toUpperCase();
+return txt.toLowerCase();
 }
-function tab(s,btn){
- seccion=s;
- document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('activo'));
- btn.classList.add('activo');
- render(); mostrar(DATA[s][0].A);
+
+function cambiarTipo(t){
+tipoActual = t;
+document.getElementById('bMayus').classList.remove('activo');
+document.getElementById('bMinus').classList.remove('activo');
+document.getElementById('bLigada').classList.remove('activo');
+if(t==='mayuscula') document.getElementById('bMayus').classList.add('activo');
+if(t==='minuscula') document.getElementById('bMinus').classList.add('activo');
+if(t==='ligada') document.getElementById('bLigada').classList.add('activo');
+
+// CAMBIA TODO AL NUEVO TIPO Y HABLA
+renderGrid();
+mostrar(actual);
+hablar();
 }
-function render(){
- let grid=document.getElementById('grid');grid.innerHTML="";
- DATA[seccion].forEach(it=>{
-  let d=document.createElement('div');d.className='item-letra';
-  d.innerHTML=`<div style="font-size:40px">${it.e}</div><div class="letra ${tipo}">${formato(it.A)}</div><div style="font-size:12px;font-weight:700;color:#777" class="${tipo}" >${formato(it.ex)}</div>`;
-  if(tipo==='ligada'){ d.querySelector('.letra').style.fontFamily="'Cedarville Cursive',cursive"; d.querySelector('.letra').style.color="#222"; }
-  d.onclick=()=>mostrar(it.A);
-  grid.appendChild(d);
- });
+
+function cambiarSeccion(s,btn){
+seccionActual = s;
+document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('activo'));
+btn.classList.add('activo');
+renderGrid();
+mostrar(DATOS[s][0].A);
 }
-function mostrar(cod){
- actual=cod;
- let it=DATA[seccion].find(x=>x.A===cod);
- document.getElementById('gEmoji').textContent=it.e;
- document.getElementById('gLetra').textContent=formato(it.A);
- document.getElementById('gLetra').className="letra-big "+tipo;
- document.getElementById('gTexto').textContent=`${formato(it.A)} de ${formato(it.pal)}`;
- document.getElementById('gTexto').style.fontFamily=tipo==='ligada'?"'Cedarville Cursive',cursive":"system-ui";
- document.getElementById('gTexto').style.fontSize=tipo==='ligada'?"34px":"22px";
- let ops=[it.A]; while(ops.length<4){let r=DATA[seccion][Math.floor(Math.random()*DATA[seccion].length)].A; if(!ops.includes(r)) ops.push(r);}
- ops=ops.sort(()=>Math.random()-0.5);
- let cont=document.getElementById('opciones');cont.innerHTML="";
- ops.forEach(o=>{
-  let div=document.createElement('div');div.className='op '+tipo;div.textContent=formato(o);div.onclick=()=>{if(o===it.A) hablar();};cont.appendChild(div);
- });
+
+function renderGrid(){
+let grid = document.getElementById('grid'); grid.innerHTML='';
+DATOS[seccionActual].forEach(it=>{
+let div = document.createElement('div');
+div.className='item';
+div.innerHTML=`<div style="font-size:40px">${it.e}</div><div class="l ${tipoActual}">${formato(it.A)}</div><div class="t">${formato(it.p)}</div>`;
+div.onclick=()=>mostrar(it.A);
+grid.appendChild(div);
+});
 }
+
+function mostrar(codigo){
+actual = codigo;
+let it = DATOS[seccionActual].find(x=>x.A===codigo);
+document.getElementById('emoji').textContent = it.e;
+let lg = document.getElementById('letraGrande');
+lg.textContent = formato(it.A);
+lg.className = 'letra-big ' + tipoActual;
+document.getElementById('textoGrande').textContent = `${formato(it.A)} de ${formato(it.p)}`;
+document.getElementById('textoGrande').style.fontFamily = tipoActual==='ligada'? "'Cedarville Cursive',cursive" : "system-ui";
+document.getElementById('textoGrande').style.fontSize = tipoActual==='ligada'? "36px" : "22px";
+document.getElementById('btnAudio').textContent = `🔊 ${formato(it.A)} de ${formato(it.p)}`;
+
+// opciones
+let ops=[it.A];
+while(ops.length<4){let r=DATOS[seccionActual][Math.floor(Math.random()*DATOS[seccionActual].length)].A; if(!ops.includes(r)) ops.push(r);}
+ops=ops.sort(()=>Math.random()-0.5);
+let cont=document.getElementById('opciones'); cont.innerHTML='';
+ops.forEach(o=>{
+let d=document.createElement('div');
+d.className='op '+tipoActual;
+d.textContent=formato(o);
+d.onclick=()=>{
+if(o===it.A){ hablar(); d.style.background='#c8f7c5'; }
+else{ d.style.background='#ffd1d1'; }
+};
+cont.appendChild(d);
+});
+}
+
 function hablar(){
- speechSynthesis.cancel();
- let it=DATA[seccion].find(x=>x.A===actual);
- let u=new SpeechSynthesisUtterance(`${it.A} de ${it.pal}`.toLowerCase());
- u.lang="es-ES"; u.rate=0.85; speechSynthesis.speak(u);
+speechSynthesis.cancel();
+let it = DATOS[seccionActual].find(x=>x.A===actual);
+let textoAudio = `${it.A} de ${it.p}`.toLowerCase();
+let u = new SpeechSynthesisUtterance(textoAudio);
+u.lang='es-ES'; u.rate=0.85;
+speechSynthesis.speak(u);
 }
-render();mostrar("A");
+
+renderGrid();
+mostrar('A');
 </script>
 </body>
 </html>
