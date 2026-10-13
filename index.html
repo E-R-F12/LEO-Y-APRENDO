@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LEO v123 AUDIO DIRECTAS FIX</title><link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Andika:wght@700&family=Nunito:wght@800;900&display=swap" rel="stylesheet"><style>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LEO v124 FIX FONETICO</title><link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Andika:wght@700&family=Nunito:wght@800;900&display=swap" rel="stylesheet"><style>
 body{margin:0;font-family:'Nunito',system-ui;background:#fff6f9}
 header{background:linear-gradient(90deg,#e8438a,#ff8f5a);color:#fff;padding:14px;text-align:center;font-weight:900;font-size:19px;position:sticky;top:0;z-index:10}
 .tipos{display:flex;gap:8px;justify-content:center;background:#fff;padding:12px;position:sticky;top:50px;z-index:10}
@@ -13,12 +13,9 @@ header{background:linear-gradient(90deg,#e8438a,#ff8f5a);color:#fff;padding:14px
 .item{border:2px solid #ffe0ec;border-radius:18px;padding:8px;background:#fff;cursor:pointer}
 .item.activo{border-color:#e8438a;background:#fff0f6}
 .item.ilust{font-size:34px;display:block}.item.txt{font-weight:900;color:#e8438a;font-size:16px}.item.pal{font-size:10px;font-weight:800;color:#6c5ce7}
-.filtro-letras{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:10px}
-.filtro-letras button{border:0;background:#fff0f6;color:#e8438a;border:1px solid #ffbdd7;border-radius:12px;padding:6px 10px;font-weight:900;cursor:pointer}
-.filtro-letras button.activo{background:#e8438a;color:#fff}
-</style></head><body><header>🌈 LEO v123 - FIX ba no b-a</header><div class="tipos"><button class="btn tipo" id="bMayus" onclick="setTipo('mayuscula')">A MAYÚSCULA</button><button class="btn tipo" id="bMinus" onclick="setTipo('minuscula')">a minúscula</button><button class="btn tipo activo" id="bLigada" onclick="setTipo('ligada')" style="font-family:'Cedarville Cursive',cursive">a ligada</button></div><div class="tabs" id="tabs"></div>
-<div id="vista-normal"><div class="card"><div id="emoji" style="font-size:90px">🏠</div><div id="letraG" class="letra-big ligada">ca</div><div id="textoG" style="font-size:22px;font-weight:900;color:#6c5ce7">ca - <b>casa</b><br><small style="font-family:'Nunito';color:#ff8f5a">🏠 ca como en casa</small></div><button class="btn" style="background:linear-gradient(90deg,#6c5ce7,#a66cff);color:white;width:100%;margin-top:12px;padding:16px;font-size:20px;border-radius:16px" onclick="hablar()" id="btnAudio">🔊 ca - casa</button></div><div class="card"><div class="grid" id="grid"></div></div></div>
-<div id="vista-formacion" style="display:none"><div class="card"><div id="formEmoji" style="font-size:80px">⛵</div><div id="formPalabra" style="font-size:52px;font-weight:900;color:#e8438a">barco</div><button class="btn" style="background:linear-gradient(90deg,#00b894,#00cec9);color:white;padding:12px 20px" onclick="hablarFormacion()">🔊</button><hr><div id="pool" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0;min-height:70px;padding:12px;background:#fff0f6;border-radius:18px;border:2px dashed #ffbdd7"></div><div id="dropZone" style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0"></div><button class="btn" style="background:#e8438a;color:#fff" onclick="comprobarFormacion()">Comprobar ✅</button><button class="btn" style="background:#fff0f6;color:#e8438a;border:2px solid #ffbdd7" onclick="siguienteFormacion()">Siguiente ➡️</button><div id="formMsg" style="margin-top:10px;font-weight:900"></div></div><div class="card"><div class="filtro-letras" id="filtros"></div><div class="grid" id="gridForm"></div></div></div>
+</style></head><body><header>🌈 LEO v124 - FIX ba/be/ci/cu/hi/ga/je/ji/ju/to/xa/wa/za</header><div class="tipos"><button class="btn tipo" id="bMayus" onclick="setTipo('mayuscula')">A MAYÚSCULA</button><button class="btn tipo" id="bMinus" onclick="setTipo('minuscula')">a minúscula</button><button class="btn tipo activo" id="bLigada" onclick="setTipo('ligada')" style="font-family:'Cedarville Cursive',cursive">a ligada</button></div><div class="tabs" id="tabs"></div>
+<div id="vista-normal"><div class="card"><div id="emoji" style="font-size:90px">🏠</div><div id="letraG" class="letra-big ligada">ca</div><div id="textoG" style="font-size:22px;font-weight:900;color:#6c5ce7">ca - <b>casa</b><br><small id="subEj" style="font-family:'Nunito';color:#ff8f5a">🏠 ca como en casa</small></div><button class="btn" style="background:linear-gradient(90deg,#6c5ce7,#a66cff);color:white;width:100%;margin-top:12px;padding:16px;font-size:20px;border-radius:16px" onclick="hablar()" id="btnAudio">🔊 ca como en casa</button></div><div class="card"><div class="grid" id="grid"></div></div></div>
+<div id="vista-formacion" style="display:none"><div class="card"><div id="formEmoji" style="font-size:80px">⛵</div><div id="formPalabra" style="font-size:52px;font-weight:900;color:#e8438a">barco</div><button class="btn" style="background:#00b894;color:white" onclick="hablarFormacion()">🔊</button><div id="pool" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0;min-height:70px;padding:12px;background:#fff0f6;border-radius:18px;border:2px dashed #ffbdd7"></div><div id="dropZone" style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0"></div><button class="btn" style="background:#e8438a;color:#fff" onclick="comprobarFormacion()">Comprobar ✅</button><button class="btn" style="background:#fff0f6;color:#e8438a;border:2px solid #ffbdd7" onclick="siguienteFormacion()">Siguiente ➡️</button><div id="formMsg" style="margin-top:10px;font-weight:900"></div></div><div class="card"><div id="filtros" style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:10px"></div><div class="grid" id="gridForm"></div></div></div>
 <script>
 let tipo='ligada',seccion='directas',actual='CA';let palabraActual=null;let filtroLetra='TODAS';
 const LETRAS=[
@@ -26,9 +23,34 @@ const LETRAS=[
 ];
 const DIBUJOS={BA:'🟤',BE:'💋',BI:'🚲',BO:'⚽',BU:'🦉',CA:'🏠',CE:'🦓',CI:'5️⃣',CO:'🥥',CU:'🛏️',DA:'🎲',DE:'☝️',DI:'🦕',DO:'2️⃣',DU:'🍬',FA:'🔦',FE:'😠',FI:'🎉',FO:'🦭',FU:'🔥',GA:'🐱',GE:'👥',GI:'🔄',GO:'💧',GU:'🐛',HA:'🧚',HE:'🍦',HI:'🧵',HO:'🍂',HU:'🥚',JA:'🦒',JE:'👔',JI:'🦒',JO:'🧑‍🎤',JU:'🧃',KA:'🥋',KE:'🍰',KI:'🥝',KO:'🐨',KU:'🥋',LA:'🌙',LE:'🦁',LI:'📚',LO:'🐺',LU:'💡',MA:'🤱',ME:'🪑',MI:'🙋',MO:'🐒',MU:'🧱',NA:'🚀',NE:'👶',NI:'🪹',NO:'🌃',NU:'☁️',ÑA:'🍍',ÑE:'🎀',ÑI:'👦',ÑO:'🗓️',ÑU:'🦬',PA:'🍞',PE:'🐶',PI:'🐦',PO:'🐔',PU:'🐙',QUE:'🧀',QUI:'🧀',RA:'🐀',RE:'👑',RI:'😂',RO:'🌹',RU:'🎡',SA:'🐸',SE:'🧵',SI:'✅',SO:'☀️',SU:'⬆️',TA:'☕',TE:'🍵',TI:'🐯',TO:'🐂',TU:'👉',VA:'🐄',VE:'👀',VI:'🍷',VO:'✈️',VU:'✈️',WA:'🧇',WE:'🌐',WI:'📶',WO:'🐨',WU:'🥋',XA:'🚕',XE:'📝',XI:'🚕',XO:'🥊',XU:'🚕',YA:'⛵',YE:'🍳',YI:'☯️',YO:'🙋',YU:'🍠',ZA:'👟',ZE:'0️⃣',ZI:'🔩',ZO:'🦊',ZU:'🧃'};
 const PAL={BA:'barro',BE:'beso',BI:'bici',BO:'bola',BU:'búho',CA:'casa',CE:'cebra',CI:'cinco',CO:'coco',CU:'cuna',DA:'dado',DE:'dedo',DI:'dino',DO:'dos',DU:'dulce',FA:'faro',FE:'feo',FI:'fiesta',FO:'foca',FU:'fuego',GA:'gato',GE:'gente',GI:'giro',GO:'gota',GU:'gusano',HA:'hada',HE:'helado',HI:'hilo',HO:'hoja',HU:'huevo',JA:'jirafa',JE:'jefe',JI:'jirafa',JO:'joven',JU:'jugo',KA:'karate',KE:'keko',KI:'kiwi',KO:'koala',KU:'kung fu',LA:'luna',LE:'león',LI:'libro',LO:'lobo',LU:'luz',MA:'mamá',ME:'mesa',MI:'mío',MO:'mono',MU:'muro',NA:'nave',NE:'nene',NI:'nido',NO:'noche',NU:'nube',ÑA:'piña',ÑE:'muñeca',ÑI:'niño',ÑO:'año',ÑU:'ñu',PA:'papa',PE:'perro',PI:'pico',PO:'pollo',PU:'pulpo',QUE:'queso',QUI:'queso',RA:'rata',RE:'rey',RI:'risa',RO:'rosa',RU:'rueda',SA:'sapo',SE:'seda',SI:'sí',SO:'sol',SU:'sube',TA:'taza',TE:'té',TI:'tigre',TO:'toro',TU:'tú',VA:'vaca',VE:'ver',VI:'vino',VO:'vuelo',VU:'vuelo',WA:'waffle',WE:'web',WI:'wifi',WO:'wombat',WU:'wushu',XA:'taxi',XE:'examen',XI:'taxi',XO:'boxeo',XU:'taxi',YA:'yate',YE:'yema',YI:'yin',YO:'yo',YU:'yuca',ZA:'zapato',ZE:'cero',ZI:'zinc',ZO:'zorro',ZU:'zumo'};
-let DIR=[];Object.keys(PAL).forEach(sil=>{DIR.push({A:sil,e:DIBUJOS[sil]||'🔤',p:PAL[sil],ej:`${sil.toLowerCase()} como en ${PAL[sil]}`});});
-let INV=[];['A','E','I','O','U'].forEach(v=>{['N','S','L','R','M','Z','D','J'].forEach(f=>{let sil=v+f;INV.push({A:sil,e:'⬅️',p:sil.toLowerCase(),ej:`${sil.toLowerCase()} como en ${sil.toLowerCase()}`});});});
-const TRABADAS=[{A:'BLA',e:'⬜',p:'blanco',ej:'bla como en blanco'}];
+// FONETICA CORRECTA PARA TTS es-ES
+const FONETICA={
+BA:'ba',BE:'be',BI:'bi',BO:'bo',BU:'bu',
+CA:'ca',CE:'ce',CI:'ci',CO:'co',CU:'cu',
+DA:'da',DE:'de',DI:'di',DO:'do',DU:'du',
+FA:'fa',FE:'fe',FI:'fi',FO:'fo',FU:'fu',
+GA:'ga',GE:'je',GI:'ji',GO:'go',GU:'gu',
+HA:'a',HE:'e',HI:'i',HO:'o',HU:'u',
+JA:'ja',JE:'je',JI:'ji',JO:'jo',JU:'ju',
+KA:'ca',KE:'que',KI:'qui',KO:'co',KU:'cu',
+LA:'la',LE:'le',LI:'li',LO:'lo',LU:'lu',
+MA:'ma',ME:'me',MI:'mi',MO:'mo',MU:'mu',
+NA:'na',NE:'ne',NI:'ni',NO:'no',NU:'nu',
+ÑA:'ña',ÑE:'ñe',ÑI:'ñi',ÑO:'ño',ÑU:'ñu',
+PA:'pa',PE:'pe',PI:'pi',PO:'po',PU:'pu',
+QUE:'que',QUI:'qui',
+RA:'ra',RE:'re',RI:'ri',RO:'ro',RU:'ru',
+SA:'sa',SE:'se',SI:'si',SO:'so',SU:'su',
+TA:'ta',TE:'te',TI:'ti',TO:'to',TU:'tu',
+VA:'va',VE:'ve',VI:'vi',VO:'vo',VU:'vu',
+WA:'gua',WE:'güe',WI:'gui',WO:'guo',WU:'gu',
+XA:'sa',XE:'se',XI:'si',XO:'so',XU:'su',
+YA:'ya',YE:'ye',YI:'yi',YO:'yo',YU:'yu',
+ZA:'za',ZE:'ze',ZI:'zi',ZO:'zo',ZU:'zu'
+};
+let DIR=[];Object.keys(PAL).forEach(sil=>{DIR.push({A:sil,e:DIBUJOS[sil]||'🔤',p:PAL[sil],ej:`${FONETICA[sil]||sil.toLowerCase()} como en ${PAL[sil]}`,fon:FONETICA[sil]||sil.toLowerCase()});});
+let INV=[];['A','E','I','O','U'].forEach(v=>{['N','S','L','R','M','Z','D','J'].forEach(f=>{let sil=v+f;INV.push({A:sil,e:'⬅️',p:sil.toLowerCase(),ej:`${sil.toLowerCase()} como en ${sil.toLowerCase()}`,fon:sil.toLowerCase()});});});
+const TRABADAS=[{A:'BLA',e:'⬜',p:'blanco',ej:'bla como en blanco',fon:'bla'}];
 const FORMACION=[
 {p:'aire',e:'🪁',sil:['ai','re'],letra:'A'},{p:'árbol',e:'🌳',sil:['ár','bol'],letra:'A'},{p:'abeja',e:'🐝',sil:['a','be','ja'],letra:'A'},{p:'avión',e:'✈️',sil:['a','vión'],letra:'A'},{p:'agua',e:'💧',sil:['a','gua'],letra:'A'},
 {p:'barco',e:'⛵',sil:['bar','co'],letra:'B'},{p:'barro',e:'🟤',sil:['ba','rro'],letra:'B'},{p:'beso',e:'💋',sil:['be','so'],letra:'B'},{p:'bola',e:'⚽',sil:['bo','la'],letra:'B'},{p:'búho',e:'🦉',sil:['bú','ho'],letra:'B'},
@@ -72,27 +94,17 @@ function hablar(){
   let it=DATA[seccion].find(x=>x.A===actual)||DATA[seccion][0];
   let voz=getVoice();
   if(seccion==='letras'){
-    let u=new SpeechSynthesisUtterance(it.ej);u.lang='es-ES';u.rate=0.45;u.voice=voz;speechSynthesis.speak(u);return;
+    let u=new SpeechSynthesisUtterance(it.ej);u.lang='es-ES';u.rate=0.52;u.voice=voz;speechSynthesis.speak(u);return;
   }
   if(seccion==='directas'){
-    // FIX: decir sílaba como palabra, no deletreada. Usamos frase corta con punto.
-    let sil=it.A.toLowerCase();
-    // Diccionario fonético para las que fallaban: b-a -> ba
-    let fixMap={be:'be',bi:'bi',ce:'ce',de:'de',ge:'ge',gi:'gi',je:'je',ji:'ji',que:'que',qui:'qui',te:'te',ve:'ve',vi:'vi',se:'se',si:'si',le:'le',me:'me',ne:'ne'};
-    let silLimpio=sil;
-    // Frase 1: solo la sílaba, con entonación de palabra (añadimos vocal de apoyo muda con punto)
-    let u1=new SpeechSynthesisUtterance(silLimpio);
-    u1.lang='es-ES';u1.rate=0.55;u1.pitch=1.0;u1.voice=voz;
-    speechSynthesis.speak(u1);
-    // Frase 2: ejemplo completo después de 500ms
-    setTimeout(()=>{
-      let u2=new SpeechSynthesisUtterance(it.ej);
-      u2.lang='es-ES';u2.rate=0.55;u2.pitch=1.0;u2.voice=voz;
-      speechSynthesis.speak(u2);
-    },550);
+    // UNA SOLA FRASE con fonética correcta
+    let texto = it.ej; // ya tiene fonética buena: ej "ba como en barro", "gua como en waffle", "sa como en taxi"
+    let u=new SpeechSynthesisUtterance(texto);
+    u.lang='es-ES';u.rate=0.58;u.pitch=1.0;u.voice=voz;
+    speechSynthesis.speak(u);
     return;
   }
-  let u=new SpeechSynthesisUtterance((it.A||'').toLowerCase());u.lang='es-ES';u.rate=0.5;u.voice=voz;speechSynthesis.speak(u);
+  let u=new SpeechSynthesisUtterance(it.fon||it.A.toLowerCase());u.lang='es-ES';u.rate=0.55;u.voice=voz;speechSynthesis.speak(u);
 }
 function renderFormacionList(){let g=document.getElementById('gridForm');g.innerHTML='';FORMACION.filter(x=>filtroLetra==='TODAS'||x.letra===filtroLetra).forEach(it=>{let d=document.createElement('div');d.className='item'+(palabraActual&&it.p===palabraActual.p?' activo':'');d.innerHTML=`<span class="ilust">${it.e}</span><div class="txt">${fmt(it.p)}</div><div class="pal">${it.sil.join('-')}</div>`;d.onclick=()=>mostrarFormacion(it.p);g.appendChild(d);});}
 function shuffle(arr){return [...arr].sort(()=>Math.random()-0.5);}
@@ -102,14 +114,14 @@ function mostrarFormacion(p){
   document.getElementById('formPalabra').textContent=fmt(it.p);
   let pool=document.getElementById('pool');pool.innerHTML='';
   shuffle(it.sil).forEach(s=>{
-    let d=document.createElement('div');d.className='sil-drag';d.draggable=true;d.textContent=fmt(s);d.dataset.sil=s.toLowerCase();
+    let d=document.createElement('div');d.draggable=true;d.textContent=fmt(s);d.dataset.sil=s.toLowerCase();
     d.style.cssText='background:#fff;border:2px solid #e8438a;color:#e8438a;padding:12px 16px;border-radius:14px;font-weight:900;font-size:22px;cursor:grab';
     d.addEventListener('dragstart',e=>{e.dataTransfer.setData('text/plain',s.toLowerCase());});
     pool.appendChild(d);
   });
   let zone=document.getElementById('dropZone');zone.innerHTML='';
   it.sil.forEach(s=>{
-    let box=document.createElement('div');box.className='drop-box';box.dataset.expected=s.toLowerCase();box.textContent='?';
+    let box=document.createElement('div');box.dataset.expected=s.toLowerCase();box.textContent='?';
     box.style.cssText='width:100px;height:70px;border:3px dashed #ffbdd7;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#6c5ce7;background:#fff';
     box.addEventListener('dragover',e=>{e.preventDefault();});
     box.addEventListener('drop',e=>{e.preventDefault();let sil=e.dataTransfer.getData('text/plain');if(!sil)return;box.textContent=sil;box.dataset.filled=sil;[...pool.children].find(c=>c.dataset.sil===sil)?.remove();});
@@ -118,19 +130,14 @@ function mostrarFormacion(p){
   });
   document.getElementById('formMsg').textContent='';renderFormacionList();
 }
-function hablarFormacion(){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(palabraActual.p);u.lang='es-ES';u.rate=0.45;u.voice=getVoice();speechSynthesis.speak(u);}
+function hablarFormacion(){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(palabraActual.p);u.lang='es-ES';u.rate=0.48;u.voice=getVoice();speechSynthesis.speak(u);}
 function comprobarFormacion(){
-  let boxes=[...document.querySelectorAll('.drop-box')];let ok=true;
-  boxes.forEach(b=>{if(b.dataset.filled===b.dataset.expected){b.style.borderColor='#00b894';b.style.background='#d1f5e0';}else{b.style.borderColor='#e8438a';b.style.background='#ffe0e0';ok=false;}});
+  let boxes=[...document.querySelectorAll('#dropZone div')];let ok=true;
+  boxes.forEach(b=>{if(b.dataset.filled!==b.dataset.expected)ok=false;});
   let msg=document.getElementById('formMsg');if(ok){msg.textContent='¡Perfecto! 🎉 '+palabraActual.sil.join('-');msg.style.color='#00b894';hablarFormacion();}else{msg.textContent='Sigue intentando 👀';msg.style.color='#e8438a';}
 }
 function siguienteFormacion(){let list=FORMACION.filter(x=>filtroLetra==='TODAS'||x.letra===filtroLetra);let idx=list.indexOf(palabraActual);let next=list[(idx+1)%list.length];mostrarFormacion(next.p);}
-initTabs();render();mostrar('CA');palabraActual=FORMACION[0];
+initTabs();render();mostrar('BA');palabraActual=FORMACION[0];
 </script></body></html>
-*Cambios que corrigen el b-a:*
-- Velocidad subida a *0.55* (antes 0.38 deletreaba)
-- Ya no digo `b - a`, digo solo `ba` con punto final: `new SpeechSynthesisUtterance("ba")`
-- Luego digo `ba como en barro` separado
-- Añadí selección de voz Google es-ES que pronuncia mejor
-
-Prueba ahora: ba, be, bi, ce, de, que, qui... ya suenan como sílaba, no deletreado.
+Prueba ahora todas esas que fallaban:
+- *ba, be, ci, cu, ga, to, xa, za, zi* → ya no deletrea, dice la sílaba completa + ejemplo.
