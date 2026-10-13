@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LEO v121 AUDIO LETRAS</title><link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Andika:wght@700&family=Nunito:wght@800;900&display=swap" rel="stylesheet"><style>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LEO v122 DIRECTAS AUDIO</title><link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Andika:wght@700&family=Nunito:wght@800;900&display=swap" rel="stylesheet"><style>
 body{margin:0;font-family:'Nunito',system-ui;background:#fff6f9}
 header{background:linear-gradient(90deg,#e8438a,#ff8f5a);color:#fff;padding:14px;text-align:center;font-weight:900;font-size:19px;position:sticky;top:0;z-index:10}
 .tipos{display:flex;gap:8px;justify-content:center;background:#fff;padding:12px;position:sticky;top:50px;z-index:10}
@@ -23,18 +23,23 @@ header{background:linear-gradient(90deg,#e8438a,#ff8f5a);color:#fff;padding:14px
 .filtro-letras{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:10px}
 .filtro-letras button{border:0;background:#fff0f6;color:#e8438a;border:1px solid #ffbdd7;border-radius:12px;padding:6px 10px;font-weight:900;cursor:pointer}
 .filtro-letras button.activo{background:#e8438a;color:#fff}
-</style></head><body><header>🌈 LEO v121 - AUDIO LETRAS</header><div class="tipos"><button class="btn tipo" id="bMayus" onclick="setTipo('mayuscula')">A MAYÚSCULA</button><button class="btn tipo" id="bMinus" onclick="setTipo('minuscula')">a minúscula</button><button class="btn tipo activo" id="bLigada" onclick="setTipo('ligada')" style="font-family:'Cedarville Cursive',cursive">a ligada</button></div><div class="tabs" id="tabs"></div>
-<div id="vista-normal"><div class="card"><div id="emoji" style="font-size:90px">🪁</div><div id="letraG" class="letra-big ligada">a</div><div id="textoG" style="font-size:22px;font-weight:900;color:#6c5ce7">a - <b>aire</b><br><small style="font-family:'Nunito';color:#ff8f5a">🪁 a de aire</small></div><button class="btn" style="background:linear-gradient(90deg,#6c5ce7,#a66cff);color:white;width:100%;margin-top:12px;padding:16px;font-size:20px;border-radius:16px" onclick="hablar()" id="btnAudio">🔊 a de aire</button></div><div class="card"><div class="grid" id="grid"></div></div></div>
+</style></head><body><header>🌈 LEO v122 - DIRECTAS ca no c-a</header><div class="tipos"><button class="btn tipo" id="bMayus" onclick="setTipo('mayuscula')">A MAYÚSCULA</button><button class="btn tipo" id="bMinus" onclick="setTipo('minuscula')">a minúscula</button><button class="btn tipo activo" id="bLigada" onclick="setTipo('ligada')" style="font-family:'Cedarville Cursive',cursive">a ligada</button></div><div class="tabs" id="tabs"></div>
+<div id="vista-normal"><div class="card"><div id="emoji" style="font-size:90px">🏠</div><div id="letraG" class="letra-big ligada">ca</div><div id="textoG" style="font-size:22px;font-weight:900;color:#6c5ce7">ca - <b>casa</b><br><small style="font-family:'Nunito';color:#ff8f5a">🏠 ca como en casa</small></div><button class="btn" style="background:linear-gradient(90deg,#6c5ce7,#a66cff);color:white;width:100%;margin-top:12px;padding:16px;font-size:20px;border-radius:16px" onclick="hablar()" id="btnAudio">🔊 ca - casa</button></div><div class="card"><div class="grid" id="grid"></div></div></div>
 <div id="vista-formacion" style="display:none"><div class="card"><div id="formEmoji" style="font-size:80px">⛵</div><div id="formPalabra" class="form-palabra">barco</div><button class="btn" style="background:linear-gradient(90deg,#00b894,#00cec9);color:white;margin-top:6px;padding:12px 20px;font-size:18px;border-radius:16px" onclick="hablarFormacion()">🔊</button><hr style="margin:14px 0;border:0;border-top:2px dashed #ffe0ec"><div style="font-weight:900;color:#6c5ce7">👇 Arrastra las sílabas:</div><div id="pool" class="pool"></div><div id="dropZone" class="drop-zone"></div><button class="btn" style="background:#e8438a;color:#fff;padding:10px 18px" onclick="comprobarFormacion()">Comprobar ✅</button><button class="btn" style="background:#fff0f6;color:#e8438a;border:2px solid #ffbdd7;padding:10px 18px" onclick="siguienteFormacion()">Siguiente ➡️</button><div id="formMsg" style="margin-top:10px;font-weight:900;font-size:18px"></div></div><div class="card"><div class="filtro-letras" id="filtros"></div><div class="grid" id="gridForm"></div></div></div>
 <script>
-let tipo='ligada',seccion='letras',actual='A';let palabraActual=null;let filtroLetra='TODAS';
-// AUDIO LETRAS: a de aire, b de barco...
+let tipo='ligada',seccion='directas',actual='CA';let palabraActual=null;let filtroLetra='TODAS';
 const LETRAS=[
 {A:'A',e:'🪁',p:'aire',ej:'a de aire'},{A:'B',e:'⛵',p:'barco',ej:'b de barco'},{A:'C',e:'🏠',p:'casa',ej:'c de casa'},{A:'D',e:'🐬',p:'delfín',ej:'d de delfín'},{A:'E',e:'🐘',p:'elefante',ej:'e de elefante'},{A:'F',e:'🗼',p:'faro',ej:'f de faro'},{A:'G',e:'🐱',p:'gato',ej:'g de gato'},{A:'H',e:'🦛',p:'hipo',ej:'h de hipo'},{A:'I',e:'🧲',p:'imán',ej:'i de imán'},{A:'J',e:'🦒',p:'jirafa',ej:'j de jirafa'},{A:'K',e:'🥝',p:'kiwi',ej:'k de kiwi'},{A:'L',e:'🌙',p:'luna',ej:'l de luna'},{A:'M',e:'🌊',p:'mar',ej:'m de mar'},{A:'N',e:'🪺',p:'nido',ej:'n de nido'},{A:'Ñ',e:'🍍',p:'piña',ej:'ñ de piña'},{A:'O',e:'🐙',p:'oso',ej:'o de oso'},{A:'P',e:'⚽',p:'pelota',ej:'p de pelota'},{A:'Q',e:'🧀',p:'queso',ej:'q de queso'},{A:'R',e:'🐀',p:'ratón',ej:'r de ratón'},{A:'S',e:'☀️',p:'sol',ej:'s de sol'},{A:'T',e:'🐢',p:'tortuga',ej:'t de tortuga'},{A:'U',e:'🍇',p:'uva',ej:'u de uva'},{A:'V',e:'🐄',p:'vaca',ej:'v de vaca'},{A:'W',e:'🍉',p:'waffle',ej:'w de waffle'},{A:'X',e:'🎷',p:'xilófono',ej:'x de xilófono'},{A:'Y',e:'🪀',p:'yoyo',ej:'y de yoyo'},{A:'Z',e:'👟',p:'zapato',ej:'z de zapato'}
 ];
-let DIR=[];['B','C','D','F','G','H','J','K','L','M','N','Ñ','P','Q','R','S','T','V','W','X','Y','Z'].forEach(c=>{['A','E','I','O','U'].forEach(v=>{let sil=c+v; if(c==='Q'){if(v==='A')sil='QA';if(v==='E')sil='QUE';if(v==='I')sil='QUI';if(v==='O')sil='QO';if(v==='U')sil='QU';}DIR.push({A:sil,e:'🔤',p:sil.toLowerCase(),ej:sil.toLowerCase()});});});
-let INV=[];['A','E','I','O','U'].forEach(v=>{['N','S','L','R','M','Z','D','J'].forEach(f=>{INV.push({A:v+f,e:'⬅️',p:(v+f).toLowerCase(),ej:(v+f).toLowerCase()});});});
-const TRABADAS=[{A:'BLA',e:'⬜',p:'blanco',ej:'bla como en blanco'},{A:'BRA',e:'💪',p:'brazo',ej:'bra como en brazo'},{A:'CLA',e:'📚',p:'clase',ej:'cla como en clase'},{A:'DRA',e:'🐉',p:'dragón',ej:'dra como en dragón'},{A:'FRA',e:'🍓',p:'fresa',ej:'fra como en fresa'}];
+const DIBUJOS_DIRECTAS={BA:'🟤',BE:'💋',BI:'🚲',BO:'⚽',BU:'🦉',CA:'🏠',CE:'🦓',CI:'5️⃣',CO:'🥥',CU:'🛏️',DA:'🎲',DE:'☝️',DI:'🦕',DO:'2️⃣',DU:'🍬',FA:'🔦',FE:'😠',FI:'🎉',FO:'🦭',FU:'🔥',GA:'🐱',GE:'👥',GI:'🔄',GO:'💧',GU:'🐛',HA:'🧚',HE:'🍦',HI:'🧵',HO:'🍂',HU:'🥚',JA:'🦒',JE:'👔',JI:'🦒',JO:'🧑‍🎤',JU:'🧃',KA:'🥋',KE:'🍰',KI:'🥝',KO:'🐨',KU:'🥋',LA:'🌙',LE:'🦁',LI:'📚',LO:'🐺',LU:'💡',MA:'🤱',ME:'🪑',MI:'🙋',MO:'🐒',MU:'🧱',NA:'🚀',NE:'👶',NI:'🪹',NO:'🌃',NU:'☁️',ÑA:'🍍',ÑE:'🎀',ÑI:'👦',ÑO:'🗓️',ÑU:'🦬',PA:'🍞',PE:'🐶',PI:'🐦',PO:'🐔',PU:'🐙',QA:'🧀',QUE:'🧀',QUI:'🧀',QO:'🧀',QU:'🧀',RA:'🐀',RE:'👑',RI:'😂',RO:'🌹',RU:'🎡',SA:'🐸',SE:'🧵',SI:'✅',SO:'☀️',SU:'⬆️',TA:'☕',TE:'🍵',TI:'🐯',TO:'🐂',TU:'👉',VA:'🐄',VE:'👀',VI:'🍷',VO:'✈️',VU:'✈️',WA:'🧇',WE:'🌐',WI:'📶',WO:'🐨',WU:'🥋',XA:'🚕',XE:'📝',XI:'🚕',XO:'🥊',XU:'🚕',YA:'⛵',YE:'🍳',YI:'☯️',YO:'🙋',YU:'🍠',ZA:'👟',ZE:'0️⃣',ZI:'🔩',ZO:'🦊',ZU:'🧃'};
+const PAL_DIRECTAS={BA:'barro',BE:'beso',BI:'bici',BO:'bola',BU:'búho',CA:'casa',CE:'cebra',CI:'cinco',CO:'coco',CU:'cuna',DA:'dado',DE:'dedo',DI:'dino',DO:'dos',DU:'dulce',FA:'faro',FE:'feo',FI:'fiesta',FO:'foca',FU:'fuego',GA:'gato',GE:'gente',GI:'giro',GO:'gota',GU:'gusano',HA:'hada',HE:'helado',HI:'hilo',HO:'hoja',HU:'huevo',JA:'jirafa',JE:'jefe',JI:'jirafa',JO:'joven',JU:'jugo',KA:'karate',KE:'keko',KI:'kiwi',KO:'koala',KU:'kung fu',LA:'luna',LE:'león',LI:'libro',LO:'lobo',LU:'luz',MA:'mamá',ME:'mesa',MI:'mío',MO:'mono',MU:'muro',NA:'nave',NE:'nene',NI:'nido',NO:'noche',NU:'nube',ÑA:'piña',ÑE:'muñeca',ÑI:'niño',ÑO:'año',ÑU:'ñu',PA:'papa',PE:'perro',PI:'pico',PO:'pollo',PU:'pulpo',QA:'queso',QUE:'queso',QUI:'queso',QO:'queso',QU:'queso',RA:'rata',RE:'rey',RI:'risa',RO:'rosa',RU:'rueda',SA:'sapo',SE:'seda',SI:'sí',SO:'sol',SU:'sube',TA:'taza',TE:'té',TI:'tigre',TO:'toro',TU:'tú',VA:'vaca',VE:'ver',VI:'vino',VO:'vuelo',VU:'vuelo',WA:'waffle',WE:'web',WI:'wifi',WO:'wombat',WU:'wushu',XA:'taxi',XE:'examen',XI:'taxi',XO:'boxeo',XU:'taxi',YA:'yate',YE:'yema',YI:'yin',YO:'yo',YU:'yuca',ZA:'zapato',ZE:'cero',ZI:'zinc',ZO:'zorro',ZU:'zumo'};
+let DIR=[];Object.keys(PAL_DIRECTAS).forEach(sil=>{
+  let e=DIBUJOS_DIRECTAS[sil]||'🔤';
+  let p=PAL_DIRECTAS[sil];
+  DIR.push({A:sil,e:e,p:p,ej:`${sil.toLowerCase()} como en ${p}`});
+});
+let INV=[];['A','E','I','O','U'].forEach(v=>{['N','S','L','R','M','Z','D','J'].forEach(f=>{let sil=v+f;let pal={AN:'ángel',AS:'asta',AL:'alto',AR:'árbol',AM:'amor',AZ:'azul',AD:'edad',AJ:'ajo',EN:'en',ES:'es',EL:'él',ER:'ser',EM:'embudo',EZ:'vez',ED:'red',EJ:'eje',IN:'in',IS:'isla',IL:'hilo',IR:'ir',IM:'imán',IZ:'izquierda',ID:'idea',IJ:'jinete',ON:'con',OS:'oso',OL:'sol',OR:'or',OM:'sombra',OZ:'voz',OD:'red',OJ:'ojo',UN:'un',US:'usted',UL:'pulgar',UR:'sur',UM:'suma',UZ:'luz',UD:'sud',UJ:'lujo'}[sil]||sil.toLowerCase();INV.push({A:sil,e:'⬅️',p:pal,ej:`${sil.toLowerCase()} como en ${pal}`});});});
+const TRABADAS=[{A:'BLA',e:'⬜',p:'blanco',ej:'bla como en blanco'},{A:'BRA',e:'💪',p:'brazo',ej:'bra como en brazo'},{A:'CLA',e:'📚',p:'clase',ej:'cla como en clase'}];
 const FORMACION=[
 {p:'aire',e:'🪁',sil:['ai','re'],letra:'A'},{p:'árbol',e:'🌳',sil:['ár','bol'],letra:'A'},{p:'abeja',e:'🐝',sil:['a','be','ja'],letra:'A'},{p:'avión',e:'✈️',sil:['a','vión'],letra:'A'},{p:'agua',e:'💧',sil:['a','gua'],letra:'A'},
 {p:'barco',e:'⛵',sil:['bar','co'],letra:'B'},{p:'barro',e:'🟤',sil:['ba','rro'],letra:'B'},{p:'beso',e:'💋',sil:['be','so'],letra:'B'},{p:'bola',e:'⚽',sil:['bo','la'],letra:'B'},{p:'búho',e:'🦉',sil:['bú','ho'],letra:'B'},
@@ -65,8 +70,8 @@ const FORMACION=[
 {p:'zapato',e:'👟',sil:['za','pa','to'],letra:'Z'},{p:'zorro',e:'🦊',sil:['zo','rro'],letra:'Z'},{p:'zumo',e:'🧃',sil:['zu','mo'],letra:'Z'},{p:'cero',e:'0️⃣',sil:['ce','ro'],letra:'Z'},{p:'zinc',e:'🔩',sil:['zinc'],letra:'Z'}
 ];
 const DATA={letras:LETRAS,directas:DIR,inversas:INV,trabadas:TRABADAS,formacion:FORMACION};
-const SECCIONES=[{id:'letras',label:'🔤 LETRAS'},{id:'directas',label:'➡️ DIRECTAS'},{id:'trabadas',label:'🚂 TRABADAS'},{id:'formacion',label:'📝 FORMACIÓN (135)'}];
-function initTabs(){let c=document.getElementById('tabs');SECCIONES.forEach(s=>{let b=document.createElement('button');b.textContent=s.label;b.id='tab_'+s.id;if(s.id==='letras')b.classList.add('activo');b.onclick=()=>setSeccion(s.id);c.appendChild(b);});let f=document.getElementById('filtros');['TODAS','A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'].forEach(l=>{let btn=document.createElement('button');btn.textContent=l;btn.id='f_'+l;if(l==='TODAS')btn.classList.add('activo');btn.onclick=()=>{filtroLetra=l;[...f.children].forEach(c=>c.classList.remove('activo'));btn.classList.add('activo');renderFormacionList();};f.appendChild(btn);});}
+const SECCIONES=[{id:'letras',label:'🔤 LETRAS'},{id:'directas',label:'➡️ DIRECTAS (105)'},{id:'trabadas',label:'🚂 TRABADAS'},{id:'formacion',label:'📝 FORMACIÓN (135)'}];
+function initTabs(){let c=document.getElementById('tabs');SECCIONES.forEach(s=>{let b=document.createElement('button');b.textContent=s.label;b.id='tab_'+s.id;if(s.id==='directas')b.classList.add('activo');b.onclick=()=>setSeccion(s.id);c.appendChild(b);});let f=document.getElementById('filtros');['TODAS','A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'].forEach(l=>{let btn=document.createElement('button');btn.textContent=l;btn.id='f_'+l;if(l==='TODAS')btn.classList.add('activo');btn.onclick=()=>{filtroLetra=l;[...f.children].forEach(c=>c.classList.remove('activo'));btn.classList.add('activo');renderFormacionList();};f.appendChild(btn);});}
 function fmt(t){return tipo==='mayuscula'?t.toUpperCase():tipo==='minuscula'?t.toLowerCase():t.toLowerCase();}
 function setTipo(t){tipo=t;document.getElementById('bMayus').classList.toggle('activo',t==='mayuscula');document.getElementById('bMinus').classList.toggle('activo',t==='minuscula');document.getElementById('bLigada').classList.toggle('activo',t==='ligada');if(seccion!=='formacion'){render();mostrar(actual);}else{mostrarFormacion(palabraActual.p);}}
 function setSeccion(s){seccion=s;document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('activo'));document.getElementById('tab_'+s).classList.add('activo');if(s==='formacion'){document.getElementById('vista-normal').style.display='none';document.getElementById('vista-formacion').style.display='block';renderFormacionList();mostrarFormacion((FORMACION.find(x=>filtroLetra==='TODAS'||x.letra===filtroLetra)||FORMACION[0]).p);}else{document.getElementById('vista-normal').style.display='block';document.getElementById('vista-formacion').style.display='none';render();mostrar(DATA[s][0].A);}}
@@ -77,10 +82,18 @@ function hablar(){
   let it=DATA[seccion].find(x=>x.A===actual)||DATA[seccion][0];
   let voz=speechSynthesis.getVoices().find(v=>v.lang==='es-ES'&&v.name.includes('Google'))||speechSynthesis.getVoices().find(v=>v.lang==='es-ES')||speechSynthesis.getVoices()[0];
   if(seccion==='letras'){
-    let u=new SpeechSynthesisUtterance(it.ej);
-    u.lang='es-ES';u.rate=0.42;u.pitch=1.1;u.volume=1;
-    if(voz)u.voice=voz;
-    speechSynthesis.speak(u);
+    let u=new SpeechSynthesisUtterance(it.ej);u.lang='es-ES';u.rate=0.42;u.pitch=1.1;if(voz)u.voice=voz;speechSynthesis.speak(u);return;
+  }
+  if(seccion==='directas'){
+    // AUDIO: ca (no c-a) + ejemplo
+    let u1=new SpeechSynthesisUtterance(it.A.toLowerCase());
+    u1.lang='es-ES';u1.rate=0.38;u1.pitch=1.2;u1.volume=1;if(voz)u1.voice=voz;
+    speechSynthesis.speak(u1);
+    setTimeout(()=>{
+      let u2=new SpeechSynthesisUtterance(it.ej);
+      u2.lang='es-ES';u2.rate=0.52;u2.pitch=1.0;if(voz)u2.voice=voz;
+      speechSynthesis.speak(u2);
+    },650);
     return;
   }
   let u=new SpeechSynthesisUtterance((it.A||'').toLowerCase());u.lang='es-ES';u.rate=0.5;if(voz)u.voice=voz;speechSynthesis.speak(u);
@@ -118,10 +131,8 @@ function comprobarFormacion(){
   else{msg.textContent='Sigue intentando 👀';msg.style.color='#e8438a';}
 }
 function siguienteFormacion(){let list=FORMACION.filter(x=>filtroLetra==='TODAS'||x.letra===filtroLetra);let idx=list.indexOf(palabraActual);let next=list[(idx+1)%list.length];mostrarFormacion(next.p);}
-initTabs();render();mostrar('A');palabraActual=FORMACION[0];
+initTabs();render();mostrar('CA');palabraActual=FORMACION[0];
 </script></body></html>
-Ahora al entrar en *LETRAS* y pulsar 🔊 dice:
-- a de aire
-- b de barco
-- c de casa
--... hasta z de zapato
+Ahora en directas:
+- Cada sílaba tiene *ilustración + palabra ejemplo*: ca 🏠 casa, ce 🦓 cebra, ci 5️⃣ cinco...
+- Audio dice *"ca"* (sílaba unida, no deletreada) y luego *"ca como en casa"*
