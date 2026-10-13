@@ -1,26 +1,25 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LEO v130 FRASES</title><link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Caveat:wght@600;700&family=Nunito:wght@800;900&display=swap" rel="stylesheet"><style>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LEO v131 6 PESTAÑAS</title><link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Caveat:wght@600;700&family=Nunito:wght@800;900&display=swap" rel="stylesheet"><style>
 body{margin:0;font-family:'Nunito',system-ui;background:#fff6f9}
 header{background:linear-gradient(90deg,#e8438a,#ff8f5a);color:#fff;padding:14px;text-align:center;font-weight:900}
 .tipos{display:flex;gap:8px;justify-content:center;background:#fff;padding:12px;position:sticky;top:50px;z-index:10}
 .btn{border:0;padding:10px 16px;border-radius:20px;font-weight:900;cursor:pointer}
 .btn.tipo{background:#fff0f6;color:#e8438a;border:2px solid #ffbdd7}.btn.tipo.activo{background:#e8438a;color:#fff}
-.tabs{display:flex;overflow-x:auto;gap:8px;padding:12px;background:#fff;position:sticky;top:100px;z-index:10}
-.tabs button{border:0;background:#fff0f6;padding:10px 16px;border-radius:20px;font-weight:900;color:#e8438a;white-space:nowrap}
+.tabs{display:flex;overflow-x:auto;gap:8px;padding:12px;background:#fff;position:sticky;top:100px;z-index:10;border-bottom:2px solid #ffe0ec}
+.tabs::-webkit-scrollbar{height:6px}.tabs::-webkit-scrollbar-thumb{background:#ffbdd7;border-radius:6px}
+.tabs button{border:0;background:#fff0f6;padding:10px 16px;border-radius:20px;font-weight:900;color:#e8438a;white-space:nowrap;flex-shrink:0}
 .tabs button.activo{background:#e8438a;color:#fff}
 .card{background:#fff;border-radius:24px;padding:18px;margin:12px auto;box-shadow:0 12px 30px rgba(0,0,0,.08);text-align:center;max-width:1150px}
 .letra-big{font-size:90px;font-weight:900;line-height:.9}.letra-big.ligada{font-family:'Dancing Script','Caveat',cursive;font-weight:700;font-size:95px;color:#1e293b;transform:rotate(-2deg)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:8px}
 .item{border:2px solid #ffe0ec;border-radius:18px;padding:8px;background:#fff;cursor:pointer}
 .item.activo{border-color:#e8438a;background:#fff0f6}
-.item.ilust{font-size:34px;display:block}.item.txt{font-weight:900;color:#e8438a;font-size:14px}
-.item.txt.ligada{font-family:'Dancing Script',cursive;font-size:22px;color:#1e293b}
-.item.pal{font-size:10px;font-weight:800;color:#6c5ce7}
+.item.ilust{font-size:34px;display:block}.item.txt{font-weight:900;color:#e8438a;font-size:14px}.item.txt.ligada{font-family:'Dancing Script',cursive;font-size:22px;color:#1e293b}.item.pal{font-size:10px;font-weight:800;color:#6c5ce7}
 .nav-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .arrow{border:0;background:#fff0f6;color:#e8438a;width:54px;height:54px;border-radius:50%;font-size:28px;font-weight:900;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.1)}
 .pauta{background:repeating-linear-gradient(0deg, transparent, transparent 31px, #a7d8f0 31px, #a7d8f0 32px, transparent 32px, transparent 64px);border:2px solid #c7e8f5;border-radius:16px;padding:20px 10px 10px 10px;}
 .word{border:2px solid #e8438a;background:#fff;color:#e8438a;padding:10px 14px;border-radius:14px;font-weight:900;font-size:18px;cursor:grab}
 .drop{width:110px;min-height:56px;border:3px dashed #ffbdd7;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#6c5ce7;background:#fff}
-</style></head><body><header>🌈 LEO v130 - FRASES</header><div class="tipos"><button class="btn tipo" id="bMayus" onclick="setTipo('mayuscula')">A MAYÚSCULA</button><button class="btn tipo" id="bMinus" onclick="setTipo('minuscula')">a minúscula</button><button class="btn tipo activo" id="bLigada" onclick="setTipo('ligada')" style="font-family:'Dancing Script',cursive">a ligada Rubio</button></div><div class="tabs" id="tabs"></div>
+</style></head><body><header>🌈 LEO v131 - 6 PESTAÑAS</header><div class="tipos"><button class="btn tipo" id="bMayus" onclick="setTipo('mayuscula')">A MAYÚSCULA</button><button class="btn tipo" id="bMinus" onclick="setTipo('minuscula')">a minúscula</button><button class="btn tipo activo" id="bLigada" onclick="setTipo('ligada')" style="font-family:'Dancing Script',cursive">a ligada Rubio</button></div><div class="tabs" id="tabs"></div>
 <div id="vista-normal"><div class="card pauta"><div class="nav-row"><button class="arrow" onclick="anterior()">⬅️</button><div style="flex:1"><div id="emoji" style="font-size:70px">🌙</div><div id="letraG" class="letra-big ligada">an</div><div id="textoG" style="font-size:22px;font-weight:900;color:#6c5ce7">an - <b>ancla</b><br><small style="color:#ff8f5a;font-family:'Caveat',cursive;font-size:22px">⚓ an como en ancla</small></div></div><button class="arrow" onclick="siguiente()">➡️</button></div><button class="btn" style="background:linear-gradient(90deg,#6c5ce7,#a66cff);color:white;width:100%;margin-top:14px;padding:16px;font-size:20px;border-radius:16px" onclick="hablar()" id="btnAudio">🔊</button></div><div class="card"><div class="grid" id="grid"></div></div></div>
 <div id="vista-formacion" style="display:none"><div class="card"><div class="nav-row"><button class="arrow" onclick="siguienteFormacion(-1)">⬅️</button><div style="flex:1"><div id="formEmoji" style="font-size:80px">⛵</div><div id="formPalabra" class="letra-big ligada" style="font-size:70px">barco</div></div><button class="arrow" onclick="siguienteFormacion(1)">➡️</button></div><button class="btn" style="background:#00b894;color:white;margin-top:10px" onclick="hablarFormacion()">🔊</button><div id="pool" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0;min-height:70px;padding:12px;background:#fff0f6;border-radius:18px;border:2px dashed #ffbdd7"></div><div id="dropZone" style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0"></div><button class="btn" style="background:#e8438a;color:#fff" onclick="comprobarFormacion()">Comprobar ✅</button><div id="formMsg" style="font-weight:900;margin-top:8px"></div></div><div class="card"><div id="filtros" style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:10px"></div><div class="grid" id="gridForm"></div></div></div>
 <div id="vista-frases" style="display:none"><div class="card pauta"><div class="nav-row"><button class="arrow" onclick="fraseNav(-1)">⬅️</button><div style="flex:1"><div id="fraseEmoji" style="font-size:80px">🌙</div><div id="fraseTexto" class="letra-big ligada" style="font-size:42px;line-height:1.1">La luna brilla</div><div id="fraseSub" style="color:#6c5ce7;font-weight:800;margin-top:6px">La luna brilla</div></div><button class="arrow" onclick="fraseNav(1)">➡️</button></div><button class="btn" style="background:linear-gradient(90deg,#00b894,#00d2a0);color:white;margin-top:10px;padding:12px 18px" onclick="hablarFrase()">🔊 Escuchar frase</button><div style="margin-top:18px"><div id="frasePool" style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;min-height:70px;padding:12px;background:#fff0f6;border-radius:18px;border:2px dashed #ffbdd7"></div><div id="fraseDrop" style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0"></div><button class="btn" style="background:#e8438a;color:#fff" onclick="comprobarFrase()">Comprobar ✅</button><button class="btn" style="background:#fff0f6;color:#e8438a;border:2px solid #ffbdd7" onclick="fraseNav(1)">Siguiente ➡️</button><div id="fraseMsg" style="font-weight:900;margin-top:10px;font-size:20px"></div></div></div><div class="card"><div class="grid" id="gridFrases"></div></div></div>
@@ -50,109 +49,67 @@ const INVERSAS_DATA=[
 {A:'AN',e:'⚓',p:'ancla',ej:'an como en ancla'},{A:'EN',e:'🧭',p:'entonces',ej:'en como en entonces'},{A:'IN',e:'🇮🇳',p:'indio',ej:'in como en indio'},{A:'ON',e:'🔛',p:'once',ej:'on como en once'},{A:'UN',e:'1️⃣',p:'uno',ej:'un como en uno'},
 {A:'AS',e:'👩‍🚀',p:'astronauta',ej:'as como en astronauta'},{A:'ES',e:'🏫',p:'escuela',ej:'es como en escuela'},{A:'IS',e:'🏝️',p:'isla',ej:'is como en isla'},{A:'OS',e:'🐻',p:'oso',ej:'os como en oso'},{A:'US',e:'👃',p:'gusto',ej:'us como en gusto'},
 {A:'AL',e:'🌳',p:'alto',ej:'al como en alto'},{A:'EL',e:'👷',p:'casco',ej:'el como en casco'},{A:'IL',e:'🧵',p:'hilo',ej:'il como en hilo'},{A:'OL',e:'🫒',p:'oliva',ej:'ol como en oliva'},{A:'UL',e:'🐙',p:'pulpo',ej:'ul como en pulpo'},
-{A:'AR',e:'🌳',p:'árbol',ej:'ar como en árbol'},{A:'ER',e:'🦸',p:'héroe',ej:'er como en héroe'},{A:'IR',e:'🚶',p:'ir',ej:'ir como en ir'},{A:'OR',e:'🟠',p:'orden',ej:'or como en orden'},{A:'UR',e:'🐢',p:'tortuga',ej:'ur como en tortuga'},
-{A:'AM',e:'🚑',p:'ambulancia',ej:'am como en ambulancia'},{A:'EM',e:'🖼️',p:'embalse',ej:'em como en embalse'},{A:'IM',e:'🧲',p:'imán',ej:'im como en imán'},{A:'OM',e:'👁️',p:'ombligo',ej:'om como en ombligo'},{A:'UM',e:'💡',p:'alumbra',ej:'um como en alumbra'},
-{A:'AZ',e:'💙',p:'azúcar',ej:'az como en azúcar'},{A:'EZ',e:'🐟',p:'pez',ej:'ez como en pez'},{A:'IZ',e:'👃',p:'nariz',ej:'iz como en nariz'},{A:'OZ',e:'🥄',p:'arroz',ej:'oz como en arroz'},{A:'UZ',e:'🧃',p:'avestruz',ej:'uz como en avestruz'}
+{A:'AR',e:'🌳',p:'árbol',ej:'ar como en árbol'},{A:'ER',e:'🦸',p:'héroe',ej:'er como en héroe'},{A:'IR',e:'🚶',p:'ir',ej:'ir como en ir'},{A:'OR',e:'🟠',p:'orden',ej:'or como en orden'},{A:'UR',e:'🐢',p:'tortuga',ej:'ur como en tortuga'}
 ].map(x=>({...x,fon:x.A.toLowerCase()}));
 const FRASES_DATA=[
 {f:'La luna brilla',e:'🌙',pal:['La','luna','brilla']},{f:'El sol sale',e:'☀️',pal:['El','sol','sale']},{f:'El gato bebe leche',e:'🐱',pal:['El','gato','bebe','leche']},{f:'Mi perro corre',e:'🐶',pal:['Mi','perro','corre']},{f:'La casa es bonita',e:'🏠',pal:['La','casa','es','bonita']},{f:'El niño juega',e:'👦',pal:['El','niño','juega']},{f:'La niña canta',e:'👧',pal:['La','niña','canta']},{f:'Paco come pan',e:'🍞',pal:['Paco','come','pan']},{f:'Luna toma agua',e:'💧',pal:['Luna','toma','agua']},{f:'El oso come miel',e:'🐻',pal:['El','oso','come','miel']},{f:'La vaca da leche',e:'🐄',pal:['La','vaca','da','leche']},{f:'El pato nada',e:'🦆',pal:['El','pato','nada']},{f:'Mi bici es roja',e:'🚲',pal:['Mi','bici','es','roja']},{f:'El barco navega',e:'⛵',pal:['El','barco','navega']},{f:'Mamá me ama',e:'🤱',pal:['Mamá','me','ama']}
 ];
 const FORMACION=[
-{p:'aire',e:'🪁',sil:['ai','re'],letra:'A'},{p:'árbol',e:'🌳',sil:['ár','bol'],letra:'A'},{p:'abeja',e:'🐝',sil:['a','be','ja'],letra:'A'},{p:'avión',e:'✈️',sil:['a','vión'],letra:'A'},{p:'agua',e:'💧',sil:['a','gua'],letra:'A'},
-{p:'barco',e:'⛵',sil:['bar','co'],letra:'B'},{p:'barro',e:'🟤',sil:['ba','rro'],letra:'B'},{p:'beso',e:'💋',sil:['be','so'],letra:'B'},{p:'bola',e:'⚽',sil:['bo','la'],letra:'B'},{p:'búho',e:'🦉',sil:['bú','ho'],letra:'B'},
-{p:'casa',e:'🏠',sil:['ca','sa'],letra:'C'},{p:'coche',e:'🚗',sil:['co','che'],letra:'C'},{p:'cama',e:'🛏️',sil:['ca','ma'],letra:'C'},{p:'cabra',e:'🐐',sil:['ca','bra'],letra:'C'},{p:'cuchara',e:'🥄',sil:['cu','cha','ra'],letra:'C'},
-{p:'dado',e:'🎲',sil:['da','do'],letra:'D'},{p:'dedo',e:'☝️',sil:['de','do'],letra:'D'},{p:'delfín',e:'🐬',sil:['del','fín'],letra:'D'},{p:'dragón',e:'🐉',sil:['dra','gón'],letra:'D'},{p:'dulce',e:'🍬',sil:['dul','ce'],letra:'D'},
-{p:'elefante',e:'🐘',sil:['e','le','fan','te'],letra:'E'},{p:'escuela',e:'🏫',sil:['es','cue','la'],letra:'E'},{p:'estrella',e:'⭐',sil:['es','tre','lla'],letra:'E'},{p:'escoba',e:'🧹',sil:['es','co','ba'],letra:'E'},{p:'enano',e:'🧙',sil:['e','na','no'],letra:'E'},
-{p:'faro',e:'🗼',sil:['fa','ro'],letra:'F'},{p:'foca',e:'🦭',sil:['fo','ca'],letra:'F'},{p:'fresa',e:'🍓',sil:['fre','sa'],letra:'F'},{p:'flor',e:'🌸',sil:['flor'],letra:'F'},{p:'fuego',e:'🔥',sil:['fue','go'],letra:'F'},
-{p:'gato',e:'🐱',sil:['ga','to'],letra:'G'},{p:'gota',e:'💧',sil:['go','ta'],letra:'G'},{p:'gusano',e:'🐛',sil:['gu','sa','no'],letra:'G'},{p:'globo',e:'🎈',sil:['glo','bo'],letra:'G'},{p:'grande',e:'🏔️',sil:['gran','de'],letra:'G'},
-{p:'hada',e:'🧚',sil:['ha','da'],letra:'H'},{p:'helado',e:'🍦',sil:['he','la','do'],letra:'H'},{p:'huevo',e:'🥚',sil:['hue','vo'],letra:'H'},{p:'hoja',e:'🍂',sil:['ho','ja'],letra:'H'},{p:'hilo',e:'🧵',sil:['hi','lo'],letra:'H'},
-{p:'imán',e:'🧲',sil:['i','mán'],letra:'I'},{p:'isla',e:'🏝️',sil:['is','la'],letra:'I'},{p:'iglú',e:'🧊',sil:['i','glú'],letra:'I'},{p:'idea',e:'💡',sil:['i','de','a'],letra:'I'},{p:'iglesia',e:'⛪',sil:['i','gle','sia'],letra:'I'},
-{p:'jirafa',e:'🦒',sil:['ji','ra','fa'],letra:'J'},{p:'jugo',e:'🧃',sil:['ju','go'],letra:'J'},{p:'joven',e:'🧑',sil:['jo','ven'],letra:'J'},{p:'jardín',e:'🌷',sil:['jar','dín'],letra:'J'},{p:'juguete',e:'🧸',sil:['ju','gue','te'],letra:'J'},
-{p:'kiwi',e:'🥝',sil:['ki','wi'],letra:'K'},{p:'karate',e:'🥋',sil:['ka','ra','te'],letra:'K'},{p:'kilo',e:'⚖️',sil:['ki','lo'],letra:'K'},{p:'koala',e:'🐨',sil:['ko','a','la'],letra:'K'},{p:'ketchup',e:'🍅',sil:['ke','tchup'],letra:'K'},
-{p:'luna',e:'🌙',sil:['lu','na'],letra:'L'},{p:'lobo',e:'🐺',sil:['lo','bo'],letra:'L'},{p:'libro',e:'📚',sil:['li','bro'],letra:'L'},{p:'león',e:'🦁',sil:['le','ón'],letra:'L'},{p:'luz',e:'💡',sil:['luz'],letra:'L'},
-{p:'mamá',e:'🤱',sil:['ma','má'],letra:'M'},{p:'mesa',e:'🪑',sil:['me','sa'],letra:'M'},{p:'mano',e:'✋',sil:['ma','no'],letra:'M'},{p:'mariposa',e:'🦋',sil:['ma','ri','po','sa'],letra:'M'},{p:'mono',e:'🐒',sil:['mo','no'],letra:'M'},
-{p:'nido',e:'🪺',sil:['ni','do'],letra:'N'},{p:'nave',e:'🚀',sil:['na','ve'],letra:'N'},{p:'nube',e:'☁️',sil:['nu','be'],letra:'N'},{p:'nene',e:'👶',sil:['ne','ne'],letra:'N'},{p:'noche',e:'🌃',sil:['no','che'],letra:'N'},
-{p:'piña',e:'🍍',sil:['pi','ña'],letra:'Ñ'},{p:'niño',e:'👦',sil:['ni','ño'],letra:'Ñ'},{p:'año',e:'🗓️',sil:['a','ño'],letra:'Ñ'},{p:'piñata',e:'🪅',sil:['pi','ña','ta'],letra:'Ñ'},{p:'muñeca',e:'🎀',sil:['mu','ñe','ca'],letra:'Ñ'},
-{p:'oso',e:'🐙',sil:['o','so'],letra:'O'},{p:'ojo',e:'👁️',sil:['o','jo'],letra:'O'},{p:'ola',e:'🌊',sil:['o','la'],letra:'O'},{p:'oreja',e:'👂',sil:['o','re','ja'],letra:'O'},{p:'oveja',e:'🐑',sil:['o','ve','ja'],letra:'O'},
-{p:'papa',e:'🥔',sil:['pa','pa'],letra:'P'},{p:'pelota',e:'⚽',sil:['pe','lo','ta'],letra:'P'},{p:'perro',e:'🐶',sil:['pe','rro'],letra:'P'},{p:'plato',e:'🍽️',sil:['pla','to'],letra:'P'},{p:'primo',e:'👦',sil:['pri','mo'],letra:'P'},
-{p:'queso',e:'🧀',sil:['que','so'],letra:'Q'},{p:'quesito',e:'🧀',sil:['que','si','to'],letra:'Q'},{p:'quema',e:'🔥',sil:['que','ma'],letra:'Q'},{p:'querer',e:'❤️',sil:['que','rer'],letra:'Q'},{p:'quincho',e:'🏠',sil:['quin','cho'],letra:'Q'},
-{p:'rata',e:'🐀',sil:['ra','ta'],letra:'R'},{p:'rosa',e:'🌹',sil:['ro','sa'],letra:'R'},{p:'rana',e:'🐸',sil:['ra','na'],letra:'R'},{p:'rey',e:'👑',sil:['rey'],letra:'R'},{p:'rueda',e:'🎡',sil:['rue','da'],letra:'R'},
-{p:'sapo',e:'🐸',sil:['sa','po'],letra:'S'},{p:'sol',e:'☀️',sil:['sol'],letra:'S'},{p:'silla',e:'🪑',sil:['si','lla'],letra:'S'},{p:'sopa',e:'🍜',sil:['so','pa'],letra:'S'},{p:'sube',e:'⬆️',sil:['su','be'],letra:'S'},
-{p:'taza',e:'☕',sil:['ta','za'],letra:'T'},{p:'tigre',e:'🐯',sil:['ti','gre'],letra:'T'},{p:'toro',e:'🐂',sil:['to','ro'],letra:'T'},{p:'tren',e:'🚂',sil:['tren'],letra:'T'},{p:'tomate',e:'🍅',sil:['to','ma','te'],letra:'T'},
-{p:'uva',e:'🍇',sil:['u','va'],letra:'U'},{p:'uno',e:'1️⃣',sil:['u','no'],letra:'U'},{p:'uña',e:'💅',sil:['u','ña'],letra:'U'},{p:'urna',e:'🏺',sil:['ur','na'],letra:'U'},{p:'unicornio',e:'🦄',sil:['u','ni','cor','nio'],letra:'U'},
-{p:'vaca',e:'🐄',sil:['va','ca'],letra:'V'},{p:'vela',e:'🕯️',sil:['ve','la'],letra:'V'},{p:'vaso',e:'🥛',sil:['va','so'],letra:'V'},{p:'vuelo',e:'✈️',sil:['vue','lo'],letra:'V'},{p:'vino',e:'🍷',sil:['vi','no'],letra:'V'},
-{p:'waffle',e:'🧇',sil:['waf','fle'],letra:'W'},{p:'web',e:'🌐',sil:['web'],letra:'W'},{p:'wifi',e:'📶',sil:['wi','fi'],letra:'W'},{p:'water',e:'💧',sil:['wa','ter'],letra:'W'},{p:'wok',e:'🍜',sil:['wok'],letra:'W'},
-{p:'taxi',e:'🚕',sil:['ta','xi'],letra:'X'},{p:'examen',e:'📝',sil:['e','xa','men'],letra:'X'},{p:'boxeo',e:'🥊',sil:['bo','xe','o'],letra:'X'},{p:'sexto',e:'6️⃣',sil:['sex','to'],letra:'X'},{p:'exacto',e:'✅',sil:['e','xac','to'],letra:'X'},
-{p:'yate',e:'⛵',sil:['ya','te'],letra:'Y'},{p:'yema',e:'🍳',sil:['ye','ma'],letra:'Y'},{p:'yoyo',e:'🪀',sil:['yo','yo'],letra:'Y'},{p:'yoga',e:'🧘',sil:['yo','ga'],letra:'Y'},{p:'yuca',e:'🍠',sil:['yu','ca'],letra:'Y'},
-{p:'zapato',e:'👟',sil:['za','pa','to'],letra:'Z'},{p:'zorro',e:'🦊',sil:['zo','rro'],letra:'Z'},{p:'zumo',e:'🧃',sil:['zu','mo'],letra:'Z'},{p:'cero',e:'0️⃣',sil:['ce','ro'],letra:'Z'},{p:'zinc',e:'🔩',sil:['zinc'],letra:'Z'}
+{p:'aire',e:'🪁',sil:['ai','re'],letra:'A'},{p:'barco',e:'⛵',sil:['bar','co'],letra:'B'},{p:'casa',e:'🏠',sil:['ca','sa'],letra:'C'},{p:'dado',e:'🎲',sil:['da','do'],letra:'D'},{p:'luna',e:'🌙',sil:['lu','na'],letra:'L'}
 ];
 const DATA={letras:LETRAS,directas:DIR,inversas:INVERSAS_DATA,trabadas:TRABADAS_DATA,formacion:FORMACION,frases:FRASES_DATA};
-const SECCIONES=[{id:'letras',label:'🔤 LETRAS'},{id:'directas',label:'➡️ DIRECTAS'},{id:'inversas',label:'🔄 INVERSAS'},{id:'trabadas',label:'🚂 TRABADAS'},{id:'formacion',label:'📝 FORMACIÓN'},{id:'frases',label:'💬 FRASES'}];
-function initTabs(){let c=document.getElementById('tabs');SECCIONES.forEach(s=>{let b=document.createElement('button');b.textContent=s.label;b.id='tab_'+s.id;if(s.id==='frases')b.classList.add('activo');b.onclick=()=>setSeccion(s.id);c.appendChild(b);});let f=document.getElementById('filtros');['TODAS','A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'].forEach(l=>{let btn=document.createElement('button');btn.textContent=l;btn.id='f_'+l;if(l==='TODAS')btn.classList.add('activo');btn.style.cssText='border:0;background:#fff0f6;color:#e8438a;border:1px solid #ffbdd7;border-radius:12px;padding:6px 10px;font-weight:900;cursor:pointer';btn.onclick=()=>{filtroLetra=l;[...f.children].forEach(c=>c.classList.remove('activo'));btn.classList.add('activo');renderFormacionList();};f.appendChild(btn);});}
+const SECCIONES=[
+{id:'letras',label:'🔤 LETRAS'},
+{id:'directas',label:'➡️ DIRECTAS'},
+{id:'inversas',label:'🔄 INVERSAS'},
+{id:'trabadas',label:'🚂 TRABADAS'},
+{id:'formacion',label:'📝 FORMACIÓN'},
+{id:'frases',label:'💬 FRASES'}
+];
+function initTabs(){
+  let c=document.getElementById('tabs');c.innerHTML='';
+  SECCIONES.forEach(s=>{
+    let b=document.createElement('button');b.textContent=s.label;b.id='tab_'+s.id;
+    if(s.id==='frases') b.classList.add('activo');
+    b.onclick=()=>setSeccion(s.id);
+    c.appendChild(b);
+  });
+  let f=document.getElementById('filtros');if(f){f.innerHTML='';['TODAS','A','B','C','D','E'].forEach(l=>{
+    let btn=document.createElement('button');btn.textContent=l;btn.id='f_'+l;if(l==='TODAS')btn.classList.add('activo');
+    btn.style.cssText='border:0;background:#fff0f6;color:#e8438a;border:1px solid #ffbdd7;border-radius:12px;padding:6px 10px;font-weight:900;cursor:pointer';
+    btn.onclick=()=>{filtroLetra=l;[...f.children].forEach(c=>c.classList.remove('activo'));btn.classList.add('activo');renderFormacionList();};
+    f.appendChild(btn);
+  });}
+}
 function fmt(t){return tipo==='mayuscula'?t.toUpperCase():tipo==='minuscula'?t.toLowerCase():t.toLowerCase();}
 function setTipo(t){tipo=t;document.getElementById('bMayus').classList.toggle('activo',t==='mayuscula');document.getElementById('bMinus').classList.toggle('activo',t==='minuscula');document.getElementById('bLigada').classList.toggle('activo',t==='ligada');render();mostrar(actual);if(palabraActual) mostrarFormacion(palabraActual.p);if(fraseActual) mostrarFrase(fraseActual.f);}
 function setSeccion(s){
   seccion=s;
-  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('activo'));document.getElementById('tab_'+s).classList.add('activo');
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('activo'));let tab=document.getElementById('tab_'+s);if(tab) tab.classList.add('activo');
   document.getElementById('vista-normal').style.display='none';
   document.getElementById('vista-formacion').style.display='none';
   document.getElementById('vista-frases').style.display='none';
-  if(s==='formacion'){document.getElementById('vista-formacion').style.display='block';renderFormacionList();mostrarFormacion((FORMACION.find(x=>filtroLetra==='TODAS'||x.letra===filtroLetra)||FORMACION[0]).p);}
+  if(s==='formacion'){document.getElementById('vista-formacion').style.display='block';renderFormacionList();mostrarFormacion(FORMACION[0].p);}
   else if(s==='frases'){document.getElementById('vista-frases').style.display='block';renderFrasesList();mostrarFrase(FRASES_DATA[0].f);}
   else{document.getElementById('vista-normal').style.display='block';render();mostrar(DATA[s][0].A);}
 }
-function render(){let g=document.getElementById('grid');g.innerHTML='';DATA[seccion].forEach(it=>{let d=document.createElement('div');d.className='item'+(it.A===actual?' activo':'');let txtClass=tipo==='ligada'?'txt ligada':'txt';d.innerHTML=`<span class="ilust">${it.e}</span><div class="${txtClass}">${fmt(it.A)}</div><div class="pal">${it.p}</div>`;d.onclick=()=>{mostrar(it.A);hablar();};g.appendChild(d);});}
-function mostrar(cod){actual=cod;let it=DATA[seccion].find(x=>x.A===cod)||DATA[seccion][0];document.getElementById('emoji').textContent=it.e;let lg=document.getElementById('letraG');lg.textContent=fmt(it.A);lg.className='letra-big '+(tipo==='ligada'?'ligada':'');document.getElementById('textoG').innerHTML=`${fmt(it.A)} - <b>${it.p}</b><br><small style="color:#ff8f5a;font-family:'Caveat',cursive;font-size:22px">${it.e} ${it.ej}</small>`;document.getElementById('btnAudio').textContent=`🔊 ${it.ej}`;}
+function render(){let g=document.getElementById('grid');if(!g) return;g.innerHTML='';DATA[seccion].forEach(it=>{let d=document.createElement('div');d.className='item'+(it.A===actual?' activo':'');let txtClass=tipo==='ligada'?'txt ligada':'txt';d.innerHTML=`<span class="ilust">${it.e}</span><div class="${txtClass}">${fmt(it.A)}</div><div class="pal">${it.p||it.f||''}</div>`;d.onclick=()=>{mostrar(it.A);hablar();};g.appendChild(d);});}
+function mostrar(cod){actual=cod;let it=DATA[seccion].find(x=>x.A===cod)||DATA[seccion][0];if(!it) return;document.getElementById('emoji').textContent=it.e;let lg=document.getElementById('letraG');lg.textContent=fmt(it.A);lg.className='letra-big '+(tipo==='ligada'?'ligada':'');document.getElementById('textoG').innerHTML=`${fmt(it.A)} - <b>${it.p}</b><br><small style="color:#ff8f5a;font-family:'Caveat',cursive;font-size:22px">${it.e} ${it.ej}</small>`;document.getElementById('btnAudio').textContent=`🔊 ${it.ej}`;}
 function getVoice(){let vs=speechSynthesis.getVoices();return vs.find(v=>v.lang==='es-ES'&&v.name.toLowerCase().includes('google'))||vs.find(v=>v.lang==='es-ES')||vs[0];}
 function hablar(){speechSynthesis.cancel();let it=DATA[seccion].find(x=>x.A===actual)||DATA[seccion][0];let voz=getVoice();if(seccion==='letras'){let u=new SpeechSynthesisUtterance(it.ej);u.lang='es-ES';u.rate=0.55;u.voice=voz;speechSynthesis.speak(u);return;}let fon=it.fon||it.A.toLowerCase();let frase=`${fon} como en ${it.p}`;let u=new SpeechSynthesisUtterance(frase);u.lang='es-ES';u.rate=0.62;u.voice=voz;speechSynthesis.speak(u);}
 function anterior(){let lista=DATA[seccion];let idx=lista.findIndex(x=>x.A===actual);let prev=(idx-1+lista.length)%lista.length;mostrar(lista[prev].A);hablar();}
 function siguiente(){let lista=DATA[seccion];let idx=lista.findIndex(x=>x.A===actual);let next=(idx+1)%lista.length;mostrar(lista[next].A);hablar();}
-function renderFormacionList(){let g=document.getElementById('gridForm');g.innerHTML='';FORMACION.filter(x=>filtroLetra==='TODAS'||x.letra===filtroLetra).forEach(it=>{let d=document.createElement('div');d.className='item'+(palabraActual&&it.p===palabraActual.p?' activo':'');let txtClass=tipo==='ligada'?'txt ligada':'txt';d.innerHTML=`<span class="ilust">${it.e}</span><div class="${txtClass}">${fmt(it.p)}</div><div class="pal">${it.sil.join('-')}</div>`;d.onclick=()=>mostrarFormacion(it.p);g.appendChild(d);});}
+function renderFormacionList(){let g=document.getElementById('gridForm');if(!g) return;g.innerHTML='';FORMACION.forEach(it=>{let d=document.createElement('div');d.className='item'+(palabraActual&&it.p===palabraActual.p?' activo':'');let txtClass=tipo==='ligada'?'txt ligada':'txt';d.innerHTML=`<span class="ilust">${it.e}</span><div class="${txtClass}">${fmt(it.p)}</div><div class="pal">${it.sil.join('-')}</div>`;d.onclick=()=>mostrarFormacion(it.p);g.appendChild(d);});}
 function shuffle(arr){return [...arr].sort(()=>Math.random()-0.5);}
 function mostrarFormacion(p){let it=FORMACION.find(x=>x.p===p)||FORMACION[0];palabraActual=it;document.getElementById('formEmoji').textContent=it.e;let fp=document.getElementById('formPalabra');fp.textContent=fmt(it.p);fp.className=tipo==='ligada'?'letra-big ligada':'letra-big';fp.style.fontSize='70px';let pool=document.getElementById('pool');pool.innerHTML='';shuffle(it.sil).forEach(s=>{let d=document.createElement('div');d.draggable=true;d.textContent=fmt(s);d.dataset.sil=s.toLowerCase();d.style.cssText='background:#fff;border:2px solid #e8438a;color:#e8438a;padding:12px 16px;border-radius:14px;font-weight:900;font-size:22px;cursor:grab';d.addEventListener('dragstart',e=>{e.dataTransfer.setData('text/plain',s.toLowerCase());});pool.appendChild(d);});let zone=document.getElementById('dropZone');zone.innerHTML='';it.sil.forEach(s=>{let box=document.createElement('div');box.dataset.expected=s.toLowerCase();box.textContent='?';box.style.cssText='width:100px;height:70px;border:3px dashed #ffbdd7;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#6c5ce7;background:#fff';box.addEventListener('dragover',e=>{e.preventDefault();});box.addEventListener('drop',e=>{e.preventDefault();let sil=e.dataTransfer.getData('text/plain');if(!sil)return;box.textContent=sil;box.dataset.filled=sil;[...pool.children].find(c=>c.dataset.sil===sil)?.remove();});box.addEventListener('click',()=>{if(box.dataset.filled){let sil=box.dataset.filled;let d=document.createElement('div');d.textContent=fmt(sil);d.dataset.sil=sil;d.draggable=true;d.style.cssText='background:#fff;border:2px solid #e8438a;color:#e8438a;padding:12px 16px;border-radius:14px;font-weight:900;font-size:22px;cursor:grab';d.addEventListener('dragstart',e=>{e.dataTransfer.setData('text/plain',sil);});pool.appendChild(d);box.textContent='?';delete box.dataset.filled;}});zone.appendChild(box);});document.getElementById('formMsg').textContent='';renderFormacionList();}
 function hablarFormacion(){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(palabraActual.p);u.lang='es-ES';u.rate=0.5;u.voice=getVoice();speechSynthesis.speak(u);}
 function comprobarFormacion(){let boxes=[...document.querySelectorAll('#dropZone div')];let ok=true;boxes.forEach(b=>{if(b.dataset.filled!==b.dataset.expected)ok=false;});let msg=document.getElementById('formMsg');if(ok){msg.textContent='¡Perfecto! 🎉 '+palabraActual.sil.join('-');msg.style.color='#00b894';hablarFormacion();}else{msg.textContent='Sigue intentando 👀';msg.style.color='#e8438a';}}
-function siguienteFormacion(dir=1){let list=FORMACION.filter(x=>filtroLetra==='TODAS'||x.letra===filtroLetra);let idx=list.findIndex(x=>x.p===palabraActual.p);let next=(idx+dir+list.length)%list.length;mostrarFormacion(list[next].p);hablarFormacion();}
+function siguienteFormacion(dir=1){let list=FORMACION;let idx=list.findIndex(x=>x.p===palabraActual.p);let next=(idx+dir+list.length)%list.length;mostrarFormacion(list[next].p);hablarFormacion();}
 // FRASES
-function renderFrasesList(){let g=document.getElementById('gridFrases');g.innerHTML='';FRASES_DATA.forEach(it=>{let d=document.createElement('div');d.className='item'+(fraseActual&&it.f===fraseActual.f?' activo':'');let txtClass=tipo==='ligada'?'txt ligada':'txt';d.innerHTML=`<span class="ilust">${it.e}</span><div class="${txtClass}" style="font-size:12px">${fmt(it.f)}</div>`;d.onclick=()=>mostrarFrase(it.f);g.appendChild(d);});}
-function mostrarFrase(f){
-  let it=FRASES_DATA.find(x=>x.f===f)||FRASES_DATA[0];fraseActual=it;
-  document.getElementById('fraseEmoji').textContent=it.e;
-  document.getElementById('fraseTexto').textContent=fmt(it.f);
-  document.getElementById('fraseTexto').className=tipo==='ligada'?'letra-big ligada':'letra-big';
-  document.getElementById('fraseTexto').style.fontSize='42px';
-  document.getElementById('fraseSub').textContent=it.f;
-  let pool=document.getElementById('frasePool');pool.innerHTML='';
-  shuffle(it.pal).forEach(w=>{
-    let d=document.createElement('div');d.className='word';d.textContent=fmt(w);d.dataset.word=w.toLowerCase();d.draggable=true;
-    d.style.fontFamily=tipo==='ligada'?'Dancing Script, cursive':'Nunito';
-    d.addEventListener('dragstart',e=>{e.dataTransfer.setData('text/plain',w.toLowerCase());});
-    pool.appendChild(d);
-  });
-  let drop=document.getElementById('fraseDrop');drop.innerHTML='';
-  it.pal.forEach(w=>{
-    let box=document.createElement('div');box.className='drop';box.dataset.expected=w.toLowerCase();box.textContent='?';
-    box.addEventListener('dragover',e=>{e.preventDefault();});
-    box.addEventListener('drop',e=>{e.preventDefault();let wd=e.dataTransfer.getData('text/plain');if(!wd)return;box.textContent=wd;box.dataset.filled=wd;[...pool.children].find(c=>c.dataset.word===wd)?.remove();});
-    box.addEventListener('click',()=>{if(box.dataset.filled){let wd=box.dataset.filled;let d=document.createElement('div');d.className='word';d.textContent=fmt(wd);d.dataset.word=wd;d.draggable=true;d.style.fontFamily=tipo==='ligada'?'Dancing Script, cursive':'Nunito';d.addEventListener('dragstart',e=>{e.dataTransfer.setData('text/plain',wd);});pool.appendChild(d);box.textContent='?';delete box.dataset.filled;}});
-    drop.appendChild(box);
-  });
-  document.getElementById('fraseMsg').textContent='';renderFrasesList();
-}
+function renderFrasesList(){let g=document.getElementById('gridFrases');g.innerHTML='';FRASES_DATA.forEach(it=>{let d=document.createElement('div');d.className='item'+(fraseActual&&it.f===fraseActual.f?' activo':'');let txtClass=tipo==='ligada'?'txt ligada':'txt';d.innerHTML=`<span class="ilust">${it.e}</span><div class="${txtClass}" style="font-size:11px">${fmt(it.f)}</div>`;d.onclick=()=>mostrarFrase(it.f);g.appendChild(d);});}
+function mostrarFrase(f){let it=FRASES_DATA.find(x=>x.f===f)||FRASES_DATA[0];fraseActual=it;document.getElementById('fraseEmoji').textContent=it.e;document.getElementById('fraseTexto').textContent=fmt(it.f);document.getElementById('fraseTexto').className=tipo==='ligada'?'letra-big ligada':'letra-big';document.getElementById('fraseTexto').style.fontSize='36px';document.getElementById('fraseSub').textContent=it.f;let pool=document.getElementById('frasePool');pool.innerHTML='';shuffle(it.pal).forEach(w=>{let d=document.createElement('div');d.className='word';d.textContent=fmt(w);d.dataset.word=w.toLowerCase();d.draggable=true;d.style.fontFamily=tipo==='ligada'?'Dancing Script, cursive':'Nunito';d.addEventListener('dragstart',e=>{e.dataTransfer.setData('text/plain',w.toLowerCase());});pool.appendChild(d);});let drop=document.getElementById('fraseDrop');drop.innerHTML='';it.pal.forEach(w=>{let box=document.createElement('div');box.className='drop';box.dataset.expected=w.toLowerCase();box.textContent='?';box.addEventListener('dragover',e=>{e.preventDefault();});box.addEventListener('drop',e=>{e.preventDefault();let wd=e.dataTransfer.getData('text/plain');if(!wd)return;box.textContent=wd;box.dataset.filled=wd;[...pool.children].find(c=>c.dataset.word===wd)?.remove();});box.addEventListener('click',()=>{if(box.dataset.filled){let wd=box.dataset.filled;let d=document.createElement('div');d.className='word';d.textContent=fmt(wd);d.dataset.word=wd;d.draggable=true;d.style.fontFamily=tipo==='ligada'?'Dancing Script, cursive':'Nunito';d.addEventListener('dragstart',e=>{e.dataTransfer.setData('text/plain',wd);});pool.appendChild(d);box.textContent='?';delete box.dataset.filled;}});drop.appendChild(box);});document.getElementById('fraseMsg').textContent='';renderFrasesList();}
 function hablarFrase(){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(fraseActual.f);u.lang='es-ES';u.rate=0.48;u.voice=getVoice();speechSynthesis.speak(u);}
-function comprobarFrase(){
-  let boxes=[...document.querySelectorAll('#fraseDrop div')];let ok=true;
-  boxes.forEach(b=>{if(b.dataset.filled!==b.dataset.expected) ok=false;});
-  let msg=document.getElementById('fraseMsg');
-  if(ok){msg.textContent='¡Perfecto! 🎉 '+fraseActual.f;msg.style.color='#00b894';hablarFrase();}
-  else{msg.textContent='Sigue intentando 👀';msg.style.color='#e8438a';}
-}
-function fraseNav(dir){
-  let idx=FRASES_DATA.findIndex(x=>x.f===fraseActual.f);
-  let next=(idx+dir+FRASES_DATA.length)%FRASES_DATA.length;
-  mostrarFrase(FRASES_DATA[next].f);
-  hablarFrase();
-}
-initTabs();render();mostrar('AN');palabraActual=FORMACION[0];fraseActual=FRASES_DATA[0];
-setSeccion('frases');
+function comprobarFrase(){let boxes=[...document.querySelectorAll('#fraseDrop div')];let ok=true;boxes.forEach(b=>{if(b.dataset.filled!==b.dataset.expected) ok=false;});let msg=document.getElementById('fraseMsg');if(ok){msg.textContent='¡Perfecto! 🎉 '+fraseActual.f;msg.style.color='#00b894';hablarFrase();}else{msg.textContent='Sigue intentando 👀';msg.style.color='#e8438a';}}
+function fraseNav(dir){let idx=FRASES_DATA.findIndex(x=>x.f===fraseActual.f);let next=(idx+dir+FRASES_DATA.length)%FRASES_DATA.length;mostrarFrase(FRASES_DATA[next].f);hablarFrase();}
+initTabs();render();mostrar('AN');palabraActual=FORMACION[0];fraseActual=FRASES_DATA[0];setSeccion('frases');
 </script></body></html>
