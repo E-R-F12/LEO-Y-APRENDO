@@ -103,4 +103,3 @@ function comprobarFormacion(){let boxes=[...document.querySelectorAll('#dropZone
 function siguienteFormacion(dir=1){let list=FORMACION.filter(x=>filtroLetra==='TODAS'||x.letra===filtroLetra);let idx=list.findIndex(x=>x.p===palabraActual.p);let next=(idx+dir+list.length)%list.length;mostrarFormacion(list[next].p);hablarFormacion();}
 initTabs();render();mostrar('BLA');palabraActual=FORMACION[0];
 </script></body></html>
-Ya en *🚂 TRABADAS (85)* tienes todas, cada una dice por ejemplo *"bra como en brazo"* con su dibujo 💪 y flechas ⬅️➡️ funcionando.
