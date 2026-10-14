@@ -1,61 +1,7 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>VOCABULARIO TEMATICO - 450 palabras</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&family=Dancing+Script:wght@700&family=Caveat:wght@700&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box}body{margin:0;font-family:'Nunito',system-ui;background:#fff6f9;color:#333}
-header{background:linear-gradient(90deg,#6c5ce7,#e8438a);color:#fff;padding:18px;text-align:center;font-size:26px;font-weight:900;position:sticky;top:0;z-index:20}
-.badge{background:#fff;color:#e8438a;padding:4px 10px;border-radius:20px;font-size:14px;margin-left:8px}
-.search-card{background:#fff;border-radius:20px;padding:16px;margin:12px auto;max-width:1200px;box-shadow:0 8px 24px rgba(0,0,0,.08);text-align:center}
-#vocBuscador{width:100%;padding:18px;border-radius:16px;border:3px solid #ffbdd7;font-size:22px;font-weight:800;text-align:center;outline:none}
-.btn{border:0;padding:12px 18px;border-radius:16px;font-weight:900;cursor:pointer;font-family:'Nunito';font-size:16px}
-.btn-pink{background:#e8438a;color:#fff}.btn-green{background:#00b894;color:#fff}.btn-light{background:#fff0f6;color:#e8438a;border:2px solid #ffbdd7}
-.subtabs{display:flex;overflow-x:auto;gap:8px;padding:10px;background:#fff;position:sticky;top:64px;z-index:15;border-bottom:3px solid #ffe0ec}
-.subtabs button{border:0;background:#fff0f6;padding:12px 16px;border-radius:20px;font-weight:900;color:#e8438a;border:2px solid #ffbdd7;white-space:nowrap;cursor:pointer}
-.subtabs button.activo{background:#e8438a;color:#fff;border-color:#e8438a}
-.card{background:#fff;border-radius:24px;padding:18px;margin:12px auto;max-width:1200px;box-shadow:0 12px 30px rgba(0,0,0,.08);text-align:center}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px}
-.item{border:2px solid #ffe0ec;border-radius:18px;padding:10px;background:#fff;cursor:pointer}
-.item.activo{border-color:#e8438a;background:#fff0f6;transform:scale(1.05)}
-.word{border:3px solid #e8438a;background:#fff;color:#e8438a;padding:12px 16px;border-radius:16px;font-weight:900;font-size:22px;cursor:grab}
-.drop{width:140px;min-height:80px;border:4px dashed #ffbdd7;border-radius:18px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#6c5ce7;background:#fff;font-size:26px}
-.letra-big{font-size:68px;font-weight:900;line-height:1}.letra-big.ligada{font-family:'Dancing Script',cursive}
-</style>
-</head>
-<body>
-<header>📚 VOCABULARIO TEMÁTICO <span class="badge">450 palabras</span></header>
-<div class="search-card">
-<input id="vocBuscador" placeholder="🔍 Buscar: manzana, euro, familia, colegio..." oninput="filtrarVocab()">
-<div style="margin-top:10px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
-<button class="btn btn-light" onclick="clearBuscador()">❌ Borrar</button>
-<button class="btn btn-pink" onclick="vocabRandom()">🎲 Aleatoria</button>
-<button class="btn btn-green" onclick="addTema()">➕ Añadir tema</button>
-</div>
-<div id="contador" style="margin-top:8px;font-weight:900;color:#6c5ce7"></div>
-</div>
-<div class="subtabs" id="subtabs"></div>
-<div class="card" style="background:repeating-linear-gradient(0deg, transparent, transparent 31px, #a7d8f0 31px, #a7d8f0 32px, transparent 32px, transparent 64px);border:2px solid #c7e8f5">
-<div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
-<button class="btn btn-light" style="width:56px;height:56px;border-radius:50%;font-size:24px" onclick="vocabNav(-1)">⬅️</button>
-<div style="flex:1">
-<div id="vocEmoji" style="font-size:120px;line-height:1">👨‍👩‍👧‍👦</div>
-<div id="vocPalabra" class="letra-big ligada">familia</div>
-<div id="vocSil" style="color:#6c5ce7;font-size:28px;font-weight:800;margin-top:4px;font-family:'Caveat',cursive"></div>
-<div id="vocFrase" style="color:#ff8f5a;font-size:26px;font-weight:700;margin-top:6px;font-family:'Caveat',cursive"></div>
-</div>
-<button class="btn btn-light" style="width:56px;height:56px;border-radius:50%;font-size:24px" onclick="vocabNav(1)">➡️</button>
-</div>
-<button class="btn btn-green" style="margin-top:16px;padding:16px 28px;font-size:20px" onclick="hablarVocab()">🔊 Escuchar</button>
-<div id="vocPool" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:18px 0;min-height:60px;padding:14px;background:#fff0f6;border-radius:18px;border:2px dashed #ffbdd7"></div>
-<div id="vocDrop" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:16px 0"></div>
-<button class="btn btn-pink" style="padding:14px 24px;font-size:18px" onclick="comprobarVocab()">Comprobar ✅</button>
-<div id="vocMsg" style="font-weight:900;margin-top:10px;font-size:24px"></div>
-</div>
-<div class="card"><div class="grid" id="gridVocab"></div></div>
-<script>const VOCAB_TEMATICO={
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>VOCABULARIO TEMATICO - 450 palabras CORREGIDO</title><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&family=Dancing+Script:wght@700&family=Caveat:wght@700&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{margin:0;font-family:'Nunito',system-ui;background:#fff6f9;color:#333}header{background:linear-gradient(90deg,#6c5ce7,#e8438a);color:#fff;padding:18px;text-align:center;font-size:26px;font-weight:900;position:sticky;top:0;z-index:20}.badge{background:#fff;color:#e8438a;padding:4px 10px;border-radius:20px;font-size:14px;margin-left:8px}.search-card{background:#fff;border-radius:20px;padding:16px;margin:12px auto;max-width:1200px;box-shadow:0 8px 24px rgba(0,0,0,.08);text-align:center}#vocBuscador{width:100%;padding:18px;border-radius:16px;border:3px solid #ffbdd7;font-size:22px;font-weight:800;text-align:center;outline:none}.btn{border:0;padding:12px 18px;border-radius:16px;font-weight:900;cursor:pointer;font-family:'Nunito';font-size:16px}.btn-pink{background:#e8438a;color:#fff}.btn-green{background:#00b894;color:#fff}.btn-light{background:#fff0f6;color:#e8438a;border:2px solid #ffbdd7}.subtabs{display:flex;overflow-x:auto;gap:8px;padding:10px;background:#fff;position:sticky;top:64px;z-index:15;border-bottom:3px solid #ffe0ec}.subtabs button{border:0;background:#fff0f6;padding:12px 16px;border-radius:20px;font-weight:900;color:#e8438a;border:2px solid #ffbdd7;white-space:nowrap;cursor:pointer}.subtabs button.activo{background:#e8438a;color:#fff;border-color:#e8438a}.card{background:#fff;border-radius:24px;padding:18px;margin:12px auto;max-width:1200px;box-shadow:0 12px 30px rgba(0,0,0,.08);text-align:center}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px}.item{border:2px solid #ffe0ec;border-radius:18px;padding:10px;background:#fff;cursor:pointer}.item.activo{border-color:#e8438a;background:#fff0f6;transform:scale(1.05)}.word{border:3px solid #e8438a;background:#fff;color:#e8438a;padding:12px 16px;border-radius:16px;font-weight:900;font-size:22px;cursor:grab}.drop{width:140px;min-height:80px;border:4px dashed #ffbdd7;border-radius:18px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#6c5ce7;background:#fff;font-size:26px}.letra-big{font-size:68px;font-weight:900;line-height:1}.letra-big.ligada{font-family:'Dancing Script',cursive}</style></head><body><header>📚 VOCABULARIO TEMÁTICO <span class="badge">450 palabras</span></header><div class="search-card"><input id="vocBuscador" placeholder="🔍 Buscar: manzana, euro, familia, colegio..." oninput="filtrarVocab()"><div style="margin-top:10px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="btn btn-light" onclick="clearBuscador()">❌ Borrar</button><button class="btn btn-pink" onclick="vocabRandom()">🎲 Aleatoria</button><button class="btn btn-green" onclick="addTema()">➕ Añadir tema</button></div><div id="contador" style="margin-top:8px;font-weight:900;color:#6c5ce7"></div></div><div class="subtabs" id="subtabs"></div><div class="card" style="background:repeating-linear-gradient(0deg, transparent, transparent 31px, #a7d8f0 31px, #a7d8f0 32px, transparent 32px, transparent 64px);border:2px solid #c7e8f5"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><button class="btn btn-light" style="width:56px;height:56px;border-radius:50%;font-size:24px" onclick="vocabNav(-1)">⬅️</button><div style="flex:1"><div id="vocEmoji" style="font-size:120px;line-height:1">👨‍👩‍👧‍👦</div><div id="vocPalabra" class="letra-big ligada">familia</div><div id="vocSil" style="color:#6c5ce7;font-size:28px;font-weight:800;margin-top:4px;font-family:'Caveat',cursive"></div><div id="vocFrase" style="color:#ff8f5a;font-size:26px;font-weight:700;margin-top:6px;font-family:'Caveat',cursive"></div></div><button class="btn btn-light" style="width:56px;height:56px;border-radius:50%;font-size:24px" onclick="vocabNav(1)">➡️</button></div><button class="btn btn-green" style="margin-top:16px;padding:16px 28px;font-size:20px" onclick="hablarVocab()">🔊 Escuchar</button><div id="vocPool" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:18px 0;min-height:60px;padding:14px;background:#fff0f6;border-radius:18px;border:2px dashed #ffbdd7"></div><div id="vocDrop" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:16px 0"></div><button class="btn btn-pink" style="padding:14px 24px;font-size:18px" onclick="comprobarVocab()">Comprobar ✅</button><div id="vocMsg" style="font-weight:900;margin-top:10px;font-size:24px"></div></div><div class="card"><div class="grid" id="gridVocab"></div></div><script>
+
+const VOCAB_TEMATICO={
 "MI FAMILIA":[
 {p:"mamá",e:"🤱",sil:["ma","má"],s:"Mi mamá me quiere mucho",ej:"ma-má"},
 {p:"papá",e:"👨",sil:["pa","pá"],s:"Mi papá cocina rico",ej:"pa-pá"},
@@ -87,8 +33,7 @@ header{background:linear-gradient(90deg,#6c5ce7,#e8438a);color:#fff;padding:18px
 {p:"hogar",e:"🏠",sil:["ho","gar"],s:"Mi hogar es bonito",ej:"ho-gar"},
 {p:"pareja",e:"💑",sil:["pa","re","ja"],s:"Mi pareja me abraza",ej:"pa-re-ja"},
 {p:"hermanos",e:"👦👧",sil:["her","ma","nos"],s:"Mis hermanos juegan",ej:"her-ma-nos"},
-],
-"MI CASA":[
+],"MI CASA":[
 {p:"casa",e:"🏠",sil:["ca","sa"],s:"Mi casa es grande",ej:"ca-sa"},
 {p:"puerta",e:"🚪",sil:["puer","ta"],s:"La puerta es marrón",ej:"puer-ta"},
 {p:"ventana",e:"🪟",sil:["ven","ta","na"],s:"La ventana brilla",ej:"ven-ta-na"},
@@ -138,7 +83,17 @@ header{background:linear-gradient(90deg,#6c5ce7,#e8438a);color:#fff;padding:18px
 {p:"recreo",e:"⚽",sil:["re","cre","o"],s:"El recreo es divertido",ej:"re-cre-o"},
 {p:"biblioteca",e:"📚",sil:["bi","blio","te","ca"],s:"La biblioteca es silenciosa",ej:"bi-blio-te-ca"},
 {p:"patio",e:"🏀",sil:["pa","tio"],s:"El patio es grande",ej:"pa-tio"},
+{p:"silla",e:"🪑",sil:["si","lla"],s:"La silla del cole",ej:"si-lla"},
+{p:"mesa",e:"🪑",sil:["me","sa"],s:"La mesa del cole",ej:"me-sa"},
 {p:"ordenador",e:"💻",sil:["or","de","na","dor"],s:"El ordenador funciona",ej:"or-de-na-dor"},
+{p:"bolígrafo",e:"🖊️",sil:["bo","lí","gra","fo"],s:"Mi boli es azul",ej:"bo-lí-gra-fo"},
+{p:"regla",e:"📏",sil:["re","gla"],s:"La regla mide",ej:"re-gla"},
+{p:"tijeras",e:"✂️",sil:["ti","je","ras"],s:"Las tijeras cortan",ej:"ti-je-ras"},
+{p:"pegamento",e:"🧴",sil:["pe","ga","men","to"],s:"El pegamento pega",ej:"pe-ga-men-to"},
+{p:"pintura",e:"🎨",sil:["pin","tu","ra"],s:"La pintura es de colores",ej:"pin-tu-ra"},
+{p:"compañero",e:"🧑",sil:["com","pa","ñe","ro"],s:"Mi compañero juega",ej:"com-pa-ñe-ro"},
+{p:"compañera",e:"👧",sil:["com","pa","ñe","ra"],s:"Mi compañera canta",ej:"com-pa-ñe-ra"},
+{p:"horario",e:"🕐",sil:["ho","ra","rio"],s:"El horario es largo",ej:"ho-ra-rio"},
 {p:"deberes",e:"📚",sil:["de","be","res"],s:"Los deberes son fáciles",ej:"de-be-res"},
 {p:"uniforme",e:"👕",sil:["u","ni","for","me"],s:"El uniforme es azul",ej:"u-ni-for-me"},
 ],"SALUDOS Y DESPEDIDAS":[
@@ -149,29 +104,29 @@ header{background:linear-gradient(90deg,#6c5ce7,#e8438a);color:#fff;padding:18px
 {p:"buenas noches",e:"🌙",sil:["bue","nas","no","ches"],s:"Buenas noches luna",ej:"bue-nas no-ches"},
 {p:"hasta luego",e:"👋",sil:["has","ta","lue","go"],s:"Hasta luego amigo",ej:"has-ta lue-go"},
 {p:"hasta mañana",e:"🌅",sil:["has","ta","ma","ña","na"],s:"Hasta mañana profe",ej:"has-ta ma-ña-na"},
+{p:"hasta pronto",e:"👋",sil:["has","ta","pron","to"],s:"Hasta pronto familia",ej:"has-ta pron-to"},
+{p:"bienvenido",e:"🤗",sil:["bien","ve","ni","do"],s:"Bienvenido a casa",ej:"bien-ve-ni-do"},
+{p:"bienvenida",e:"🤗",sil:["bien","ve","ni","da"],s:"Bienvenida a clase",ej:"bien-ve-ni-da"},
 {p:"gracias",e:"🙏",sil:["gra","cias"],s:"Gracias por todo",ej:"gra-cias"},
 {p:"por favor",e:"🙏",sil:["por","fa","vor"],s:"Por favor ayúdame",ej:"por fa-vor"},
 {p:"de nada",e:"😊",sil:["de","na","da"],s:"De nada amigo",ej:"de na-da"},
 {p:"perdón",e:"🙇",sil:["per","dón"],s:"Perdón me equivoqué",ej:"per-dón"},
 {p:"lo siento",e:"😔",sil:["lo","sien","to"],s:"Lo siento mucho",ej:"lo sien-to"},
 {p:"encantado",e:"🤝",sil:["en","can","ta","do"],s:"Encantado de verte",ej:"en-can-ta-do"},
+{p:"encantada",e:"🤝",sil:["en","can","ta","da"],s:"Encantada de verte",ej:"en-can-ta-da"},
 {p:"qué tal",e:"🤔",sil:["qué","tal"],s:"Qué tal estás",ej:"qué tal"},
+{p:"cómo estás",e:"😊",sil:["có","mo","es","tás"],s:"Cómo estás hoy",ej:"có-mo es-tás"},
 {p:"muy bien",e:"😄",sil:["muy","bien"],s:"Estoy muy bien",ej:"muy bien"},
+{p:"muy mal",e:"😞",sil:["muy","mal"],s:"Estoy muy mal",ej:"muy mal"},
+{p:"más o menos",e:"😐",sil:["más","o","me","nos"],s:"Estoy más o menos",ej:"más o me-nos"},
 {p:"chao",e:"👋",sil:["chao"],s:"Chao nos vemos",ej:"chao"},
 {p:"nos vemos",e:"👀",sil:["nos","ve","mos"],s:"Nos vemos mañana",ej:"nos ve-mos"},
 {p:"cuídate",e:"🤗",sil:["cuí","da","te"],s:"Cuídate mucho",ej:"cuí-da-te"},
 {p:"suerte",e:"🍀",sil:["suer","te"],s:"Mucha suerte amigo",ej:"suer-te"},
+{p:"saludos",e:"💌",sil:["sa","lu","dos"],s:"Saludos a todos",ej:"sa-lu-dos"},
 {p:"bien",e:"👍",sil:["bien"],s:"Todo está bien",ej:"bien"},
 {p:"genial",e:"🎉",sil:["ge","nial"],s:"Genial verte",ej:"ge-nial"},
 {p:"abrazos",e:"🤗",sil:["a","bra","zos"],s:"Te mando abrazos",ej:"a-bra-zos"},
-{p:"bienvenido",e:"🤗",sil:["bien","ve","ni","do"],s:"Bienvenido a casa",ej:"bien-ve-ni-do"},
-{p:"bienvenida",e:"🤗",sil:["bien","ve","ni","da"],s:"Bienvenida a clase",ej:"bien-ve-ni-da"},
-{p:"más o menos",e:"😐",sil:["más","o","me","nos"],s:"Estoy más o menos",ej:"más o me-nos"},
-{p:"saludos",e:"💌",sil:["sa","lu","dos"],s:"Saludos a todos",ej:"sa-lu-dos"},
-{p:"muy mal",e:"😞",sil:["muy","mal"],s:"Estoy muy mal",ej:"muy mal"},
-{p:"encantada",e:"🤝",sil:["en","can","ta","da"],s:"Encantada de verte",ej:"en-can-ta-da"},
-{p:"cómo estás",e:"😊",sil:["có","mo","es","tás"],s:"Cómo estás hoy",ej:"có-mo es-tás"},
-{p:"hasta pronto",e:"👋",sil:["has","ta","pron","to"],s:"Hasta pronto familia",ej:"has-ta pron-to"},
 ],
 "LA HORA":[
 {p:"hora",e:"🕐",sil:["ho","ra"],s:"Qué hora es",ej:"ho-ra"},
@@ -188,22 +143,22 @@ header{background:linear-gradient(90deg,#6c5ce7,#e8438a);color:#fff;padding:18px
 {p:"y cuarto",e:"🕐",sil:["y","cuar","to"],s:"Son las dos y cuarto",ej:"y cuar-to"},
 {p:"menos cuarto",e:"🕐",sil:["me","nos","cuar","to"],s:"Son las tres menos cuarto",ej:"me-nos cuar-to"},
 {p:"temprano",e:"⏰",sil:["tem","pra","no"],s:"Llego temprano",ej:"tem-pra-no"},
+{p:"tarde",e:"⏰",sil:["tar","de"],s:"Llego tarde",ej:"tar-de"},
 {p:"despertador",e:"⏰",sil:["des","per","ta","dor"],s:"El despertador suena",ej:"des-per-ta-dor"},
+{p:"calendario",e:"📅",sil:["ca","len","da","rio"],s:"El calendario marca",ej:"ca-len-da-rio"},
 {p:"hoy",e:"📅",sil:["hoy"],s:"Hoy es lunes",ej:"hoy"},
 {p:"ayer",e:"📅",sil:["a","yer"],s:"Ayer fue domingo",ej:"a-yer"},
+{p:"mañana",e:"📅",sil:["ma","ña","na"],s:"Mañana es martes",ej:"ma-ña-na"},
+{p:"pronto",e:"⏰",sil:["pron","to"],s:"Vengo pronto",ej:"pron-to"},
+{p:"después",e:"⏳",sil:["des","pués"],s:"Después jugamos",ej:"des-pués"},
+{p:"antes",e:"⏳",sil:["an","tes"],s:"Antes comemos",ej:"an-tes"},
 {p:"ahora",e:"⏰",sil:["a","ho","ra"],s:"Ahora juego",ej:"a-ho-ra"},
 {p:"siempre",e:"🔁",sil:["siem","pre"],s:"Siempre estudio",ej:"siem-pre"},
 {p:"nunca",e:"🚫",sil:["nun","ca"],s:"Nunca llego tarde",ej:"nun-ca"},
 {p:"a tiempo",e:"⏰",sil:["a","tiem","po"],s:"Llego a tiempo",ej:"a tiem-po"},
 {p:"retraso",e:"⏰",sil:["re","tra","so"],s:"Tengo retraso",ej:"re-tra-so"},
 {p:"puntual",e:"⏰",sil:["pun","tual"],s:"Soy puntual",ej:"pun-tual"},
-{p:"calendario",e:"📅",sil:["ca","len","da","rio"],s:"El calendario marca",ej:"ca-len-da-rio"},
-{p:"pronto",e:"⏰",sil:["pron","to"],s:"Vengo pronto",ej:"pron-to"},
-{p:"después",e:"⏳",sil:["des","pués"],s:"Después jugamos",ej:"des-pués"},
-{p:"antes",e:"⏳",sil:["an","tes"],s:"Antes comemos",ej:"an-tes"},
 {p:"reloj de pared",e:"🕐",sil:["re","loj","de","pa","red"],s:"El reloj de pared suena",ej:"re-loj de pa-red"},
-{p:"tarde",e:"⏰",sil:["tar","de"],s:"Llego tarde",ej:"tar-de"},
-{p:"mañana",e:"📅",sil:["ma","ña","na"],s:"Mañana es martes",ej:"ma-ña-na"},
 ],
 "DÍAS-SEMANAS-MESES DEL AÑO":[
 {p:"lunes",e:"📅",sil:["lu","nes"],s:"Hoy es lunes",ej:"lu-nes"},
@@ -241,30 +196,66 @@ header{background:linear-gradient(90deg,#6c5ce7,#e8438a);color:#fff;padding:18px
 {p:"amigo",e:"🧑",sil:["a","mi","go"],s:"Mi amigo juega",ej:"a-mi-go"},
 {p:"amiga",e:"👧",sil:["a","mi","ga"],s:"Mi amiga canta",ej:"a-mi-ga"},
 {p:"amigos",e:"👦👦",sil:["a","mi","gos"],s:"Mis amigos ríen",ej:"a-mi-gos"},
+{p:"amigas",e:"👧👧",sil:["a","mi","gas"],s:"Mis amigas saltan",ej:"a-mi-gas"},
+{p:"compañero",e:"🧑",sil:["com","pa","ñe","ro"],s:"Mi compañero estudia",ej:"com-pa-ñe-ro"},
+{p:"compañera",e:"👧",sil:["com","pa","ñe","ra"],s:"Mi compañera lee",ej:"com-pa-ñe-ra"},
+{p:"vecino",e:"🏠",sil:["ve","ci","no"],s:"Mi vecino saluda",ej:"ve-ci-no"},
+{p:"vecina",e:"🏠",sil:["ve","ci","na"],s:"Mi vecina sonríe",ej:"ve-ci-na"},
 {p:"juego",e:"⚽",sil:["jue","go"],s:"El juego es divertido",ej:"jue-go"},
 {p:"pelota",e:"⚽",sil:["pe","lo","ta"],s:"La pelota bota",ej:"pe-lo-ta"},
-{p:"abrazo",e:"🤗",sil:["a","bra","zo"],s:"Te doy un abrazo",ej:"a-bra-zo"},
 {p:"risa",e:"😂",sil:["ri","sa"],s:"La risa es bonita",ej:"ri-sa"},
+{p:"abrazo",e:"🤗",sil:["a","bra","zo"],s:"Te doy un abrazo",ej:"a-bra-zo"},
+{p:"confianza",e:"🤝",sil:["con","fian","za"],s:"Tengo confianza",ej:"con-fian-za"},
+{p:"compartir",e:"🤲",sil:["com","par","tir"],s:"Comparto mi juguete",ej:"com-par-tir"},
+{p:"ayuda",e:"🙏",sil:["a","yu","da"],s:"Pido ayuda",ej:"a-yu-da"},
 {p:"equipo",e:"👥",sil:["e","qui","po"],s:"Mi equipo gana",ej:"e-qui-po"},
 {p:"fiesta",e:"🎉",sil:["fies","ta"],s:"La fiesta es alegre",ej:"fies-ta"},
+{p:"cumple",e:"🎂",sil:["cum","ple"],s:"El cumple es hoy",ej:"cum-ple"},
 {p:"regalo",e:"🎁",sil:["re","ga","lo"],s:"Te doy un regalo",ej:"re-ga-lo"},
+{p:"secreto",e:"🤫",sil:["se","cre","to"],s:"Te digo un secreto",ej:"se-cre-to"},
+{p:"promesa",e:"🤝",sil:["pro","me","sa"],s:"Te hago una promesa",ej:"pro-me-sa"},
+{p:"verdad",e:"😊",sil:["ver","dad"],s:"Digo la verdad",ej:"ver-dad"},
+{p:"mentira",e:"🤥",sil:["men","ti","ra"],s:"No digo mentiras",ej:"men-ti-ra"},
+{p:"enfado",e:"😠",sil:["en","fa","do"],s:"Estoy enfadado",ej:"en-fa-do"},
 {p:"contento",e:"😄",sil:["con","ten","to"],s:"Estoy contento",ej:"con-ten-to"},
 {p:"triste",e:"😢",sil:["tris","te"],s:"Estoy triste",ej:"tris-te"},
+{p:"alegre",e:"😃",sil:["a","le","gre"],s:"Estoy alegre",ej:"a-le-gre"},
 {p:"juntos",e:"👫",sil:["jun","tos"],s:"Jugamos juntos",ej:"jun-tos"},
 {p:"jugar",e:"⚽",sil:["ju","gar"],s:"Me gusta jugar",ej:"ju-gar"},
-],
-"LAS MASCOTAS":[
+{p:"reír",e:"😂",sil:["re","ír"],s:"Me gusta reír",ej:"re-ír"},
+],"LAS MASCOTAS":[
 {p:"perro",e:"🐶",sil:["pe","rro"],s:"Mi perro ladra",ej:"pe-rro"},
 {p:"gato",e:"🐱",sil:["ga","to"],s:"Mi gato duerme",ej:"ga-to"},
 {p:"pájaro",e:"🐦",sil:["pá","ja","ro"],s:"Mi pájaro canta",ej:"pá-ja-ro"},
 {p:"pez",e:"🐟",sil:["pez"],s:"Mi pez nada",ej:"pez"},
 {p:"tortuga",e:"🐢",sil:["tor","tu","ga"],s:"Mi tortuga camina",ej:"tor-tu-ga"},
 {p:"conejo",e:"🐰",sil:["co","ne","jo"],s:"Mi conejo salta",ej:"co-ne-jo"},
+{p:"hámster",e:"🐹",sil:["háms","ter"],s:"Mi hámster corre",ej:"háms-ter"},
 {p:"loro",e:"🦜",sil:["lo","ro"],s:"Mi loro habla",ej:"lo-ro"},
-{p:"vaca",e:"🐄",sil:["va","ca"],s:"La vaca da leche",ej:"va-ca"},
-{p:"caballo",e:"🐴",sil:["ca","ba","llo"],s:"El caballo corre",ej:"ca-ba-llo"},
+{p:"canario",e:"🐤",sil:["ca","na","rio"],s:"Mi canario canta",ej:"ca-na-rio"},
+{p:"cobaya",e:"🐹",sil:["co","ba","ya"],s:"Mi cobaya come",ej:"co-ba-ya"},
+{p:"iguana",e:"🦎",sil:["i","gua","na"],s:"La iguana es verde",ej:"i-gua-na"},
 {p:"gallina",e:"🐔",sil:["ga","lli","na"],s:"La gallina pone huevos",ej:"ga-lli-na"},
-],"LA CIUDAD Y EL PUEBLO":[
+{p:"gallo",e:"🐓",sil:["ga","llo"],s:"El gallo canta",ej:"ga-llo"},
+{p:"pato",e:"🦆",sil:["pa","to"],s:"El pato nada",ej:"pa-to"},
+{p:"oveja",e:"🐑",sil:["o","ve","ja"],s:"La oveja es blanca",ej:"o-ve-ja"},
+{p:"caballo",e:"🐴",sil:["ca","ba","llo"],s:"El caballo corre",ej:"ca-ba-llo"},
+{p:"vaca",e:"🐄",sil:["va","ca"],s:"La vaca da leche",ej:"va-ca"},
+{p:"cerdo",e:"🐖",sil:["cer","do"],s:"El cerdo come",ej:"cer-do"},
+{p:"cabra",e:"🐐",sil:["ca","bra"],s:"La cabra salta",ej:"ca-bra"},
+{p:"ratón",e:"🐭",sil:["ra","tón"],s:"El ratón es pequeño",ej:"ra-tón"},
+{p:"erizo",e:"🦔",sil:["e","ri","zo"],s:"El erizo tiene púas",ej:"e-ri-zo"},
+{p:"hurón",e:"🦦",sil:["hu","rón"],s:"El hurón juega",ej:"hu-rón"},
+{p:"tortuga de agua",e:"🐢",sil:["tor","tu","ga","de","a","gua"],s:"Mi tortuga de agua nada",ej:"tor-tu-ga de a-gua"},
+{p:"perico",e:"🦜",sil:["pe","ri","co"],s:"Mi perico es verde",ej:"pe-ri-co"},
+{p:"agapornis",e:"🦜",sil:["a","ga","por","nis"],s:"Mi agapornis canta",ej:"a-ga-por-nis"},
+{p:"chinchilla",e:"🐭",sil:["chin","chi","lla"],s:"La chinchilla es suave",ej:"chin-chi-lla"},
+{p:"gato persa",e:"🐱",sil:["ga","to","per","sa"],s:"Mi gato persa duerme",ej:"ga-to per-sa"},
+{p:"perro labrador",e:"🐶",sil:["pe","rro","la","bra","dor"],s:"Mi labrador juega",ej:"pe-rro la-bra-dor"},
+{p:"serpiente",e:"🐍",sil:["ser","pien","te"],s:"La serpiente no es mascota",ej:"ser-pien-te"},
+{p:"camaleón",e:"🦎",sil:["ca","ma","le","ón"],s:"El camaleón cambia color",ej:"ca-ma-le-ón"},
+],
+"LA CIUDAD Y EL PUEBLO":[
 {p:"ciudad",e:"🏙️",sil:["ciu","dad"],s:"La ciudad es grande",ej:"ciu-dad"},
 {p:"pueblo",e:"🏘️",sil:["pue","blo"],s:"El pueblo es pequeño",ej:"pue-blo"},
 {p:"calle",e:"🛣️",sil:["ca","lle"],s:"La calle es larga",ej:"ca-lle"},
@@ -278,23 +269,23 @@ header{background:linear-gradient(90deg,#6c5ce7,#e8438a);color:#fff;padding:18px
 {p:"hospital",e:"🏥",sil:["hos","pi","tal"],s:"El hospital cura",ej:"hos-pi-tal"},
 {p:"banco",e:"🏦",sil:["ban","co"],s:"El banco guarda dinero",ej:"ban-co"},
 {p:"cine",e:"🎬",sil:["ci","ne"],s:"El cine es divertido",ej:"ci-ne"},
+{p:"teatro",e:"🎭",sil:["te","a","tro"],s:"El teatro es bonito",ej:"te-a-tro"},
+{p:"museo",e:"🏛️",sil:["mu","se","o"],s:"El museo tiene cuadros",ej:"mu-se-o"},
 {p:"biblioteca",e:"📚",sil:["bi","blio","te","ca"],s:"La biblioteca es silenciosa",ej:"bi-blio-te-ca"},
 {p:"escuela",e:"🏫",sil:["es","cue","la"],s:"La escuela enseña",ej:"es-cue-la"},
-{p:"semáforo",e:"🚦",sil:["se","má","fo","ro"],s:"El semáforo está en rojo",ej:"se-má-fo-ro"},
-{p:"puente",e:"🌉",sil:["puen","te"],s:"El puente cruza",ej:"puen-te"},
-{p:"fuente",e:"⛲",sil:["fuen","te"],s:"La fuente tiene agua",ej:"fuen-te"},
-{p:"panadería",e:"🥖",sil:["pa","na","de","rí","a"],s:"La panadería huele bien",ej:"pa-na-de-rí-a"},
-{p:"mercado",e:"🛒",sil:["mer","ca","do"],s:"El mercado es grande",ej:"mer-ca-do"},
-{p:"calle",e:"🛣️",sil:["ca","lle"],s:"La calle es larga",ej:"ca-lle"},
-{p:"plaza",e:"⛲",sil:["pla","za"],s:"La plaza es bonita",ej:"pla-za"},
-{p:"parque",e:"🌳",sil:["par","que"],s:"El parque tiene árboles",ej:"par-que"},
+{p:"colegio",e:"🏫",sil:["co","le","gio"],s:"El colegio es grande",ej:"co-le-gio"},
+{p:"casa",e:"🏠",sil:["ca","sa"],s:"La casa es bonita",ej:"ca-sa"},
 {p:"edificio",e:"🏢",sil:["e","di","fi","cio"],s:"El edificio es alto",ej:"e-di-fi-cio"},
+{p:"semáforo",e:"🚦",sil:["se","má","fo","ro"],s:"El semáforo está en rojo",ej:"se-má-fo-ro"},
 {p:"acera",e:"🚶",sil:["a","ce","ra"],s:"Camino por la acera",ej:"a-ce-ra"},
 {p:"carretera",e:"🛣️",sil:["ca","rre","te","ra"],s:"La carretera es larga",ej:"ca-rre-te-ra"},
+{p:"puente",e:"🌉",sil:["puen","te"],s:"El puente cruza",ej:"puen-te"},
+{p:"fuente",e:"⛲",sil:["fuen","te"],s:"La fuente tiene agua",ej:"fuen-te"},
 {p:"kiosco",e:"📰",sil:["kios","co"],s:"El kiosco vende prensa",ej:"kios-co"},
+{p:"panadería",e:"🥖",sil:["pa","na","de","rí","a"],s:"La panadería huele bien",ej:"pa-na-de-rí-a"},
 {p:"carnicería",e:"🥩",sil:["car","ni","ce","rí","a"],s:"La carnicería vende carne",ej:"car-ni-ce-rí-a"},
 {p:"pescadería",e:"🐟",sil:["pes","ca","de","rí","a"],s:"La pescadería vende pescado",ej:"pes-ca-de-rí-a"},
-{p:"teatro",e:"🎭",sil:["te","a","tro"],s:"El teatro es bonito",ej:"te-a-tro"},
+{p:"mercado",e:"🛒",sil:["mer","ca","do"],s:"El mercado es grande",ej:"mer-ca-do"},
 ],
 "MEDIOS DE COMUNICACIÓN":[
 {p:"teléfono",e:"📞",sil:["te","lé","fo","no"],s:"Mi teléfono suena",ej:"te-lé-fo-no"},
@@ -303,30 +294,30 @@ header{background:linear-gradient(90deg,#6c5ce7,#e8438a);color:#fff;padding:18px
 {p:"internet",e:"🌐",sil:["in","ter","net"],s:"Internet conecta",ej:"in-ter-net"},
 {p:"carta",e:"✉️",sil:["car","ta"],s:"Escribo una carta",ej:"car-ta"},
 {p:"periódico",e:"📰",sil:["pe","rió","di","co"],s:"Leo el periódico",ej:"pe-rió-di-co"},
+{p:"revista",e:"📖",sil:["re","vis","ta"],s:"Leo una revista",ej:"re-vis-ta"},
 {p:"radio",e:"📻",sil:["ra","dio"],s:"La radio suena",ej:"ra-dio"},
 {p:"televisión",e:"📺",sil:["te","le","vi","sión"],s:"Veo la tele",ej:"te-le-vi-sión"},
 {p:"email",e:"📧",sil:["e","mail"],s:"Mando un email",ej:"e-mail"},
 {p:"mensaje",e:"💬",sil:["men","sa","je"],s:"Mando un mensaje",ej:"men-sa-je"},
+{p:"whatsapp",e:"💬",sil:["whats","app"],s:"Mando un whatsapp",ej:"whats-app"},
+{p:"tablet",e:"📱",sil:["ta","blet"],s:"Mi tablet brilla",ej:"ta-blet"},
+{p:"auriculares",e:"🎧",sil:["au","ri","cu","la","res"],s:"Mis auriculares suenan",ej:"au-ri-cu-la-res"},
+{p:"micrófono",e:"🎤",sil:["mi","cró","fo","no"],s:"El micro suena",ej:"mi-cró-fo-no"},
+{p:"cámara",e:"📷",sil:["cá","ma","ra"],s:"La cámara hace fotos",ej:"cá-ma-ra"},
 {p:"foto",e:"📷",sil:["fo","to"],s:"Hago una foto",ej:"fo-to"},
 {p:"vídeo",e:"🎥",sil:["ví","de","o"],s:"Veo un vídeo",ej:"ví-de-o"},
 {p:"película",e:"🎬",sil:["pe","lí","cu","la"],s:"Veo una peli",ej:"pe-lí-cu-la"},
 {p:"noticias",e:"📰",sil:["no","ti","cias"],s:"Veo las noticias",ej:"no-ti-cias"},
-{p:"programa",e:"📺",sil:["pro","gra","ma"],s:"Veo un programa",ej:"pro-gra-ma"},
-{p:"podcast",e:"🎧",sil:["pod","cast"],s:"Escucho un podcast",ej:"pod-cast"},
-{p:"whatsapp",e:"💬",sil:["whats","app"],s:"Mando un whatsapp",ej:"whats-app"},
-{p:"tablet",e:"📱",sil:["ta","blet"],s:"Mi tablet brilla",ej:"ta-blet"},
-{p:"auriculares",e:"🎧",sil:["au","ri","cu","la","res"],s:"Mis auriculares suenan",ej:"au-ri-cu-la-res"},
-{p:"cámara",e:"📷",sil:["cá","ma","ra"],s:"La cámara hace fotos",ej:"cá-ma-ra"},
-{p:"youtube",e:"▶️",sil:["you","tu","be"],s:"Veo youtube",ej:"you-tu-be"},
-{p:"instagram",e:"📸",sil:["ins","ta","gram"],s:"Uso instagram",ej:"ins-ta-gram"},
-{p:"facebook",e:"📘",sil:["face","book"],s:"Uso facebook",ej:"face-book"},
-{p:"redes sociales",e:"🌐",sil:["re","des","so","cia","les"],s:"Uso redes sociales",ej:"re-des so-cia-les"},
 {p:"anuncio",e:"📢",sil:["a","nun","cio"],s:"Veo un anuncio",ej:"a-nun-cio"},
-{p:"revista",e:"📖",sil:["re","vis","ta"],s:"Leo una revista",ej:"re-vis-ta"},
-{p:"micrófono",e:"🎤",sil:["mi","cró","fo","no"],s:"El micro suena",ej:"mi-cró-fo-no"},
-{p:"entrevista",e:"🎤",sil:["en","tre","vis","ta"],s:"Veo una entrevista",ej:"en-tre-vis-ta"},
+{p:"programa",e:"📺",sil:["pro","gra","ma"],s:"Veo un programa",ej:"pro-gra-ma"},
 {p:"canal",e:"📺",sil:["ca","nal"],s:"Cambio de canal",ej:"ca-nal"},
+{p:"entrevista",e:"🎤",sil:["en","tre","vis","ta"],s:"Veo una entrevista",ej:"en-tre-vis-ta"},
 {p:"reportaje",e:"📰",sil:["re","por","ta","je"],s:"Leo un reportaje",ej:"re-por-ta-je"},
+{p:"podcast",e:"🎧",sil:["pod","cast"],s:"Escucho un podcast",ej:"pod-cast"},
+{p:"redes sociales",e:"🌐",sil:["re","des","so","cia","les"],s:"Uso redes sociales",ej:"re-des so-cia-les"},
+{p:"facebook",e:"📘",sil:["face","book"],s:"Uso facebook",ej:"face-book"},
+{p:"instagram",e:"📸",sil:["ins","ta","gram"],s:"Uso instagram",ej:"ins-ta-gram"},
+{p:"youtube",e:"▶️",sil:["you","tu","be"],s:"Veo youtube",ej:"you-tu-be"},
 ],
 "LA ROPA MASCULINA Y FEMENINA":[
 {p:"camisa",e:"👔",sil:["ca","mi","sa"],s:"Mi camisa es blanca",ej:"ca-mi-sa"},
@@ -336,29 +327,29 @@ header{background:linear-gradient(90deg,#6c5ce7,#e8438a);color:#fff;padding:18px
 {p:"vestido",e:"👗",sil:["ves","ti","do"],s:"El vestido es bonito",ej:"ves-ti-do"},
 {p:"zapato",e:"👟",sil:["za","pa","to"],s:"Mi zapato es nuevo",ej:"za-pa-to"},
 {p:"bota",e:"👢",sil:["bo","ta"],s:"Mi bota es alta",ej:"bo-ta"},
+{p:"calcetín",e:"🧦",sil:["cal","ce","tín"],s:"Mi calcetín es rojo",ej:"cal-ce-tín"},
 {p:"chaqueta",e:"🧥",sil:["cha","que","ta"],s:"Mi chaqueta abriga",ej:"cha-que-ta"},
 {p:"abrigo",e:"🧥",sil:["a","bri","go"],s:"Mi abrigo es caliente",ej:"a-bri-go"},
+{p:"jersey",e:"👕",sil:["jer","sey"],s:"Mi jersey es de lana",ej:"jer-sey"},
 {p:"bufanda",e:"🧣",sil:["bu","fan","da"],s:"Mi bufanda abriga",ej:"bu-fan-da"},
 {p:"gorro",e:"🧢",sil:["go","rro"],s:"Mi gorro es azul",ej:"go-rro"},
 {p:"sombrero",e:"👒",sil:["som","bre","ro"],s:"Mi sombrero es grande",ej:"som-bre-ro"},
-{p:"bolso",e:"👜",sil:["bol","so"],s:"Mi bolso es grande",ej:"bol-so"},
-{p:"bañador",e:"🩱",sil:["ba","ña","dor"],s:"Mi bañador es azul",ej:"ba-ña-dor"},
-{p:"pijama",e:"😴",sil:["pi","ja","ma"],s:"Mi pijama es cómodo",ej:"pi-ja-ma"},
-{p:"traje",e:"🤵",sil:["tra","je"],s:"Mi traje es elegante",ej:"tra-je"},
-{p:"calcetín",e:"🧦",sil:["cal","ce","tín"],s:"Mi calcetín es rojo",ej:"cal-ce-tín"},
-{p:"cinturón",e:"🪢",sil:["cin","tu","rón"],s:"Mi cinturón aprieta",ej:"cin-tu-rón"},
-{p:"guantes",e:"🧤",sil:["guan","tes"],s:"Mis guantes calientan",ej:"guan-tes"},
-{p:"sudadera",e:"👕",sil:["su","da","de","ra"],s:"Mi sudadera es gris",ej:"su-da-de-ra"},
-{p:"chándal",e:"👟",sil:["chán","dal"],s:"Mi chándal es deportivo",ej:"chán-dal"},
-{p:"blusa",e:"👚",sil:["blu","sa"],s:"Mi blusa es bonita",ej:"blu-sa"},
-{p:"jersey",e:"👕",sil:["jer","sey"],s:"Mi jersey es de lana",ej:"jer-sey"},
 {p:"corbata",e:"👔",sil:["cor","ba","ta"],s:"La corbata es elegante",ej:"cor-ba-ta"},
+{p:"cinturón",e:"🪢",sil:["cin","tu","rón"],s:"Mi cinturón aprieta",ej:"cin-tu-rón"},
+{p:"bolso",e:"👜",sil:["bol","so"],s:"Mi bolso es grande",ej:"bol-so"},
 {p:"mochila",e:"🎒",sil:["mo","chi","la"],s:"Mi mochila es roja",ej:"mo-chi-la"},
+{p:"guantes",e:"🧤",sil:["guan","tes"],s:"Mis guantes calientan",ej:"guan-tes"},
+{p:"bañador",e:"🩱",sil:["ba","ña","dor"],s:"Mi bañador es azul",ej:"ba-ña-dor"},
+{p:"bikini",e:"👙",sil:["bi","ki","ni"],s:"Mi bikini es rojo",ej:"bi-ki-ni"},
+{p:"pijama",e:"😴",sil:["pi","ja","ma"],s:"Mi pijama es cómodo",ej:"pi-ja-ma"},
+{p:"calzoncillos",e:"🩲",sil:["cal","zon","ci","llos"],s:"Ropa interior",ej:"cal-zon-ci-llos"},
 {p:"medias",e:"🧦",sil:["me","dias"],s:"Mis medias son largas",ej:"me-dias"},
 {p:"pantalón corto",e:"🩳",sil:["pan","ta","lón","cor","to"],s:"Mi pantalón corto es fresco",ej:"pan-ta-lón cor-to"},
-{p:"bikini",e:"👙",sil:["bi","ki","ni"],s:"Mi bikini es rojo",ej:"bi-ki-ni"},
+{p:"sudadera",e:"👕",sil:["su","da","de","ra"],s:"Mi sudadera es gris",ej:"su-da-de-ra"},
+{p:"chándal",e:"👟",sil:["chán","dal"],s:"Mi chándal es deportivo",ej:"chán-dal"},
+{p:"traje",e:"🤵",sil:["tra","je"],s:"Mi traje es elegante",ej:"tra-je"},
+{p:"blusa",e:"👚",sil:["blu","sa"],s:"Mi blusa es bonita",ej:"blu-sa"},
 {p:"top",e:"👚",sil:["top"],s:"Mi top es corto",ej:"top"},
-{p:"calzoncillos",e:"🩲",sil:["cal","zon","ci","llos"],s:"Ropa interior",ej:"cal-zon-ci-llos"},
 ],
 "LA COMIDA":[
 {p:"pan",e:"🍞",sil:["pan"],s:"Como pan",ej:"pan"},
@@ -369,28 +360,28 @@ header{background:linear-gradient(90deg,#6c5ce7,#e8438a);color:#fff;padding:18px
 {p:"huevo",e:"🥚",sil:["hue","vo"],s:"Como huevo",ej:"hue-vo"},
 {p:"leche",e:"🥛",sil:["le","che"],s:"Bebo leche",ej:"le-che"},
 {p:"queso",e:"🧀",sil:["que","so"],s:"Como queso",ej:"que-so"},
-{p:"pizza",e:"🍕",sil:["pi","zza"],s:"Como pizza",ej:"pi-zza"},
-{p:"pollo",e:"🍗",sil:["po","llo"],s:"Como pollo",ej:"po-llo"},
-{p:"jamón",e:"🍖",sil:["ja","món"],s:"Como jamón",ej:"ja-món"},
-{p:"tortilla",e:"🍳",sil:["tor","ti","lla"],s:"Como tortilla",ej:"tor-ti-lla"},
-{p:"paella",e:"🥘",sil:["pa","e","lla"],s:"Como paella",ej:"pa-e-lla"},
-{p:"lentejas",e:"🍲",sil:["len","te","jas"],s:"Como lentejas",ej:"len-te-jas"},
-{p:"bocadillo",e:"🥪",sil:["bo","ca","di","llo"],s:"Como bocadillo",ej:"bo-ca-di-llo"},
+{p:"yogur",e:"🥣",sil:["yo","gur"],s:"Como yogur",ej:"yo-gur"},
 {p:"sopa",e:"🍲",sil:["so","pa"],s:"Como sopa",ej:"so-pa"},
 {p:"ensalada",e:"🥗",sil:["en","sa","la","da"],s:"Como ensalada",ej:"en-sa-la-da"},
+{p:"pizza",e:"🍕",sil:["pi","zza"],s:"Como pizza",ej:"pi-zza"},
 {p:"hamburguesa",e:"🍔",sil:["ham","bur","gue","sa"],s:"Como hamburguesa",ej:"ham-bur-gue-sa"},
+{p:"pollo",e:"🍗",sil:["po","llo"],s:"Como pollo",ej:"po-llo"},
+{p:"jamón",e:"🍖",sil:["ja","món"],s:"Como jamón",ej:"ja-món"},
 {p:"chorizo",e:"🌭",sil:["cho","ri","zo"],s:"Como chorizo",ej:"cho-ri-zo"},
+{p:"tortilla",e:"🍳",sil:["tor","ti","lla"],s:"Como tortilla",ej:"tor-ti-lla"},
 {p:"croqueta",e:"🥟",sil:["cro","que","ta"],s:"Como croqueta",ej:"cro-que-ta"},
+{p:"paella",e:"🥘",sil:["pa","e","lla"],s:"Como paella",ej:"pa-e-lla"},
+{p:"lentejas",e:"🍲",sil:["len","te","jas"],s:"Como lentejas",ej:"len-te-jas"},
 {p:"garbanzos",e:"🥘",sil:["gar","ban","zos"],s:"Como garbanzos",ej:"gar-ban-zos"},
+{p:"judías",e:"🫘",sil:["ju","dí","as"],s:"Como judías",ej:"ju-dí-as"},
 {p:"sardina",e:"🐟",sil:["sar","di","na"],s:"Como sardina",ej:"sar-di-na"},
 {p:"atún",e:"🐟",sil:["a","tún"],s:"Como atún",ej:"a-tún"},
+{p:"merluza",e:"🐟",sil:["mer","lu","za"],s:"Como merluza",ej:"mer-lu-za"},
+{p:"bacalao",e:"🐟",sil:["ba","ca","lao"],s:"Como bacalao",ej:"ba-ca-lao"},
 {p:"salchicha",e:"🌭",sil:["sal","chi","cha"],s:"Como salchicha",ej:"sal-chi-cha"},
 {p:"ternera",e:"🐄",sil:["ter","ne","ra"],s:"Como ternera",ej:"ter-ne-ra"},
-{p:"yogur",e:"🥣",sil:["yo","gur"],s:"Como yogur",ej:"yo-gur"},
-{p:"jamón",e:"🍖",sil:["ja","món"],s:"Como jamón",ej:"ja-món"},
-{p:"judías",e:"🫘",sil:["ju","dí","as"],s:"Como judías",ej:"ju-dí-as"},
-{p:"merluza",e:"🐟",sil:["mer","lu","za"],s:"Como merluza",ej:"mer-lu-za"},
 {p:"cordero",e:"🐑",sil:["cor","de","ro"],s:"Como cordero",ej:"cor-de-ro"},
+{p:"bocadillo",e:"🥪",sil:["bo","ca","di","llo"],s:"Como bocadillo",ej:"bo-ca-di-llo"},
 ],
 "FRUTAS Y VERDURAS":[
 {p:"manzana",e:"🍎",sil:["man","za","na"],s:"Como manzana",ej:"man-za-na"},
@@ -401,28 +392,28 @@ header{background:linear-gradient(90deg,#6c5ce7,#e8438a);color:#fff;padding:18px
 {p:"pera",e:"🍐",sil:["pe","ra"],s:"Como pera",ej:"pe-ra"},
 {p:"sandía",e:"🍉",sil:["san","dí","a"],s:"Como sandía",ej:"san-dí-a"},
 {p:"melón",e:"🍈",sil:["me","lón"],s:"Como melón",ej:"me-lón"},
+{p:"melocotón",e:"🍑",sil:["me","lo","co","tón"],s:"Como melocotón",ej:"me-lo-co-tón"},
 {p:"kiwi",e:"🥝",sil:["ki","wi"],s:"Como kiwi",ej:"ki-wi"},
 {p:"piña",e:"🍍",sil:["pi","ña"],s:"Como piña",ej:"pi-ña"},
 {p:"mango",e:"🥭",sil:["man","go"],s:"Como mango",ej:"man-go"},
 {p:"limón",e:"🍋",sil:["li","món"],s:"Como limón",ej:"li-món"},
+{p:"cereza",e:"🍒",sil:["ce","re","za"],s:"Como cereza",ej:"ce-re-za"},
+{p:"ciruela",e:"🟣",sil:["ci","rue","la"],s:"Como ciruela",ej:"ci-rue-la"},
 {p:"tomate",e:"🍅",sil:["to","ma","te"],s:"Como tomate",ej:"to-ma-te"},
 {p:"lechuga",e:"🥬",sil:["le","chu","ga"],s:"Como lechuga",ej:"le-chu-ga"},
 {p:"zanahoria",e:"🥕",sil:["za","na","ho","ria"],s:"Como zanahoria",ej:"za-na-ho-ria"},
 {p:"patata",e:"🥔",sil:["pa","ta","ta"],s:"Como patata",ej:"pa-ta-ta"},
 {p:"cebolla",e:"🧅",sil:["ce","bo","lla"],s:"Como cebolla",ej:"ce-bo-lla"},
+{p:"ajo",e:"🧄",sil:["a","jo"],s:"Como ajo",ej:"a-jo"},
 {p:"pimiento",e:"🫑",sil:["pi","mien","to"],s:"Como pimiento",ej:"pi-mien-to"},
 {p:"pepino",e:"🥒",sil:["pe","pi","no"],s:"Como pepino",ej:"pe-pi-no"},
-{p:"brócoli",e:"🥦",sil:["bró","co","li"],s:"Como brócoli",ej:"bró-co-li"},
-{p:"maíz",e:"🌽",sil:["ma","íz"],s:"Como maíz",ej:"ma-íz"},
-{p:"cereza",e:"🍒",sil:["ce","re","za"],s:"Como cereza",ej:"ce-re-za"},
-{p:"melocotón",e:"🍑",sil:["me","lo","co","tón"],s:"Como melocotón",ej:"me-lo-co-tón"},
-{p:"ajo",e:"🧄",sil:["a","jo"],s:"Como ajo",ej:"a-jo"},
 {p:"berenjena",e:"🍆",sil:["be","ren","je","na"],s:"Como berenjena",ej:"be-ren-je-na"},
 {p:"calabacín",e:"🥒",sil:["ca","la","ba","cín"],s:"Como calabacín",ej:"ca-la-ba-cín"},
+{p:"brócoli",e:"🥦",sil:["bró","co","li"],s:"Como brócoli",ej:"bró-co-li"},
 {p:"coliflor",e:"🥦",sil:["co","li","flor"],s:"Como coliflor",ej:"co-li-flor"},
 {p:"espinacas",e:"🥬",sil:["es","pi","na","cas"],s:"Como espinacas",ej:"es-pi-na-cas"},
 {p:"guisantes",e:"🟢",sil:["gui","san","tes"],s:"Como guisantes",ej:"gui-san-tes"},
-{p:"ciruela",e:"🟣",sil:["ci","rue","la"],s:"Como ciruela",ej:"ci-rue-la"},
+{p:"maíz",e:"🌽",sil:["ma","íz"],s:"Como maíz",ej:"ma-íz"},
 ],
 "LAS TIENDAS Y SUPERMERCADOS":[
 {p:"tienda",e:"🏪",sil:["tien","da"],s:"Voy a la tienda",ej:"tien-da"},
@@ -435,26 +426,26 @@ header{background:linear-gradient(90deg,#6c5ce7,#e8438a);color:#fff;padding:18px
 {p:"caja",e:"💰",sil:["ca","ja"],s:"Pago en caja",ej:"ca-ja"},
 {p:"cesta",e:"🧺",sil:["ces","ta"],s:"Llevo cesta",ej:"ces-ta"},
 {p:"carro",e:"🛒",sil:["ca","rro"],s:"Empujo el carro",ej:"ca-rro"},
+{p:"dependiente",e:"🧑‍💼",sil:["de","pen","dien","te"],s:"El dependiente ayuda",ej:"de-pen-dien-te"},
+{p:"cliente",e:"🧑",sil:["clien","te"],s:"El cliente compra",ej:"clien-te"},
 {p:"precio",e:"💲",sil:["pre","cio"],s:"El precio es alto",ej:"pre-cio"},
 {p:"oferta",e:"🏷️",sil:["o","fer","ta"],s:"Hay oferta hoy",ej:"o-fer-ta"},
+{p:"descuento",e:"💲",sil:["des","cuen","to"],s:"Hay descuento",ej:"des-cuen-to"},
 {p:"ticket",e:"🧾",sil:["ti","cket"],s:"Guardo el ticket",ej:"ti-cket"},
+{p:"factura",e:"🧾",sil:["fac","tu","ra"],s:"Pido factura",ej:"fac-tu-ra"},
 {p:"dinero",e:"💰",sil:["di","ne","ro"],s:"Pago con dinero",ej:"di-ne-ro"},
 {p:"tarjeta",e:"💳",sil:["tar","je","ta"],s:"Pago con tarjeta",ej:"tar-je-ta"},
-{p:"bolsa",e:"🛍️",sil:["bol","sa"],s:"Llevo bolsa",ej:"bol-sa"},
-{p:"producto",e:"📦",sil:["pro","duc","to"],s:"Cojo un producto",ej:"pro-duc-to"},
-{p:"kilo",e:"⚖️",sil:["ki","lo"],s:"Un kilo de pan",ej:"ki-lo"},
-{p:"litro",e:"🥛",sil:["li","tro"],s:"Un litro de leche",ej:"li-tro"},
-{p:"cliente",e:"🧑",sil:["clien","te"],s:"El cliente compra",ej:"clien-te"},
-{p:"dependiente",e:"🧑‍💼",sil:["de","pen","dien","te"],s:"El dependiente ayuda",ej:"de-pen-dien-te"},
-{p:"descuento",e:"💲",sil:["des","cuen","to"],s:"Hay descuento",ej:"des-cuen-to"},
-{p:"factura",e:"🧾",sil:["fac","tu","ra"],s:"Pido factura",ej:"fac-tu-ra"},
 {p:"efectivo",e:"💵",sil:["e","fec","ti","vo"],s:"Pago en efectivo",ej:"e-fec-ti-vo"},
+{p:"bolsa",e:"🛍️",sil:["bol","sa"],s:"Llevo bolsa",ej:"bol-sa"},
 {p:"estantería",e:"🗄️",sil:["es","tan","te","rí","a"],s:"Miro la estantería",ej:"es-tan-te-rí-a"},
+{p:"producto",e:"📦",sil:["pro","duc","to"],s:"Cojo un producto",ej:"pro-duc-to"},
 {p:"marca",e:"🏷️",sil:["mar","ca"],s:"Me gusta esta marca",ej:"mar-ca"},
 {p:"calidad",e:"⭐",sil:["ca","li","dad"],s:"Buena calidad",ej:"ca-li-dad"},
-{p:"peso",e:"⚖️",sil:["pe","so"],s:"Cuánto pesa",ej:"pe-so"},
-{p:"carnicero",e:"🥩",sil:["car","ni","ce","ro"],s:"El carnicero corta",ej:"car-ni-ce-ro"},
 {p:"cantidad",e:"🔢",sil:["can","ti","dad"],s:"Mucha cantidad",ej:"can-ti-dad"},
+{p:"peso",e:"⚖️",sil:["pe","so"],s:"Cuánto pesa",ej:"pe-so"},
+{p:"kilo",e:"⚖️",sil:["ki","lo"],s:"Un kilo de pan",ej:"ki-lo"},
+{p:"litro",e:"🥛",sil:["li","tro"],s:"Un litro de leche",ej:"li-tro"},
+{p:"carnicero",e:"🥩",sil:["car","ni","ce","ro"],s:"El carnicero corta",ej:"car-ni-ce-ro"},
 ],
 "EL DINERO Y EL EURO":[
 {p:"euro",e:"💶",sil:["eu","ro"],s:"Un euro vale",ej:"eu-ro"},
@@ -463,113 +454,45 @@ header{background:linear-gradient(90deg,#6c5ce7,#e8438a);color:#fff;padding:18px
 {p:"moneda",e:"🪙",sil:["mo","ne","da"],s:"Una moneda brilla",ej:"mo-ne-da"},
 {p:"billete",e:"💶",sil:["bi","lle","te"],s:"Un billete de cinco",ej:"bi-lle-te"},
 {p:"un euro",e:"🪙",sil:["un","eu","ro"],s:"Tengo un euro",ej:"un eu-ro"},
+{p:"dos euros",e:"🪙",sil:["dos","eu","ros"],s:"Tengo dos euros",ej:"dos eu-ros"},
 {p:"cinco euros",e:"💶",sil:["cin","co","eu","ros"],s:"Cinco euros pago",ej:"cin-co eu-ros"},
 {p:"diez euros",e:"💶",sil:["diez","eu","ros"],s:"Diez euros tengo",ej:"diez eu-ros"},
 {p:"veinte euros",e:"💶",sil:["vein","te","eu","ros"],s:"Veinte euros pago",ej:"vein-te eu-ros"},
+{p:"cincuenta euros",e:"💶",sil:["cin","cuen","ta","eu","ros"],s:"Cincuenta euros tengo",ej:"cin-cuen-ta eu-ros"},
 {p:"cien euros",e:"💶",sil:["cien","eu","ros"],s:"Cien euros ahorro",ej:"cien eu-ros"},
 {p:"banco",e:"🏦",sil:["ban","co"],s:"Voy al banco",ej:"ban-co"},
 {p:"cartera",e:"👛",sil:["car","te","ra"],s:"Mi cartera guarda",ej:"car-te-ra"},
+{p:"monedero",e:"👛",sil:["mo","ne","de","ro"],s:"Mi monedero pesa",ej:"mo-ne-de-ro"},
 {p:"cajero",e:"🏧",sil:["ca","je","ro"],s:"Saco del cajero",ej:"ca-je-ro"},
 {p:"tarjeta",e:"💳",sil:["tar","je","ta"],s:"Pago con tarjeta",ej:"tar-je-ta"},
+{p:"efectivo",e:"💵",sil:["e","fec","ti","vo"],s:"Pago en efectivo",ej:"e-fec-ti-vo"},
 {p:"ahorro",e:"🐷",sil:["a","ho","rro"],s:"Ahorro dinero",ej:"a-ho-rro"},
-{p:"hucha",e:"🐷",sil:["hu","cha"],s:"Mi hucha llena",ej:"hu-cha"},
+{p:"gasto",e:"💸",sil:["gas","to"],s:"Gasto poco",ej:"gas-to"},
+{p:"precio",e:"💲",sil:["pre","cio"],s:"El precio sube",ej:"pre-cio"},
 {p:"barato",e:"💲",sil:["ba","ra","to"],s:"Es barato",ej:"ba-ra-to"},
 {p:"caro",e:"💲",sil:["ca","ro"],s:"Es caro",ej:"ca-ro"},
 {p:"gratis",e:"🎁",sil:["gra","tis"],s:"Es gratis",ej:"gra-tis"},
-{p:"sueldo",e:"💰",sil:["suel","do"],s:"Cobro sueldo",ej:"suel-do"},
-{p:"paga",e:"💰",sil:["pa","ga"],s:"Mi paga semanal",ej:"pa-ga"},
-{p:"rico",e:"🤑",sil:["ri","co"],s:"Soy rico",ej:"ri-co"},
-{p:"monedero",e:"👛",sil:["mo","ne","de","ro"],s:"Mi monedero pesa",ej:"mo-ne-de-ro"},
-{p:"efectivo",e:"💵",sil:["e","fec","ti","vo"],s:"Pago en efectivo",ej:"e-fec-ti-vo"},
-{p:"precio",e:"💲",sil:["pre","cio"],s:"El precio sube",ej:"pre-cio"},
-{p:"gasto",e:"💸",sil:["gas","to"],s:"Gasto poco",ej:"gas-to"},
 {p:"préstamo",e:"🏦",sil:["prés","ta","mo"],s:"Pido préstamo",ej:"prés-ta-mo"},
 {p:"deuda",e:"💸",sil:["deu","da"],s:"Tengo deuda",ej:"deu-da"},
-{p:"dos euros",e:"🪙",sil:["dos","eu","ros"],s:"Tengo dos euros",ej:"dos eu-ros"},
-{p:"cincuenta euros",e:"💶",sil:["cin","cuen","ta","eu","ros"],s:"Cincuenta euros tengo",ej:"cin-cuen-ta eu-ros"},
+{p:"sueldo",e:"💰",sil:["suel","do"],s:"Cobro sueldo",ej:"suel-do"},
+{p:"paga",e:"💰",sil:["pa","ga"],s:"Mi paga semanal",ej:"pa-ga"},
+{p:"hucha",e:"🐷",sil:["hu","cha"],s:"Mi hucha llena",ej:"hu-cha"},
+{p:"rico",e:"🤑",sil:["ri","co"],s:"Soy rico",ej:"ri-co"},
 ]
-};let temaActual='MI FAMILIA', vocabActual=null, filtro='';
-function initSubtabs(){
- let c=document.getElementById('subtabs'); c.innerHTML='';
- let t=document.createElement('button'); t.textContent='🔍 TODOS (450)'; t.id='sub_TODOS'; t.onclick=()=>setTema('TODOS'); c.appendChild(t);
- Object.keys(VOCAB_TEMATICO).forEach(k=>{
-  let b=document.createElement('button'); b.textContent=k;
-  let safe=k.replace(/\s+/g,'_').replace(/[^\w_]/g,'');
-  b.id='sub_'+safe; b.onclick=()=>setTema(k); c.appendChild(b);
- });
-}
-function setTema(t){
- temaActual=t;
- document.querySelectorAll('.subtabs button').forEach(b=>b.classList.remove('activo'));
- let id=t==='TODOS'?'sub_TODOS':'sub_'+t.replace(/\s+/g,'_').replace(/[^\w_]/g,'');
- document.getElementById(id)?.classList.add('activo');
- render();
- let l=t==='TODOS'?Object.values(VOCAB_TEMATICO).flat():VOCAB_TEMATICO[t];
- if(l && l[0]) mostrar(l[0].p);
-}
+};
+
+function normaliza(t){return t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
+let temaActual='MI FAMILIA',vocabActual=null,filtro='';
+function initSubtabs(){let c=document.getElementById('subtabs');c.innerHTML='';let t=document.createElement('button');t.textContent='🔍 TODOS (450)';t.id='sub_TODOS';t.onclick=()=>setTema('TODOS');c.appendChild(t);Object.keys(VOCAB_TEMATICO).forEach(k=>{let b=document.createElement('button');b.textContent=k;let safe=k.replace(/\s+/g,'_').replace(/[^\w_]/g,'');b.id='sub_'+safe;b.onclick=()=>setTema(k);c.appendChild(b);});}
+function setTema(t){temaActual=t;document.querySelectorAll('.subtabs button').forEach(b=>b.classList.remove('activo'));let id=t==='TODOS'?'sub_TODOS':'sub_'+t.replace(/\s+/g,'_').replace(/[^\w_]/g,'');document.getElementById(id)?.classList.add('activo');render();let l=t==='TODOS'?Object.values(VOCAB_TEMATICO).flat():VOCAB_TEMATICO[t];if(l&&l[0])mostrar(l[0].p);}
 function clearBuscador(){document.getElementById('vocBuscador').value='';filtro='';render();}
-function filtrarVocab(){filtro=document.getElementById('vocBuscador').value.toLowerCase().trim();render();}
-function render(){
- let g=document.getElementById('gridVocab'); g.innerHTML='';
- let lista=temaActual==='TODOS'?Object.values(VOCAB_TEMATICO).flat():VOCAB_TEMATICO[temaActual];
- if(filtro) lista=lista.filter(x=>x.p.toLowerCase().includes(filtro)||x.s.toLowerCase().includes(filtro));
- document.getElementById('contador').textContent=lista.length+' palabras encontradas';
- lista.slice(0,200).forEach(it=>{
-  let d=document.createElement('div'); d.className='item'+(vocabActual&&vocabActual.p===it.p?' activo':'');
-  d.innerHTML=`<span style="font-size:34px">${it.e}</span><div style="font-weight:900;color:#e8438a;font-size:14px">${it.p}</div><div style="font-size:10px;color:#6c5ce7">${it.ej}</div>`;
-  d.onclick=()=>mostrar(it.p); g.appendChild(d);
- });
-}
-function mostrar(p){
- let it=Object.values(VOCAB_TEMATICO).flat().find(x=>x.p===p); if(!it) return;
- vocabActual=it;
- document.getElementById('vocEmoji').textContent=it.e;
- document.getElementById('vocPalabra').textContent=it.p;
- document.getElementById('vocSil').textContent=it.sil.join(' - ')+' • '+it.ej;
- document.getElementById('vocFrase').textContent=it.s;
- let pool=document.getElementById('vocPool'); pool.innerHTML='';
- [...it.sil].sort(()=>Math.random()-0.5).forEach(s=>{
-  let d=document.createElement('div'); d.className='word'; d.textContent=s; d.dataset.sil=s.toLowerCase(); d.draggable=true;
-  d.addEventListener('dragstart',e=>e.dataTransfer.setData('text/plain',s.toLowerCase()));
-  d.addEventListener('click',()=>{let empty=[...document.querySelectorAll('#vocDrop div')].find(b=>!b.dataset.filled); if(empty){empty.textContent=d.textContent; empty.dataset.filled=d.textContent.toLowerCase(); d.style.visibility='hidden';}});
-  pool.appendChild(d);
- });
- let drop=document.getElementById('vocDrop'); drop.innerHTML='';
- it.sil.forEach(s=>{
-  let b=document.createElement('div'); b.className='drop'; b.dataset.expected=s.toLowerCase(); b.textContent='?';
-  b.addEventListener('dragover',e=>e.preventDefault());
-  b.addEventListener('drop',e=>{e.preventDefault(); let txt=e.dataTransfer.getData('text/plain'); b.textContent=txt; b.dataset.filled=txt;});
-  b.addEventListener('click',()=>{if(b.dataset.filled){let w=[...document.querySelectorAll('#vocPool.word')].find(x=>x.dataset.sil===b.dataset.filled); if(w) w.style.visibility='visible'; b.textContent='?'; delete b.dataset.filled;}});
-  drop.appendChild(b);
- });
- document.getElementById('vocMsg').textContent=''; render();
-}
-function hablarVocab(){
- if(!vocabActual) return;
- let u=new SpeechSynthesisUtterance(vocabActual.p+'. '+vocabActual.s); u.lang='es-ES'; u.rate=0.55; speechSynthesis.speak(u);
-}
-function comprobarVocab(){
- let drops=[...document.querySelectorAll('#vocDrop div')];
- let ok=drops.length>0 && drops.every(b=>b.dataset.filled && b.dataset.filled===b.dataset.expected);
- let msg=document.getElementById('vocMsg'); msg.textContent=ok?'¡Perfecto! 🎉':'Sigue intentando 👀'; msg.style.color=ok?'#00b894':'#e8438a';
- if(ok) setTimeout(()=>hablarVocab(),400);
-}
-function vocabNav(d){
- let l=temaActual==='TODOS'?Object.values(VOCAB_TEMATICO).flat():VOCAB_TEMATICO[temaActual];
- let i=l.findIndex(x=>x.p===vocabActual.p); mostrar(l[(i+d+l.length)%l.length].p);
-}
-function vocabRandom(){
- let l=temaActual==='TODOS'?Object.values(VOCAB_TEMATICO).flat():VOCAB_TEMATICO[temaActual];
- mostrar(l[Math.floor(Math.random()*l.length)].p);
-}
-function addTema(){
- let n=prompt('Nombre del nuevo tema (ej: EL CUERPO HUMANO, LOS COLORES, LOS ANIMALES):');
- if(!n) return; n=n.trim().toUpperCase(); if(!n) return;
- if(!VOCAB_TEMATICO[n]) VOCAB_TEMATICO[n]=[{p:"ejemplo",e:"⭐",sil:["e","jem","plo"],s:"Este es un ejemplo de "+n.toLowerCase(),ej:"e-jem-plo"}];
- initSubtabs(); setTema(n);
- alert('¡Tema '+n+' creado! Edita el archivo para añadir 30 palabras reales.');
-}
-initSubtabs(); setTema('MI FAMILIA');
-</script>
-</body>
-</html>
+function filtrarVocab(){filtro=document.getElementById('vocBuscador').value.trim();render();}
+function render(){let g=document.getElementById('gridVocab');g.innerHTML='';let lista=temaActual==='TODOS'?Object.values(VOCAB_TEMATICO).flat():VOCAB_TEMATICO[temaActual];if(filtro){let f=normaliza(filtro);lista=Object.values(VOCAB_TEMATICO).flat().filter(x=>normaliza(x.p).includes(f)||normaliza(x.s).includes(f));document.querySelectorAll('.subtabs button').forEach(b=>b.classList.remove('activo'));document.getElementById('sub_TODOS')?.classList.add('activo');}document.getElementById('contador').textContent=lista.length+' palabras encontradas';lista.slice(0,200).forEach(it=>{let d=document.createElement('div');d.className='item'+(vocabActual&&vocabActual.p===it.p?' activo':'');d.innerHTML=`<span style="font-size:34px">${it.e}</span><div style="font-weight:900;color:#e8438a;font-size:14px">${it.p}</div><div style="font-size:10px;color:#6c5ce7">${it.ej}</div>`;d.onclick=()=>mostrar(it.p);g.appendChild(d);});}
+function mostrar(p){let it=Object.values(VOCAB_TEMATICO).flat().find(x=>x.p===p);if(!it)return;vocabActual=it;document.getElementById('vocEmoji').textContent=it.e;document.getElementById('vocPalabra').textContent=it.p;document.getElementById('vocSil').textContent=it.sil.join(' - ')+' • '+it.ej;document.getElementById('vocFrase').textContent=it.s;let pool=document.getElementById('vocPool');pool.innerHTML='';[...it.sil].sort(()=>Math.random()-0.5).forEach(s=>{let d=document.createElement('div');d.className='word';d.textContent=s;d.dataset.sil=s.toLowerCase();d.draggable=true;d.addEventListener('dragstart',e=>e.dataTransfer.setData('text/plain',s.toLowerCase()));d.addEventListener('click',()=>{let empty=[...document.querySelectorAll('#vocDrop div')].find(b=>!b.dataset.filled);if(empty){empty.textContent=d.textContent;empty.dataset.filled=d.textContent.toLowerCase();d.style.visibility='hidden';}});pool.appendChild(d);});let drop=document.getElementById('vocDrop');drop.innerHTML='';it.sil.forEach(s=>{let b=document.createElement('div');b.className='drop';b.dataset.expected=s.toLowerCase();b.textContent='?';b.addEventListener('dragover',e=>e.preventDefault());b.addEventListener('drop',e=>{e.preventDefault();let txt=e.dataTransfer.getData('text/plain');b.textContent=txt;b.dataset.filled=txt;});b.addEventListener('click',()=>{if(b.dataset.filled){let w=[...document.querySelectorAll('#vocPool.word')].find(x=>x.dataset.sil===b.dataset.filled);if(w)w.style.visibility='visible';b.textContent='?';delete b.dataset.filled;}});drop.appendChild(b);});document.getElementById('vocMsg').textContent='';}
+function hablarVocab(){if(!vocabActual)return;let u=new SpeechSynthesisUtterance(vocabActual.p+'. '+vocabActual.s);u.lang='es-ES';u.rate=0.55;speechSynthesis.speak(u);}
+function comprobarVocab(){let drops=[...document.querySelectorAll('#vocDrop div')];let ok=drops.length>0&&drops.every(b=>b.dataset.filled&&b.dataset.filled===b.dataset.expected);let msg=document.getElementById('vocMsg');msg.textContent=ok?'¡Perfecto! 🎉':'Sigue intentando 👀';msg.style.color=ok?'#00b894':'#e8438a';if(ok)setTimeout(()=>hablarVocab(),400);}
+function vocabNav(d){let l=temaActual==='TODOS'?Object.values(VOCAB_TEMATICO).flat():VOCAB_TEMATICO[temaActual];if(filtro){let f=normaliza(filtro);l=Object.values(VOCAB_TEMATICO).flat().filter(x=>normaliza(x.p).includes(f)||normaliza(x.s).includes(f));}let i=l.findIndex(x=>x.p===vocabActual.p);mostrar(l[(i+d+l.length)%l.length].p);}
+function vocabRandom(){let l=temaActual==='TODOS'?Object.values(VOCAB_TEMATICO).flat():VOCAB_TEMATICO[temaActual];if(filtro){let f=normaliza(filtro);l=Object.values(VOCAB_TEMATICO).flat().filter(x=>normaliza(x.p).includes(f)||normaliza(x.s).includes(f));}mostrar(l[Math.floor(Math.random()*l.length)].p);}
+function addTema(){let n=prompt('Nombre del nuevo tema:');if(!n)return;n=n.trim().toUpperCase();if(!n)return;if(!VOCAB_TEMATICO[n])VOCAB_TEMATICO[n]=[{p:"ejemplo",e:"⭐",sil:["e","jem","plo"],s:"Este es un ejemplo de "+n.toLowerCase(),ej:"e-jem-plo"}];initSubtabs();setTema(n);}
+initSubtabs();setTema('MI FAMILIA');
+</script></body></html>
