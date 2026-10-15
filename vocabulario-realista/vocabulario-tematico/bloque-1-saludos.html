@@ -2,55 +2,53 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloque 1 - Saludos Realista</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" rel="stylesheet">
+<title>Bloque 1 - Saludos Significativos</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}body{font-family:'Nunito',system-ui;margin:0;background:#fef7ff}
-header{background:#e91e8c;color:#fff;padding:14px;text-align:center;font-weight:900;font-size:22px;position:sticky;top:0;z-index:10}
-.wrap{max-width:1000px;margin:auto;padding:16px}
+*{box-sizing:border-box}body{font-family:'Nunito',system-ui;margin:0;background:#fffaf0}
+header{background:#e91e8c;color:#fff;padding:16px;text-align:center;font-weight:900;font-size:22px;position:sticky;top:0;z-index:10}
+.wrap{max-width:1050px;margin:auto;padding:16px}
 a.volver{color:#e91e8c;font-weight:900;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;margin-top:12px}
-.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 20px rgba(233,30,140,.15);border:2px solid #fce7f3;text-align:center}
-.card img{width:100%;height:140px;object-fit:cover;display:block}
-.card .info{padding:10px}
-.card b{display:block;color:#1e293b;font-size:16px}.card small{color:#64748b}
-.btn{border:0;background:#e91e8c;color:#fff;border-radius:999px;padding:8px 14px;font-weight:900;cursor:pointer;margin-top:6px}
-.game{background:#fff;border:2px dashed #f9a8d4;border-radius:18px;padding:16px;margin-top:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:14px}
+.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 22px rgba(0,0,0,.12);border:2px solid #ffe4e6;cursor:pointer;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#e91e8c}
+.card img{width:100%;height:190px;object-fit:cover;display:block}
+.info{padding:12px;text-align:center}
+.info b{font-size:20px;color:#1e293b;display:block}
+.info span.es{color:#e91e8c;font-size:13px;font-weight:900;display:block;margin-top:2px}
+.info small{color:#64748b;font-size:12px}
+.btn{border:0;background:#e91e8c;color:#fff;border-radius:999px;padding:8px 16px;font-weight:900;cursor:pointer;margin-top:8px}
+.banner{border-radius:18px;overflow:hidden;margin:12px 0;box-shadow:0 8px 18px rgba(0,0,0,.1)}
+.banner img{width:100%;height:auto;display:block}
 </style>
 </head>
 <body>
-<header>🌟 Bloque 1 - Saludos y Cortesía - REAL</header>
+<header>🌟 Bloque 1 - Saludos con Fotos que EXPLICAN</header>
 <div class="wrap">
 <a class="volver" href="index.html">← Volver a los 9 bloques</a>
-<h2 style="color:#e91e8c">1. Escucha y mira - Fotos reales 📸</h2>
-<div class="grid" id="grid"></div>
 
-<h2 style="color:#e91e8c">2. Diálogo Ahlam y Adam 🗣️</h2>
-<div class="game">
-<p><b>Adam:</b> ¡Hola, Ahlam! ¡Buenos días!</p>
-<p><b>Ahlam:</b> ¡Hola, Adam! ¿Cómo estás?</p>
-<p><b>Adam:</b> Muy bien, gracias. ¿Y tú?</p>
-<button class="btn" onclick="hablar('Hola Ahlam, Buenos días. Hola Adam, ¿Cómo estás? Muy bien, gracias. ¿Y tú?')">🔊 Escuchar diálogo</button>
-</div>
+<div class="banner"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=900&h=400&fit=crop" alt="niños saludando"></div>
+
+<div class="grid" id="grid"></div>
 </div>
 <script>
 function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);}
 const data=[
-{es:"¡Hola!",tr:"Hola",img:"https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400",ej:"¡Hola, Adam!"},
-{es:"Buenos días",tr:"Sabah al khair",img:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400",ej:"Buenos días, profe"},
-{es:"Buenas tardes",tr:"Masae al khair",img:"https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400",ej:"Buenas tardes a todos"},
-{es:"Buenas noches",tr:"Tisbah ala khair",img:"https://images.unsplash.com/photo-1511895426328-dc8714191300?w=400",ej:"Buenas noches, mamá"},
-{es:"Adiós",tr:"Ma'a salama",img:"https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=400",ej:"¡Adiós, hasta mañana!"},
-{es:"Por favor",tr:"Min fadlak",img:"https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400",ej:"Agua, por favor"},
-{es:"Gracias",tr:"Shukran",img:"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400",ej:"¡Muchas gracias!"},
-{es:"De nada",tr:"La shukran",img:"https://images.unsplash.com/photo-1554189097-98aabd0b7eb5?w=400",ej:"De nada, Ahlam"},
-{es:"Perdón",tr:"Aasif",img:"https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400",ej:"Perdón, llego tarde"},
-{es:"¿Cómo estás?",tr:"Kaifa halak",img:"https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400",ej:"¿Cómo estás hoy?"},
+{es:"¡Hola!",sign:"Niño con mano levantada saludando en la puerta de la escuela",img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500",frase:"¡Hola, Ahlam!"},
+{es:"Buenos días",sign:"Niña bostezando en la cama, sol saliendo por la ventana de mañana",img:"https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=500",frase:"¡Buenos días, profe!"},
+{es:"Buenas tardes",sign:"Reloj marca las 4, sol de tarde entrando por ventana",img:"https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=500",frase:"Buenas tardes a todos"},
+{es:"Buenas noches",sign:"Niña en pijama dormida, luna y estrellas en ventana",img:"https://images.unsplash.com/photo-1511295743952-3e9ed9e1c7e7?w=500",frase:"Buenas noches, mamá"},
+{es:"Por favor",sign:"Niño con manos juntas pidiendo algo",img:"https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500",frase:"Agua, por favor"},
+{es:"Gracias",sign:"Niña feliz recibiendo regalo",img:"https://images.unsplash.com/photo-1512909006721-3d6018887383?w=500",frase:"¡Muchas gracias!"},
+{es:"De nada",sign:"Niño con manos abiertas diciendo de nada",img:"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500",frase:"De nada, Ahlam"},
+{es:"Perdón",sign:"Niña triste pidiendo perdón",img:"https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=500",frase:"Perdón, llego tarde"},
+{es:"¿Cómo estás?",sign:"Dos niños hablando, uno pregunta",img:"https://images.unsplash.com/photo-1588075592446-265fd1e4e76f?w=500",frase:"¿Cómo estás hoy?"},
+{es:"Adiós",sign:"Niña con mochila despidiéndose en la puerta",img:"https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500",frase:"¡Adiós, hasta mañana!"},
 ];
 const g=document.getElementById('grid');
 data.forEach(d=>{
 const el=document.createElement('div');el.className='card';
-el.innerHTML=`<img src="${d.img}"><div class="info"><b>${d.es}</b><small>${d.tr} - ${d.ej}</small><br><button class="btn">🔊</button></div>`;
+el.innerHTML=`<img src="${d.img}"><div class="info"><b>${d.es}</b><span class="es">${d.sign}</span><small>${d.frase}</small><br><button class="btn">🔊 Escuchar</button></div>`;
 el.onclick=()=>hablar(d.es);g.appendChild(el);
 });
 </script>
