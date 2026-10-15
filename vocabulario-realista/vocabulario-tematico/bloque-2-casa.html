@@ -1,111 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloque 2 - La Casa</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloque 2 - La Casa Realista</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}body{font-family:'Nunito',system-ui;margin:0;background:#f0f9ff}
-header{background:#0ea5e9;color:#fff;padding:14px;text-align:center;font-weight:900;font-size:20px;position:sticky;top:0;z-index:10}
-.wrap{max-width:900px;margin:auto;padding:16px}
-a.volver{color:#0ea5e9;font-weight:900;text-decoration:none;display:inline-block;margin-bottom:12px}
-h2{color:#0284c7;margin:22px 0 10px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:14px}
-.card{background:#fff;border:2px solid #e0f2fe;border-radius:18px;padding:12px;text-align:center;cursor:pointer;box-shadow:0 6px 16px rgba(14,165,233,.12);transition:.2s}
-.card:hover{transform:translateY(-3px);border-color:#0ea5e9}
-.card.emoji{font-size:38px}.card b{display:block;margin-top:6px;color:#1e293b}.card small{color:#64748b;font-size:12px}
-.btn{border:0;background:#0ea5e9;color:#fff;border-radius:999px;padding:8px 14px;font-weight:900;cursor:pointer;margin-top:8px}
-.game{background:#fff;border:2px dashed #7dd3fc;border-radius:18px;padding:16px;margin-top:18px}
-.opcion{display:inline-block;background:#f0f9ff;border:2px solid #e0f2fe;border-radius:12px;padding:10px 14px;margin:6px;font-weight:800;cursor:pointer}
-.opcion.correct{background:#d4edda;border-color:#28a745}.opcion.wrong{background:#f8d7da;border-color:#dc3545}
-.scene{background:#fff;border-radius:18px;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:center;font-size:12px;font-weight:800}
-.scene div{background:#f8fafc;border-radius:12px;padding:8px}
+header{background:#0ea5e9;color:#fff;padding:14px;text-align:center;font-weight:900;font-size:22px;position:sticky;top:0;z-index:10}
+.wrap{max-width:1000px;margin:auto;padding:16px}
+a.volver{color:#0ea5e9;font-weight:900;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 20px rgba(14,165,233,.15);border:2px solid #e0f2fe}
+.card img{width:100%;height:130px;object-fit:cover;display:block}
+.card .info{padding:10px;text-align:center}
+.btn{border:0;background:#0ea5e9;color:#fff;border-radius:999px;padding:7px 14px;font-weight:900;cursor:pointer;margin-top:6px}
 </style>
 </head>
 <body>
-<header>🏠 Bloque 2 - La Casa</header>
+<header>🏠 Bloque 2 - La Casa - REAL</header>
 <div class="wrap">
 <a class="volver" href="index.html">← Volver a los 9 bloques</a>
-
-<h2>1. Partes de la casa 🏡</h2>
-<div class="grid" id="partes"></div>
-
-<h2>2. Cosas de la casa 🛋️</h2>
-<div class="grid" id="cosas"></div>
-
-<h2>3. Mini-Diálogo en casa 🗣️</h2>
-<div class="game">
-<p><b>Ahlam:</b> Adam, ¿dónde está la mochila? 🎒</p>
-<p><b>Adam:</b> Está en el dormitorio, en la cama.</p>
-<p><b>Ahlam:</b> ¿Y la mesa?</p>
-<p><b>Adam:</b> La mesa está en la cocina.</p>
-<button class="btn" onclick="hablar('¿Dónde está la mochila? Está en el dormitorio, en la cama. ¿Y la mesa? La mesa está en la cocina.')">🔊 Escuchar</button>
+<h2 style="color:#0ea5e9">Partes de la casa con fotos reales 📸</h2>
+<div class="grid" id="grid"></div>
 </div>
-
-<h2>4. Juego: ¿Dónde está? 🎮</h2>
-<div class="game" id="quiz">
-<p id="pregunta" style="font-weight:900;font-size:18px"></p>
-<div id="opciones"></div>
-<p id="feedback" style="font-weight:900;margin-top:10px"></p>
-<button class="btn" onclick="nuevaPregunta()">Siguiente ➡️</button>
-</div>
-</div>
-
 <script>
-function hablar(t){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);}
-
-const partes=[
-{es:"La casa",em:"🏠",ej:"Mi casa es bonita"},
-{es:"La cocina",em:"🍳",ej:"Estoy en la cocina"},
-{es:"El salón",em:"🛋️",ej:"Tele en el salón"},
-{es:"El dormitorio",em:"🛏️",ej:"Duermo en el dormitorio"},
-{es:"El baño",em:"🚿",ej:"Me lavo en el baño"},
-{es:"La puerta",em:"🚪",ej:"Abre la puerta"},
-{es:"La ventana",em:"🪟",ej:"Cierra la ventana"},
-{es:"El jardín",em:"🌳",ej:"Jugamos en el jardín"},
+function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);}
+const data=[
+{es:"La cocina",img:"https://images.unsplash.com/photo-1556911220-bff31c812dba?w=400"},
+{es:"El salón",img:"https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400"},
+{es:"El dormitorio",img:"https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=400"},
+{es:"El baño",img:"https://images.unsplash.com/photo-1620626011761-b8ff4b38f186?w=400"},
+{es:"La puerta",img:"https://images.unsplash.com/photo-1502005097973-6a7082348e28?w=400"},
+{es:"La ventana",img:"https://images.unsplash.com/photo-1524634126442-357e0eac3c14?w=400"},
+{es:"El jardín",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400"},
+{es:"La mesa",img:"https://images.unsplash.com/photo-1533090484-07cc94c8a6f1?w=400"},
+{es:"La cama",img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400"},
+{es:"La lámpara",img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400"},
 ];
-const cosas=[
-{es:"La mesa",em:"🪑",ej:"La mesa de la cocina"},
-{es:"La silla",em:"💺",ej:"Siéntate en la silla"},
-{es:"La cama",em:"🛏️",ej:"La cama grande"},
-{es:"El sofá",em:"🛋️",ej:"El sofá del salón"},
-{es:"La lámpara",em:"💡",ej:"Enciende la lámpara"},
-{es:"El espejo",em:"🪞",ej:"Mírate en el espejo"},
-{es:"La nevera",em:"🧊",ej:"Agua en la nevera"},
-{es:"La tele",em:"📺",ej:"Ver la tele"},
-];
-
-function pintar(id,lista){
-const g=document.getElementById(id);
-lista.forEach(d=>{
+const g=document.getElementById('grid');
+data.forEach(d=>{
 const el=document.createElement('div');el.className='card';
-el.innerHTML=`<div style="font-size:38px">${d.em}</div><b>${d.es}</b><small>${d.ej}</small><br><button class="btn">🔊</button>`;
+el.innerHTML=`<img src="${d.img}"><div class="info"><b>${d.es}</b><br><button class="btn">🔊 ${d.es}</button></div>`;
 el.onclick=()=>hablar(d.es);g.appendChild(el);
 });
-}
-pintar('partes',partes); pintar('cosas',cosas);
-
-const preguntas=[
-{q:"¿Dónde cocinamos?",op:["En el baño","En la cocina","En el jardín"],ok:1},
-{q:"¿Dónde dormimos?",op:["En el dormitorio","En la puerta","En la mesa"],ok:0},
-{q:"¿Dónde vemos la tele?",op:["En el salón","En la nevera","En la ventana"],ok:0},
-{q:"La silla está en...",op:["La casa","El agua","El cielo"],ok:0},
-{q:"Abre la...",op:["Puerta","Cama","Tele"],ok:0},
-];
-function nuevaPregunta(){
-const p=preguntas[Math.floor(Math.random()*preguntas.length)];
-document.getElementById('pregunta').innerText=p.q;
-const cont=document.getElementById('opciones');cont.innerHTML='';document.getElementById('feedback').innerText='';
-p.op.forEach((t,i)=>{
-const b=document.createElement('div');b.className='opcion';b.innerText=t;
-b.onclick=()=>{
-if(i===p.ok){b.classList.add('correct');document.getElementById('feedback').innerText='¡Correcto! 🏠';hablar('¡Muy bien!');}
-else{b.classList.add('wrong');document.getElementById('feedback').innerText='Intenta otra vez 😊';}
-};cont.appendChild(b);
-});
-}
-nuevaPregunta();
 </script>
 </body>
 </html>
