@@ -1,1 +1,50 @@
-HOLA
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloque 5 - Animales Real</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{font-family:'Nunito',system-ui;margin:0;background:#fefce8}
+header{background:#eab308;color:#fff;padding:16px;text-align:center;font-weight:900;font-size:22px;position:sticky;top:0}
+.wrap{max-width:1050px;margin:auto;padding:16px}
+a.volver{color:#eab308;font-weight:900;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:14px}
+.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 22px rgba(0,0,0,.12);border:2px solid #fef9c3;cursor:pointer;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#eab308}
+.card img{width:100%;height:180px;object-fit:cover}
+.info{padding:12px;text-align:center}
+.info b{font-size:18px;display:block}
+.info span{font-size:11px;color:#ca8a04;font-weight:900}
+.btn{border:0;background:#eab308;color:#fff;border-radius:999px;padding:7px 14px;font-weight:900;cursor:pointer;margin-top:6px}
+</style>
+</head>
+<body>
+<header>🐈 Bloque 5 - Animales - Fotos reales significativas</header>
+<div class="wrap">
+<a class="volver" href="index.html">← Volver</a>
+<div class="grid" id="grid"></div>
+</div>
+<script>
+function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
+const data=[
+{es:"El gato",desc:"Gato naranja en calle de Marruecos",img:"https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500"},
+{es:"El perro",desc:"Perro golden feliz",img:"https://images.unsplash.com/photo-1552053831-71594a27632d?w=500"},
+{es:"La gallina",desc:"Gallina con 4 pollitos amarillos",img:"https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=500"},
+{es:"El caballo",desc:"Caballo marrón en campo con montañas",img:"https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=500"},
+{es:"El pájaro",desc:"Pájaro jilguero en olivo",img:"https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=500"},
+{es:"El pez",desc:"Pez naranja en pecera redonda",img:"https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=500"},
+{es:"La vaca",desc:"Vaca marrón comiendo paja en granja",img:"https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?w=500"},
+{es:"La oveja",desc:"Oveja blanca con mucha lana",img:"https://images.unsplash.com/photo-1484557985045-edf25e08da73?w=500"},
+{es:"El burro",desc:"Burro en pueblo de Marruecos",img:"https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=500"},
+{es:"El camello",desc:"Camello en desierto de dunas",img:"https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=500"},
+];
+const g=document.getElementById('grid');
+data.forEach(d=>{
+const el=document.createElement('div');el.className='card';
+el.innerHTML=`<img src="${d.img}"><div class="info"><b>${d.es}</b><span>${d.desc}</span><br><button class="btn">🔊 ${d.es}</button></div>`;
+el.onclick=()=>hablar(d.es);g.appendChild(el);
+});
+</script>
+</body>
+</html>
