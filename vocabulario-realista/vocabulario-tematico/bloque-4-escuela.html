@@ -1,50 +1,27 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloque 4 - La Escuela Real</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box}body{font-family:'Nunito',system-ui;margin:0;background:#f0fdf4}
-header{background:#22c55e;color:#fff;padding:16px;text-align:center;font-weight:900;font-size:22px;position:sticky;top:0}
-.wrap{max-width:1050px;margin:auto;padding:16px}
-a.volver{color:#22c55e;font-weight:900;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:14px}
-.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 22px rgba(0,0,0,.12);border:2px solid #dcfce7;cursor:pointer;transition:.2s}
-.card:hover{transform:translateY(-4px);border-color:#22c55e}
-.card img{width:100%;height:180px;object-fit:cover}
-.info{padding:12px;text-align:center}
-.info b{font-size:18px;display:block}
-.info span{font-size:11px;color:#22c55e;font-weight:900}
-.btn{border:0;background:#22c55e;color:#fff;border-radius:999px;padding:7px 14px;font-weight:900;cursor:pointer;margin-top:6px}
-</style>
-</head>
-<body>
-<header>🎒 Bloque 4 - La Escuela - Fotos reales de clase</header>
-<div class="wrap">
-<a class="volver" href="index.html">← Volver</a>
-<div class="grid" id="grid"></div>
-</div>
-<script>
-function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
-const data=[
-{es:"La mochila",desc:"Mochila abierta con libros y lápices",img:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500"},
-{es:"El libro",desc:"Libro abierto árabe-español",img:"https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500"},
-{es:"La pizarra",desc:"Pizarra con Hola escrito con tiza",img:"https://images.unsplash.com/photo-1588075592446-265fd1e4e76f?w=500"},
-{es:"El profesor",desc:"Profe marroquí sonriendo en clase",img:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500"},
-{es:"El lápiz",desc:"Mano escribiendo Hola gracias adiós",img:"https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500"},
-{es:"La mesa del colegio",desc:"Pupitre con cuaderno y estuche",img:"https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=500"},
-{es:"La silla",desc:"Silla de clase de madera",img:"https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=500"},
-{es:"El cuaderno",desc:"Cuaderno con apuntes y nubes",img:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=500"},
-{es:"La puerta de la escuela",desc:"Puerta azul de entrada BIENVENIDOS",img:"https://images.unsplash.com/photo-1562774053-701939374585?w=500"},
-{es:"El patio",desc:"Patio con niños jugando al fútbol",img:"https://images.unsplash.com/photo-1574629810360-84f1f000a43c?w=500"},
-];
-const g=document.getElementById('grid');
-data.forEach(d=>{
-const el=document.createElement('div');el.className='card';
-el.innerHTML=`<img src="${d.img}"><div class="info"><b>${d.es}</b><span>${d.desc}</span><br><button class="btn">🔊 ${d.es}</button></div>`;
-el.onclick=()=>hablar(d.es);g.appendChild(el);
-});
-</script>
-</body>
-</html>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Escuela 25 dependencias</title><style>body{font-family:sans-serif;background:#e0f2fe;margin:0;padding:12px}h1{text-align:center;font-size:19px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)}img{width:100%;height:120px;object-fit:cover}.info{padding:7px;text-align:center;font-weight:900;font-size:11px}a{display:block;text-align:center;margin:20px;background:#000;color:#fff;padding:14px;border-radius:99px;text-decoration:none;font-weight:900}</style></head><body><h1>🎒 BLOQUE 4 - ESCUELA Y DEPENDENCIAS (25)</h1><div class="grid">
+<div class="card"><img src="https://picsum.photos/seed/escuela1MOCHILA/400/300"><div class="info">1. MOCHILA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela2LIBRO/400/300"><div class="info">2. LIBRO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela3AULA/400/300"><div class="info">3. AULA / CLASE</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela4PATIO/400/300"><div class="info">4. PATIO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela5BIBLIOTECA/400/300"><div class="info">5. BIBLIOTECA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela6GIMNASIO/400/300"><div class="info">6. GIMNASIO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela7COMEDOR/400/300"><div class="info">7. COMEDOR</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela8BANOS/400/300"><div class="info">8. BAÑOS / ASEOS</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela9DIRECCION/400/300"><div class="info">9. DIRECCIÓN</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela10SECRETARIA/400/300"><div class="info">10. SECRETARÍA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela11ENTRADA/400/300"><div class="info">11. ENTRADA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela12PASILLO/400/300"><div class="info">12. PASILLO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela13LABORATORIO/400/300"><div class="info">13. LABORATORIO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela14INFORMATICA/400/300"><div class="info">14. SALA INFORMÁTICA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela15MUSICA/400/300"><div class="info">15. SALA DE MÚSICA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela16PUPITRE/400/300"><div class="info">16. PUPITRE</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela17PIZARRA/400/300"><div class="info">17. PIZARRA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela18PROFE/400/300"><div class="info">18. PROFE</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela19ALUMNO/400/300"><div class="info">19. ALUMNO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela20TIMBRE/400/300"><div class="info">20. TIMBRE</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela21RECREO/400/300"><div class="info">21. RECREO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela22AUTOBUS/400/300"><div class="info">22. AUTOBÚS ESCOLAR</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela23CANCHA/400/300"><div class="info">23. CANCHA / PISTA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela24TAQUILLA/400/300"><div class="info">24. TAQUILLA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/escuela25INSTITUTO/400/300"><div class="info">25. INSTITUTO</div></div>
+</div><a href="index.html">← VOLVER A VOCABULARIO TEMÁTICO</a></body></html>
