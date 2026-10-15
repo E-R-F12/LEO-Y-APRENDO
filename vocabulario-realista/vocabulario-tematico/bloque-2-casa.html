@@ -1,50 +1,27 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloque 2 - La Casa Real</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box}body{font-family:'Nunito',system-ui;margin:0;background:#f0f9ff}
-header{background:#0ea5e9;color:#fff;padding:16px;text-align:center;font-weight:900;font-size:22px;position:sticky;top:0}
-.wrap{max-width:1050px;margin:auto;padding:16px}
-a.volver{color:#0ea5e9;font-weight:900;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin-top:14px}
-.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 22px rgba(0,0,0,.12);border:2px solid #e0f2fe;cursor:pointer;transition:.2s}
-.card:hover{transform:translateY(-4px);border-color:#0ea5e9}
-.card img{width:100%;height:180px;object-fit:cover}
-.info{padding:12px;text-align:center}
-.info b{font-size:18px;color:#0f172a;display:block}
-.info span{font-size:12px;color:#0ea5e9;font-weight:900}
-.btn{border:0;background:#0ea5e9;color:#fff;border-radius:999px;padding:7px 14px;font-weight:900;cursor:pointer;margin-top:6px}
-</style>
-</head>
-<body>
-<header>🏠 Bloque 2 - La Casa - Fotos que explican</header>
-<div class="wrap">
-<a class="volver" href="index.html">← Volver</a>
-<div class="grid" id="grid"></div>
-</div>
-<script>
-function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
-const data=[
-{es:"La cocina",desc:"Lugar donde cocinamos, con fuego y sartén",img:"https://images.unsplash.com/photo-1556911220-bff31c812dba?w=500"},
-{es:"El salón",desc:"Sofá, tele y familia sentada junta",img:"https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500"},
-{es:"El dormitorio",desc:"Habitación con cama y osito",img:"https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=500"},
-{es:"El baño",desc:"Lavabo, espejo y toalla",img:"https://images.unsplash.com/photo-1620626011761-b8ff4b38f186?w=500"},
-{es:"La puerta",desc:"Se abre y cierra para entrar",img:"https://images.unsplash.com/photo-1502005097973-6a7082348e28?w=500"},
-{es:"La ventana",desc:"Cristal abierto, entra luz y se ve jardín",img:"https://images.unsplash.com/photo-1524634126442-357e0eac3c14?w=500"},
-{es:"El jardín",desc:"Fuera de casa con flores y árboles",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500"},
-{es:"La mesa",desc:"Donde comemos con platos",img:"https://images.unsplash.com/photo-1533090484-07cc94c8a6f1?w=500"},
-{es:"La cama",desc:"Para dormir con almohada",img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500"},
-{es:"La lámpara",desc:"Da luz por la noche para leer cuento",img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500"},
-];
-const g=document.getElementById('grid');
-data.forEach(d=>{
-const el=document.createElement('div');el.className='card';
-el.innerHTML=`<img src="${d.img}"><div class="info"><b>${d.es}</b><span>${d.desc}</span><br><button class="btn">🔊 ${d.es}</button></div>`;
-el.onclick=()=>hablar(d.es);g.appendChild(el);
-});
-</script>
-</body>
-</html>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Casa 25</title><style>body{font-family:sans-serif;background:#fffbeb;margin:0;padding:12px}h1{text-align:center;font-size:20px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)}img{width:100%;height:120px;object-fit:cover}.info{padding:7px;text-align:center;font-weight:900;font-size:12px}a{display:block;text-align:center;margin:20px;background:#000;color:#fff;padding:14px;border-radius:99px;text-decoration:none}</style></head><body><h1>🏠 BLOQUE 2 - CASA (25 FOTOS DIRECTAS)</h1><div class="grid">
+<div class="card"><img src="https://picsum.photos/seed/casa1CASA/400/300"><div class="info">1. CASA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa2PUERTA/400/300"><div class="info">2. PUERTA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa3VENTANA/400/300"><div class="info">3. VENTANA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa4COCINA/400/300"><div class="info">4. COCINA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa5BANO/400/300"><div class="info">5. BAÑO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa6DORMITORIO/400/300"><div class="info">6. DORMITORIO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa7SALON/400/300"><div class="info">7. SALÓN</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa8MESA/400/300"><div class="info">8. MESA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa9SILLA/400/300"><div class="info">9. SILLA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa10CAMA/400/300"><div class="info">10. CAMA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa11SOFA/400/300"><div class="info">11. SOFÁ</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa12TELE/400/300"><div class="info">12. TELE</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa13NEVERA/400/300"><div class="info">13. NEVERA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa14HORNO/400/300"><div class="info">14. HORNO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa15LAMPARA/400/300"><div class="info">15. LÁMPARA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa16ESPEJO/400/300"><div class="info">16. ESPEJO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa17ALFOMBRA/400/300"><div class="info">17. ALFOMBRA *marroquí</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa18TE/400/300"><div class="info">18. TETERA *marroquí</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa19JARDIN/400/300"><div class="info">19. JARDÍN</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa20BALCON/400/300"><div class="info">20. BALCÓN</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa21ESCALERA/400/300"><div class="info">21. ESCALERA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa22TEJADO/400/300"><div class="info">22. TEJADO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa23LLAVE/400/300"><div class="info">23. LLAVE</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa24PARED/400/300"><div class="info">24. PARED</div></div>
+<div class="card"><img src="https://picsum.photos/seed/casa25SUELO/400/300"><div class="info">25. SUELO</div></div>
+</div><a href="index.html">← VOLVER A VOCABULARIO TEMÁTICO</a></body></html>
