@@ -1,1 +1,98 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Saludos</title><style>body{font-family:Nunito;background:#fff6f9;margin:0;padding:20px;text-align:center}h1{color:#e8438a}a{color:#e8438a;font-weight:900;text-decoration:none}</style></head><body><h1>👋 Bloque 1 - Saludos</h1><p>¡Funciona! Ya no hay duplicado.</p><a href="index.html">← Volver al menú de 9 bloques</a></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloque 1 - Saludos</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{font-family:'Nunito',system-ui;margin:0;background:#fff6f9}
+header{background:#e8438a;color:#fff;padding:14px;text-align:center;font-weight:900;font-size:20px;position:sticky;top:0;z-index:10}
+.wrap{max-width:900px;margin:auto;padding:16px}
+a.volver{color:#e8438a;font-weight:900;text-decoration:none;display:inline-block;margin-bottom:12px}
+h2{color:#d6307a;margin:20px 0 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.card{background:#fff;border:2px solid #ffe0ec;border-radius:18px;padding:12px;text-align:center;cursor:pointer;box-shadow:0 6px 16px rgba(232,67,138,.12);transition:.2s}
+.card:hover{transform:translateY(-3px);border-color:#e8438a}
+.card.emoji{font-size:38px}.card b{display:block;margin-top:6px;color:#333}.card small{color:#888}
+.btn{border:0;background:#e8438a;color:#fff;border-radius:999px;padding:8px 14px;font-weight:900;cursor:pointer;margin-top:8px}
+.game{background:#fff;border:2px dashed #ffb0c9;border-radius:18px;padding:16px;margin-top:18px}
+.opcion{display:inline-block;background:#fff0f6;border:2px solid #ffe0ec;border-radius:12px;padding:10px 14px;margin:6px;font-weight:800;cursor:pointer}
+.opcion.correct{background:#d4edda;border-color:#28a745}.opcion.wrong{background:#f8d7da;border-color:#dc3545}
+</style>
+</head>
+<body>
+<header>👋 Bloque 1 - Saludos y Cortesía</header>
+<div class="wrap">
+<a class="volver" href="index.html">← Volver a los 9 bloques</a>
+
+<h2>1. Escucha y repite 🔊</h2>
+<p>Toca la tarjeta para escuchar.</p>
+<div class="grid" id="vocab"></div>
+
+<h2>2. Mini-Diálogo 🗣️</h2>
+<div class="game">
+<p><b>Ahlam:</b> ¡Hola, Adam! Buenos días ☀️</p>
+<p><b>Adam:</b> ¡Hola, Ahlam! ¿Cómo estás?</p>
+<p><b>Ahlam:</b> Muy bien, gracias. ¿Y tú?</p>
+<p><b>Adam:</b> Muy bien. ¡Hasta luego! 👋</p>
+<button class="btn" onclick="hablar('Hola, Adam. Buenos días. ¿Cómo estás? Muy bien, gracias. Hasta luego.')">🔊 Escuchar diálogo</button>
+</div>
+
+<h2>3. Juego: ¿Cómo se dice? 🎮</h2>
+<div class="game" id="quiz">
+<p id="pregunta" style="font-weight:900;font-size:18px"></p>
+<div id="opciones"></div>
+<p id="feedback" style="font-weight:900;margin-top:10px"></p>
+<button class="btn" onclick="nuevaPregunta()">Siguiente ➡️</button>
+</div>
+</div>
+
+<script>
+const datos=[
+{es:"¡Hola!",emoji:"👋",ej:"¡Hola, Adam!"},
+{es:"Buenos días",emoji:"☀️",ej:"Buenos días, profe"},
+{es:"Buenas tardes",emoji:"🌤️",ej:"Buenas tardes, mamá"},
+{es:"Buenas noches",emoji:"🌙",ej:"Buenas noches, papá"},
+{es:"Adiós",emoji:"👋",ej:"Adiós, hasta mañana"},
+{es:"Hasta luego",emoji:"👋",ej:"Hasta luego, Ahlam"},
+{es:"Por favor",emoji:"🙏",ej:"Agua, por favor"},
+{es:"Gracias",emoji:"😊",ej:"Muchas gracias"},
+{es:"De nada",emoji:"🤗",ej:"De nada, Adam"},
+{es:"Perdón",emoji:"😅",ej:"Perdón, no te oí"},
+{es:"¿Cómo estás?",emoji:"❓",ej:"Hola, ¿cómo estás?"},
+{es:"Muy bien",emoji:"😃",ej:"Muy bien, gracias"}
+];
+function hablar(t){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);}
+const grid=document.getElementById('vocab');
+datos.forEach(d=>{
+const el=document.createElement('div');el.className='card';
+el.innerHTML=`<div class="emoji">${d.emoji}</div><b>${d.es}</b><small>${d.ej}</small><br><button class="btn">🔊</button>`;
+el.onclick=()=>hablar(d.es);grid.appendChild(el);
+});
+
+const preguntas=[
+{q:"Quieres saludar por la mañana, dices...",op:["Buenas noches","Buenos días","Adiós"],ok:1},
+{q:"Alguien te ayuda, dices...",op:["Gracias","Hola","Perdón"],ok:0},
+{q:"Te vas, dices...",op:["Por favor","Hasta luego","Buenos días"],ok:1},
+{q:"Pides algo con educación...",op:["Gracias","Por favor","Hola"],ok:1},
+{q:"¿Cómo preguntas cómo está alguien?",op:["De nada","¿Cómo estás?","Muy bien"],ok:1},
+];
+let actual=0;
+function nuevaPregunta(){
+actual=Math.floor(Math.random()*preguntas.length);
+const p=preguntas[actual];
+document.getElementById('pregunta').innerText=p.q;
+const cont=document.getElementById('opciones');cont.innerHTML='';document.getElementById('feedback').innerText='';
+p.op.forEach((t,i)=>{
+const b=document.createElement('div');b.className='opcion';b.innerText=t;
+b.onclick=()=>{
+if(i===p.ok){b.classList.add('correct');document.getElementById('feedback').innerText='¡Correcto! 🎉';hablar('¡Muy bien!');}
+else{b.classList.add('wrong');document.getElementById('feedback').innerText='Intenta otra vez 😊';hablar('Intenta otra vez');}
+};cont.appendChild(b);
+});
+}
+nuevaPregunta();
+</script>
+</body>
+</html>
