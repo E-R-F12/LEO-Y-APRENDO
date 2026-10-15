@@ -1,1 +1,50 @@
-HOLA
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloque 8 - La Ropa Real</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{font-family:'Nunito',system-ui;margin:0;background:#eff6ff}
+header{background:#3b82f6;color:#fff;padding:16px;text-align:center;font-weight:900;font-size:22px;position:sticky;top:0}
+.wrap{max-width:1050px;margin:auto;padding:16px}
+a.volver{color:#3b82f6;font-weight:900;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:14px}
+.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 22px rgba(0,0,0,.12);border:2px solid #dbeafe;cursor:pointer;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#3b82f6}
+.card img{width:100%;height:180px;object-fit:cover}
+.info{padding:12px;text-align:center}
+.info b{font-size:18px;display:block}
+.info span{font-size:11px;color:#3b82f6;font-weight:900}
+.btn{border:0;background:#3b82f6;color:#fff;border-radius:999px;padding:7px 14px;font-weight:900;cursor:pointer;margin-top:6px}
+</style>
+</head>
+<body>
+<header>👕 Bloque 8 - La Ropa - Fotos reales marroquíes</header>
+<div class="wrap">
+<a class="volver" href="index.html">← Volver</a>
+<div class="grid" id="grid"></div>
+</div>
+<script>
+function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
+const data=[
+{es:"La camiseta",desc:"Camiseta de algodón fresca y cómoda",img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500"},
+{es:"El pantalón",desc:"Pantalón vaquero jeans resistente",img:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=500"},
+{es:"La chilaba",desc:"Chilaba verde tradicional bordada",img:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=500"},
+{es:"El zapato",desc:"Zapatos cómodos para caminar y jugar",img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500"},
+{es:"El gorro",desc:"Gorro de lana para el frío",img:"https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=500"},
+{es:"La bufanda",desc:"Bufanda de lana para abrigarse",img:"https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=500"},
+{es:"La chaqueta",desc:"Chaqueta amarilla con capucha",img:"https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500"},
+{es:"El vestido",desc:"Vestido rosa con flores",img:"https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=500"},
+{es:"Los calcetines",desc:"Calcetines rosas con zapatos marrones",img:"https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=500"},
+{es:"La mochila",desc:"Mochila azul con libros",img:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500"},
+];
+const g=document.getElementById('grid');
+data.forEach(d=>{
+const el=document.createElement('div');el.className='card';
+el.innerHTML=`<img src="${d.img}"><div class="info"><b>${d.es}</b><span>${d.desc}</span><br><button class="btn">🔊 ${d.es}</button></div>`;
+el.onclick=()=>hablar(d.es);g.appendChild(el);
+});
+</script>
+</body>
+</html>
