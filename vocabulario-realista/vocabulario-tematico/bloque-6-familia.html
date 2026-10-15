@@ -1,50 +1,32 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloque 6 - La Familia Real</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box}body{font-family:'Nunito',system-ui;margin:0;background:#fdf2f8}
-header{background:#ec4899;color:#fff;padding:16px;text-align:center;font-weight:900;font-size:22px;position:sticky;top:0}
-.wrap{max-width:1050px;margin:auto;padding:16px}
-a.volver{color:#ec4899;font-weight:900;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:14px}
-.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 22px rgba(0,0,0,.12);border:2px solid #fce7f3;cursor:pointer;transition:.2s}
-.card:hover{transform:translateY(-4px);border-color:#ec4899}
-.card img{width:100%;height:180px;object-fit:cover}
-.info{padding:12px;text-align:center}
-.info b{font-size:18px;display:block}
-.info span{font-size:11px;color:#ec4899;font-weight:900}
-.btn{border:0;background:#ec4899;color:#fff;border-radius:999px;padding:7px 14px;font-weight:900;cursor:pointer;margin-top:6px}
-</style>
-</head>
-<body>
-<header>👨‍👩‍👧‍👦 Bloque 6 - La Familia - Fotos reales marroquíes</header>
-<div class="wrap">
-<a class="volver" href="index.html">← Volver</a>
-<div class="grid" id="grid"></div>
-</div>
-<script>
-function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
-const data=[
-{es:"La madre",desc:"Madre con hiyab verde abrazando a su hijo",img:"https://images.unsplash.com/photo-1609220136736-443140cffec6?w=500"},
-{es:"El padre",desc:"Padre con gorro y chilaba sonriendo",img:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500"},
-{es:"La abuela",desc:"Abuela con henna en manos morada",img:"https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?w=500"},
-{es:"El abuelo",desc:"Abuelo con barba blanca y bastón",img:"https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500"},
-{es:"La hermana",desc:"Hermana Ahlam con trenzas largas",img:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500"},
-{es:"El hermano",desc:"Hermano Adam jugando al fútbol",img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500"},
-{es:"La familia",desc:"Toda la familia junta en patio",img:"https://images.unsplash.com/photo-1511895426328-dc8714191300?w=500"},
-{es:"El bebé",desc:"Bebé pequeño durmiendo",img:"https://images.unsplash.com/photo-1522771930-78848d9293e4?w=500"},
-{es:"Los primos",desc:"Primos jugando juntos",img:"https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500"},
-{es:"Mi casa",desc:"Casa con patio marroquí",img:"https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=500"},
-];
-const g=document.getElementById('grid');
-data.forEach(d=>{
-const el=document.createElement('div');el.className='card';
-el.innerHTML=`<img src="${d.img}"><div class="info"><b>${d.es}</b><span>${d.desc}</span><br><button class="btn">🔊 ${d.es}</button></div>`;
-el.onclick=()=>hablar(d.es);g.appendChild(el);
-});
-</script>
-</body>
-</html>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Familia 30</title><style>body{font-family:sans-serif;background:#fce7f3;margin:0;padding:12px}h1{text-align:center;font-size:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)}img{width:100%;height:110px;object-fit:cover}.info{padding:6px;text-align:center;font-weight:900;font-size:11px}a{display:block;text-align:center;margin:20px;background:#000;color:#fff;padding:14px;border-radius:99px;text-decoration:none}</style></head><body><h1>👨‍👩‍👧 BLOQUE 6 - FAMILIA (30)</h1><div class="grid">
+<div class="card"><img src="https://picsum.photos/seed/fam1MAMA/400/300"><div class="info">1. MAMÁ</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam2PAPA/400/300"><div class="info">2. PAPÁ</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam3HIJO/400/300"><div class="info">3. HIJO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam4HIJA/400/300"><div class="info">4. HIJA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam5HERMANO/400/300"><div class="info">5. HERMANO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam6HERMANA/400/300"><div class="info">6. HERMANA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam7BEBE/400/300"><div class="info">7. BEBÉ</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam8ABUELO/400/300"><div class="info">8. ABUELO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam9ABUELA/400/300"><div class="info">9. ABUELA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam10TIO/400/300"><div class="info">10. TÍO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam11TIA/400/300"><div class="info">11. TÍA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam12PRIMO/400/300"><div class="info">12. PRIMO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam13PRIMA/400/300"><div class="info">13. PRIMA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam14SOBRINO/400/300"><div class="info">14. SOBRINO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam15NIETO/400/300"><div class="info">15. NIETO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam16ESPOSO/400/300"><div class="info">16. ESPOSO / MARIDO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam17ESPOSA/400/300"><div class="info">17. ESPOSA / MUJER</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam18FAMILIA/400/300"><div class="info">18. FAMILIA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam19MAMAHIJAB/400/300"><div class="info">19. MAMÁ CON HIJAB*</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam20PAPABARBA/400/300"><div class="info">20. PAPÁ CON BARBA*</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam21NINO/400/300"><div class="info">21. NIÑO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam22NINA/400/300"><div class="info">22. NIÑA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam23HOMBRE/400/300"><div class="info">23. HOMBRE</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam24MUJER/400/300"><div class="info">24. MUJER</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam25JOVEN/400/300"><div class="info">25. JOVEN</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam26MAYOR/400/300"><div class="info">26. MAYOR / ANCIANO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam27GEMELOS/400/300"><div class="info">27. GEMELOS</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam28CUÑADO/400/300"><div class="info">28. CUÑADO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam29SUEGRO/400/300"><div class="info">29. SUEGRO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/fam30VECINO/400/300"><div class="info">30. VECINO / AMIGO</div></div>
+</div><a href="index.html">← VOLVER A VOCABULARIO TEMÁTICO</a></body></html>
