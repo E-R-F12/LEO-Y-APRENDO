@@ -1,1 +1,50 @@
-HOLA
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloque 6 - La Familia Real</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{font-family:'Nunito',system-ui;margin:0;background:#fdf2f8}
+header{background:#ec4899;color:#fff;padding:16px;text-align:center;font-weight:900;font-size:22px;position:sticky;top:0}
+.wrap{max-width:1050px;margin:auto;padding:16px}
+a.volver{color:#ec4899;font-weight:900;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:14px}
+.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 22px rgba(0,0,0,.12);border:2px solid #fce7f3;cursor:pointer;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#ec4899}
+.card img{width:100%;height:180px;object-fit:cover}
+.info{padding:12px;text-align:center}
+.info b{font-size:18px;display:block}
+.info span{font-size:11px;color:#ec4899;font-weight:900}
+.btn{border:0;background:#ec4899;color:#fff;border-radius:999px;padding:7px 14px;font-weight:900;cursor:pointer;margin-top:6px}
+</style>
+</head>
+<body>
+<header>👨‍👩‍👧‍👦 Bloque 6 - La Familia - Fotos reales marroquíes</header>
+<div class="wrap">
+<a class="volver" href="index.html">← Volver</a>
+<div class="grid" id="grid"></div>
+</div>
+<script>
+function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
+const data=[
+{es:"La madre",desc:"Madre con hiyab verde abrazando a su hijo",img:"https://images.unsplash.com/photo-1609220136736-443140cffec6?w=500"},
+{es:"El padre",desc:"Padre con gorro y chilaba sonriendo",img:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500"},
+{es:"La abuela",desc:"Abuela con henna en manos morada",img:"https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?w=500"},
+{es:"El abuelo",desc:"Abuelo con barba blanca y bastón",img:"https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500"},
+{es:"La hermana",desc:"Hermana Ahlam con trenzas largas",img:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500"},
+{es:"El hermano",desc:"Hermano Adam jugando al fútbol",img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500"},
+{es:"La familia",desc:"Toda la familia junta en patio",img:"https://images.unsplash.com/photo-1511895426328-dc8714191300?w=500"},
+{es:"El bebé",desc:"Bebé pequeño durmiendo",img:"https://images.unsplash.com/photo-1522771930-78848d9293e4?w=500"},
+{es:"Los primos",desc:"Primos jugando juntos",img:"https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500"},
+{es:"Mi casa",desc:"Casa con patio marroquí",img:"https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=500"},
+];
+const g=document.getElementById('grid');
+data.forEach(d=>{
+const el=document.createElement('div');el.className='card';
+el.innerHTML=`<img src="${d.img}"><div class="info"><b>${d.es}</b><span>${d.desc}</span><br><button class="btn">🔊 ${d.es}</button></div>`;
+el.onclick=()=>hablar(d.es);g.appendChild(el);
+});
+</script>
+</body>
+</html>
