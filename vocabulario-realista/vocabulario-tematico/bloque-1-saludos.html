@@ -1,56 +1,27 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloque 1 - Saludos Significativos</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box}body{font-family:'Nunito',system-ui;margin:0;background:#fffaf0}
-header{background:#e91e8c;color:#fff;padding:16px;text-align:center;font-weight:900;font-size:22px;position:sticky;top:0;z-index:10}
-.wrap{max-width:1050px;margin:auto;padding:16px}
-a.volver{color:#e91e8c;font-weight:900;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:14px}
-.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 22px rgba(0,0,0,.12);border:2px solid #ffe4e6;cursor:pointer;transition:.2s}
-.card:hover{transform:translateY(-4px);border-color:#e91e8c}
-.card img{width:100%;height:190px;object-fit:cover;display:block}
-.info{padding:12px;text-align:center}
-.info b{font-size:20px;color:#1e293b;display:block}
-.info span.es{color:#e91e8c;font-size:13px;font-weight:900;display:block;margin-top:2px}
-.info small{color:#64748b;font-size:12px}
-.btn{border:0;background:#e91e8c;color:#fff;border-radius:999px;padding:8px 16px;font-weight:900;cursor:pointer;margin-top:8px}
-.banner{border-radius:18px;overflow:hidden;margin:12px 0;box-shadow:0 8px 18px rgba(0,0,0,.1)}
-.banner img{width:100%;height:auto;display:block}
-</style>
-</head>
-<body>
-<header>🌟 Bloque 1 - Saludos con Fotos que EXPLICAN</header>
-<div class="wrap">
-<a class="volver" href="index.html">← Volver a los 9 bloques</a>
-
-<div class="banner"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=900&h=400&fit=crop" alt="niños saludando"></div>
-
-<div class="grid" id="grid"></div>
-</div>
-<script>
-function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);}
-const data=[
-{es:"¡Hola!",sign:"Niño con mano levantada saludando en la puerta de la escuela",img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500",frase:"¡Hola, Ahlam!"},
-{es:"Buenos días",sign:"Niña bostezando en la cama, sol saliendo por la ventana de mañana",img:"https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=500",frase:"¡Buenos días, profe!"},
-{es:"Buenas tardes",sign:"Reloj marca las 4, sol de tarde entrando por ventana",img:"https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=500",frase:"Buenas tardes a todos"},
-{es:"Buenas noches",sign:"Niña en pijama dormida, luna y estrellas en ventana",img:"https://images.unsplash.com/photo-1511295743952-3e9ed9e1c7e7?w=500",frase:"Buenas noches, mamá"},
-{es:"Por favor",sign:"Niño con manos juntas pidiendo algo",img:"https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500",frase:"Agua, por favor"},
-{es:"Gracias",sign:"Niña feliz recibiendo regalo",img:"https://images.unsplash.com/photo-1512909006721-3d6018887383?w=500",frase:"¡Muchas gracias!"},
-{es:"De nada",sign:"Niño con manos abiertas diciendo de nada",img:"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500",frase:"De nada, Ahlam"},
-{es:"Perdón",sign:"Niña triste pidiendo perdón",img:"https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=500",frase:"Perdón, llego tarde"},
-{es:"¿Cómo estás?",sign:"Dos niños hablando, uno pregunta",img:"https://images.unsplash.com/photo-1588075592446-265fd1e4e76f?w=500",frase:"¿Cómo estás hoy?"},
-{es:"Adiós",sign:"Niña con mochila despidiéndose en la puerta",img:"https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500",frase:"¡Adiós, hasta mañana!"},
-];
-const g=document.getElementById('grid');
-data.forEach(d=>{
-const el=document.createElement('div');el.className='card';
-el.innerHTML=`<img src="${d.img}"><div class="info"><b>${d.es}</b><span class="es">${d.sign}</span><small>${d.frase}</small><br><button class="btn">🔊 Escuchar</button></div>`;
-el.onclick=()=>hablar(d.es);g.appendChild(el);
-});
-</script>
-</body>
-</html>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Saludos 25</title><style>body{font-family:sans-serif;background:#fffbeb;margin:0;padding:12px}h1{text-align:center;font-size:20px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)}img{width:100%;height:120px;object-fit:cover}.info{padding:7px;text-align:center;font-weight:900;font-size:12px}a{display:block;text-align:center;margin:20px;background:#000;color:#fff;padding:14px;border-radius:99px;text-decoration:none}</style></head><body><h1>🙋 BLOQUE 1 - SALUDOS (25)</h1><div class="grid">
+<div class="card"><img src="https://picsum.photos/seed/saludos1HOLA/400/300"><div class="info">1. HOLA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos2ADIOS/400/300"><div class="info">2. ADIOS</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos3BUENOSDIAS/400/300"><div class="info">3. BUENOS DIAS</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos4BUENASTARDES/400/300"><div class="info">4. BUENAS TARDES</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos5BUENASNOCHES/400/300"><div class="info">5. BUENAS NOCHES</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos6GRACIAS/400/300"><div class="info">6. GRACIAS</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos7PORFAVOR/400/300"><div class="info">7. POR FAVOR</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos8PERDON/400/300"><div class="info">8. PERDON</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos9LOSiento/400/300"><div class="info">9. LO SIENTO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos10DENADA/400/300"><div class="info">10. DE NADA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos11COMOESTAS/400/300"><div class="info">11. ¿COMO ESTAS?</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos12BIEN/400/300"><div class="info">12. BIEN</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos13MAL/400/300"><div class="info">13. MAL</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos14MASOMENOS/400/300"><div class="info">14. MAS O MENOS</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos15BIENVENIDO/400/300"><div class="info">15. BIENVENIDO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos16HASTALUEGO/400/300"><div class="info">16. HASTA LUEGO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos17HASTAMANANA/400/300"><div class="info">17. HASTA MAÑANA</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos18NOSVEMOS/400/300"><div class="info">18. NOS VEMOS</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos19ENCANTADO/400/300"><div class="info">19. ENCANTADO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos20ABRAZO/400/300"><div class="info">20. ABRAZO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos21BESO/400/300"><div class="info">21. BESO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos22SI/400/300"><div class="info">22. SI</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos23NO/400/300"><div class="info">23. NO</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos24VALE/400/300"><div class="info">24. VALE</div></div>
+<div class="card"><img src="https://picsum.photos/seed/saludos25OK/400/300"><div class="info">25. OK</div></div>
+</div><a href="index.html">← VOLVER A VOCABULARIO TEMÁTICO</a></body></html>
