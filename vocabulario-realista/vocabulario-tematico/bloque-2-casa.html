@@ -1,36 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloque 2 - La Casa</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloque 2 - Casa (30 palabras)</title>
 <style>
-body{font-family:Arial,sans-serif;background:#f0f7ff;padding:20px;text-align:center}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px;max-width:1000px;margin:20px auto}
-.card{background:white;border-radius:15px;padding:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
-.card img{width:100%;height:120px;object-fit:cover;border-radius:10px}
-.card h3{margin:8px 0 2px;font-size:18px}
-.card p{margin:0;color:#555;font-size:14px}
+body{font-family:system-ui,sans-serif;background:#eaf4ff;margin:0;padding:20px}
+h1{text-align:center;color:#1a3d6d}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;max-width:1200px;margin:auto}
+.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08);text-align:center;padding-bottom:12px}
+.card img{width:100%;height:160px;object-fit:cover}
+.palabra{font-weight:700;margin:8px 0 2px}
+.silabas{color:#5b7ebf;font-size:.9em;display:flex;justify-content:center;align-items:center;gap:6px}
+.articulo{color:#666;font-size:.85em}
+.btn-audio{background:#e6efff;border:none;border-radius:50%;width:28px;height:28px;cursor:pointer}
 </style>
 </head>
 <body>
 <h1>🏠 Bloque 2 - La Casa (30 palabras)</h1>
-<a href="../index.html">⬅️ Volver al inicio</a>
-<div class="grid">
-<div class="card"><img src="../imagenes/bloque-2-casa/puerta.jpg"><h3>puerta</h3><p>la puerta</p></div>
-<div class="card"><img src="../imagenes/bloque-2-casa/ventana.jpg"><h3>ventana</h3><p>la ventana</p></div>
-<div class="card"><img src="../imagenes/bloque-2-casa/cama.jpg"><h3>cama</h3><p>la cama</p></div>
-<div class="card"><img src="../imagenes/bloque-2-casa/mesa.jpg"><h3>mesa</h3><p>la mesa</p></div>
-<div class="card"><img src="../imagenes/bloque-2-casa/silla.jpg"><h3>silla</h3><p>la silla</p></div>
-<div class="card"><img src="../imagenes/bloque-2-casa/sofa.jpg"><h3>sofá</h3><p>el sofá</p></div>
-<div class="card"><img src="../imagenes/bloque-2-casa/manta.jpg"><h3>manta</h3><p>la manta</p></div>
-<div class="card"><img src="../imagenes/bloque-2-casa/toalla.jpg"><h3>toalla</h3><p>la toalla</p></div>
-<div class="card"><img src="../imagenes/bloque-2-casa/vaso.jpg"><h3>vaso</h3><p>el vaso</p></div>
-<div class="card"><img src="../imagenes/bloque-2-casa/plato.jpg"><h3>plato</h3><p>el plato</p></div>
-<div class="card"><img src="../imagenes/bloque-2-casa/tenedor.jpg"><h3>tenedor</h3><p>el tenedor</p></div>
-<div class="card"><img src="../imagenes/bloque-2-casa/sarten.jpg"><h3>sartén</h3><p>la sartén</p></div>
-<div class="card"><img src="../imagenes/bloque-2-casa/nevera.jpg"><h3>nevera</h3><p>la nevera</p></div>
-<div class="card"><img src="../imagenes/bloque-2-casa/microondas.jpg"><h3>microondas</h3><p>el microondas</p></div>
-<div class="card"><img src="../imagenes/bloque-2-casa/llave.jpg"><h3>llave</h3><p>la llave</p></div>
-</div>
+<div class="grid" id="grid"></div>
+<script>
+const palabras=[
+{file:'puerta.jpg',texto:'puerta',silabas:'puer-ta',art:'la puerta'},
+{file:'ventana.jpg',texto:'ventana',silabas:'ven-ta-na',art:'la ventana'},
+{file:'cama.jpg',texto:'cama',silabas:'ca-ma',art:'la cama'},
+{file:'mesa.jpg',texto:'mesa',silabas:'me-sa',art:'la mesa'},
+{file:'silla.jpg',texto:'silla',silabas:'si-lla',art:'la silla'},
+{file:'sofa.jpg',texto:'sofá',silabas:'so-fá',art:'el sofá'},
+{file:'manta.jpg',texto:'manta',silabas:'man-ta',art:'la manta'},
+{file:'toalla.jpg',texto:'toalla',silabas:'to-a-lla',art:'la toalla'},
+{file:'vaso.jpg',texto:'vaso',silabas:'va-so',art:'el vaso'},
+{file:'plato.jpg',texto:'plato',silabas:'pla-to',art:'el plato'},
+{file:'tenedor.jpg',texto:'tenedor',silabas:'te-ne-dor',art:'el tenedor'},
+{file:'sarten.jpg',texto:'sartén',silabas:'sar-tén',art:'la sartén'},
+{file:'nevera.jpg',texto:'nevera',silabas:'ne-ve-ra',art:'la nevera'},
+{file:'microondas.jpg',texto:'microondas',silabas:'mi-cro-on-das',art:'el microondas'},
+{file:'llave.jpg',texto:'llave',silabas:'lla-ve',art:'la llave'},
+{file:'cuchillo.jpg',texto:'cuchillo',silabas:'cu-chi-llo',art:'el cuchillo'},
+{file:'ducha.jpg',texto:'ducha',silabas:'du-cha',art:'la ducha'},
+{file:'escalera.jpg',texto:'escalera',silabas:'es-ca-le-ra',art:'la escalera'},
+{file:'espejo.jpg',texto:'espejo',silabas:'es-pe-jo',art:'el espejo'},
+{file:'jabon.jpg',texto:'jabón',silabas:'ja-bón',art:'el jabón'},
+{file:'lampara.jpg',texto:'lámpara',silabas:'lám-pa-ra',art:'la lámpara'},
+{file:'olla.jpg',texto:'olla',silabas:'o-lla',art:'la olla'},
+{file:'taza.jpg',texto:'taza',silabas:'ta-za',art:'la taza'},
+{file:'television.jpg',texto:'televisión',silabas:'te-le-vi-sión',art:'la televisión'},
+{file:'alfombra.jpg',texto:'alfombra',silabas:'al-fom-bra',art:'la alfombra'},
+{file:'cortina.jpg',texto:'cortina',silabas:'cor-ti-na',art:'la cortina'},
+{file:'almohada.jpg',texto:'almohada',silabas:'al-mo-ha-da',art:'la almohada'},
+{file:'armario.jpg',texto:'armario',silabas:'ar-ma-rio',art:'el armario'},
+{file:'fregadero.jpg',texto:'fregadero',silabas:'fre-ga-de-ro',art:'el fregadero'},
+{file:'cocina.jpg',texto:'cocina',silabas:'co-ci-na',art:'la cocina'},
+];
+function hablar(t){const u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);}
+const grid=document.getElementById('grid');const base='imagenes/bloque-2-casa/';
+palabras.forEach(p=>{const c=document.createElement('div');c.className='card';c.innerHTML=`<img src="${base}${p.file}"><div class="palabra">${p.texto}</div><div class="silabas"><span>${p.silabas}</span> <button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button></div><div class="articulo">${p.art}</div>`;grid.appendChild(c);});
+</script>
 </body>
 </html>
