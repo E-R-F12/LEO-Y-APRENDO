@@ -1,49 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bloque 3 - COMIDA (30)</title>
-<style>body{font-family:Arial;background:#fef3c7;margin:0;padding:15px}.container{max-width:1250px;margin:0 auto}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.12)}.card img{width:100%;height:190px;object-fit:cover}.label{padding:8px;font-weight:bold;text-align:center}.audio-box{padding:8px;background:#f9fafb;display:flex;gap:6px;justify-content:center}audio{width:180px;height:32px}.btn{border:none;padding:6px 10px;border-radius:20px;background:#1a5aa8;color:white;cursor:pointer}.back{display:inline-block;background:white;padding:8px 16px;border-radius:20px;text-decoration:none;margin-bottom:12px}.total{background:#1a5aa8;color:white;padding:10px;border-radius:8px;text-align:center;margin-bottom:14px}</style>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLOQUE 3 - LA COMIDA (30) - Fotos reales + Audios</title>
+<style>
+body{background:#FFFEF5;margin:0;padding:15px;font-family:Arial,sans-serif}
+.barra{background:#e65100;color:white;text-align:center;padding:10px;border-radius:8px;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:15px}
+.card{background:white;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);overflow:hidden;text-align:center;padding-bottom:10px}
+.card img{width:100%;height:180px;object-fit:contain;background:#fff3e0;display:block}
+.num{font-weight:bold;font-size:13px;margin:8px 0;text-transform:uppercase}
+.audio-row{display:flex;justify-content:center;gap:6px;padding:5px}
+.btn-audio{background:#e65100;color:white;border:none;border-radius:50%;width:32px;height:32px;cursor:pointer}
+.back{color:#e65100;text-decoration:none;font-weight:bold}
+</style>
 </head>
-<body><div class="container"><a href="index.html" class="back">← Volver</a><h1>🍎 BLOQUE 3 - COMIDA (30) - Fotos reales + Audios</h1><div class="total">30 fotos reales + 30 audios 🔊</div><div class="grid">
-
-<div class="card">
-<img src="https://loremflickr.com/400/250/apple?lock=manzanacomida" alt="MANZANA">
-<div class="label">1. MANZANA</div>
-<div class="audio-box"><audio controls src="audios/bloque-3-comida/manzana.mp3"></audio><button class="btn" onclick="hablar('MANZANA')">🔊</button></div>
-</div>
-
-<div class="card">
-<img src="https://loremflickr.com/400/250/bread?lock=pancomida" alt="PAN">
-<div class="label">2. PAN</div>
-<div class="audio-box"><audio controls src="audios/bloque-3-comida/pan.mp3"></audio><button class="btn" onclick="hablar('PAN')">🔊</button></div>
-</div>
-
-<div class="card">
-<img src="https://loremflickr.com/400/250/milk?lock=lechecomida" alt="LECHE">
-<div class="label">3. LECHE</div>
-<div class="audio-box"><audio controls src="audios/bloque-3-comida/leche.mp3"></audio><button class="btn" onclick="hablar('LECHE')">🔊</button></div>
-</div>
-
-<!-- 4 AGUA (water), 5 ZUMO (juice), 6 ARROZ (rice), 7 PASTA (pasta), 8 CARNE (meat), 9 PESCADO (fish), 10 HUEVO (egg), 11 QUESO (cheese), 12 YOGUR (yogurt), 13 PLATANO (banana), 14 NARANJA (orange), 15 FRESA (strawberry), 16 TOMATE (tomato), 17 LECHUGA (lettuce), 18 PATATA (potato), 19 ZANAHORIA (carrot), 20 CEBOLLA (onion), 21 POLLO (chicken), 22 SOPA (soup), 23 ENSALADA (salad), 24 BOCADILLO (sandwich), 25 GALLETA (cookie), 26 CHOCOLATE (chocolate), 27 HELADO (ice-cream), 28 TARTA (cake), 29 CUCHARA (spoon), 30 TENEDOR (fork) - MISMO PATRÓN -->
-
-<div class="card">
-<img src="https://loremflickr.com/400/250/water?lock=aguacomida" alt="AGUA">
-<div class="label">4. AGUA</div>
-<div class="audio-box"><audio controls src="audios/bloque-3-comida/agua.mp3"></audio><button class="btn" onclick="hablar('AGUA')">🔊</button></div>
-</div>
-
-<div class="card">
-<img src="https://loremflickr.com/400/250/tomato?lock=tomatecomida" alt="TOMATE">
-<div class="label">16. TOMATE</div>
-<div class="audio-box"><audio controls src="audios/bloque-3-comida/tomate.mp3"></audio><button class="btn" onclick="hablar('TOMATE')">🔊</button></div>
-</div>
-
-<div class="card">
-<img src="https://loremflickr.com/400/250/chocolate?lock=chocolatecomida" alt="CHOCOLATE">
-<div class="label">26. CHOCOLATE</div>
-<div class="audio-box"><audio controls src="audios/bloque-3-comida/chocolate.mp3"></audio><button class="btn" onclick="hablar('CHOCOLATE')">🔊</button></div>
-</div>
-
-<!-- ... y así hasta 30, te paso el archivo completo con 30 tarjetas en el mensaje anterior largo, este es el resumen -->
-
-</div></div><script>function hablar(t){const u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);}</script></body></html>
+<body>
+<a class="back" href="../../index.html">← Volver</a>
+<h1>🍎 BLOQUE 3 - LA COMIDA (30) - Fotos reales + Audios</h1>
+<div class="barra">30 fotos reales relacionadas + 30 audios 🔊</div>
+<div class="grid" id="grid"></div>
+<script>
+const baseImg = "../imagenes/bloque-3-comida/";
+const palabras=[
+{file:"manzana.jpg",texto:"MANZANA"},
+{file:"platano.jpg",texto:"PLATANO"},
+{file:"naranja.jpg",texto:"NARANJA"},
+{file:"fresa.jpg",texto:"FRESA"},
+{file:"uva.jpg",texto:"UVA"},
+{file:"pan.jpg",texto:"PAN"},
+{file:"leche.jpg",texto:"LECHE"},
+{file:"agua.jpg",texto:"AGUA"},
+{file:"zumo.jpg",texto:"ZUMO"},
+{file:"arroz.jpg",texto:"ARROZ"},
+{file:"pollo.jpg",texto:"POLLO"},
+{file:"carne.jpg",texto:"CARNE"},
+{file:"pescado.jpg",texto:"PESCADO"},
+{file:"huevo.jpg",texto:"HUEVO"},
+{file:"queso.jpg",texto:"QUESO"},
+{file:"yogur.jpg",texto:"YOGUR"},
+{file:"tomate.jpg",texto:"TOMATE"},
+{file:"lechuga.jpg",texto:"LECHUGA"},
+{file:"patata.jpg",texto:"PATATA"},
+{file:"zanahoria.jpg",texto:"ZANAHORIA"},
+{file:"sopa.jpg",texto:"SOPA"},
+{file:"ensalada.jpg",texto:"ENSALADA"},
+{file:"bocadillo.jpg",texto:"BOCADILLO"},
+{file:"galleta.jpg",texto:"GALLETA"},
+{file:"helado.jpg",texto:"HELADO"},
+{file:"chocolate.jpg",texto:"CHOCOLATE"},
+{file:"azucar.jpg",texto:"AZUCAR"},
+{file:"sal.jpg",texto:"SAL"},
+{file:"aceite.jpg",texto:"ACEITE"},
+{file:"tenedor y cuchillo.jpg",texto:"TENGO HAMBRE"}
+];
+const grid=document.getElementById('grid');
+function hablar(t){const u=new SpeechSynthesisUtterance(t.toLowerCase());u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
+palabras.forEach((p,i)=>{
+ const card=document.createElement('div');card.className='card';
+ card.innerHTML=`<img src="${baseImg+p.file}" alt="${p.texto}" onerror="this.style.background='#fff3e0'; this.alt='Falta imagen'"><div class="num">${i+1}. ${p.texto}</div><div class="audio-row"><audio controls src="../audios/bloque-3-comida/${p.file.replace('.jpg','.mp3')}"></audio><button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button></div>`;
+ grid.appendChild(card);
+});
+</script>
+</body>
+</html>
