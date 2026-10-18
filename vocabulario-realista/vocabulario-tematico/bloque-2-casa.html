@@ -3,17 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloque 2 - Casa (30 palabras)</title>
+<title>Bloque 2 - La Casa (30 palabras)</title>
 <style>
 body{font-family:system-ui,sans-serif;background:#eaf4ff;margin:0;padding:20px}
 h1{text-align:center;color:#1a3d6d}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;max-width:1200px;margin:auto}
-.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08);text-align:center;padding-bottom:12px}
-.card img{width:100%;height:160px;object-fit:cover}
-.palabra{font-weight:700;margin:8px 0 2px}
-.silabas{color:#5b7ebf;font-size:.9em;display:flex;justify-content:center;align-items:center;gap:6px}
-.articulo{color:#666;font-size:.85em}
-.btn-audio{background:#e6efff;border:none;border-radius:50%;width:28px;height:28px;cursor:pointer}
+.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08);text-align:center;padding-bottom:12px;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card img{width:100%;height:160px;object-fit:cover;display:block}
+.palabra{font-weight:700;font-size:1.1em;margin:8px 0 2px}
+.silabas{color:#5b7ebf;font-size:.9em;margin:2px 0;display:flex;justify-content:center;align-items:center;gap:6px}
+.articulo{color:#666;font-size:.85em;margin-top:2px}
+.btn-audio{background:#e6efff;border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:14px}
+.btn-audio:hover{background:#c9d9ff}
 </style>
 </head>
 <body>
@@ -52,9 +54,25 @@ const palabras=[
 {file:'fregadero.jpg',texto:'fregadero',silabas:'fre-ga-de-ro',art:'el fregadero'},
 {file:'cocina.jpg',texto:'cocina',silabas:'co-ci-na',art:'la cocina'},
 ];
-function hablar(t){const u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);}
-const grid=document.getElementById('grid');const base=.../'imagenes/bloque-2-casa/';
-palabras.forEach(p=>{const c=document.createElement('div');c.className='card';c.innerHTML=`<img src="${base}${p.file}"><div class="palabra">${p.texto}</div><div class="silabas"><span>${p.silabas}</span> <button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button></div><div class="articulo">${p.art}</div>`;grid.appendChild(c);});
+function hablar(texto){
+  const u=new SpeechSynthesisUtterance(texto);
+  u.lang='es-ES';
+  u.rate=0.9;
+  speechSynthesis.speak(u);
+}
+const grid=document.getElementById('grid');
+const base='../imagenes/bloque-2-casa/';
+palabras.forEach(p=>{
+  const card=document.createElement('div');
+  card.className='card';
+  card.innerHTML=`
+    <img src="${base}${p.file}" alt="${p.texto}">
+    <div class="palabra">${p.texto}</div>
+    <div class="silabas"><span>${p.silabas}</span> <button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button></div>
+    <div class="articulo">${p.art}</div>
+  `;
+  grid.appendChild(card);
+});
 </script>
 </body>
 </html>
