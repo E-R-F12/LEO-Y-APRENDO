@@ -53,7 +53,7 @@ const palabras=[
 {file:'cocina.jpg',texto:'cocina',silabas:'co-ci-na',art:'la cocina'},
 ];
 function hablar(t){const u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);}
-const grid=document.getElementById('grid');const base='imagenes/bloque-2-casa/';
+const grid=document.getElementById('grid');const base=.../'imagenes/bloque-2-casa/';
 palabras.forEach(p=>{const c=document.createElement('div');c.className='card';c.innerHTML=`<img src="${base}${p.file}"><div class="palabra">${p.texto}</div><div class="silabas"><span>${p.silabas}</span> <button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button></div><div class="articulo">${p.art}</div>`;grid.appendChild(c);});
 </script>
 </body>
