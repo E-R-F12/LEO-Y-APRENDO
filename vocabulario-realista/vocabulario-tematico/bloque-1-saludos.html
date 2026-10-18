@@ -5,65 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BLOQUE 1 - SALUDOS (30) - Fotos reales + Audios</title>
 <style>
-body{background:#FFFEF5;margin:0;padding:20px;font-family:Arial,sans-serif}
-h1{font-size:22px;margin-bottom:15px}
+body{background:#FFFEF5;margin:0;padding:15px;font-family:Arial,sans-serif}
 .barra{background:#1a5fb4;color:white;text-align:center;padding:10px;border-radius:8px;margin-bottom:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
-.card{background:white;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);overflow:hidden;text-align:center;padding-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:15px}
+.card{background:white;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);overflow:hidden;text-align:center;padding-bottom:10px}
 .card img{width:100%;height:180px;object-fit:contain;background:#e3f2fd;display:block}
-.card .num{font-weight:bold;font-size:14px;margin:10px 0 6px;text-transform:uppercase}
-.audio-row{display:flex;align-items:center;justify-content:center;gap:6px;background:#f6f6f6;padding:6px;border-radius:20px;margin:0 10px}
-.audio-row audio{width:120px;height:30px}
+.num{font-weight:bold;font-size:13px;margin:8px 0;text-transform:uppercase}
+.audio-row{display:flex;justify-content:center;gap:6px;padding:5px}
 .btn-audio{background:#1a5fb4;color:white;border:none;border-radius:50%;width:32px;height:32px;cursor:pointer}
-.back{display:inline-block;margin-bottom:15px;color:#1a5fb4;text-decoration:none;font-weight:bold}
+.back{color:#1a5fb4;text-decoration:none;font-weight:bold}
 </style>
 </head>
 <body>
-<a class="back" href="../../index.html">← Volver</a>
+<a class="back" href="../vocabulario-tematico/../..">← Volver</a>
 <h1>👋 BLOQUE 1 - SALUDOS (30) - Fotos reales + Audios</h1>
 <div class="barra">30 fotos reales relacionadas + 30 audios 🔊</div>
 <div class="grid" id="grid"></div>
 <script>
-const baseImg = "../../imagenes/bloque-1-saludos/";
-const palabras = [
-{n:1,file:"hola.jpg",texto:"HOLA"},
-{n:2,file:"adios.jpg",texto:"ADIOS"},
-{n:3,file:"buenos-dias.jpg",texto:"BUENOS DIAS"},
-{n:4,file:"buenas-tardes.jpg",texto:"BUENAS TARDES"},
-{n:5,file:"buenas-noches.jpg",texto:"BUENAS NOCHES"},
-{n:6,file:"por-favor.jpg",texto:"POR FAVOR"},
-{n:7,file:"gracias.jpg",texto:"GRACIAS"},
-{n:8,file:"de-nada.jpg",texto:"DE NADA"},
-{n:9,file:"perdon.jpg",texto:"PERDON"},
-{n:10,file:"lo-siento.jpg",texto:"LO SIENTO"},
-{n:11,file:"si.jpg",texto:"SI"},
-{n:12,file:"no.jpg",texto:"NO"},
-{n:13,file:"como-estas.jpg",texto:"COMO ESTAS"},
-{n:14,file:"muy-bien.jpg",texto:"MUY BIEN"},
-{n:15,file:"hasta-luego.jpg",texto:"HASTA LUEGO"},
-{n:16,file:"hasta-manana.jpg",texto:"HASTA MANANA"},
-{n:17,file:"bienvenido.jpg",texto:"BIENVENIDO"},
-{n:18,file:"encantado.jpg",texto:"ENCANTADO"},
-{n:19,file:"disculpe.jpg",texto:"DISCULPE"},
-{n:20,file:"salud.jpg",texto:"SALUD"},
-{n:21,file:"que-tal.jpg",texto:"QUE TAL"},
-{n:22,file:"como-te-llamas.jpg",texto:"COMO TE LLAMAS"},
-{n:23,file:"me-llamo.jpg",texto:"ME LLAMO"},
-{n:24,file:"mucho-gusto.jpg",texto:"MUCHO GUSTO"},
-{n:25,file:"cuidate.jpg",texto:"CUIDATE"},
-{n:26,file:"buen-dia.jpg",texto:"BUEN DIA"},
-{n:27,file:"nos-vemos.jpg",texto:"NOS VEMOS"},
-{n:28,file:"hasta-pronto.jpg",texto:"HASTA PRONTO"},
-{n:29,file:"donde-esta.jpg",texto:"DONDE ESTA"},
-{n:30,file:"estoy-bien-gracias.jpg",texto:"ESTOY BIEN GRACIAS"}
+const baseImg = "../imagenes/bloque-1-saludos/";
+const palabras=[
+{file:"hola.jpg",texto:"HOLA"},
+{file:"adios.jpg",texto:"ADIOS"},
+{file:"buenos dias.jpg",texto:"BUENOS DIAS"},
+{file:"buenas tardes.jpg",texto:"BUENAS TARDES"},
+{file:"buenas noches.jpg",texto:"BUENAS NOCHES"},
+{file:"por favor.jpg",texto:"POR FAVOR"},
+{file:"gracias.jpg",texto:"GRACIAS"},
+{file:"de nada.jpg",texto:"DE NADA"},
+{file:"perdon.jpg",texto:"PERDON"},
+{file:"lo siento.jpg",texto:"LO SIENTO"},
+{file:"si.jpg",texto:"SI"},
+{file:"no.jpg",texto:"NO"},
+{file:"como estas.jpg",texto:"COMO ESTAS"},
+{file:"muy bien.jpg",texto:"MUY BIEN"},
+{file:"hasta luego.jpg",texto:"HASTA LUEGO"},
+{file:"hasta mañana.jpg",texto:"HASTA MAÑANA"},
+{file:"bienvenido.jpg",texto:"BIENVENIDO"},
+{file:"encantado.jpg",texto:"ENCANTADO"},
+{file:"disculpe.jpg",texto:"DISCULPE"},
+{file:"salud.jpg",texto:"SALUD"},
+{file:"que tal.jpg",texto:"QUE TAL"},
+{file:"como te llamas.jpg",texto:"COMO TE LLAMAS"},
+{file:"me llamo.jpg",texto:"ME LLAMO"},
+{file:"mucho gusto.jpg",texto:"MUCHO GUSTO"},
+{file:"cuidate.jpg",texto:"CUIDATE"},
+{file:"buen dia.jpg",texto:"BUEN DIA"},
+{file:"nos vemos.jpg",texto:"NOS VEMOS"},
+{file:"hasta pronto.jpg",texto:"HASTA PRONTO"},
+{file:"donde esta.jpg",texto:"DONDE ESTA"},
+{file:"estoy bien gracias.jpg",texto:"ESTOY BIEN GRACIAS"}
 ];
 const grid=document.getElementById('grid');
 function hablar(t){const u=new SpeechSynthesisUtterance(t.toLowerCase());u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
-palabras.forEach(p=>{
- const div=document.createElement('div');
- div.className='card';
- div.innerHTML=`<img src="${baseImg+p.file}" alt="${p.texto}"><div class="num">${p.n}. ${p.texto}</div><div class="audio-row"><audio controls src="../../audios/bloque-1-saludos/${p.file.replace('.jpg','.mp3')}"></audio><button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button></div>`;
- grid.appendChild(div);
+palabras.forEach((p,i)=>{
+ const card=document.createElement('div');card.className='card';
+ card.innerHTML=`<img src="${baseImg+p.file}" alt="${p.texto}"><div class="num">${i+1}. ${p.texto}</div><div class="audio-row"><audio controls src="../audios/bloque-1-saludos/${p.file.replace('.jpg','.mp3')}"></audio><button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button></div>`;
+ grid.appendChild(card);
 });
 </script>
 </body>
