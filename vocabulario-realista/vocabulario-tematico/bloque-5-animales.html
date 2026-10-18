@@ -1,38 +1,70 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bloque 5 - ANIMALES (30)</title>
-<style>body{font-family:Arial;background:#dcfce7;margin:0;padding:15px}.container{max-width:1250px;margin:0 auto}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.12)}.card img{width:100%;height:190px;object-fit:cover}.label{padding:8px;font-weight:bold;text-align:center}.audio-box{padding:8px;background:#f9fafb;display:flex;gap:6px;justify-content:center}audio{width:180px;height:32px}.btn{border:none;padding:6px 10px;border-radius:20px;background:#1a5aa8;color:white;cursor:pointer}.back{display:inline-block;background:white;padding:8px 16px;border-radius:20px;text-decoration:none;margin-bottom:12px}.total{background:#1a5aa8;color:white;padding:10px;border-radius:8px;text-align:center;margin-bottom:14px}</style>
-</head><body><div class="container"><a href="index.html" class="back">← Volver</a><h1>🐶 BLOQUE 5 - ANIMALES (30)</h1><div class="total">30 fotos reales + 30 audios 🔊</div><div class="grid">
+<style>
+body{font-family:Arial;background:#e0f2fe;margin:0;padding:15px}
+.container{max-width:1250px;margin:0 auto}
+a.back{background:white;padding:8px 15px;border-radius:20px;text-decoration:none;color:#333}
+h1{font-size:22px}
+.info{background:#2563eb;color:white;text-align:center;padding:10px;border-radius:8px;margin:15px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:15px}
+.card{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
+.card img{width:100%;height:140px;object-fit:cover;border-radius:8px;background:#f3f4f6}
+.label{font-weight:bold;margin:8px 0}
+.btn-audio{background:#2563eb;color:white;border:none;border-radius:20px;padding:6px 12px;cursor:pointer;font-size:14px}
+.btn-audio:hover{background:#1d4ed8}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="../../index.html" class="back">← Volver</a>
+<h1>🐶 BLOQUE 5 - ANIMALES (30) - Fotos reales + Audios</h1>
+<div class="info">30 fotos reales + 30 audios 🔊 Haz clic en 🔊 para escuchar</div>
+<div class="grid">
 
-<div class="card"><img src="https://loremflickr.com/400/250/dog?lock=perroanimales" alt="PERRO"><div class="label">1. PERRO</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/perro.mp3"></audio><button class="btn" onclick="hablar('PERRO')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/cat?lock=gatoanimales" alt="GATO"><div class="label">2. GATO</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/gato.mp3"></audio><button class="btn" onclick="hablar('GATO')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/bird?lock=pajaroanimales" alt="PAJARO"><div class="label">3. PAJARO</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/pajaro.mp3"></audio><button class="btn" onclick="hablar('PAJARO')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/fish?lock=pezanimales" alt="PEZ"><div class="label">4. PEZ</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/pez.mp3"></audio><button class="btn" onclick="hablar('PEZ')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/horse?lock=caballoanimales" alt="CABALLO"><div class="label">5. CABALLO</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/caballo.mp3"></audio><button class="btn" onclick="hablar('CABALLO')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/cow?lock=vacaanimales" alt="VACA"><div class="label">6. VACA</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/vaca.mp3"></audio><button class="btn" onclick="hablar('VACA')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/pig?lock=cerdoanimales" alt="CERDO"><div class="label">7. CERDO</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/cerdo.mp3"></audio><button class="btn" onclick="hablar('CERDO')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/sheep?lock=ovejaanimales" alt="OVEJA"><div class="label">8. OVEJA</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/oveja.mp3"></audio><button class="btn" onclick="hablar('OVEJA')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/hen?lock=gallinaanimales" alt="GALLINA"><div class="label">9. GALLINA</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/gallina.mp3"></audio><button class="btn" onclick="hablar('GALLINA')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/duck?lock=patoanimales" alt="PATO"><div class="label">10. PATO</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/pato.mp3"></audio><button class="btn" onclick="hablar('PATO')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/rabbit?lock=conejoanimales" alt="CONEJO"><div class="label">11. CONEJO</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/conejo.mp3"></audio><button class="btn" onclick="hablar('CONEJO')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/mouse?lock=ratonanimales" alt="RATON"><div class="label">12. RATON</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/raton.mp3"></audio><button class="btn" onclick="hablar('RATON')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/lion?lock=leonanimales" alt="LEON"><div class="label">13. LEON</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/leon.mp3"></audio><button class="btn" onclick="hablar('LEON')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/tiger?lock=tigreanimales" alt="TIGRE"><div class="label">14. TIGRE</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/tigre.mp3"></audio><button class="btn" onclick="hablar('TIGRE')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/elephant?lock=elefanteanimales" alt="ELEFANTE"><div class="label">15. ELEFANTE</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/elefante.mp3"></audio><button class="btn" onclick="hablar('ELEFANTE')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/giraffe?lock=jirafaanimales" alt="JIRAFA"><div class="label">16. JIRAFA</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/jirafa.mp3"></audio><button class="btn" onclick="hablar('JIRAFA')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/monkey?lock=monoanimales" alt="MONO"><div class="label">17. MONO</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/mono.mp3"></audio><button class="btn" onclick="hablar('MONO')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/bear?lock=osoanimales" alt="OSO"><div class="label">18. OSO</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/oso.mp3"></audio><button class="btn" onclick="hablar('OSO')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/wolf?lock=loboanimales" alt="LOBO"><div class="label">19. LOBO</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/lobo.mp3"></audio><button class="btn" onclick="hablar('LOBO')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/fox?lock=zorroanimales" alt="ZORRO"><div class="label">20. ZORRO</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/zorro.mp3"></audio><button class="btn" onclick="hablar('ZORRO')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/turtle?lock=tortugaanimales" alt="TORTUGA"><div class="label">21. TORTUGA</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/tortuga.mp3"></audio><button class="btn" onclick="hablar('TORTUGA')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/snake?lock=serpienteanimales" alt="SERPIENTE"><div class="label">22. SERPIENTE</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/serpiente.mp3"></audio><button class="btn" onclick="hablar('SERPIENTE')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/frog?lock=ranaanimales" alt="RANA"><div class="label">23. RANA</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/rana.mp3"></audio><button class="btn" onclick="hablar('RANA')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/butterfly?lock=mariposa"><div class="label">24. MARIPOSA</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/mariposa.mp3"></audio><button class="btn" onclick="hablar('MARIPOSA')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/bee?lock=abejaanimales" alt="ABEJA"><div class="label">25. ABEJA</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/abeja.mp3"></audio><button class="btn" onclick="hablar('ABEJA')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/fly?lock=moscaanimales" alt="MOSCA"><div class="label">26. MOSCA</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/mosca.mp3"></audio><button class="btn" onclick="hablar('MOSCA')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/spider?lock=aranaanimales" alt="ARANA"><div class="label">27. ARAÑA</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/arana.mp3"></audio><button class="btn" onclick="hablar('ARAÑA')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/whale?lock=ballenaanimales" alt="BALLENA"><div class="label">28. BALLENA</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/ballena.mp3"></audio><button class="btn" onclick="hablar('BALLENA')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/dolphin?lock=delfinanimales" alt="DELFIN"><div class="label">29. DELFIN</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/delfin.mp3"></audio><button class="btn" onclick="hablar('DELFIN')">🔊</button></div></div>
-<div class="card"><img src="https://loremflickr.com/400/250/crab?lock=cangrejoanimales" alt="CANGREJO"><div class="label">30. CANGREJO</div><div class="audio-box"><audio controls src="audios/bloque-5-animales/cangrejo.mp3"></audio><button class="btn" onclick="hablar('CANGREJO')">🔊</button></div></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/perro.jpg" alt="PERRO"><div class="label">1. PERRO</div><button class="btn-audio" onclick="hablar('perro')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/gato.jpg" alt="GATO"><div class="label">2. GATO</div><button class="btn-audio" onclick="hablar('gato')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/pajaro.jpg" alt="PAJARO"><div class="label">3. PAJARO</div><button class="btn-audio" onclick="hablar('pájaro')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/pez.jpg" alt="PEZ"><div class="label">4. PEZ</div><button class="btn-audio" onclick="hablar('pez')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/caballo.jpg" alt="CABALLO"><div class="label">5. CABALLO</div><button class="btn-audio" onclick="hablar('caballo')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/vaca.jpg" alt="VACA"><div class="label">6. VACA</div><button class="btn-audio" onclick="hablar('vaca')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/cerdo.jpg" alt="CERDO"><div class="label">7. CERDO</div><button class="btn-audio" onclick="hablar('cerdo')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/oveja.jpg" alt="OVEJA"><div class="label">8. OVEJA</div><button class="btn-audio" onclick="hablar('oveja')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/gallina.jpg" alt="GALLINA"><div class="label">9. GALLINA</div><button class="btn-audio" onclick="hablar('gallina')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/gallo.jpg" alt="GALLO"><div class="label">10. GALLO</div><button class="btn-audio" onclick="hablar('gallo')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/pato.jpg" alt="PATO"><div class="label">11. PATO</div><button class="btn-audio" onclick="hablar('pato')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/conejo.jpg" alt="CONEJO"><div class="label">12. CONEJO</div><button class="btn-audio" onclick="hablar('conejo')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/raton.jpg" alt="RATON"><div class="label">13. RATON</div><button class="btn-audio" onclick="hablar('ratón')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/tortuga.jpg" alt="TORTUGA"><div class="label">14. TORTUGA</div><button class="btn-audio" onclick="hablar('tortuga')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/serpiente.jpg" alt="SERPIENTE"><div class="label">15. SERPIENTE</div><button class="btn-audio" onclick="hablar('serpiente')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/leon.jpg" alt="LEON"><div class="label">16. LEON</div><button class="btn-audio" onclick="hablar('león')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/tigre.jpg" alt="TIGRE"><div class="label">17. TIGRE</div><button class="btn-audio" onclick="hablar('tigre')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/elefante.jpg" alt="ELEFANTE"><div class="label">18. ELEFANTE</div><button class="btn-audio" onclick="hablar('elefante')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/jirafa.jpg" alt="JIRAFA"><div class="label">19. JIRAFA</div><button class="btn-audio" onclick="hablar('jirafa')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/mono.jpg" alt="MONO"><div class="label">20. MONO</div><button class="btn-audio" onclick="hablar('mono')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/oso.jpg" alt="OSO"><div class="label">21. OSO</div><button class="btn-audio" onclick="hablar('oso')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/lobo.jpg" alt="LOBO"><div class="label">22. LOBO</div><button class="btn-audio" onclick="hablar('lobo')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/zorro.jpg" alt="ZORRO"><div class="label">23. ZORRO</div><button class="btn-audio" onclick="hablar('zorro')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/ciervo.jpg" alt="CIERVO"><div class="label">24. CIERVO</div><button class="btn-audio" onclick="hablar('ciervo')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/burro.jpg" alt="BURRO"><div class="label">25. BURRO</div><button class="btn-audio" onclick="hablar('burro')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/cabra.jpg" alt="CABRA"><div class="label">26. CABRA</div><button class="btn-audio" onclick="hablar('cabra')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/abeja.jpg" alt="ABEJA"><div class="label">27. ABEJA</div><button class="btn-audio" onclick="hablar('abeja')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/mariposa.jpg" alt="MARIPOSA"><div class="label">28. MARIPOSA</div><button class="btn-audio" onclick="hablar('mariposa')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/arana.jpg" alt="ARAÑA"><div class="label">29. ARAÑA</div><button class="btn-audio" onclick="hablar('araña')">🔊 Escuchar</button></div>
+<div class="card"><img src="../imagenes/bloque-5-animales/delfin.jpg" alt="DELFIN"><div class="label">30. DELFIN</div><button class="btn-audio" onclick="hablar('delfín')">🔊 Escuchar</button></div>
 
-</div></div><script>function hablar(t){const u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);}</script></body></html>
+</div>
+</div>
+<script>
+function hablar(texto){
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(texto);
+  u.lang = 'es-ES'; u.rate = 0.9;
+  speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>
