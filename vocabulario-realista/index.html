@@ -3,29 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PÁGINA DE INICIO - LEO Y APRENDO</title>
+<title>LEO Y APRENDO - Página de Inicio</title>
 <style>
-body{font-family:Arial;background:#f0f9ff;margin:0;padding:20px;text-align:center}
-h1{color:#0d47a1}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;max-width:900px;margin:30px auto}
-.card{background:white;border-radius:16px;padding:25px;text-decoration:none;color:#333;box-shadow:0 4px 10px rgba(0,0,0,0.1);font-weight:bold;font-size:18px;transition:0.2s;display:flex;align-items:center;justify-content:center;min-height:40px}
-.card:hover{transform:scale(1.05)}
-.b1{background:#FFEBEE}.b2{background:#E3F2FD}.b3{background:#E8F5E9}.b4{background:#FFF3E0}.b5{background:#F3E5F5}.b6{background:#FFFDE7}.b7{background:#E0F7FA}.b8{background:#FBE9E7}.b9{background:#EFEBE9}
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap');
+body{
+  margin:0;
+  font-family:'Nunito',Arial,sans-serif;
+  background:#d6eaff;
+  min-height:100vh;
+  padding:20px;
+  text-align:center;
+}
+h1{
+  color:#1a237e;
+  font-size: clamp(28px, 6vw, 52px);
+  margin:10px 0 5px;
+  letter-spacing:1px;
+}
+.sub{
+  font-size:20px;
+  color:#333;
+  font-weight:800;
+  margin-bottom:25px;
+}
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:22px;
+  max-width:1000px;
+  margin:0 auto;
+}
+.card{
+  background:white;
+  border-radius:24px;
+  padding:28px 15px;
+  text-decoration:none;
+  color:#1a237e;
+  box-shadow:0 8px 0 rgba(0,0,0,0.08), 0 8px 20px rgba(0,0,0,0.1);
+  transition:0.2s;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+.card:hover{transform:translateY(-5px); box-shadow:0 12px 0 rgba(0,0,0,0.08), 0 12px 25px rgba(0,0,0,0.15);}
+.icon{font-size:56px; line-height:1}
+.label{font-size:22px; font-weight:800; letter-spacing:0.5px}
+.c1{background:#fff3b0}.c2{background:#ffd6d6}.c3{background:#d6f5c9}.c4{background:#e0d4ff}.c5{background:#ffe0b3}.c6{background:#c8f0e8}.c7{background:#cde5ff}.c8{background:#ffd6cc}.c9{background:#fff0b3}
 </style>
 </head>
 <body>
-<h1>📚 LEO Y APRENDO 📚</h1>
-<h2>PÁGINA DE INICIO</h2>
+<h1>📚 LEO Y APRENDO 📖</h1>
+<div class="sub">PÁGINA DE INICIO</div>
 <div class="grid">
-<a class="card b1" href="vocabulario-tematico/bloque-1-saludos.html">1. SALUDOS</a>
-<a class="card b2" href="vocabulario-tematico/bloque-2-casa.html">2. CASA</a>
-<a class="card b3" href="vocabulario-tematico/bloque-3-comida.html">3. COMIDA</a>
-<a class="card b4" href="vocabulario-tematico/bloque-4-escuela.html">4. COLEGIO</a>
-<a class="card b5" href="vocabulario-tematico/bloque-5-animales.html">5. ANIMALES</a>
-<a class="card b6" href="vocabulario-tematico/bloque-6-familia.html">6. FAMILIA</a>
-<a class="card b7" href="vocabulario-tematico/bloque-7-pueblo.html">7. PUEBLO</a>
-<a class="card b8" href="vocabulario-tematico/bloque-8-ropa.html">8. ROPA</a>
-<a class="card b9" href="vocabulario-tematico/bloque-9-cuerpo.html">9. CUERPO</a>
+<a class="card c1" href="vocabulario-tematico/bloque-1-saludos.html"><span class="icon">👋</span><span class="label">1. SALUDOS</span></a>
+<a class="card c2" href="vocabulario-tematico/bloque-2-casa.html"><span class="icon">🏠</span><span class="label">2. CASA</span></a>
+<a class="card c3" href="vocabulario-tematico/bloque-3-comida.html"><span class="icon">🍎</span><span class="label">3. COMIDA</span></a>
+<a class="card c4" href="vocabulario-tematico/bloque-4-escuela.html"><span class="icon">🎒</span><span class="label">4. COLEGIO</span></a>
+<a class="card c5" href="vocabulario-tematico/bloque-5-animales.html"><span class="icon">🐶</span><span class="label">5. ANIMALES</span></a>
+<a class="card c6" href="vocabulario-tematico/bloque-6-familia.html"><span class="icon">👨‍👩‍👧</span><span class="label">6. FAMILIA</span></a>
+<a class="card c7" href="vocabulario-tematico/bloque-7-pueblo.html"><span class="icon">🏘️</span><span class="label">7. PUEBLO</span></a>
+<a class="card c8" href="vocabulario-tematico/bloque-8-ropa.html"><span class="icon">👕</span><span class="label">8. ROPA</span></a>
+<a class="card c9" href="vocabulario-tematico/bloque-9-cuerpo.html"><span class="icon">🖐️</span><span class="label">9. CUERPO</span></a>
 </div>
 </body>
 </html>
