@@ -3,65 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BLOQUE 1 - SALUDOS (30) - Fotos reales + Audios</title>
+<title>Bloque 1 - Saludos</title>
 <style>
-body{background:#FFFEF5;margin:0;padding:15px;font-family:Arial,sans-serif}
-.barra{background:#1a5fb4;color:white;text-align:center;padding:10px;border-radius:8px;margin-bottom:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:15px}
-.card{background:white;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);overflow:hidden;text-align:center;padding-bottom:10px}
-.card img{width:100%;height:180px;object-fit:contain;background:#e3f2fd;display:block}
-.num{font-weight:bold;font-size:13px;margin:8px 0;text-transform:uppercase}
-.audio-row{display:flex;justify-content:center;gap:6px;padding:5px}
-.btn-audio{background:#1a5fb4;color:white;border:none;border-radius:50%;width:32px;height:32px;cursor:pointer}
-.back{color:#1a5fb4;text-decoration:none;font-weight:bold}
+body{font-family:Arial,sans-serif;background:#e3f2fd;margin:0;padding:10px}
+h1{text-align:center;color:#0d47a1}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;max-width:1100px;margin:0 auto}
+.card{background:#fff;border-radius:12px;padding:8px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.card img{width:100%;height:110px;object-fit:cover;border-radius:8px;background:#f5f5f5}
+.card p{margin:6px 0 4px;font-weight:bold;text-transform:uppercase;font-size:13px}
+.card button{background:#1565c0;color:#fff;border:none;border-radius:20px;padding:5px 14px;cursor:pointer}
+.seccion{max-width:1100px;margin:30px auto;background:#fff;border-radius:16px;padding:18px;box-shadow:0 3px 10px rgba(0,0,0,.1)}
+.btn-juego{background:#0d47a1;color:#fff;border:none;padding:10px 18px;border-radius:8px;margin:5px;cursor:pointer}
+.opcion{display:inline-block;margin:6px;padding:10px 14px;background:#e3f2fd;border-radius:8px;cursor:pointer;border:2px solid transparent;font-weight:bold}
+.opcion.correcta{border-color:#2e7d32;background:#c8e6c9}
+.opcion.incorrecta{border-color:#c62828;background:#ffcdd2}
 </style>
 </head>
 <body>
-<a class="back" href="../vocabulario-tematico/../..">← Volver</a>
-<h1>👋 BLOQUE 1 - SALUDOS (30) - Fotos reales + Audios</h1>
-<div class="barra">30 fotos reales relacionadas + 30 audios 🔊</div>
+<h1>👋 BLOQUE 1 - SALUDOS</h1>
 <div class="grid" id="grid"></div>
+
+<div class="seccion">
+<h2>🎧 Juego 1: Escucha y elige</h2>
+<div id="j1" style="text-align:center"></div>
+<button class="btn-juego" onclick="juegoEscucha()">▶️ Nuevo audio</button>
+</div>
+
+<div class="seccion">
+<h2>🧠 Juego 2: ¿Qué saludo es?</h2>
+<div id="j2" style="text-align:center"></div>
+<button class="btn-juego" onclick="juegoTest()">Siguiente ➡️</button>
+</div>
+
 <script>
-const baseImg = "../imagenes/bloque-1-saludos/";
 const palabras=[
-{file:"hola.jpg",texto:"HOLA"},
-{file:"adios.jpg",texto:"ADIOS"},
-{file:"buenos dias.jpg",texto:"BUENOS DIAS"},
-{file:"buenas tardes.jpg",texto:"BUENAS TARDES"},
-{file:"buenas noches.jpg",texto:"BUENAS NOCHES"},
-{file:"por favor.jpg",texto:"POR FAVOR"},
-{file:"gracias.jpg",texto:"GRACIAS"},
-{file:"de nada.jpg",texto:"DE NADA"},
-{file:"perdon.jpg",texto:"PERDON"},
-{file:"lo siento.jpg",texto:"LO SIENTO"},
-{file:"si.jpg",texto:"SI"},
-{file:"no.jpg",texto:"NO"},
-{file:"como estas.jpg",texto:"COMO ESTAS"},
-{file:"muy bien.jpg",texto:"MUY BIEN"},
-{file:"hasta luego.jpg",texto:"HASTA LUEGO"},
-{file:"hasta mañana.jpg",texto:"HASTA MAÑANA"},
-{file:"bienvenido.jpg",texto:"BIENVENIDO"},
-{file:"encantado.jpg",texto:"ENCANTADO"},
-{file:"disculpe.jpg",texto:"DISCULPE"},
-{file:"salud.jpg",texto:"SALUD"},
-{file:"que tal.jpg",texto:"QUE TAL"},
-{file:"como te llamas.jpg",texto:"COMO TE LLAMAS"},
-{file:"me llamo.jpg",texto:"ME LLAMO"},
-{file:"mucho gusto.jpg",texto:"MUCHO GUSTO"},
-{file:"cuidate.jpg",texto:"CUIDATE"},
-{file:"buen dia.jpg",texto:"BUEN DIA"},
-{file:"nos vemos.jpg",texto:"NOS VEMOS"},
-{file:"hasta pronto.jpg",texto:"HASTA PRONTO"},
-{file:"donde esta.jpg",texto:"DONDE ESTA"},
-{file:"estoy bien gracias.jpg",texto:"ESTOY BIEN GRACIAS"}
+{id:'hola',nombre:'hola'},
+{id:'adios',nombre:'adiós'},
+{id:'buenos-dias',nombre:'buenos días'},
+{id:'buenas-tardes',nombre:'buenas tardes'},
+{id:'buenas-noches',nombre:'buenas noches'},
+{id:'por-favor',nombre:'por favor'},
+{id:'gracias',nombre:'gracias'},
+{id:'de-nada',nombre:'de nada'},
+{id:'perdon',nombre:'perdón'},
+{id:'lo-siento',nombre:'lo siento'},
+{id:'como-estas',nombre:'¿cómo estás?'},
+{id:'muy-bien',nombre:'muy bien'},
+{id:'hasta-luego',nombre:'hasta luego'},
+{id:'hasta-manana',nombre:'hasta mañana'},
+{id:'bienvenido',nombre:'bienvenido'},
+{id:'encantado',nombre:'encantado'}
 ];
+function hablar(t){const u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
+function imgPath(id){return `../imagenes/bloque-1-saludos/${id}.jpg`;}
 const grid=document.getElementById('grid');
-function hablar(t){const u=new SpeechSynthesisUtterance(t.toLowerCase());u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
-palabras.forEach((p,i)=>{
- const card=document.createElement('div');card.className='card';
- card.innerHTML=`<img src="${baseImg+p.file}" alt="${p.texto}"><div class="num">${i+1}. ${p.texto}</div><div class="audio-row"><audio controls src="../audios/bloque-1-saludos/${p.file.replace('.jpg','.mp3')}"></audio><button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button></div>`;
- grid.appendChild(card);
+palabras.forEach(p=>{
+ grid.innerHTML+=`<div class="card"><img src="${imgPath(p.id)}" onerror="this.src='../imagenes/bloque-1-saludos/${p.id}.png';this.onerror=null" alt="${p.nombre}"><p>${p.nombre}</p><button onclick="hablar('${p.nombre}')">🔊</button></div>`;
 });
+let actual=null;
+function juegoEscucha(){
+ actual=palabras[Math.floor(Math.random()*palabras.length)];
+ hablar(actual.nombre);
+ const area=document.getElementById('j1');
+ let ops=[...palabras].sort(()=>0.5-Math.random()).slice(0,6);
+ if(!ops.find(x=>x.id===actual.id)){ops[0]=actual;ops.sort(()=>0.5-Math.random())}
+ area.innerHTML=`<p><b>¿Qué escuchaste?</b> <button onclick="hablar('${actual.nombre}')">🔊 Repetir</button></p>`+
+ ops.map(o=>`<div class="opcion" onclick="check1(this,'${o.id}')"><img src="${imgPath(o.id)}" style="width:70px;height:50px;object-fit:cover;border-radius:6px;display:block;margin:0 auto"><small>${o.nombre}</small></div>`).join('');
+}
+function check1(el,id){if(id===actual.id){el.classList.add('correcta');hablar('¡Muy bien!');setTimeout(juegoEscucha,1000)}else{el.classList.add('incorrecta');}}
+function juegoTest(){
+ const cor=palabras[Math.floor(Math.random()*palabras.length)];
+ const area=document.getElementById('j2');
+ let ops=[...palabras].sort(()=>0.5-Math.random()).slice(0,4);
+ if(!ops.find(x=>x.id===cor.id)){ops[0]=cor;ops.sort(()=>0.5-Math.random())}
+ area.innerHTML=`<p>¿Cómo se dice?</p><img src="${imgPath(cor.id)}" style="width:180px;height:120px;object-fit:cover;border-radius:10px"><br><br>`+
+ ops.map(o=>`<div class="opcion" onclick="check2(this,'${o.id}','${cor.id}','${cor.nombre}')">${o.nombre}</div>`).join('')+`<br><br><button onclick="hablar('${cor.nombre}')">🔊 Escuchar</button>`;
+}
+function check2(el,id,corId,nom){if(id===corId){el.classList.add('correcta');hablar('¡Correcto!')}else{el.classList.add('incorrecta');hablar(nom)}}
+juegoEscucha();juegoTest();
 </script>
 </body>
 </html>
