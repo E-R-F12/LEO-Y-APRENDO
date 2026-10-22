@@ -50,20 +50,19 @@ const palabras = [
 ];
 function normalizar(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ñ/g,'n').replace(/[^a-z0-9]/g,'');}
 function getCandidatos(palabra){
-  const base = "../imagenes/bloque-8-ropa/";
+  const base = "https://e-r-f12.github.io/LEO-Y-APRENDO/vocabulario-realista/imagenes/bloque-8-ropa/";
   const n = palabra.toLowerCase();
   const n2 = normalizar(palabra);
   return [
     base+n+".jpg", base+n+".jpeg", base+n+".png", base+n+".webp",
-    base+n2+".jpg", base+n2+".jpeg", base+n2+".png", base+n2+".webp",
-    base+n.replace(/ /g,'-')+".jpg", base+n2.replace(/ /g,'-')+".jpg"
+    base+n2+".jpg", base+n2+".jpeg", base+n2+".png", base+n2+".webp"
   ];
 }
 function crearTarjeta(palabra){
   const div = document.createElement('div'); div.className='card';
   const candidatos = getCandidatos(palabra);
   const img = document.createElement('img'); img.alt=palabra;
-  let idx=0; function probar(){ if(idx<candidatos.length){ img.src=candidatos[idx++]; } else { img.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140"><rect width="100%" height="100%" fill="%23f0f0f0"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">NO IMG</text></svg>'; } }
+  let idx=0; function probar(){ if(idx<candidatos.length){ img.src=candidatos[idx++]; } else { img.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2214%22>NO IMG</text></svg>'; } }
   img.onerror=probar; probar();
   const h3=document.createElement('h3'); h3.textContent=palabra;
   const btn=document.createElement('button'); btn.className='btn-audio'; btn.textContent='🔊 Escuchar'; btn.onclick=()=>hablar(palabra);
