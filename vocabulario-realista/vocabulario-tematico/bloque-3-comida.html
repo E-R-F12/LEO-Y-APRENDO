@@ -1,66 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BLOQUE 3 - LA COMIDA (30) - Fotos reales + Audios</title>
-<style>
-body{background:#FFFEF5;margin:0;padding:15px;font-family:Arial,sans-serif}
-.barra{background:#e65100;color:white;text-align:center;padding:10px;border-radius:8px;margin-bottom:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:15px}
-.card{background:white;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);overflow:hidden;text-align:center;padding-bottom:10px}
-.card img{width:100%;height:180px;object-fit:contain;background:#fff3e0;display:block}
-.num{font-weight:bold;font-size:13px;margin:8px 0;text-transform:uppercase}
-.audio-row{display:flex;justify-content:center;gap:6px;padding:5px}
-.btn-audio{background:#e65100;color:white;border:none;border-radius:50%;width:32px;height:32px;cursor:pointer}
-.back{color:#e65100;text-decoration:none;font-weight:bold}
-</style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloque 3 - Comida</title>
+<style>body{font-family:Segoe UI,Arial;background:#fff8f0;padding:15px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px;max-width:1100px;margin:20px auto}.card{background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.1);text-align:center;padding-bottom:10px;overflow:hidden;cursor:pointer}.card img{width:100%;height:140px;object-fit:contain;padding:10px}.palabra{font-weight:bold;text-transform:uppercase}</style>
 </head>
 <body>
-<a class="back" href="../../index.html">← Volver</a>
-<h1>🍎 BLOQUE 3 - LA COMIDA (30) - Fotos reales + Audios</h1>
-<div class="barra">30 fotos reales relacionadas + 30 audios 🔊</div>
+<h1 style="text-align:center;color:#d35400">🍎 BLOQUE 3 - COMIDA</h1>
+<p style="text-align:center"><a href="../../index.html">← Volver</a></p>
+<p id="contador" style="text-align:center;color:gray">Cargando...</p>
 <div class="grid" id="grid"></div>
 <script>
-const baseImg = "../imagenes/bloque-3-comida/";
-const palabras=[
-{file:"manzana.jpg",texto:"MANZANA"},
-{file:"platano.jpg",texto:"PLATANO"},
-{file:"naranja.jpg",texto:"NARANJA"},
-{file:"fresa.jpg",texto:"FRESA"},
-{file:"uva.jpg",texto:"UVA"},
-{file:"pan.jpg",texto:"PAN"},
-{file:"leche.jpg",texto:"LECHE"},
-{file:"agua.jpg",texto:"AGUA"},
-{file:"zumo.jpg",texto:"ZUMO"},
-{file:"arroz.jpg",texto:"ARROZ"},
-{file:"pollo.jpg",texto:"POLLO"},
-{file:"carne.jpg",texto:"CARNE"},
-{file:"pescado.jpg",texto:"PESCADO"},
-{file:"huevo.jpg",texto:"HUEVO"},
-{file:"queso.jpg",texto:"QUESO"},
-{file:"yogur.jpg",texto:"YOGUR"},
-{file:"tomate.jpg",texto:"TOMATE"},
-{file:"lechuga.jpg",texto:"LECHUGA"},
-{file:"patata.jpg",texto:"PATATA"},
-{file:"zanahoria.jpg",texto:"ZANAHORIA"},
-{file:"sopa.jpg",texto:"SOPA"},
-{file:"ensalada.jpg",texto:"ENSALADA"},
-{file:"bocadillo.jpg",texto:"BOCADILLO"},
-{file:"galleta.jpg",texto:"GALLETA"},
-{file:"helado.jpg",texto:"HELADO"},
-{file:"chocolate.jpg",texto:"CHOCOLATE"},
-{file:"azucar.jpg",texto:"AZUCAR"},
-{file:"sal.jpg",texto:"SAL"},
-{file:"aceite.jpg",texto:"ACEITE"},
-{file:"tenedor y cuchillo.jpg",texto:"TENGO HAMBRE"}
-];
-const grid=document.getElementById('grid');
+const RAW="https://raw.githubusercontent.com/e-r-f12/LEO-Y-APRENDO/main/vocabulario-realista/imagenes/bloque-3-comida/";
+const API="https://api.github.com/repos/e-r-f12/LEO-Y-APRENDO/contents/vocabulario-realista/imagenes/bloque-3-comida";
 function hablar(t){const u=new SpeechSynthesisUtterance(t.toLowerCase());u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
-palabras.forEach((p,i)=>{
- const card=document.createElement('div');card.className='card';
- card.innerHTML=`<img src="${baseImg+p.file}" alt="${p.texto}" onerror="this.style.background='#fff3e0'; this.alt='Falta imagen'"><div class="num">${i+1}. ${p.texto}</div><div class="audio-row"><audio controls src="../audios/bloque-3-comida/${p.file.replace('.jpg','.mp3')}"></audio><button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button></div>`;
- grid.appendChild(card);
+fetch(API).then(r=>r.json()).then(files=>{
+  let lista=files.filter(f=>f.type==='file' && /\.(jpe?g|png|webp)$/i.test(f.name));
+  document.getElementById('contador').textContent=`¡Perfecto! ${lista.length} fotos encontradas`;
+  const grid=document.getElementById('grid');
+  lista.forEach(f=>{
+    let file=f.name;
+    let texto=file.replace(/\.[^/.]+$/,'').replace(/[-_]/g,' ');
+    let div=document.createElement('div');div.className='card';
+    div.onclick=()=>hablar(texto);
+    div.innerHTML=`<img src="${RAW+encodeURI(file)}" loading="lazy"><div class="palabra">${texto}</div>`;
+    grid.appendChild(div);
+  });
 });
 </script>
 </body>
