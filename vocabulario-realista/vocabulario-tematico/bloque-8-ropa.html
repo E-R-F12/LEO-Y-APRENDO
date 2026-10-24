@@ -1,74 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloque 8 - Ropa | Leo y Aprendo</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bloque 8 - Ropa</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f7ff;padding:15px}
-.header{text-align:center;margin-bottom:20px}
-.header h1{color:#1a5fb4;font-size:28px}
-.header a{color:#1a5fb4;text-decoration:none;font-weight:bold}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px;max-width:1000px;margin:0 auto}
-.card{background:white;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.1);overflow:hidden;text-align:center;padding-bottom:12px}
-.card img{width:100%;height:140px;object-fit:contain;background:white;padding:10px}
-.card h3{font-size:16px;margin:8px 0;color:#333;text-transform:uppercase}
-.btn-audio{background:#1a5fb4;color:white;border:none;border-radius:20px;padding:6px 14px;cursor:pointer;font-size:14px}
-.games{max-width:1000px;margin:30px auto;background:white;border-radius:16px;padding:20px}
+body{font-family:Segoe UI,Arial;background:#e0f2f1;margin:0;padding:20px}
+h1{text-align:center;color:#00695c}
+.sub{text-align:center;color:#6b7280;margin-bottom:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;max-width:1200px;margin:0 auto}
+.card{background:#fff;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.08);text-align:center;padding:10px;cursor:pointer;position:relative}
+.card img{width:100%;height:140px;object-fit:contain;border-radius:10px;background:#fff}
+.nombre{font-weight:700;margin-top:8px;text-transform:uppercase;font-size:13px}
+.btn-audio{margin-top:6px;background:#00897b;color:#fff;border:none;padding:6px 14px;border-radius:20px;cursor:pointer;font-size:12px}
+.audio-ico{position:absolute;top:8px;right:8px;background:#fff;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.juegos{max-width:1000px;margin:50px auto;background:#fff;padding:24px;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.juego{margin:20px 0;padding:18px;border:2px dashed #26a69a;border-radius:12px}
+.opciones{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px}
+.opciones img{width:100px;height:100px;object-fit:contain;background:#e0f2f1;padding:8px;border-radius:12px;border:3px solid transparent;cursor:pointer}
+.opciones button{padding:10px 16px;border:none;background:#e0f2f1;border-radius:8px;font-weight:bold;cursor:pointer;text-transform:uppercase}
+.opciones button.ok{background:#2e7d32;color:#fff}
+.opciones button.bad{background:#c62828;color:#fff}
 </style>
 </head>
 <body>
-<div class="header">
+<a href="../../index.html" style="background:#fff;padding:6px 14px;border-radius:20px;text-decoration:none">← Volver</a>
 <h1>👕 BLOQUE 8 - ROPA</h1>
-<p><a href="../../index.html">← Volver al inicio</a> | 30 palabras</p>
-<p style="font-size:12px;color:gray" id="debug"></p>
-</div>
+<p class="sub">Haz clic en cada prenda para escuchar</p>
+<p id="contador" style="text-align:center;background:#00897b;color:#fff;padding:8px;border-radius:8px;max-width:600px;margin:10px auto">Cargando fotos...</p>
+
 <div class="grid" id="grid"></div>
 
-<script>
-const palabras = ["abrigo","reloj","bañador","sombrero","blusa","sudadera","bolso","traje","bufanda","uniforme","calcetines","vaqueros","camisa","vestido","camiseta","zapatillas","cazadora","zapatos","chandal","chanclas","cinturón","pantalon","corbata","botas","falda","gafas","gorra","guantes","jersey","pijama"];
-function normalizar(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ñ/g,'n').replace(/[^a-z0-9]/g,'');}
+<div class="juegos">
+<h2 style="text-align:center;color:#00695c">🎮 Juegos finales - Ropa</h2>
 
-function getBases(){
- return [
-  "https://e-r-f12.github.io/LEO-Y-APRENDO/vocabulario-realista/imagenes/bloque-8-ropa/",
-  "https://e-r-f12.github.io/LEO-Y-APRENDO/vocabulario-realista/imagenes/bloque-8-ropa/bloque-8-ropa/",
-  "../imagenes/bloque-8-ropa/",
-  "../imagenes/bloque-8-ropa/bloque-8-ropa/",
-  "imagenes/bloque-8-ropa/"
- ];
-}
-function getCandidatos(palabra){
-  const bases = getBases();
-  const n = palabra.toLowerCase();
-  const n2 = normalizar(palabra);
-  let lista=[];
-  bases.forEach(b=>{
-    lista.push(b+n+".jpg", b+n2+".jpg", b+n+".JPG", b+n2+".jpeg");
+<div class="juego">
+<h3>1️⃣ 🔊 Adivina por el AUDIO</h3>
+<button onclick="nuevoAudio()" style="background:#00897b;color:#fff;padding:10px 18px;border:none;border-radius:8px;font-weight:bold">🔊 Escuchar</button>
+<div class="opciones" id="optAudio"></div>
+<p id="resAudio" style="text-align:center;font-weight:bold"></p>
+</div>
+
+<div class="juego">
+<h3>2️⃣ 🖼️ Adivina por la IMAGEN</h3>
+<div id="imgGrande" style="text-align:center"></div>
+<div class="opciones" id="optImagen"></div>
+<p id="resImagen" style="text-align:center;font-weight:bold"></p>
+<button onclick="nuevaImagen()" style="background:#00897b;color:#fff;padding:10px 18px;border:none;border-radius:8px;font-weight:bold">Siguiente ▶️</button>
+</div>
+
+<div style="text-align:center;margin-top:15px">
+<button onclick="location.reload()" style="background:#1f2937;color:#fff;padding:10px 18px;border:none;border-radius:8px">🔄 Mezclar todo</button>
+</div>
+</div>
+
+<script>
+const NOMBRE_CARPETA = "bloque-8-ropa";
+const RAW=`https://raw.githubusercontent.com/e-r-f12/LEO-Y-APRENDO/main/vocabulario-realista/imagenes/${NOMBRE_CARPETA}/`;
+const API=`https://api.github.com/repos/e-r-f12/LEO-Y-APRENDO/contents/vocabulario-realista/imagenes/${NOMBRE_CARPETA}`;
+
+function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t.toLowerCase());u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
+
+let listaGlobal=[];
+fetch(API).then(r=>r.json()).then(files=>{
+  let lista=files.filter(f=>f.type==='file' && /\.(jpe?g|png|webp)$/i.test(f.name)).sort((a,b)=>a.name.localeCompare(b.name));
+  listaGlobal=lista.map(f=>({file:f.name, texto:f.name.replace(/\.[^/.]+$/,'').replace(/[-_]/g,' ')}));
+  document.getElementById('contador').textContent=`${lista.length} fotos reales + ${lista.length} audios 🔊`;
+  const grid=document.getElementById('grid');
+  listaGlobal.forEach((o,i)=>{
+    let div=document.createElement('div');div.className='card';
+    div.innerHTML=`<div class="audio-ico">🔊</div><img src="${RAW+encodeURI(o.file)}" loading="lazy"><div class="nombre">${i+1}. ${o.texto}</div><button class="btn-audio">🔊 Escuchar</button>`;
+    div.onclick=()=>hablar(o.texto);
+    grid.appendChild(div);
   });
-  return lista;
-}
-function crearTarjeta(palabra){
-  const div = document.createElement('div'); div.className='card';
-  const candidatos = getCandidatos(palabra);
-  const img = document.createElement('img'); img.alt=palabra;
-  let idx=0; 
-  function probar(){ 
-    if(idx<candidatos.length){ 
-      img.src=candidatos[idx++]; 
-      document.getElementById('debug').textContent = 'Probando: '+img.src;
-    } else { 
-      img.src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100%" height="100%" fill="%23eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">NO IMG</text></svg>'; 
-    } 
-  }
-  img.onerror=probar; probar();
-  const h3=document.createElement('h3'); h3.textContent=palabra;
-  const btn=document.createElement('button'); btn.className='btn-audio'; btn.textContent='🔊 Escuchar'; btn.onclick=()=>{ const u=new SpeechSynthesisUtterance(palabra); u.lang='es-ES'; u.rate=0.8; speechSynthesis.speak(u); };
-  div.appendChild(img); div.appendChild(h3); div.appendChild(btn); return div;
-}
-function renderGrid(){ const g=document.getElementById('grid'); palabras.forEach(p=>g.appendChild(crearTarjeta(p))); }
-renderGrid();
+  nuevoAudio(); nuevaImagen();
+}).catch(()=>{
+  document.getElementById('contador').textContent='⚠️ No se encontró la carpeta imagenes/bloque-8-ropa. Créala y sube las fotos';
+});
+
+function mezclar(a){return a.sort(()=>Math.random()-0.5)}
+let actualAudio=null;
+function nuevoAudio(){if(!listaGlobal.length) return;let opts=mezclar([...listaGlobal]).slice(0,4);actualAudio=opts[Math.floor(Math.random()*4)];hablar(actualAudio.texto);let c=document.getElementById('optAudio');c.innerHTML='';document.getElementById('resAudio').textContent='';opts.forEach(o=>{let img=document.createElement('img');img.src=RAW+encodeURI(o.file);img.onclick=()=>{if(o.file===actualAudio.file){document.getElementById('resAudio').textContent='✅ ¡Correcto! '+actualAudio.texto.toUpperCase();setTimeout(nuevoAudio,1500)}else{document.getElementById('resAudio').textContent='❌ Prueba otra'}};c.appendChild(img)})}
+let actualImagen=null;
+function nuevaImagen(){if(!listaGlobal.length) return;let opts=mezclar([...listaGlobal]).slice(0,4);actualImagen=opts[Math.floor(Math.random()*4)];document.getElementById('imgGrande').innerHTML=`<img src="${RAW+encodeURI(actualImagen.file)}" style="width:160px;height:160px;object-fit:contain;background:#e0f2f1;padding:10px;border-radius:12px"><p><button onclick="hablar('${actualImagen.texto}')" style="background:#00897b;color:#fff;padding:6px 14px;border:none;border-radius:20px">🔊 Escuchar</button></p>`;let c=document.getElementById('optImagen');c.innerHTML='';document.getElementById('resImagen').textContent='';mezclar(opts).forEach(o=>{let b=document.createElement('button');b.textContent=o.texto;b.onclick=()=>{if(o.file===actualImagen.file){b.classList.add('ok');document.getElementById('resImagen').textContent='✅ ¡Muy bien!'}else{b.classList.add('bad');document.getElementById('resImagen').textContent='❌ Era '+actualImagen.texto.toUpperCase()}};c.appendChild(b)})}
 </script>
 </body>
 </html>
