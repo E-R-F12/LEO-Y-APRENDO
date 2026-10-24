@@ -12,7 +12,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f7ff;padding:15px}
 .header a{color:#1a5fb4;text-decoration:none;font-weight:bold}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px;max-width:1000px;margin:0 auto}
 .card{background:white;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.1);overflow:hidden;text-align:center;padding-bottom:12px}
-.card img{width:100%;height:140px;object-fit:contain;background:white;padding:10px}
+.card img{width:100%;height:140px;object-fit:contain;background:white;padding:10px;display:block}
 .palabra{font-size:16px;font-weight:bold;color:#333;text-transform:uppercase;margin-top:5px}
 .silabas{font-size:13px;color:#666;margin:4px 0}
 .articulo{font-size:12px;color:#999}
@@ -22,8 +22,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f7ff;padding:15px}
 .game-btn{background:#ffd60a;border:none;padding:10px 18px;border-radius:20px;font-weight:bold;cursor:pointer;margin:5px}
 .game-area{margin-top:15px;min-height:80px}
 .choice{display:inline-block;background:#eef5ff;border:2px solid #1a5fb4;border-radius:12px;padding:8px 14px;margin:6px;cursor:pointer;font-weight:bold}
-.choice.correct{background:#c8f7c5;border-color:#2e7d32}
-.choice.wrong{background:#ffcdd2;border-color:#c62828}
 </style>
 </head>
 <body>
@@ -46,44 +44,45 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f7ff;padding:15px}
 </div>
 
 <script>
-const baseAbs = "https://e-r-f12.github.io/LEO-Y-APRENDO/vocabulario-realista/imagenes/bloque-2-casa/";
-const baseRel = "../imagenes/bloque-2-casa/";
+const RAW_BASE = "https://raw.githubusercontent.com/e-r-f12/LEO-Y-APRENDO/main/vocabulario-realista/imagenes/bloque-2-casa/";
+const PAGES_BASE = "https://e-r-f12.github.io/LEO-Y-APRENDO/vocabulario-realista/imagenes/bloque-2-casa/";
+const REL_BASE = "../imagenes/bloque-2-casa/";
 
 const palabras = [
-{file:"alfombra", texto:"alfombra", silabas:"al-fom-bra", art:"la"},
-{file:"cortina", texto:"cortina", silabas:"cor-ti-na", art:"la"},
-{file:"television", texto:"televisión", silabas:"te-le-vi-sión", art:"la"},
-{file:"ordenador", texto:"ordenador", silabas:"or-de-na-dor", art:"el"},
-{file:"telefono", texto:"teléfono", silabas:"te-lé-fo-no", art:"el"},
-{file:"reloj", texto:"reloj", silabas:"re-loj", art:"el"},
-{file:"cuadro", texto:"cuadro", silabas:"cua-dro", art:"el"},
-{file:"planta", texto:"planta", silabas:"plan-ta", art:"la"},
-{file:"escalera", texto:"escalera", silabas:"es-ca-le-ra", art:"la"},
-{file:"garaje", texto:"garaje", silabas:"ga-ra-je", art:"el"},
-{file:"cama", texto:"cama", silabas:"ca-ma", art:"la"},
-{file:"armario", texto:"armario", silabas:"ar-ma-rio", art:"el"},
-{file:"mesa", texto:"mesa", silabas:"me-sa", art:"la"},
-{file:"silla", texto:"silla", silabas:"si-lla", art:"la"},
-{file:"sofa", texto:"sofá", silabas:"so-fá", art:"el"},
-{file:"lampara", texto:"lámpara", silabas:"lám-pa-ra", art:"la"},
-{file:"espejo", texto:"espejo", silabas:"es-pe-jo", art:"el"},
-{file:"puerta", texto:"puerta", silabas:"puer-ta", art:"la"},
-{file:"ventana", texto:"ventana", silabas:"ven-ta-na", art:"la"},
-{file:"cocina", texto:"cocina", silabas:"co-ci-na", art:"la"},
-{file:"nevera", texto:"nevera", silabas:"ne-ve-ra", art:"la"},
-{file:"bano", texto:"baño", silabas:"ba-ño", art:"el"},
-{file:"ducha", texto:"ducha", silabas:"du-cha", art:"la"},
-{file:"vater", texto:"váter", silabas:"vá-ter", art:"el"},
-{file:"lavabo", texto:"lavabo", silabas:"la-va-bo", art:"el"},
-{file:"toalla", texto:"toalla", silabas:"to-a-lla", art:"la"},
-{file:"mesita", texto:"mesita", silabas:"me-si-ta", art:"la"},
-{file:"sillon", texto:"sillón", silabas:"si-llón", art:"el"},
-{file:"horno", texto:"horno", silabas:"hor-no", art:"el"},
-{file:"fregadero", texto:"fregadero", silabas:"fre-ga-de-ro", art:"el"}
+{texto:"alfombra", silabas:"al-fom-bra", art:"la"},
+{texto:"cortina", silabas:"cor-ti-na", art:"la"},
+{texto:"televisión", silabas:"te-le-vi-sión", art:"la"},
+{texto:"ordenador", silabas:"or-de-na-dor", art:"el"},
+{texto:"teléfono", silabas:"te-lé-fo-no", art:"el"},
+{texto:"reloj", silabas:"re-loj", art:"el"},
+{texto:"cuadro", silabas:"cua-dro", art:"el"},
+{texto:"planta", silabas:"plan-ta", art:"la"},
+{texto:"escalera", silabas:"es-ca-le-ra", art:"la"},
+{texto:"garaje", silabas:"ga-ra-je", art:"el"},
+{texto:"cama", silabas:"ca-ma", art:"la"},
+{texto:"armario", silabas:"ar-ma-rio", art:"el"},
+{texto:"mesa", silabas:"me-sa", art:"la"},
+{texto:"silla", silabas:"si-lla", art:"la"},
+{texto:"sofá", silabas:"so-fá", art:"el"},
+{texto:"lámpara", silabas:"lám-pa-ra", art:"la"},
+{texto:"espejo", silabas:"es-pe-jo", art:"el"},
+{texto:"puerta", silabas:"puer-ta", art:"la"},
+{texto:"ventana", silabas:"ven-ta-na", art:"la"},
+{texto:"cocina", silabas:"co-ci-na", art:"la"},
+{texto:"nevera", silabas:"ne-ve-ra", art:"la"},
+{texto:"baño", silabas:"ba-ño", art:"el"},
+{texto:"ducha", silabas:"du-cha", art:"la"},
+{texto:"váter", silabas:"vá-ter", art:"el"},
+{texto:"lavabo", silabas:"la-va-bo", art:"el"},
+{texto:"toalla", silabas:"to-a-lla", art:"la"},
+{texto:"mesita", silabas:"me-si-ta", art:"la"},
+{texto:"sillón", silabas:"si-llón", art:"el"},
+{texto:"horno", silabas:"hor-no", art:"el"},
+{texto:"fregadero", silabas:"fre-ga-de-ro", art:"el"}
 ];
 
 function hablar(t){ const u=new SpeechSynthesisUtterance(t); u.lang='es-ES'; u.rate=0.8; speechSynthesis.speak(u); }
-function norm(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ñ/g,'n');}
+function norm(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ñ/g,'n').replace(/[^a-z0-9]/g,'');}
 
 const grid=document.getElementById('grid');
 let reales=[];
@@ -92,16 +91,15 @@ fetch('https://api.github.com/repos/e-r-f12/LEO-Y-APRENDO/contents/vocabulario-r
 .then(r=>r.json()).then(data=>{
   reales=data.filter(f=>f.type==='file').map(f=>f.name);
   pintar();
-}).catch(()=>{ reales=[]; pintar(); });
+}).catch(()=>{ pintar(); });
 
 function buscar(p){
-  const n1=norm(p.file);
-  const n2=norm(p.texto);
+  const n=norm(p.texto);
   for(let real of reales){
     const nr=norm(real.replace(/\.[^/.]+$/,""));
-    if(nr===n1 || nr===n2 || nr.includes(n1) || n1.includes(nr) || nr.includes(n2)) return real;
+    if(nr===n || nr.includes(n) || n.includes(nr)) return real;
   }
-  return null;
+  return reales.find(r=> norm(r).includes(n) ) || null;
 }
 
 function pintar(){
@@ -112,30 +110,22 @@ function pintar(){
     const img=document.createElement('img');
     img.alt=p.texto;
     if(real){
-      img.src=baseAbs+encodeURIComponent(real);
+      img.src=RAW_BASE+encodeURI(real);
     } else {
-      img.src=baseRel+p.file+".jpg";
+      // fallback a posibles nombres
+      img.src=RAW_BASE+norm(p.texto)+".jpg";
     }
     img.onerror=function(){
-      if(this.src.startsWith(baseAbs)){
-        this.onerror=null;
-        this.src=baseRel+encodeURIComponent(real||p.file+".jpg");
-      } else {
-        this.src=baseRel+p.file+".png";
+      // prueba segunda ruta (Pages)
+      if(this.src.startsWith(RAW_BASE)){
+        this.src=PAGES_BASE+encodeURI(real||p.texto+".jpg");
         this.onerror=function(){
-          this.src=baseRel+p.file+".jpeg";
+          // prueba relativa
+          this.src=REL_BASE+(real||p.texto+".jpg");
           this.onerror=function(){ this.style.display='none'; };
-        }
+        };
       }
     };
-    card.appendChild(img);
-    card.innerHTML+=`<div class="palabra">${p.texto}</div><div class="silabas"><span>${p.silabas}</span> <button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button></div><div class="articulo">${p.art}</div>`;
-    const imgTag=card.querySelector('img');
-    card.prepend(imgTag);
-    // corregir duplicado
-    const imgs=card.querySelectorAll('img'); if(imgs.length>1) imgs[1].remove();
-    // reconstrucción limpia
-    card.innerHTML='';
     card.appendChild(img);
     const d1=document.createElement('div'); d1.className='palabra'; d1.textContent=p.texto;
     const d2=document.createElement('div'); d2.className='silabas'; d2.innerHTML=`<span>${p.silabas}</span> <button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button>`;
@@ -145,36 +135,31 @@ function pintar(){
   });
 }
 
-function getTexto(p){return p.texto;}
 let actualCasa=null;
 function iniciarJuego1Casa(){
   const cont=document.getElementById('juego1'); 
   actualCasa=palabras[Math.floor(Math.random()*palabras.length)];
-  const txtActual=getTexto(actualCasa);
   let opciones=[actualCasa]; 
   while(opciones.length<4){ const r=palabras[Math.floor(Math.random()*palabras.length)]; if(!opciones.includes(r)) opciones.push(r); } 
   opciones.sort(()=>Math.random()-0.5);
-  cont.innerHTML=`<p style="font-size:20px;font-weight:bold;margin-bottom:10px">¿Dónde está <span style="color:#1a5fb4">${txtActual.toUpperCase()}</span>?</p>`;
+  cont.innerHTML=`<p style="font-size:20px;font-weight:bold;margin-bottom:10px">¿Dónde está <span style="color:#1a5fb4">${actualCasa.texto.toUpperCase()}</span>?</p>`;
   opciones.forEach(op=>{ 
-    const txt=getTexto(op);
-    const d=document.createElement('div'); d.className='choice'; d.textContent=txt.toUpperCase(); 
-    d.onclick=()=>{ if(op===actualCasa){ d.classList.add('correct'); hablar(txtActual); } else { d.classList.add('wrong'); } }; 
+    const d=document.createElement('div'); d.className='choice'; d.textContent=op.texto.toUpperCase(); 
+    d.onclick=()=>{ if(op===actualCasa){ d.style.background='#c8f7c5'; hablar(actualCasa.texto); } else { d.style.background='#ffcdd2'; } }; 
     cont.appendChild(d); 
   });
 }
 function iniciarJuego2Casa(){
   const cont=document.getElementById('juego2'); 
   actualCasa=palabras[Math.floor(Math.random()*palabras.length)]; 
-  const txtActual=getTexto(actualCasa);
-  hablar(txtActual);
+  hablar(actualCasa.texto);
   let opciones=[actualCasa]; 
   while(opciones.length<4){ const r=palabras[Math.floor(Math.random()*palabras.length)]; if(!opciones.includes(r)) opciones.push(r); } 
   opciones.sort(()=>Math.random()-0.5);
-  cont.innerHTML=`<p style="margin-bottom:10px"><button class="game-btn" onclick="hablar('${txtActual}')">🔊 Repetir</button></p>`;
+  cont.innerHTML=`<p style="margin-bottom:10px"><button class="game-btn" onclick="hablar('${actualCasa.texto}')">🔊 Repetir</button></p>`;
   opciones.forEach(op=>{ 
-    const txt=getTexto(op);
-    const d=document.createElement('div'); d.className='choice'; d.textContent=txt.toUpperCase(); 
-    d.onclick=()=>{ if(op===actualCasa){ d.classList.add('correct'); cont.innerHTML+=`<p style="margin-top:10px;color:green;font-weight:bold">¡Muy bien! ✅</p>`; } else { d.classList.add('wrong'); } }; 
+    const d=document.createElement('div'); d.className='choice'; d.textContent=op.texto.toUpperCase(); 
+    d.onclick=()=>{ if(op===actualCasa){ d.style.background='#c8f7c5'; } else { d.style.background='#ffcdd2'; } }; 
     cont.appendChild(d); 
   });
 }
