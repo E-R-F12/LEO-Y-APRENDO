@@ -1,75 +1,108 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bloque 4 - ESCUELA (30)</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bloque 4 - Escuela</title>
 <style>
-body{font-family:Arial;background:#e0f2fe;margin:0;padding:15px}
-.container{max-width:1250px;margin:0 auto}
-a.back{background:white;padding:8px 15px;border-radius:20px;text-decoration:none;color:#333}
-h1{font-size:22px}
-.info{background:#2563eb;color:white;text-align:center;padding:10px;border-radius:8px;margin:15px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:15px}
-.card{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
-.card img{width:100%;height:140px;object-fit:cover;border-radius:8px;background:#f3f4f6}
-.label{font-weight:bold;margin:8px 0}
-.btn-audio{background:#2563eb;color:white;border:none;border-radius:20px;padding:6px 12px;cursor:pointer;font-size:14px}
-.btn-audio:hover{background:#1d4ed8}
+body{font-family:Segoe UI,Arial;background:#e8f4ff;margin:0;padding:15px}
+h1{text-align:center;color:#0d47a1}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;max-width:1200px;margin:20px auto}
+.card{background:#fff;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.1);text-align:center;padding:10px 10px 12px;cursor:pointer;position:relative}
+.card img{width:100%;height:130px;object-fit:contain;background:#fff;border-radius:10px}
+.palabra{font-weight:bold;margin-top:8px;font-size:14px;text-transform:uppercase}
+.card button{margin-top:6px;background:#1976d2;color:#fff;border:none;padding:6px 12px;border-radius:16px;cursor:pointer;font-size:12px}
+.juegos{max-width:1000px;margin:45px auto;background:#fff;padding:22px;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.12)}
+.juego{margin:20px 0;padding:16px;border:2px dashed #1976d2;border-radius:12px}
+.opciones{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px}
+.opciones img{width:95px;height:95px;object-fit:contain;background:#eef6ff;padding:8px;border-radius:12px;border:3px solid transparent;cursor:pointer}
+.opciones img:hover{border-color:#1976d2}
+.opciones button{padding:10px 14px;border:none;background:#e3f2fd;border-radius:8px;font-weight:bold;cursor:pointer;text-transform:uppercase}
+.opciones button.ok{background:#2e7d32;color:#fff}
+.opciones button.bad{background:#c62828;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<a href="../../index.html" class="back">← Volver</a>
+<a href="../../index.html" style="background:#fff;padding:6px 12px;border-radius:16px;text-decoration:none">← Volver</a>
 <h1>🎒 BLOQUE 4 - ESCUELA (30) - Fotos reales + Audios</h1>
-<div class="info">30 fotos reales + 30 audios 🔊 Haz clic en 🔊 para escuchar</div>
-<div class="grid">
+<p id="contador" style="text-align:center;background:#1976d2;color:#fff;padding:8px;border-radius:8px;max-width:900px;margin:10px auto">30 fotos reales + 30 audios 🔊 Haz clic en 🔊 para escuchar</p>
+<div class="grid" id="grid"></div>
 
-<div class="card"><img src="../imagenes/bloque-4-escuela/libro.jpg" alt="LIBRO"><div class="label">1. LIBRO</div><button class="btn-audio" onclick="hablar('libro')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/lapiz.jpg" alt="LAPIZ"><div class="label">2. LAPIZ</div><button class="btn-audio" onclick="hablar('lápiz')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/boligrafo.jpg" alt="BOLIGRAFO"><div class="label">3. BOLIGRAFO</div><button class="btn-audio" onclick="hablar('bolígrafo')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/goma.jpg" alt="GOMA"><div class="label">4. GOMA</div><button class="btn-audio" onclick="hablar('goma')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/mochila.jpg" alt="MOCHILA"><div class="label">5. MOCHILA</div><button class="btn-audio" onclick="hablar('mochila')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/pizarra.jpg" alt="PIZARRA"><div class="label">6. PIZARRA</div><button class="btn-audio" onclick="hablar('pizarra')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/tiza.jpg" alt="TIZA"><div class="label">7. TIZA</div><button class="btn-audio" onclick="hablar('tiza')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/mesa.jpg" alt="MESA"><div class="label">8. MESA</div><button class="btn-audio" onclick="hablar('mesa')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/silla.jpg" alt="SILLA"><div class="label">9. SILLA</div><button class="btn-audio" onclick="hablar('silla')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/profesor.jpg" alt="PROFESOR"><div class="label">10. PROFESOR</div><button class="btn-audio" onclick="hablar('profesor')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/alumno.jpg" alt="ALUMNO"><div class="label">11. ALUMNO</div><button class="btn-audio" onclick="hablar('alumno')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/clase.jpg" alt="CLASE"><div class="label">12. CLASE</div><button class="btn-audio" onclick="hablar('clase')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/colegio.jpg" alt="COLEGIO"><div class="label">13. COLEGIO</div><button class="btn-audio" onclick="hablar('colegio')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/patio.jpg" alt="PATIO"><div class="label">14. PATIO</div><button class="btn-audio" onclick="hablar('patio')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/biblioteca.jpg" alt="BIBLIOTECA"><div class="label">15. BIBLIOTECA</div><button class="btn-audio" onclick="hablar('biblioteca')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/cuaderno.jpg" alt="CUADERNO"><div class="label">16. CUADERNO</div><button class="btn-audio" onclick="hablar('cuaderno')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/regla.jpg" alt="REGLA"><div class="label">17. REGLA</div><button class="btn-audio" onclick="hablar('regla')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/tijeras.jpg" alt="TIJERAS"><div class="label">18. TIJERAS</div><button class="btn-audio" onclick="hablar('tijeras')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/pegamento.jpg" alt="PEGAMENTO"><div class="label">19. PEGAMENTO</div><button class="btn-audio" onclick="hablar('pegamento')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/pintura.jpg" alt="PINTURA"><div class="label">20. PINTURA</div><button class="btn-audio" onclick="hablar('pintura')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/mapa.jpg" alt="MAPA"><div class="label">21. MAPA</div><button class="btn-audio" onclick="hablar('mapa')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/ordenador.jpg" alt="ORDENADOR"><div class="label">22. ORDENADOR</div><button class="btn-audio" onclick="hablar('ordenador')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/papel.jpg" alt="PAPEL"><div class="label">23. PAPEL</div><button class="btn-audio" onclick="hablar('papel')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/carpeta.jpg" alt="CARPETA"><div class="label">24. CARPETA</div><button class="btn-audio" onclick="hablar('carpeta')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/examen.jpg" alt="EXAMEN"><div class="label">25. EXAMEN</div><button class="btn-audio" onclick="hablar('examen')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/recreo.jpg" alt="RECREO"><div class="label">26. RECREO</div><button class="btn-audio" onclick="hablar('recreo')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/timbre.jpg" alt="TIMBRE"><div class="label">27. TIMBRE</div><button class="btn-audio" onclick="hablar('timbre')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/puerta.jpg" alt="PUERTA"><div class="label">28. PUERTA</div><button class="btn-audio" onclick="hablar('puerta')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/ventana.jpg" alt="VENTANA"><div class="label">29. VENTANA</div><button class="btn-audio" onclick="hablar('ventana')">🔊 Escuchar</button></div>
-<div class="card"><img src="../imagenes/bloque-4-escuela/reloj.jpg" alt="RELOJ"><div class="label">30. RELOJ</div><button class="btn-audio" onclick="hablar('reloj')">🔊 Escuchar</button></div>
+<div class="juegos">
+<h2 style="text-align:center;color:#0d47a1">🎮 Juegos finales - ESCUELA</h2>
 
+<div class="juego">
+<h3>1️⃣ 🔊 Adivina por el AUDIO</h3>
+<p>Pulsa 🔊 para escuchar y elige la imagen correcta</p>
+<button onclick="nuevoAudio()" style="background:#ef6c00;color:#fff;padding:10px 16px;border:none;border-radius:8px;font-weight:bold;cursor:pointer">🔊 Escuchar</button>
+<div class="opciones" id="optAudio"></div>
+<p id="resAudio" style="font-weight:bold;text-align:center"></p>
+</div>
+
+<div class="juego">
+<h3>2️⃣ 🖼️ Adivina por la IMAGEN</h3>
+<div id="imgGrande" style="text-align:center"></div>
+<div class="opciones" id="optImagen"></div>
+<p id="resImagen" style="font-weight:bold;text-align:center"></p>
+<button onclick="nuevaImagen()" style="margin-top:10px;background:#ef6c00;color:#fff;padding:10px 16px;border:none;border-radius:8px;font-weight:bold;cursor:pointer">Siguiente ▶️</button>
+</div>
+
+<div style="text-align:center;margin-top:20px">
+<button onclick="location.reload()" style="background:#0d47a1;color:#fff;padding:10px 16px;border:none;border-radius:8px">🔄 Mezclar todo</button>
 </div>
 </div>
+
 <script>
-function hablar(texto){
-  if('speechSynthesis' in window){
-    speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(texto);
-    u.lang = 'es-ES';
-    u.rate = 0.9;
-    u.pitch = 1;
-    speechSynthesis.speak(u);
-  } else {
-    alert('Tu navegador no soporta audio');
-  }
+const RAW="https://raw.githubusercontent.com/e-r-f12/LEO-Y-APRENDO/main/vocabulario-realista/imagenes/bloque-4-escuela/";
+const API="https://api.github.com/repos/e-r-f12/LEO-Y-APRENDO/contents/vocabulario-realista/imagenes/bloque-4-escuela";
+function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t.toLowerCase());u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
+let listaGlobal=[];
+
+fetch(API).then(r=>r.json()).then(files=>{
+  let lista=files.filter(f=>f.type==='file' && /\.(jpe?g|png|webp)$/i.test(f.name)).sort((a,b)=>a.name.localeCompare(b.name));
+  listaGlobal=lista.map(f=>({file:f.name, texto:f.name.replace(/\.[^/.]+$/,'').replace(/[-_]/g,' ')}));
+  document.getElementById('contador').textContent=`${lista.length} fotos reales + ${lista.length} audios 🔊 Haz clic en 🔊 para escuchar`;
+  const grid=document.getElementById('grid');
+  listaGlobal.forEach((o,i)=>{
+    let div=document.createElement('div');div.className='card';
+    div.innerHTML=`<img src="${RAW+encodeURI(o.file)}" loading="lazy"><div class="palabra">${i+1}. ${o.texto}</div><button>🔊 Escuchar</button>`;
+    div.onclick=()=>hablar(o.texto);
+    grid.appendChild(div);
+  });
+  nuevoAudio(); nuevaImagen();
+});
+
+function mezclar(a){return a.sort(()=>Math.random()-0.5)}
+let actualAudio=null;
+function nuevoAudio(){
+  if(!listaGlobal.length) return;
+  let opts=mezclar([...listaGlobal]).slice(0,4);
+  actualAudio=opts[Math.floor(Math.random()*4)];
+  hablar(actualAudio.texto);
+  let cont=document.getElementById('optAudio');cont.innerHTML='';document.getElementById('resAudio').textContent='';
+  opts.forEach(o=>{
+    let img=document.createElement('img');img.src=RAW+encodeURI(o.file);
+    img.onclick=()=>{
+      if(o.file===actualAudio.file){document.getElementById('resAudio').textContent='✅ ¡Correcto! Es '+actualAudio.texto.toUpperCase(); hablar('correcto'); setTimeout(nuevoAudio,1500)}
+      else{document.getElementById('resAudio').textContent='❌ Intenta otra vez'}
+    };
+    cont.appendChild(img);
+  });
+}
+let actualImagen=null;
+function nuevaImagen(){
+  if(!listaGlobal.length) return;
+  let opts=mezclar([...listaGlobal]).slice(0,4);
+  actualImagen=opts[Math.floor(Math.random()*4)];
+  document.getElementById('imgGrande').innerHTML=`<img src="${RAW+encodeURI(actualImagen.file)}" style="width:160px;height:160px;object-fit:contain;background:#eef6ff;padding:10px;border-radius:12px"><p><button onclick="hablar('${actualImagen.texto}')" style="background:#1976d2;color:#fff;padding:6px 12px;border:none;border-radius:16px">🔊 Escuchar palabra</button></p>`;
+  let cont=document.getElementById('optImagen');cont.innerHTML='';document.getElementById('resImagen').textContent='';
+  mezclar(opts).forEach(o=>{
+    let btn=document.createElement('button');btn.textContent=o.texto;
+    btn.onclick=()=>{
+      if(o.file===actualImagen.file){btn.classList.add('ok');document.getElementById('resImagen').textContent='✅ ¡Muy bien!'; hablar('muy bien')}
+      else{btn.classList.add('bad');document.getElementById('resImagen').textContent='❌ Era '+actualImagen.texto.toUpperCase()}
+    };
+    cont.appendChild(btn);
+  });
 }
 </script>
 </body>
