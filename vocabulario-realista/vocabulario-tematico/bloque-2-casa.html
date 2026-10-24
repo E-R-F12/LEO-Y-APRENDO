@@ -10,189 +10,24 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f7ff;padding:15px}
 .header{text-align:center;margin-bottom:20px}
 .header h1{color:#1a5fb4;font-size:28px}
 .header a{color:#1a5fb4;text-decoration:none;font-weight:bold}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px;max-width:1000px;margin:0 auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px;max-width:1100px;margin:0 auto}
 .card{background:white;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.1);overflow:hidden;text-align:center;padding-bottom:12px}
-.card img{width:100%;height:140px;object-fit:contain;background:white;padding:10px}
-.palabra{font-size:16px;font-weight:bold;color:#333;text-transform:uppercase;margin-top:5px}
-.silabas{font-size:13px;color:#666;margin:4px 0}
-.articulo{font-size:12px;color:#999}
-.btn-audio{background:#1a5fb4;color:white;border:none;border-radius:50%;width:26px;height:26px;cursor:pointer;margin-left:6px}
-.games{max-width:1000px;margin:30px auto;background:white;border-radius:16px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.games h2{color:#1a5fb4;margin-bottom:10px}
+.card img{width:100%;height:140px;object-fit:contain;background:white;padding:10px;display:block}
+.palabra{font-size:15px;font-weight:bold;color:#333;text-transform:uppercase;margin-top:5px}
+.silabas{font-size:12px;color:#666;margin:4px 0}
+.btn-audio{background:#1a5fb4;color:white;border:none;border-radius:50%;width:24px;height:24px;cursor:pointer;margin-left:6px}
+.games{max-width:1100px;margin:30px auto;background:white;border-radius:16px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
 .game-btn{background:#ffd60a;border:none;padding:10px 18px;border-radius:20px;font-weight:bold;cursor:pointer;margin:5px}
-.game-area{margin-top:15px;min-height:80px}
 .choice{display:inline-block;background:#eef5ff;border:2px solid #1a5fb4;border-radius:12px;padding:8px 14px;margin:6px;cursor:pointer;font-weight:bold}
-.choice.correct{background:#c8f7c5;border-color:#2e7d32}
-.choice.wrong{background:#ffcdd2;border-color:#c62828}
 </style>
 </head>
 <body>
 <div class="header">
 <h1>🏠 BLOQUE 2 - CASA</h1>
 <p><a href="../../index.html">← Volver al inicio</a></p>
-<p id="info" style="font-size:11px;color:gray"></p>
+<p id="contador" style="font-size:13px;color:gray;margin-top:8px"></p>
 </div>
 <div class="grid" id="grid"></div>
-
-<div class="games">
-<h2>🎮 JUEGO 1: ¿Qué objeto es?</h2>
-<p>Encuentra la palabra correcta de la casa</p>
-<button class="game-btn" onclick="iniciarJuego1Casa()">¡Jugar!</button>
-<div id="juego1" class="game-area"></div>
-</div>
-
-<div class="games">
-<h2>🔊 JUEGO 2: Escucha y elige</h2>
-<p>Escucha la palabra y elige la correcta</p>
-<button class="game-btn" onclick="iniciarJuego2Casa()">¡Escuchar!</button>
-<div id="juego2" class="game-area"></div>
-</div>
-
-<script>
-const base = "../imagenes/bloque-2-casa/";
-const palabras = [
-{file:"alfombra.jpg", texto:"alfombra", silabas:"al-fom-bra", art:"la"},
-{file:"cortina.jpg", texto:"cortina", silabas:"cor-ti-na", art:"la"},
-{file:"television.jpg", texto:"televisión", silabas:"te-le-vi-sión", art:"la"},
-{file:"ordenador.jpg", texto:"ordenador", silabas:"or-de-na-dor", art:"el"},
-{file:"telefono.jpg", texto:"teléfono", silabas:"te-lé-fo-no", art:"el"},
-{file:"reloj.jpg", texto:"reloj", silabas:"re-loj", art:"el"},
-{file:"cuadro.jpg", texto:"cuadro", silabas:"cua-dro", art:"el"},
-{file:"planta.jpg", texto:"planta", silabas:"plan-ta", art:"la"},
-{file:"escalera.jpg", texto:"escalera", silabas:"es-ca-le-ra", art:"la"},
-{file:"garaje.jpg", texto:"garaje", silabas:"ga-ra-je", art:"el"},
-{file:"cama.jpg", texto:"cama", silabas:"ca-ma", art:"la"},
-{file:"armario.jpg", texto:"armario", silabas:"ar-ma-rio", art:"el"},
-{file:"mesa.jpg", texto:"mesa", silabas:"me-sa", art:"la"},
-{file:"silla.jpg", texto:"silla", silabas:"si-lla", art:"la"},
-{file:"sofa.jpg", texto:"sofá", silabas:"so-fá", art:"el"},
-{file:"lampara.jpg", texto:"lámpara", silabas:"lám-pa-ra", art:"la"},
-{file:"espejo.jpg", texto:"espejo", silabas:"es-pe-jo", art:"el"},
-{file:"puerta.jpg", texto:"puerta", silabas:"puer-ta", art:"la"},
-{file:"ventana.jpg", texto:"ventana", silabas:"ven-ta-na", art:"la"},
-{file:"cocina.jpg", texto:"cocina", silabas:"co-ci-na", art:"la"},
-{file:"nevera.jpg", texto:"nevera", silabas:"ne-ve-ra", art:"la"},
-{file:"bano.jpg", texto:"baño", silabas:"ba-ño", art:"el"},
-{file:"ducha.jpg", texto:"ducha", silabas:"du-cha", art:"la"},
-{file:"vater.jpg", texto:"váter", silabas:"vá-ter", art:"el"},
-{file:"lavabo.jpg", texto:"lavabo", silabas:"la-va-bo", art:"el"},
-{file:"toalla.jpg", texto:"toalla", silabas:"to-a-lla", art:"la"},
-{file:"mesita.jpg", texto:"mesita", silabas:"me-si-ta", art:"la"},
-{file:"sillon.jpg", texto:"sillón", silabas:"si-llón", art:"el"},
-{file:"horno.jpg", texto:"horno", silabas:"hor-no", art:"el"},
-{file:"fregadero.jpg", texto:"fregadero", silabas:"fre-ga-de-ro", art:"el"}
-];
-
-function hablar(t){
-  const u=new SpeechSynthesisUtterance(t);
-  u.lang='es-ES'; u.rate=0.8;
-  speechSynthesis.speak(u);
-}
-function normalizar(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ñ/g,'n');}
-
-const grid=document.getElementById('grid');
-let archivosReales=[];
-
-async function cargarLista(){
-  try{
-    const res=await fetch('https://api.github.com/repos/e-r-f12/LEO-Y-APRENDO/contents/vocabulario-realista/imagenes/bloque-2-casa');
-    const data=await res.json();
-    archivosReales=data.filter(f=>f.type==='file').map(f=>f.name);
-    document.getElementById('info').textContent='Fotos encontradas: '+archivosReales.length;
-  }catch(e){
-    archivosReales=[];
-  }
-  pintar();
-}
-
-function encontrarArchivo(p){
-  if(archivosReales.length===0) return p.file;
-  const nbFile = normalizar(p.file.replace(/\.[^/.]+$/,""));
-  const nbTexto = normalizar(p.texto);
-  for(let real of archivosReales){
-    const nr = normalizar(real.replace(/\.[^/.]+$/,""));
-    if(nr===nbFile || nr===nbTexto || nr.includes(nbFile) || nr.includes(nbTexto) || nbFile.includes(nr)) return real;
-  }
-  return p.file;
-}
-
-function pintar(){
-  grid.innerHTML='';
-  palabras.forEach(p=>{
-    const card=document.createElement('div'); card.className='card';
-    const fileReal=encontrarArchivo(p);
-    const img=document.createElement('img');
-    img.alt=p.texto;
-    img.src=base+fileReal;
-    img.onerror=function(){
-      const baseName=fileReal.replace(/\.[^/.]+$/,"");
-      const exts=['.jpg','.png','.jpeg','.webp','.JPG','.PNG'];
-      let idx=0;
-      const probar=()=>{
-        if(idx<exts.length){
-          this.onerror=probar;
-          this.src=base+baseName+exts[idx++];
-        } else {
-          this.onerror=null;
-          this.style.background='#eee';
-          this.src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140"><rect width="100%" height="100%" fill="%23eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23999" font-family="Arial" font-size="12">'+p.texto+'</text></svg>';
-        }
-      };
-      probar();
-    };
-    card.appendChild(img);
-    const d1=document.createElement('div'); d1.className='palabra'; d1.textContent=p.texto;
-    const d2=document.createElement('div'); d2.className='silabas';
-    d2.innerHTML=`<span>${p.silabas}</span> <button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button>`;
-    const d3=document.createElement('div'); d3.className='articulo'; d3.textContent=p.art;
-    card.appendChild(d1); card.appendChild(d2); card.appendChild(d3);
-    grid.appendChild(card);
-  });
-}
-
-cargarLista();
-setTimeout(()=>{ if(grid.children.length===0) pintar(); },2500);
-
-function getTexto(p){ return (typeof p==='object' && p.texto) ? p.texto : p; }
-let actualCasa=null;
-function iniciarJuego1Casa(){
-  const cont=document.getElementById('juego1'); 
-  actualCasa=palabras[Math.floor(Math.random()*palabras.length)];
-  const txtActual=getTexto(actualCasa);
-  let opciones=[actualCasa]; 
-  while(opciones.length<4){ const r=palabras[Math.floor(Math.random()*palabras.length)]; if(!opciones.includes(r)) opciones.push(r); } 
-  opciones.sort(()=>Math.random()-0.5);
-  cont.innerHTML=`<p style="font-size:20px;font-weight:bold;margin-bottom:10px">¿Dónde está <span style="color:#1a5fb4">${txtActual.toUpperCase()}</span>?</p>`;
-  opciones.forEach(op=>{ 
-    const txt=getTexto(op);
-    const d=document.createElement('div'); d.className='choice'; d.textContent=txt.toUpperCase(); 
-    d.onclick=()=>{ if(op===actualCasa){ d.classList.add('correct'); hablar(txtActual); } else { d.classList.add('wrong'); } }; 
-    cont.appendChild(d); 
-  });
-}
-function iniciarJuego2Casa(){
-  const cont=document.getElementById('juego2'); 
-  actualCasa=palabras[Math.floor(Math.random()*palabras.length)]; 
-  const txtActual=getTexto(actualCasa);
-  hablar(txtActual);
-  let opciones=[actualCasa]; 
-  while(opciones.length<4){ const r=palabras[Math.floor(Math.random()*palabras.length)]; if(!opciones.includes(r)) opciones.push(r); } 
-  opciones.sort(()=>Math.random()-0.5);
-  cont.innerHTML=`<p style="margin-bottom:10px"><button class="game-btn" onclick="hablar('${txtActual}')">🔊 Repetir</button></p>`;
-  opciones.forEach(op=>{ 
-    const txt=getTexto(op);
-    const d=document.createElement('div'); d.className='choice'; d.textContent=txt.toUpperCase(); 
-    d.onclick=()=>{ if(op===actualCasa){ d.classList.add('correct'); cont.innerHTML+=`<p style="margin-top:10px;color:green;font-weight:bold">¡Muy bien! ✅</p>`; } else { d.classList.add('wrong'); } }; 
-    cont.appendChild(d); 
-  });
-}
-</script>
-  <style>
-.games{max-width:1000px;margin:30px auto;background:white;border-radius:16px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.games h2{color:#1a5fb4}
-.game-btn{background:#ffd60a;border:none;padding:10px 18px;border-radius:20px;font-weight:bold;cursor:pointer;margin:5px}
-.choice{display:inline-block;background:#eef5ff;border:2px solid #1a5fb4;border-radius:12px;padding:8px 14px;margin:6px;cursor:pointer;font-weight:bold}
-</style>
 
 <div class="games">
 <h2>🎮 JUEGO 1: ¿Qué objeto es?</h2>
@@ -207,18 +42,51 @@ function iniciarJuego2Casa(){
 </div>
 
 <script>
-function getT(p){ return p.texto ? p.texto : p; }
+const RAW = "https://raw.githubusercontent.com/e-r-f12/LEO-Y-APRENDO/main/vocabulario-realista/imagenes/bloque-2-casa/";
+const API = "https://api.github.com/repos/e-r-f12/LEO-Y-APRENDO/contents/vocabulario-realista/imagenes/bloque-2-casa";
+
+function hablar(t){ const u=new SpeechSynthesisUtterance(t); u.lang='es-ES'; u.rate=0.8; speechSynthesis.speak(u); }
+function limpiar(f){ return f.replace(/\.[^/.]+$/, "").replace(/[-_]/g," ").trim(); }
+
+let palabras=[];
+
+fetch(API)
+.then(r=>r.json())
+.then(files=>{
+  let lista=files.filter(f=>f.type==='file' && /\.(jpg|jpeg|png|webp)$/i.test(f.name)).map(f=>f.name);
+  document.getElementById('contador').textContent=`¡Perfecto! ${lista.length} fotos encontradas`;
+  palabras=lista.map(file=>({file:file, texto:limpiar(file)}));
+  pintar();
+});
+
+function pintar(){
+  const grid=document.getElementById('grid');
+  grid.innerHTML='';
+  palabras.forEach(p=>{
+    const card=document.createElement('div'); card.className='card';
+    const img=document.createElement('img');
+    img.src=RAW+encodeURI(p.file);
+    img.alt=p.texto;
+    const d1=document.createElement('div'); d1.className='palabra'; d1.textContent=p.texto;
+    const d2=document.createElement('div'); d2.className='silabas'; d2.innerHTML=`<button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button>`;
+    card.appendChild(img); card.appendChild(d1); card.appendChild(d2);
+    grid.appendChild(card);
+  });
+}
+
 function juego1(){
- const c=document.getElementById('j1'); let actual=palabras[Math.floor(Math.random()*palabras.length)];
+ const c=document.getElementById('j1'); if(!palabras.length) return;
+ let actual=palabras[Math.floor(Math.random()*palabras.length)];
  let ops=[actual]; while(ops.length<4){ let r=palabras[Math.floor(Math.random()*palabras.length)]; if(!ops.includes(r)) ops.push(r);} ops.sort(()=>Math.random()-0.5);
- c.innerHTML=`<p>¿Dónde está <b>${getT(actual).toUpperCase()}</b>?</p>`;
- ops.forEach(o=>{ let d=document.createElement('div'); d.className='choice'; d.textContent=getT(o).toUpperCase(); d.onclick=()=>{ if(o===actual){ d.style.background='#c8f7c5'; hablar(getT(actual)); } else d.style.background='#ffcdd2'; }; c.appendChild(d); });
+ c.innerHTML=`<p>¿Dónde está <b>${actual.texto.toUpperCase()}</b>?</p>`;
+ ops.forEach(o=>{ let d=document.createElement('div'); d.className='choice'; d.textContent=o.texto.toUpperCase(); d.onclick=()=>{ if(o===actual){ d.style.background='#c8f7c5'; hablar(actual.texto); } else d.style.background='#ffcdd2'; }; c.appendChild(d); });
 }
 function juego2(){
- const c=document.getElementById('j2'); let actual=palabras[Math.floor(Math.random()*palabras.length)]; hablar(getT(actual));
+ const c=document.getElementById('j2'); if(!palabras.length) return;
+ let actual=palabras[Math.floor(Math.random()*palabras.length)]; hablar(actual.texto);
  let ops=[actual]; while(ops.length<4){ let r=palabras[Math.floor(Math.random()*palabras.length)]; if(!ops.includes(r)) ops.push(r);} ops.sort(()=>Math.random()-0.5);
- c.innerHTML=`<button class="game-btn" onclick="hablar('${getT(actual)}')">🔊 Repetir</button><br><br>`;
- ops.forEach(o=>{ let d=document.createElement('div'); d.className='choice'; d.textContent=getT(o).toUpperCase(); d.onclick=()=>{ if(o===actual) d.style.background='#c8f7c5'; else d.style.background='#ffcdd2'; }; c.appendChild(d); });
+ c.innerHTML=`<button class="game-btn" onclick="hablar('${actual.texto}')">🔊 Repetir</button><br><br>`;
+ ops.forEach(o=>{ let d=document.createElement('div'); d.className='choice'; d.textContent=o.texto.toUpperCase(); d.onclick=()=>{ if(o===actual) d.style.background='#c8f7c5'; else d.style.background='#ffcdd2'; }; c.appendChild(d); });
 }
 </script>
 </body>
