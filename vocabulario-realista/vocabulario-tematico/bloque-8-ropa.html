@@ -14,7 +14,7 @@
 <div class="juego"><h3>1️⃣ 🔊 Adivina por el AUDIO</h3><button onclick="nuevoAudio()" style="background:#00897b;color:#fff;padding:10px 18px;border:none;border-radius:8px">🔊 Escuchar</button><div class="opciones" id="optAudio"></div><p id="resAudio" style="text-align:center;font-weight:bold"></p></div>
 <div class="juego"><h3>2️⃣ 🖼️ Adivina por la IMAGEN</h3><div id="imgGrande" style="text-align:center"></div><div class="opciones" id="optImagen"></div><p id="resImagen" style="text-align:center;font-weight:bold"></p><button onclick="nuevaImagen()" style="background:#00897b;color:#fff;padding:10px 18px;border:none;border-radius:8px">Siguiente ▶️</button></div></div>
 <script>
-const RAW="https://raw.githubusercontent.com/e-r-f12/LEO-Y-APRENDO/main/vocabulario-realista/imagenes/bloque-8-ropa/";
+const RAW="../imagenes/bloque-8-ropa/";
 function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t.toLowerCase());u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
 const listaGlobal=[
 {file:"abrigo.jpg",texto:"abrigo"},{file:"bañador.jpg",texto:"bañador"},{file:"blusa.jpg",texto:"blusa"},
