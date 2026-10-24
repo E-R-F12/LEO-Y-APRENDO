@@ -1,49 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BLOQUE 6 - FAMILIA - 14</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bloque 6 - Familia</title>
 <style>
-body{font-family:Arial;background:#fce7f3;margin:0;padding:15px}
-.container{max-width:1250px;margin:0 auto}
-h1{text-align:center}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:15px}
-.card{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,0.15)}
-.card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
-.label{font-weight:bold;margin:10px 0;font-size:18px}
-.audio-box button{background:#2563eb;color:white;border:0;padding:8px 18px;border-radius:20px;font-size:18px;cursor:pointer}
+body{font-family:Segoe UI,Arial;background:#fde8f0;margin:0;padding:20px}
+h1{text-align:center;color:#ad1457}
+.sub{text-align:center;color:#6b7280;margin-bottom:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;max-width:1200px;margin:0 auto}
+.card{background:#fff;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.08);text-align:center;padding:10px;cursor:pointer;position:relative}
+.card img{width:100%;height:140px;object-fit:contain;border-radius:10px;background:#fff}
+.nombre{font-weight:700;margin-top:8px;text-transform:uppercase;font-size:13px}
+.btn-audio{margin-top:6px;background:#1976d2;color:#fff;border:none;padding:6px 14px;border-radius:20px;cursor:pointer;font-size:12px}
+.audio-ico{position:absolute;top:8px;right:8px;background:#fff;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.juegos{max-width:1000px;margin:50px auto;background:#fff;padding:24px;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.juego{margin:20px 0;padding:18px;border:2px dashed #ec407a;border-radius:12px}
+.opciones{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px}
+.opciones img{width:100px;height:100px;object-fit:contain;background:#fce4ec;padding:8px;border-radius:12px;border:3px solid transparent;cursor:pointer}
+.opciones button{padding:10px 16px;border:none;background:#fce4ec;border-radius:8px;font-weight:bold;cursor:pointer;text-transform:uppercase}
+.opciones button.ok{background:#2e7d32;color:#fff}
+.opciones button.bad{background:#c62828;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>👨‍👩‍👧‍👦 BLOQUE 6 - FAMILIA (14)</h1>
-<div class="grid">
+<a href="../../index.html" style="background:#fff;padding:6px 14px;border-radius:20px;text-decoration:none">← Volver</a>
+<h1>👨‍👩‍👧‍👦 BLOQUE 6 - FAMILIA</h1>
+<p class="sub">Haz clic en cada foto para escuchar</p>
+<p id="contador" style="text-align:center;background:#ec407a;color:#fff;padding:8px;border-radius:8px;max-width:600px;margin:10px auto">Cargando fotos...</p>
 
-<div class="card"><img src="../vocabulario-realista/imagenes/bloque-6-familia/abuelos.jpg"><div class="label">1. ABUELOS</div><div class="audio-box"><button onclick="hablar('abuelos')">🔊</button></div></div>
-<div class="card"><img src="../vocabulario-realista/imagenes/bloque-6-familia/abuelo.jpg"><div class="label">2. ABUELO</div><div class="audio-box"><button onclick="hablar('abuelo')">🔊</button></div></div>
-<div class="card"><img src="../vocabulario-realista/imagenes/bloque-6-familia/abuela.jpg"><div class="label">3. ABUELA</div><div class="audio-box"><button onclick="hablar('abuela')">🔊</button></div></div>
-<div class="card"><img src="../vocabulario-realista/imagenes/bloque-6-familia/matrimonio.jpg"><div class="label">4. MATRIMONIO</div><div class="audio-box"><button onclick="hablar('matrimonio')">🔊</button></div></div>
-<div class="card"><img src="../vocabulario-realista/imagenes/bloque-6-familia/papa.jpg"><div class="label">5. PAPA</div><div class="audio-box"><button onclick="hablar('papá')">🔊</button></div></div>
-<div class="card"><img src="../vocabulario-realista/imagenes/bloque-6-familia/mama.jpg"><div class="label">6. MAMA</div><div class="audio-box"><button onclick="hablar('mamá')">🔊</button></div></div>
-<div class="card"><img src="../vocabulario-realista/imagenes/bloque-6-familia/hijo.jpg"><div class="label">7. HIJO</div><div class="audio-box"><button onclick="hablar('hijo')">🔊</button></div></div>
-<div class="card"><img src="../vocabulario-realista/imagenes/bloque-6-familia/hija.jpg"><div class="label">8. HIJA</div><div class="audio-box"><button onclick="hablar('hija')">🔊</button></div></div>
-<div class="card"><img src="../vocabulario-realista/imagenes/bloque-6-familia/tio.jpg"><div class="label">9. TIO</div><div class="audio-box"><button onclick="hablar('tío')">🔊</button></div></div>
-<div class="card"><img src="../vocabulario-realista/imagenes/bloque-6-familia/tia.jpg"><div class="label">10. TIA</div><div class="audio-box"><button onclick="hablar('tía')">🔊</button></div></div>
-<div class="card"><img src="../vocabulario-realista/imagenes/bloque-6-familia/primo.jpg"><div class="label">11. PRIMO</div><div class="audio-box"><button onclick="hablar('primo')">🔊</button></div></div>
-<div class="card"><img src="../vocabulario-realista/imagenes/bloque-6-familia/prima.jpg"><div class="label">12. PRIMA</div><div class="audio-box"><button onclick="hablar('prima')">🔊</button></div></div>
-<div class="card"><img src="../vocabulario-realista/imagenes/bloque-6-familia/familia.jpg"><div class="label">13. FAMILIA</div><div class="audio-box"><button onclick="hablar('familia')">🔊</button></div></div>
-<div class="card"><img src="../vocabulario-realista/imagenes/bloque-6-familia/bebe.jpg"><div class="label">14. BEBE</div><div class="audio-box"><button onclick="hablar('bebé')">🔊</button></div></div>
+<div class="grid" id="grid"></div>
 
+<div class="juegos">
+<h2 style="text-align:center;color:#ad1457">🎮 Juegos finales - Familia</h2>
+
+<div class="juego">
+<h3>1️⃣ 🔊 Adivina por el AUDIO</h3>
+<button onclick="nuevoAudio()" style="background:#ec407a;color:#fff;padding:10px 18px;border:none;border-radius:8px;font-weight:bold">🔊 Escuchar</button>
+<div class="opciones" id="optAudio"></div>
+<p id="resAudio" style="text-align:center;font-weight:bold"></p>
+</div>
+
+<div class="juego">
+<h3>2️⃣ 🖼️ Adivina por la IMAGEN</h3>
+<div id="imgGrande" style="text-align:center"></div>
+<div class="opciones" id="optImagen"></div>
+<p id="resImagen" style="text-align:center;font-weight:bold"></p>
+<button onclick="nuevaImagen()" style="background:#ec407a;color:#fff;padding:10px 18px;border:none;border-radius:8px;font-weight:bold">Siguiente ▶️</button>
+</div>
+
+<div style="text-align:center;margin-top:15px">
+<button onclick="location.reload()" style="background:#1f2937;color:#fff;padding:10px 18px;border:none;border-radius:8px">🔄 Mezclar todo</button>
 </div>
 </div>
 
 <script>
-let desbloqueado=false;
-function desblo(){if(desbloqueado)return;desbloqueado=true;if(window.speechSynthesis){speechSynthesis.resume();let v=new SpeechSynthesisUtterance('');v.volume=0;speechSynthesis.speak(v);}}
-function hablar(t){desblo();speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);}
-document.addEventListener('click',desblo,{once:true});
-document.addEventListener('touchstart',desblo,{once:true});
+const NOMBRE_CARPETA = "bloque-6-familia";
+const RAW=`https://raw.githubusercontent.com/e-r-f12/LEO-Y-APRENDO/main/vocabulario-realista/imagenes/${NOMBRE_CARPETA}/`;
+const API=`https://api.github.com/repos/e-r-f12/LEO-Y-APRENDO/contents/vocabulario-realista/imagenes/${NOMBRE_CARPETA}`;
+
+function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t.toLowerCase());u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
+
+let listaGlobal=[];
+fetch(API).then(r=>r.json()).then(files=>{
+  let lista=files.filter(f=>f.type==='file' && /\.(jpe?g|png|webp)$/i.test(f.name)).sort((a,b)=>a.name.localeCompare(b.name));
+  listaGlobal=lista.map(f=>({file:f.name, texto:f.name.replace(/\.[^/.]+$/,'').replace(/[-_]/g,' ')}));
+  document.getElementById('contador').textContent=`${lista.length} fotos reales + ${lista.length} audios 🔊`;
+  const grid=document.getElementById('grid');
+  listaGlobal.forEach((o,i)=>{
+    let div=document.createElement('div');div.className='card';
+    div.innerHTML=`<div class="audio-ico">🔊</div><img src="${RAW+encodeURI(o.file)}" loading="lazy"><div class="nombre">${i+1}. ${o.texto}</div><button class="btn-audio">🔊 Escuchar</button>`;
+    div.onclick=()=>hablar(o.texto);
+    grid.appendChild(div);
+  });
+  nuevoAudio(); nuevaImagen();
+}).catch(()=>{
+  document.getElementById('contador').textContent='⚠️ No se pudo cargar la carpeta. Revisa que exista imagenes/bloque-6-familia';
+});
+
+function mezclar(a){return a.sort(()=>Math.random()-0.5)}
+let actualAudio=null;
+function nuevoAudio(){if(!listaGlobal.length) return;let opts=mezclar([...listaGlobal]).slice(0,4);actualAudio=opts[Math.floor(Math.random()*4)];hablar(actualAudio.texto);let c=document.getElementById('optAudio');c.innerHTML='';document.getElementById('resAudio').textContent='';opts.forEach(o=>{let img=document.createElement('img');img.src=RAW+encodeURI(o.file);img.onclick=()=>{if(o.file===actualAudio.file){document.getElementById('resAudio').textContent='✅ ¡Correcto! '+actualAudio.texto.toUpperCase();setTimeout(nuevoAudio,1500)}else{document.getElementById('resAudio').textContent='❌ Prueba otra'}};c.appendChild(img)})}
+let actualImagen=null;
+function nuevaImagen(){if(!listaGlobal.length) return;let opts=mezclar([...listaGlobal]).slice(0,4);actualImagen=opts[Math.floor(Math.random()*4)];document.getElementById('imgGrande').innerHTML=`<img src="${RAW+encodeURI(actualImagen.file)}" style="width:160px;height:160px;object-fit:contain;background:#fce4ec;padding:10px;border-radius:12px"><p><button onclick="hablar('${actualImagen.texto}')" style="background:#ec407a;color:#fff;padding:6px 14px;border:none;border-radius:20px">🔊 Escuchar</button></p>`;let c=document.getElementById('optImagen');c.innerHTML='';document.getElementById('resImagen').textContent='';mezclar(opts).forEach(o=>{let b=document.createElement('button');b.textContent=o.texto;b.onclick=()=>{if(o.file===actualImagen.file){b.classList.add('ok');document.getElementById('resImagen').textContent='✅ ¡Muy bien!'}else{b.classList.add('bad');document.getElementById('resImagen').textContent='❌ Era '+actualImagen.texto.toUpperCase()}};c.appendChild(b)})}
 </script>
 </body>
 </html>
