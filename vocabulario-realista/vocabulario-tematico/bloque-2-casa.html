@@ -187,5 +187,39 @@ function iniciarJuego2Casa(){
   });
 }
 </script>
+  <style>
+.games{max-width:1000px;margin:30px auto;background:white;border-radius:16px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.games h2{color:#1a5fb4}
+.game-btn{background:#ffd60a;border:none;padding:10px 18px;border-radius:20px;font-weight:bold;cursor:pointer;margin:5px}
+.choice{display:inline-block;background:#eef5ff;border:2px solid #1a5fb4;border-radius:12px;padding:8px 14px;margin:6px;cursor:pointer;font-weight:bold}
+</style>
+
+<div class="games">
+<h2>🎮 JUEGO 1: ¿Qué objeto es?</h2>
+<button class="game-btn" onclick="juego1()">¡Jugar!</button>
+<div id="j1"></div>
+</div>
+
+<div class="games">
+<h2>🔊 JUEGO 2: Escucha y elige</h2>
+<button class="game-btn" onclick="juego2()">¡Escuchar!</button>
+<div id="j2"></div>
+</div>
+
+<script>
+function getT(p){ return p.texto ? p.texto : p; }
+function juego1(){
+ const c=document.getElementById('j1'); let actual=palabras[Math.floor(Math.random()*palabras.length)];
+ let ops=[actual]; while(ops.length<4){ let r=palabras[Math.floor(Math.random()*palabras.length)]; if(!ops.includes(r)) ops.push(r);} ops.sort(()=>Math.random()-0.5);
+ c.innerHTML=`<p>¿Dónde está <b>${getT(actual).toUpperCase()}</b>?</p>`;
+ ops.forEach(o=>{ let d=document.createElement('div'); d.className='choice'; d.textContent=getT(o).toUpperCase(); d.onclick=()=>{ if(o===actual){ d.style.background='#c8f7c5'; hablar(getT(actual)); } else d.style.background='#ffcdd2'; }; c.appendChild(d); });
+}
+function juego2(){
+ const c=document.getElementById('j2'); let actual=palabras[Math.floor(Math.random()*palabras.length)]; hablar(getT(actual));
+ let ops=[actual]; while(ops.length<4){ let r=palabras[Math.floor(Math.random()*palabras.length)]; if(!ops.includes(r)) ops.push(r);} ops.sort(()=>Math.random()-0.5);
+ c.innerHTML=`<button class="game-btn" onclick="hablar('${getT(actual)}')">🔊 Repetir</button><br><br>`;
+ ops.forEach(o=>{ let d=document.createElement('div'); d.className='choice'; d.textContent=getT(o).toUpperCase(); d.onclick=()=>{ if(o===actual) d.style.background='#c8f7c5'; else d.style.background='#ffcdd2'; }; c.appendChild(d); });
+}
+</script>
 </body>
 </html>
