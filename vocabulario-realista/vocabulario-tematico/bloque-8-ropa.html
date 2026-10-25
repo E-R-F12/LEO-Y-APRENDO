@@ -7,23 +7,16 @@
 <style>
 :root{--verde:#0a6b5e;--fondo:#e0f7f4}
 body{font-family:'Segoe UI',Arial,sans-serif;background:var(--fondo);margin:0;padding:20px;color:#333}
-h1{text-align:center;color:var(--verde);margin:10px 0 20px}
+h1{text-align:center;color:var(--verde)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;max-width:1200px;margin:0 auto}
-.card{background:#fff;border-radius:16px;padding:10px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.1);transition:.2s}
-.card:hover{transform:translateY(-3px)}
-.card img{width:100%;height:130px;object-fit:contain;background:#fff;border-radius:10px}
+.card{background:#fff;border-radius:16px;padding:10px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.1)}
+.card img{width:100%;height:130px;object-fit:contain}
 .card p{margin:10px 0 6px;font-weight:700}
 .card button{background:var(--verde);color:#fff;border:none;padding:6px 14px;border-radius:20px;cursor:pointer}
-.card button:hover{background:#084f45}
-.juegos{max-width:1200px;margin:50px auto 20px;background:#fff;border-radius:20px;padding:25px;box-shadow:0 4px 15px rgba(0,0,0,.1)}
-.juegos h2{text-align:center;color:var(--verde);font-size:28px;margin-bottom:20px}
-.juego{border:2px dashed #b2dfdb;border-radius:16px;padding:20px;margin-bottom:25px;text-align:center}
-.juego h3{color:var(--verde);margin-top:0}
-.opciones button{margin:6px;padding:10px 18px;border-radius:12px;border:2px solid var(--verde);background:#fff;cursor:pointer;font-weight:600}
-.opciones button:hover{background:var(--verde);color:#fff}
-#imgJuego{width:200px;height:200px;object-fit:contain;margin:15px auto;display:block;background:#f9f9f9;border-radius:12px}
-.correcto{color:green;font-weight:bold}
-.incorrecto{color:red;font-weight:bold}
+.juegos{max-width:1200px;margin:40px auto;background:#fff;border-radius:20px;padding:25px}
+.juego{border:2px dashed #b2dfdb;border-radius:16px;padding:20px;margin-bottom:20px;text-align:center}
+.opciones button{margin:6px;padding:10px 18px;border-radius:12px;border:2px solid #0a6b5e;background:#fff;cursor:pointer;font-weight:600}
+#imgJuego{width:200px;height:200px;object-fit:contain;margin:auto;display:block}
 </style>
 </head>
 <body>
@@ -31,122 +24,71 @@ h1{text-align:center;color:var(--verde);margin:10px 0 20px}
 <div class="grid" id="grid"></div>
 <div class="juegos">
 <h2>🎮 Juegos finales</h2>
-<div class="juego" id="juego1">
+<div class="juego">
 <h3>Juego 1: ¿Qué prenda es?</h3>
 <img id="imgJuego" src="">
 <div class="opciones" id="opciones1"></div>
 <p id="msg1"></p>
 <button onclick="nuevaPregunta()">Siguiente ➡️</button>
 </div>
-<div class="juego" id="juego2">
+<div class="juego">
 <h3>Juego 2: Escucha y elige</h3>
-<p>Escucha el audio y haz clic en la imagen correcta</p>
-<button onclick="jugarAudioJuego()" style="background:var(--verde);color:#fff;padding:10px 20px;border-radius:20px;border:none;cursor:pointer;font-size:16px">🔊 Reproducir audio</button>
+<button onclick="jugarAudioJuego()" style="background:#0a6b5e;color:#fff;padding:10px 20px;border-radius:20px;border:none;cursor:pointer">🔊 Reproducir audio</button>
 <div class="grid" id="gridJuego2" style="margin-top:15px"></div>
 <p id="msg2"></p>
-</div>
-<div class="juego">
-<h3>Juego 3: Repaso rápido</h3>
-<p>Haz clic en "Escuchar" de cada tarjeta de arriba y repite en voz alta.</p>
-<p>Puntuación: <span id="puntos">0</span> / 28</p>
 </div>
 </div>
 <script>
 const IMG_BASE="https://raw.githubusercontent.com/E-R-F12/LEO-Y-APRENDO/main/vocabulario-realista/imagenes/%20%20%20bloque-8-ropa/";
 const AUDIO_BASE="https://cdn.jsdelivr.net/gh/E-R-F12/LEO-Y-APRENDO@main/vocabulario-realista/imagenes/%20%20%20bloque-8-ropa/";
 const items=[
-{file:"abrigo.jpg",name:"Abrigo"},
-{file:"banador.jpg",name:"Bañador"},
-{file:"blusa.jpg",name:"Blusa"},
-{file:"bolso.jpg",name:"Bolso"},
-{file:"botas.jpg",name:"Botas"},
-{file:"bufanda.jpg",name:"Bufanda"},
-{file:"calcetines.jpg",name:"Calcetines"},
-{file:"camisa.jpg",name:"Camisa"},
-{file:"camiseta.jpg",name:"Camiseta"},
-{file:"cazadora.jpg",name:"Cazadora"},
-{file:"chanclas.jpg",name:"Chanclas"},
-{file:"chandal.jpg",name:"Chándal"},
-{file:"cinturon.jpg",name:"Cinturón"},
-{file:"gafas.jpg",name:"Gafas"},
-{file:"gorro.jpg",name:"Gorro"},
-{file:"guantes.jpg",name:"Guantes"},
-{file:"jersey.jpg",name:"Jersey"},
-{file:"pantalon.jpg",name:"Pantalón"},
-{file:"pantalon-corto.jpg",name:"Pantalón corto"},
-{file:"pijama.jpg",name:"Pijama"},
-{file:"sandalias.jpg",name:"Sandalias"},
-{file:"sombrero.jpg",name:"Sombrero"},
-{file:"sudadera.jpg",name:"Sudadera"},
-{file:"traje.jpg",name:"Traje"},
-{file:"vaqueros.jpg",name:"Vaqueros"},
-{file:"vestido.jpg",name:"Vestido"},
-{file:"zapatillas.jpg",name:"Zapatillas"},
+{file:"abrigo.jpg",name:"Abrigo"},{file:"banador.jpg",name:"Bañador"},{file:"blusa.jpg",name:"Blusa"},
+{file:"bolso.jpg",name:"Bolso"},{file:"botas.jpg",name:"Botas"},{file:"bufanda.jpg",name:"Bufanda"},
+{file:"calcetines.jpg",name:"Calcetines"},{file:"camisa.jpg",name:"Camisa"},{file:"camiseta.jpg",name:"Camiseta"},
+{file:"cazadora.jpg",name:"Cazadora"},{file:"chanclas.jpg",name:"Chanclas"},{file:"chandal.jpg",name:"Chándal"},
+{file:"cinturon.jpg",name:"Cinturón"},{file:"gafas.jpg",name:"Gafas"},{file:"gorro.jpg",name:"Gorro"},
+{file:"guantes.jpg",name:"Guantes"},{file:"jersey.jpg",name:"Jersey"},{file:"pantalon.jpg",name:"Pantalón"},
+{file:"pantalon-corto.jpg",name:"Pantalón corto"},{file:"pijama.jpg",name:"Pijama"},{file:"sandalias.jpg",name:"Sandalias"},
+{file:"sombrero.jpg",name:"Sombrero"},{file:"sudadera.jpg",name:"Sudadera"},{file:"traje.jpg",name:"Traje"},
+{file:"vaqueros.jpg",name:"Vaqueros"},{file:"vestido.jpg",name:"Vestido"},{file:"zapatillas.jpg",name:"Zapatillas"},
 {file:"zapatos.jpg",name:"Zapatos"}
 ];
 const grid=document.getElementById("grid");
 items.forEach(it=>{
-  const d=document.createElement("div");
-  d.className="card";
-  d.innerHTML=`<img src="${IMG_BASE+it.file}" alt="${it.name}" loading="lazy"><p>${it.name}</p><button onclick="reproducir('${it.file}')">🔊 Escuchar</button>`;
+  const d=document.createElement("div"); d.className="card";
+  d.innerHTML=`<img src="${IMG_BASE+it.file}"><p>${it.name}</p><button onclick="reproducir('${it.name}')">🔊 Escuchar</button>`;
   grid.appendChild(d);
 });
-function reproducir(f){
-  let a=new Audio(AUDIO_BASE+f.replace('.jpg','.mp3'));
-  a.play().catch(()=>{});
+function reproducir(nombre){
+  // Intenta mp3, si no existe usa voz automática
+  let a=new Audio(AUDIO_BASE+nombre.toLowerCase().replace('ñ','n').replace(/ /g,'-')+'.mp3');
+  a.play().then(()=>{}).catch(()=>{
+    let u=new SpeechSynthesisUtterance(nombre);
+    u.lang='es-ES'; u.rate=0.9;
+    speechSynthesis.speak(u);
+  });
 }
 let actual=null;
 function nuevaPregunta(){
-  const rnd=items[Math.floor(Math.random()*items.length)];
-  actual=rnd;
-  document.getElementById("imgJuego").src=IMG_BASE+rnd.file;
+  actual=items[Math.floor(Math.random()*items.length)];
+  document.getElementById("imgJuego").src=IMG_BASE+actual.file;
   document.getElementById("msg1").textContent="";
-  let opciones=[rnd];
-  while(opciones.length<4){
-    let r=items[Math.floor(Math.random()*items.length)];
-    if(!opciones.includes(r)) opciones.push(r);
-  }
-  opciones=opciones.sort(()=>Math.random()-0.5);
-  const cont=document.getElementById("opciones1");
-  cont.innerHTML="";
-  opciones.forEach(o=>{
-    let b=document.createElement("button");
-    b.textContent=o.name;
-    b.onclick=()=>{
-      if(o.file===actual.file){
-        document.getElementById("msg1").innerHTML="<span class='correcto'>¡Correcto! 🎉</span>";
-        document.getElementById("puntos").textContent=parseInt(document.getElementById("puntos").textContent)+1;
-        setTimeout(nuevaPregunta,1000);
-      }else{
-        document.getElementById("msg1").innerHTML="<span class='incorrecto'>No, era "+actual.name+"</span>";
-      }
-    };
-    cont.appendChild(b);
-  });
+  let ops=[actual]; while(ops.length<4){let r=items[Math.floor(Math.random()*items.length)]; if(!ops.includes(r)) ops.push(r)} ops.sort(()=>Math.random()-0.5);
+  const c=document.getElementById("opciones1"); c.innerHTML="";
+  ops.forEach(o=>{let b=document.createElement("button"); b.textContent=o.name; b.onclick=()=>{if(o.file===actual.file){document.getElementById("msg1").textContent="¡Correcto! 🎉"; setTimeout(nuevaPregunta,800)}else document.getElementById("msg1").textContent="Era "+actual.name}; c.appendChild(b)})
 }
 nuevaPregunta();
 let audioActual=null;
 function jugarAudioJuego(){
   audioActual=items[Math.floor(Math.random()*items.length)];
-  let a=new Audio(AUDIO_BASE+audioActual.file.replace('.jpg','.mp3'));
-  a.play().catch(()=>{});
-  document.getElementById("msg2").textContent="¿Qué prenda has escuchado?";
+  reproducir(audioActual.name);
+  document.getElementById("msg2").textContent="¿Qué has escuchado?";
 }
 const grid2=document.getElementById("gridJuego2");
 items.forEach(it=>{
-  const d=document.createElement("div");
-  d.className="card";
-  d.style.cursor="pointer";
-  d.innerHTML=`<img src="${IMG_BASE+it.file}" alt="${it.name}"><p>${it.name}</p>`;
-  d.onclick=()=>{
-    if(!audioActual) return jugarAudioJuego();
-    if(it.file===audioActual.file){
-      document.getElementById("msg2").innerHTML="<span class='correcto'>¡Muy bien! Era "+it.name+"</span>";
-      setTimeout(jugarAudioJuego,1200);
-    }else{
-      document.getElementById("msg2").innerHTML="<span class='incorrecto'>No, inténtalo otra vez</span>";
-    }
-  };
+  const d=document.createElement("div"); d.className="card"; d.style.cursor="pointer";
+  d.innerHTML=`<img src="${IMG_BASE+it.file}"><p>${it.name}</p>`;
+  d.onclick=()=>{if(!audioActual) return jugarAudioJuego(); if(it.file===audioActual.file){document.getElementById("msg2").textContent="¡Muy bien! Era "+it.name; setTimeout(jugarAudioJuego,1000)}else document.getElementById("msg2").textContent="No, inténtalo otra vez";};
   grid2.appendChild(d);
 });
 </script>
