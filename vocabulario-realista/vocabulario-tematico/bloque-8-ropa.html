@@ -6,7 +6,7 @@
 <title>Bloque 8 - Ropa | Leo y Aprendo</title>
 <style>
 :root{--verde:#0a6b5e;--fondo:#e0f7f4}
-body{font-family: 'Segoe UI',Arial,sans-serif;background:var(--fondo);margin:0;padding:20px;color:#333}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--fondo);margin:0;padding:20px;color:#333}
 h1{text-align:center;color:var(--verde);margin:10px 0 20px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;max-width:1200px;margin:0 auto}
 .card{background:#fff;border-radius:16px;padding:10px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.1);transition:.2s}
@@ -15,8 +15,6 @@ h1{text-align:center;color:var(--verde);margin:10px 0 20px}
 .card p{margin:10px 0 6px;font-weight:700}
 .card button{background:var(--verde);color:#fff;border:none;padding:6px 14px;border-radius:20px;cursor:pointer}
 .card button:hover{background:#084f45}
-
-/* JUEGOS */
 .juegos{max-width:1200px;margin:50px auto 20px;background:#fff;border-radius:20px;padding:25px;box-shadow:0 4px 15px rgba(0,0,0,.1)}
 .juegos h2{text-align:center;color:var(--verde);font-size:28px;margin-bottom:20px}
 .juego{border:2px dashed #b2dfdb;border-radius:16px;padding:20px;margin-bottom:25px;text-align:center}
@@ -29,14 +27,10 @@ h1{text-align:center;color:var(--verde);margin:10px 0 20px}
 </style>
 </head>
 <body>
-
 <h1>👕 Bloque 8 - La Ropa</h1>
 <div class="grid" id="grid"></div>
-
 <div class="juegos">
 <h2>🎮 Juegos finales</h2>
-
-<!-- JUEGO 1 -->
 <div class="juego" id="juego1">
 <h3>Juego 1: ¿Qué prenda es?</h3>
 <img id="imgJuego" src="">
@@ -44,8 +38,6 @@ h1{text-align:center;color:var(--verde);margin:10px 0 20px}
 <p id="msg1"></p>
 <button onclick="nuevaPregunta()">Siguiente ➡️</button>
 </div>
-
-<!-- JUEGO 2 -->
 <div class="juego" id="juego2">
 <h3>Juego 2: Escucha y elige</h3>
 <p>Escucha el audio y haz clic en la imagen correcta</p>
@@ -53,20 +45,15 @@ h1{text-align:center;color:var(--verde);margin:10px 0 20px}
 <div class="grid" id="gridJuego2" style="margin-top:15px"></div>
 <p id="msg2"></p>
 </div>
-
-<!-- JUEGO 3 -->
 <div class="juego">
 <h3>Juego 3: Repaso rápido</h3>
-<p>Haz clic en "Escuchar" de cada tarjeta de arriba y repite en voz alta. ¡Cuando aciertes 10 seguidas ganas!</p>
+<p>Haz clic en "Escuchar" de cada tarjeta de arriba y repite en voz alta.</p>
 <p>Puntuación: <span id="puntos">0</span> / 28</p>
 </div>
-
 </div>
-
 <script>
 const IMG_BASE="https://raw.githubusercontent.com/E-R-F12/LEO-Y-APRENDO/main/vocabulario-realista/imagenes/%20%20%20bloque-8-ropa/";
 const AUDIO_BASE=IMG_BASE;
-
 const items=[
 {file:"abrigo.jpg",name:"Abrigo"},
 {file:"banador.jpg",name:"Bañador"},
@@ -97,8 +84,6 @@ const items=[
 {file:"zapatillas.jpg",name:"Zapatillas"},
 {file:"zapatos.jpg",name:"Zapatos"}
 ];
-
-// GRID PRINCIPAL
 const grid=document.getElementById("grid");
 items.forEach(it=>{
   const d=document.createElement("div");
@@ -108,17 +93,14 @@ items.forEach(it=>{
 });
 function reproducir(f){
   let a=new Audio(AUDIO_BASE+f.replace('.jpg','.mp3'));
-  a.play().catch(()=>alert('Audio aún no subido: '+f.replace('.jpg','.mp3')));
+  a.play().catch(()=>{});
 }
-
-// JUEGO 1
 let actual=null;
 function nuevaPregunta(){
   const rnd=items[Math.floor(Math.random()*items.length)];
   actual=rnd;
   document.getElementById("imgJuego").src=IMG_BASE+rnd.file;
   document.getElementById("msg1").textContent="";
-  // 4 opciones
   let opciones=[rnd];
   while(opciones.length<4){
     let r=items[Math.floor(Math.random()*items.length)];
@@ -143,13 +125,11 @@ function nuevaPregunta(){
   });
 }
 nuevaPregunta();
-
-// JUEGO 2 - Escucha y elige
 let audioActual=null;
 function jugarAudioJuego(){
   audioActual=items[Math.floor(Math.random()*items.length)];
   let a=new Audio(AUDIO_BASE+audioActual.file.replace('.jpg','.mp3'));
-  a.play().catch(()=>alert('Reproduciendo: '+audioActual.name+' (sube el mp3 para escuchar)'));
+  a.play().catch(()=>{});
   document.getElementById("msg2").textContent="¿Qué prenda has escuchado?";
 }
 const grid2=document.getElementById("gridJuego2");
