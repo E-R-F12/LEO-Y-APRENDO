@@ -5,16 +5,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LEO Y APRENDO - Lectoescritura</title>
 <style>
-body{font-family:Arial;text-align:center;background:#fef9e7;padding:40px}
-h1{color:#0a6b5e}
-a{display:block;margin:15px auto;padding:15px 20px;background:#0a6b5e;color:#fff;text-decoration:none;border-radius:12px;max-width:300px;font-size:18px}
+:root{--verde:#0a6b5e;--beige:#fef9e7;--amarillo:#f9d342}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:var(--beige);color:#333}
+header{background:white;padding:20px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.05);position:sticky;top:0;z-index:10}
+header h1{color:var(--verde);font-size:28px}
+header p{color:#666;margin-top:5px}
+.container{max-width:900px;margin:30px auto;padding:0 20px}
+.volver{display:inline-block;margin-bottom:20px;background:white;border:1px solid #ddd;padding:8px 15px;border-radius:20px;text-decoration:none;color:var(--verde);font-weight:bold}
+h2{color:var(--verde);margin:30px 0 15px;border-left:6px solid var(--amarillo);padding-left:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:15px}
+.card{background:white;border-radius:16px;padding:20px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,0.06);text-decoration:none;color:#333;transition:.2s;border:2px solid transparent}
+.card:hover{transform:translateY(-4px);border-color:var(--verde)}
+.card span{font-size:36px;display:block;margin-bottom:8px;font-weight:bold;color:var(--verde)}
+.card b{font-size:16px}
+.card small{display:block;color:#888;margin-top:4px}
+.seccion-vocales .card span{font-size:48px}
+.boton-principal{display:block;margin:40px auto 0;background:var(--verde);color:white;padding:15px 25px;border-radius:12px;text-decoration:none;text-align:center;max-width:350px;font-weight:bold}
 </style>
 </head>
 <body>
+<header>
 <h1>📚 LEO Y APRENDO</h1>
-<h2>Letras, Sílabas y Palabras</h2>
-<a href="https://e-r-f12.github.io/LEO-Y-APRENDO/">Ir a Vocabulario Realista</a>
-<p>Esta es tu página antigua de lectoescritura recuperada.</p>
-<p>Puedes poner aquí tus enlaces de letras, sílabas y palabras.</p>
+<p>Letras, Sílabas y Palabras</p>
+</header>
+
+<div class="container">
+<a class="volver" href="../">← Volver al inicio</a>
+
+<h2>🔤 Vocales</h2>
+<div class="grid seccion-vocales">
+<a class="card" href="#"><span>A</span><b>Vocal A</b></a>
+<a class="card" href="#"><span>E</span><b>Vocal E</b></a>
+<a class="card" href="#"><span>I</span><b>Vocal I</b></a>
+<a class="card" href="#"><span>O</span><b>Vocal O</b></a>
+<a class="card" href="#"><span>U</span><b>Vocal U</b></a>
+</div>
+
+<h2>🅰️ Abecedario</h2>
+<div class="grid">
+<a class="card" href="#"><span>B b</span><b>Letra B</b></a>
+<a class="card" href="#"><span>C c</span><b>Letra C</b></a>
+<a class="card" href="#"><span>D d</span><b>Letra D</b></a>
+<a class="card" href="#"><span>F f</span><b>Letra F</b></a>
+<a class="card" href="#"><span>G g</span><b>Letra G</b></a>
+<a class="card" href="#"><span>H h</span><b>Letra H</b></a>
+<a class="card" href="#"><span>J j</span><b>Letra J</b></a>
+<a class="card" href="#"><span>L l</span><b>Letra L</b></a>
+<a class="card" href="#"><span>M m</span><b>Letra M</b></a>
+<a class="card" href="#"><span>N n</span><b>Letra N</b></a>
+<a class="card" href="#"><span>P p</span><b>Letra P</b></a>
+<a class="card" href="#"><span>R r</span><b>Letra R</b></a>
+<a class="card" href="#"><span>S s</span><b>Letra S</b></a>
+<a class="card" href="#"><span>T t</span><b>Letra T</b></a>
+</div>
+
+<h2>🧩 Sílabas Directas</h2>
+<div class="grid">
+<a class="card" href="#"><span>ma me mi</span><b>Con M</b><small>ma, me, mi, mo, mu</small></a>
+<a class="card" href="#"><span>pa pe pi</span><b>Con P</b><small>pa, pe, pi, po, pu</small></a>
+<a class="card" href="#"><span>la le li</span><b>Con L</b><small>la, le, li, lo, lu</small></a>
+<a class="card" href="#"><span>sa se si</span><b>Con S</b><small>sa, se, si, so, su</small></a>
+</div>
+
+<h2>📝 Palabras</h2>
+<div class="grid">
+<a class="card" href="#"><span>🏠</span><b>2 Sílabas</b><small>casa, mesa, pato</small></a>
+<a class="card" href="#"><span>🐶</span><b>3 Sílabas</b><small>pelota, manzana</small></a>
+<a class="card" href="#"><span>📖</span><b>Frases</b><small>Leo y aprendo</small></a>
+</div>
+
+<a class="boton-principal" href="../vocabulario-realista/">Ir a Vocabulario Realista con Fotos Reales →</a>
+</div>
 </body>
 </html>
