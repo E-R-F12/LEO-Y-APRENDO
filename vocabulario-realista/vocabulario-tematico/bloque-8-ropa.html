@@ -1,43 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bloque 8 - Ropa</title>
-<style>body{font-family:Segoe UI,Arial;background:#e0f2f1;margin:0;padding:20px}h1{text-align:center;color:#00695c}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;max-width:1200px;margin:0 auto}.card{background:#fff;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.08);text-align:center;padding:10px;cursor:pointer}.card img{width:100%;height:140px;object-fit:contain;border-radius:10px;background:#fff}.nombre{font-weight:700;margin-top:8px;text-transform:uppercase;font-size:13px}.juegos{max-width:1000px;margin:50px auto;background:#fff;padding:24px;border-radius:16px}.juego{margin:20px 0;padding:18px;border:2px dashed #26a69a;border-radius:12px}.opciones{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px}.opciones img{width:100px;height:100px;object-fit:contain;background:#e0f2f1;padding:8px;border-radius:12px;cursor:pointer}.opciones button{padding:10px 16px;border:none;background:#e0f2f1;border-radius:8px;font-weight:bold;cursor:pointer;text-transform:uppercase}</style>
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>BLOQUE 8 - ROPA</title>
+<style>
+body{font-family:'Segoe UI',sans-serif;background:#e6fffa;margin:0;padding:16px}
+.header-top{max-width:1100px;margin:auto;display:flex;align-items:center;gap:12px}
+.volver{background:white;padding:8px 14px;border-radius:20px;text-decoration:none;color:#4a4ae0;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+h1{color:#0f766e;text-align:center;flex:1;margin:0}
+.sub{max-width:1100px;margin:12px auto;background:#0f766e;color:white;text-align:center;padding:10px;border-radius:10px;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;max-width:1100px;margin:18px auto}
+.card{background:white;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.08);overflow:hidden;text-align:center;padding-bottom:10px}
+.card img{width:100%;height:140px;object-fit:cover}
+.card h3{margin:8px 0 2px;font-size:15px}
+.card button{margin:4px;background:#0f766e;color:white;border:none;padding:6px 12px;border-radius:8px;cursor:pointer}
+.games{max-width:1100px;margin:24px auto;background:white;border-radius:16px;padding:16px}
+.game-box{border:2px dashed #0f766e;border-radius:12px;padding:16px;margin:12px 0;text-align:center}
+</style></head>
 <body>
-<a href="../../index.html" style="background:#fff;padding:6px 14px;border-radius:20px;text-decoration:none">← Volver</a>
-<h1>👕 BLOQUE 8 - ROPA</h1>
-<p style="text-align:center;background:#00897b;color:#fff;padding:8px;border-radius:8px;max-width:600px;margin:10px auto">26 fotos reales + 26 audios 🔊</p>
+<div class="header-top"><a class="volver" href="../index.html">← Volver</a><h1>👕 BLOQUE 8 - ROPA</h1></div>
+<div class="sub" id="subtitulo"></div>
 <div class="grid" id="grid"></div>
-<div class="juegos"><h2 style="text-align:center;color:#00695c">🎮 Juegos finales</h2>
-<div class="juego"><h3>1️⃣ 🔊 Adivina por el AUDIO</h3><button onclick="nuevoAudio()" style="background:#00897b;color:#fff;padding:10px 18px;border:none;border-radius:8px">🔊 Escuchar</button><div class="opciones" id="optAudio"></div><p id="resAudio" style="text-align:center;font-weight:bold"></p></div>
-<div class="juego"><h3>2️⃣ 🖼️ Adivina por la IMAGEN</h3><div id="imgGrande" style="text-align:center"></div><div class="opciones" id="optImagen"></div><p id="resImagen" style="text-align:center;font-weight:bold"></p><button onclick="nuevaImagen()" style="background:#00897b;color:#fff;padding:10px 18px;border:none;border-radius:8px">Siguiente ▶️</button></div></div>
+<div class="games">
+<h2>🎮 Juegos finales</h2>
+<div class="game-box"><h3>1️⃣ 🔊 Adivina por el AUDIO</h3><p id="audio-question"></p><button onclick="playGameAudio()">🔊 Escuchar</button><div id="audio-options"></div><p id="audio-result"></p><button onclick="nextAudioGame()">Siguiente ▶️</button></div>
+<div class="game-box"><h3>2️⃣ 🖼️ Adivina por la IMAGEN</h3><img id="game-img" style="width:200px;height:140px;object-fit:cover;border-radius:10px;display:none"><p id="img-question"></p><div id="img-options"></div><p id="img-result"></p><button onclick="nextImgGame()">Siguiente ▶️</button></div>
+</div>
 <script>
-function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t.toLowerCase());u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
-const listaGlobal=[
-{file:"abrigo.jpg",texto:"abrigo"},{file:"bañador.jpg",texto:"bañador"},{file:"blusa.jpg",texto:"blusa"},
-{file:"bolso.jpg",texto:"bolso"},{file:"botas.jpg",texto:"botas"},{file:"bufanda.jpg",texto:"bufanda"},
-{file:"calcetines.jpg",texto:"calcetines"},{file:"camisa.jpg",texto:"camisa"},{file:"camiseta.jpg",texto:"camiseta"},
-{file:"cazadora.jpg",texto:"cazadora"},{file:"chanclas.jpg",texto:"chanclas"},{file:"chandal.jpg",texto:"chandal"},
-{file:"gorra.jpg",texto:"gorra"},{file:"guantes.jpg",texto:"guantes"},{file:"jersey.jpg",texto:"jersey"},
-{file:"pantalon.jpg",texto:"pantalon"},{file:"pijama.jpg",texto:"pijama"},{file:"reloj.jpg",texto:"reloj"},
-{file:"sombrero.jpg",texto:"sombrero"},{file:"sudadera.jpg",texto:"sudadera"},{file:"traje.jpg",texto:"traje"},
-{file:"uniforme.jpg",texto:"uniforme"},{file:"vaqueros.jpg",texto:"vaqueros"},{file:"vestido.jpg",texto:"vestido"},
-{file:"zapatillas.jpg",texto:"zapatillas"},{file:"zapatos.jpg",texto:"zapatos"}
+const IMG_BASE="https://cdn.jsdelivr.net/gh/E-R-F12/LEO-Y-APRENDO@main/vocabulario-realista/imagenes/bloque-8-ropa/";
+const AUDIO_BASE="https://cdn.jsdelivr.net/gh/E-R-F12/LEO-Y-APRENDO@main/vocabulario-realista/audios/bloque-8-ropa/";
+const items=[
+{file:"abrigo.jpg",name:"Abrigo"},{file:"blusa.jpg",name:"Blusa"},{file:"bolso.jpg",name:"Bolso"},{file:"botas.jpg",name:"Botas"},{file:"bufanda.jpg",name:"Bufanda"},{file:"calcetines.jpg",name:"Calcetines"},{file:"camisa.jpg",name:"Camisa"},{file:"camiseta.jpg",name:"Camiseta"},{file:"cazadora.jpg",name:"Cazadora"},{file:"cinturon.jpg",name:"Cinturón"},{file:"corbata.jpg",name:"Corbata"},{file:"falda.jpg",name:"Falda"},{file:"gorra.jpg",name:"Gorra"},{file:"gorro.jpg",name:"Gorro"},{file:"guantes.jpg",name:"Guantes"},{file:"jersey.jpg",name:"Jersey"},{file:"pantalon.jpg",name:"Pantalón"},{file:"pantalon-corto.jpg",name:"Pantalón corto"},{file:"pijama.jpg",name:"Pijama"},{file:"sandalias.jpg",name:"Sandalias"},{file:"sombrero.jpg",name:"Sombrero"},{file:"sudadera.jpg",name:"Sudadera"},{file:"traje.jpg",name:"Traje"},{file:"vaqueros.jpg",name:"Vaqueros"},{file:"vestido.jpg",name:"Vestido"},{file:"zapatillas.jpg",name:"Zapatillas"},{file:"banador.jpg",name:"Bañador"}
 ];
+document.getElementById('subtitulo').textContent=items.length+' fotos reales + '+items.length+' audios 🔊';
 const grid=document.getElementById('grid');
-listaGlobal.forEach((o,i)=>{
-  let d=document.createElement('div');d.className='card';
-  let src=RAW+encodeURIComponent(o.file);
-  d.innerHTML=`<img src="${src}" onerror="this.src='${src}'"><div class="nombre">${i+1}. ${o.texto}</div>`;
-  d.onclick=()=>hablar(o.texto);
-  grid.appendChild(d);
+items.forEach(it=>{
+ const div=document.createElement('div');div.className='card';
+ div.innerHTML=`<img src="${IMG_BASE+it.file}" loading="lazy"><h3>${it.name}</h3><button onclick="playAudio('${it.file.replace('.jpg','.mp3')}')">🔊 Escuchar</button>`;
+ grid.appendChild(div);
 });
-function mezclar(a){return a.sort(()=>Math.random()-0.5)}
-let actualAudio=null;function nuevoAudio(){let opts=mezclar([...listaGlobal]).slice(0,4);actualAudio=opts[Math.floor(Math.random()*4)];hablar(actualAudio.texto);let c=document.getElementById('optAudio');c.innerHTML='';document.getElementById('resAudio').textContent='';opts.forEach(o=>{let img=document.createElement('img');img.src=RAW+encodeURIComponent(o.file);img.onclick=()=>{if(o.file===actualAudio.file){document.getElementById('resAudio').textContent='✅ ¡Correcto! '+actualAudio.texto.toUpperCase();setTimeout(nuevoAudio,1500)}else{document.getElementById('resAudio').textContent='❌ Prueba otra'}};c.appendChild(img)})}
-let actualImagen=null;function nuevaImagen(){let opts=mezclar([...listaGlobal]).slice(0,4);actualImagen=opts[Math.floor(Math.random()*4)];document.getElementById('imgGrande').innerHTML=`<img src="${RAW+encodeURIComponent(actualImagen.file)}" style="width:160px;height:160px;object-fit:contain;background:#e0f2f1;padding:10px;border-radius:12px"><p><button onclick="hablar('${actualImagen.texto}')" style="background:#00897b;color:#fff;padding:6px 14px;border:none;border-radius:20px">🔊 Escuchar</button></p>`;let c=document.getElementById('optImagen');c.innerHTML='';document.getElementById('resImagen').textContent='';mezclar(opts).forEach(o=>{let b=document.createElement('button');b.textContent=o.texto;b.onclick=()=>{if(o.file===actualImagen.file){b.style.background='#2e7d32';b.style.color='#fff';document.getElementById('resImagen').textContent='✅ ¡Muy bien!'}else{b.style.background='#c62828';b.style.color='#fff';document.getElementById('resImagen').textContent='❌ Era '+actualImagen.texto.toUpperCase()}};c.appendChild(b)})}
-nuevoAudio();nuevaImagen();
-</script>
-</body>
-</html>
+function playAudio(mp3){
+ const a=new Audio(AUDIO_BASE+mp3);
+ a.play().catch(()=>{
+   const utter=new SpeechSynthesisUtterance(mp3.replace('.mp3','').replace(/-/g,' '));
+   utter.lang='es-ES';speechSynthesis.speak(utter);
+ });
+}
+let currentAudio=null;
+function nextAudioGame(){
+ const rnd=items[Math.floor(Math.random()*items.length)];currentAudio=rnd;
+ document.getElementById('audio-question').textContent='¿Qué prenda es?';
+ document.getElementById('audio-result').textContent='';
+ let opts=[...items].sort(()=>0.5-Math.random()).slice(0,4);
+ if(!opts.find(o=>o.name===rnd.name)) opts[0]=rnd;
+ opts.sort(()=>0.5-Math.random());
+ document.getElementById('audio-options').innerHTML=opts.map(o=>`<button onclick="checkAudio('${o.name}')">${o.name}</button> `).join('');
+ playGameAudio();
+}
+function playGameAudio(){if(currentAudio) playAudio(currentAudio.file.replace('.jpg','.mp3'))}
+function checkAudio(name){
+ const res=document.getElementById('audio-result');
+ if(name===currentAudio.name){res.textContent='✅ ¡Correcto! Es '+currentAudio.name;res.style.color='green'}else{res.textContent='❌ Era '+currentAudio.name;res.style.color='red'}
+}
+nextAudioGame();
+let currentImg=null;
+function nextImgGame(){
+ const rnd=items[Math.floor(Math.random()*items.length)];currentImg=rnd;
+ document.getElementById('game-img').src=IMG_BASE+rnd.file;
+ document.getElementById('game-img').style.display='inline-block';
+ document.getElementById('img-question').textContent='¿Qué prenda ves?';
+ document.getElementById('img-result').textContent='';
+ let opts=[...items].sort(()=>0.5-Math.random()).slice(0,4);
+ if(!opts.find(o=>o.name===rnd.name)) opts[0]=rnd;
+ opts.sort(()=>0.5-Math.random());
+ document.getElementById('img-options').innerHTML=opts.map(o=>`<button onclick="checkImg('${o.name}')">${o.name}</button> `).join('');
+}
+function checkImg(name){
+ const res=document.getElementById('img-result');
+ if(name===currentImg.name){res.textContent='✅ ¡Correcto!';res.style.color='green'}else{res.textContent='❌ Era '+currentImg.name;res.style.color='red'}
+}
+nextImgGame();
+</script></body></html>
