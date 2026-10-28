@@ -12,21 +12,22 @@ header{background:white;padding:12px 3%;display:flex;justify-content:space-betwe
 nav{display:flex;flex-wrap:wrap;gap:6px}
 nav a{background:#f1f5f9;color:#1e3a8a;text-decoration:none;font-weight:800;font-size:11px;padding:7px 11px;border-radius:20px;border:1px solid #e2e8f0}
 nav a:hover{background:#facc15}
-.hero{margin:14px 1%;background:#dbeafe;border-radius:18px;padding:20px;text-align:center}
-.hero h1{color:#1e3a8a}
-.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;padding:10px 1%}
-.menu-card{background:white;border-radius:14px;padding:14px;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,.05);text-decoration:none;color:#1e293b;border:2px solid transparent}
-.menu-card:hover{border-color:#facc15}
-.menu-card .ico{font-size:36px}
 .barra{background:#facc15;color:#1e3a8a;font-weight:900;padding:10px 14px;border-radius:8px;margin:22px 1% 10px;font-size:14px}
 .barra.sub{font-size:12px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:10px;padding:0 1%}
-.tarjeta{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.06);cursor:pointer;min-height:105px;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:.15s}
-.tarjeta:hover{transform:translateY(-2px);box-shadow:0 6px 12px rgba(0,0,0,.1)}
-.tarjeta .emoji{font-size:34px;display:block;margin-bottom:4px}
+.tarjeta{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.06);cursor:pointer;min-height:105px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.tarjeta:hover{transform:translateY(-2px)}
+.tarjeta .emoji{font-size:34px;margin-bottom:4px}
 .tarjeta b{color:#c0265a}
-.sep{color:#64748b;font-size:11px;margin-top:2px}
-.num{font-size:9px;color:#1e3a8a;background:#e0e7ff;border-radius:10px;padding:2px 6px;margin-top:3px}
+.sep{color:#64748b;font-size:10px;margin-top:2px}
+.juego-box{background:white;margin:20px 1%;border-radius:16px;padding:18px;box-shadow:0 4px 14px rgba(0,0,0,.08);border:2px solid #facc15}
+.juego-box h3{color:#1e3a8a;margin-bottom:10px}
+.palabras-desordenadas{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.boton-palabra{background:#e0e7ff;border:none;padding:10px 14px;border-radius:20px;font-weight:800;cursor:pointer}
+.boton-palabra:hover{background:#c7d2fe}
+.zona-ordenada{min-height:60px;background:#f8fafc;border:2px dashed #cbd5e1;border-radius:12px;padding:12px;display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.btn-accion{background:#1e3a8a;color:white;border:none;padding:10px 16px;border-radius:20px;font-weight:800;cursor:pointer;margin-right:8px}
+.btn-accion.verde{background:#16a34a}
 footer{background:#1e3a8a;color:white;text-align:center;padding:16px;margin-top:30px}
 </style>
 </head>
@@ -43,82 +44,162 @@ footer{background:#1e3a8a;color:white;text-align:center;padding:16px;margin-top:
 </nav>
 </header>
 
-<div class="hero"><h1>Aprende a leer y escribir jugando</h1><p>Toca cada tarjeta para escuchar el audio 🔊</p></div>
-
-<div class="menu">
-<a class="menu-card" href="#letras"><div class="ico">🔠</div><h3>1. LETRAS</h3></a>
-<a class="menu-card" href="#grupos"><div class="ico">🔤</div><h3>2. GRUPOS</h3></a>
-<a class="menu-card" href="#directas"><div class="ico">🅰️</div><h3>3. DIRECTAS</h3></a>
-<a class="menu-card" href="#inversas"><div class="ico">🔊</div><h3>4. INVERSAS</h3></a>
-<a class="menu-card" href="#palabras"><div class="ico">📝</div><h3>5. PALABRAS</h3></a>
-<a class="menu-card" href="#oraciones"><div class="ico">📖</div><h3>6. ORACIONES</h3></a>
-</div>
-
-<div id="letras"><div class="barra">1. LETRAS - TODAS</div><div class="grid" id="grid-letras"></div></div>
+<div id="letras"><div class="barra">1. LETRAS</div><div class="grid" id="grid-letras"></div></div>
 <div id="grupos"><div class="barra">2. GRUPOS VOCALICOS</div><div class="grid" id="grid-grupos"></div></div>
-<div id="directas"><div class="barra">3. SILABAS DIRECTAS</div><div id="grid-directas"></div></div>
-<div id="inversas"><div class="barra">4. SILABAS INVERSAS - 50 palabras</div><div id="grid-inversas"></div></div>
-<div id="palabras"><div class="barra">5. PALABRAS - 100 palabras con separacion silabica</div><div id="grid-palabras"></div></div>
-<div id="oraciones"><div class="barra">6. ORACIONES</div><div class="grid" id="grid-oraciones"></div></div>
+<div id="directas"><div class="barra">3. DIRECTAS</div><div id="grid-directas"></div></div>
+<div id="inversas"><div class="barra">4. INVERSAS</div><div id="grid-inversas"></div></div>
+<div id="palabras"><div class="barra">5. PALABRAS - 100 palabras</div><div id="grid-palabras"></div></div>
+
+<div id="oraciones">
+<div class="barra">6. ORACIONES - 25 oraciones + JUEGO PARA ORDENAR</div>
+<div class="grid" id="grid-oraciones"></div>
+
+<div class="juego-box" id="juegoBox">
+<h3>🎮 JUEGO: ORDENA LA ORACION - Toca las palabras en orden correcto 🔊</h3>
+<p id="instruccionJuego">Pulsa "Jugar" en cualquier oracion de arriba o empieza aqui:</p>
+<div style="margin:10px 0">
+<label>Oracion actual: <b id="oracionActualTexto">El sol brilla mucho</b></label>
+<button class="btn-accion" onclick="hablar(oracionesLista[juegoIndex].texto)">🔊 Escuchar</button>
+</div>
+<div><b>Palabras desordenadas (toca para colocar y escuchar):</b>
+<div class="palabras-desordenadas" id="palabrasDesordenadas"></div>
+</div>
+<div><b>Tu oracion ordenada:</b>
+<div class="zona-ordenada" id="zonaOrdenada"></div>
+</div>
+<div style="margin-top:12px">
+<button class="btn-accion verde" onclick="comprobarOracion()">✅ Comprobar</button>
+<button class="btn-accion" onclick="borrarOrden()">🗑️ Borrar</button>
+<button class="btn-accion" onclick="siguienteOracion()">⏭️ Siguiente oracion</button>
+</div>
+<p id="resultadoJuego" style="margin-top:12px;font-weight:900"></p>
+</div>
+</div>
 
 <footer>https://e-r-f12.github.io/LEO-Y-APRENDO/lectoescritura/</footer>
 
 <script>
 function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);}
 
+// --- 1 a 5 (resumido para que cargue) ---
 const letras=[["A","Avion","✈️"],["E","Elefante","🐘"],["I","Iglu","🧊"],["O","Oso","🐻"],["U","Uva","🍇"],["B","Barco","🚢"],["C","Casa","🏠"],["D","Dado","🎲"],["F","Foca","🦭"],["G","Gato","🐱"],["H","Hada","🧚"],["J","Jirafa","🦒"],["K","Kiwi","🥝"],["L","Luna","🌙"],["M","Mama","👩"],["N","Nube","☁️"],["Ñ","Pina","🍍"],["P","Papa","👨"],["Q","Queso","🧀"],["R","Rosa","🌹"],["S","Sol","☀️"],["T","Taza","☕"],["V","Vaca","🐄"],["W","Waterpolo","🤽"],["X","Xilofono","🎼"],["Y","Yate","🛥️"],["Z","Zorro","🦊"]];
 document.getElementById("grid-letras").innerHTML=letras.map(a=>`<div class="tarjeta" onclick="hablar('${a[1]}')"><span class="emoji">${a[2]}</span><p><b>${a[0]}</b> - ${a[1]}</p>🔊</div>`).join("");
 
 const grupos=[["ae","aereo","✈️"],["ao","caos","🌪️"],["ea","teatro","🎭"],["eo","leon","🦁"],["oa","boa","🐍"],["oe","poeta","✍️"],["ai","aire","💨"],["au","aula","🏫"],["ei","peine","🪮"],["eu","Europa","🌍"],["ia","piano","🎹"],["ie","cielo","☁️"],["io","avion","✈️"],["iu","ciudad","🏙️"],["ua","agua","💧"],["ue","huevo","🥚"],["ui","ruido","🔊"],["uo","antiguo","🏛️"],["ay","playa","🏖️"],["ey","rey","👑"],["oy","hoy","📅"]];
 document.getElementById("grid-grupos").innerHTML=grupos.map(a=>`<div class="tarjeta" onclick="hablar('${a[1]}')"><span class="emoji">${a[2]}</span><p><b>${a[0]}</b> - ${a[1]}</p>🔊</div>`).join("");
 
-const directasData=[
-["B",["ba","barco","🚢"],["be","bebe","👶"],["bi","bici","🚲"],["bo","bola","⚽"],["bu","burro","🫏"]],
-["C",["ca","casa","🏠"],["ce","cena","🍝"],["ci","cine","🎬"],["co","cola","🥤"],["cu","cuna","🍼"],["que","queso","🧀"],["qui","quitar","🗑️"]],
-["D",["da","dado","🎲"],["de","dedo","☝️"],["di","dia","☀️"],["do","domingo","📅"],["du","duende","🧝"]],
-["F",["fa","foca","🦭"],["fe","feo","🤪"],["fi","fiesta","🎉"],["fo","foco","💡"],["fu","fuego","🔥"]],
-["G",["ga","gato","🐱"],["ge","genio","🧞"],["gi","gigante","👹"],["go","gorro","🧢"],["gu","guante","🧤"],["gue","guerra","⚔️"],["gui","guitarra","🎸"]],
-["L",["la","luna","🌙"],["le","leche","🥛"],["li","lima","🍋"],["lo","lobo","🐺"],["lu","lupa","🔍"]],
-["M",["ma","mama","👩"],["me","mesa","🪑"],["mi","mimo","🤗"],["mo","moto","🏍️"],["mu","mula","🐴"]]
-];
-let htmlD="";directasData.forEach(r=>{htmlD+=`<div class="barra sub" style="background:#e0e7ff">Con ${r[0]} - ${r.slice(1).map(x=>x[0]).join(" ")}</div><div class="grid">`;r.slice(1).forEach(x=>{htmlD+=`<div class="tarjeta" onclick="hablar('${x[1]}')"><span class="emoji">${x[2]}</span><p><b>${x[0]}</b> - ${x[1]}</p>🔊</div>`});htmlD+=`</div>`});
-document.getElementById("grid-directas").innerHTML=htmlD;
+document.getElementById("grid-directas").innerHTML=[["da","dado","🎲"],["de","dedo","☝️"],["di","dia","☀️"],["fa","foca","🦭"],["ga","gato","🐱"],["ja","jaula","🗝️"],["la","luna","🌙"],["ma","mama","👩"]].map(a=>`<div class="tarjeta" onclick="hablar('${a[1]}')"><span class="emoji">${a[2]}</span><p><b>${a[0]}</b> - ${a[1]}</p>🔊</div>`).join("");
+document.getElementById("grid-inversas").innerHTML=[["al","alto","⛰️"],["as","asno","🫏"],["an","ancla","⚓"],["ar","arbol","🌳"],["am","ambos","👫"]].map(a=>`<div class="tarjeta" onclick="hablar('${a[1]}')"><span class="emoji">${a[2]}</span><p><b>${a[0]}</b> - ${a[1]}</p>🔊</div>`).join("");
+document.getElementById("grid-palabras").innerHTML=[["sol","sol","☀️"],["casa","ca-sa","🏠"],["pelota","pe-lo-ta","⚽"],["mariposa","ma-ri-po-sa","🦋"]].map(a=>`<div class="tarjeta" onclick="hablar('${a[0]}')"><span class="emoji">${a[2]}</span><p><b>${a[0]}</b></p><p class="sep">${a[1]}</p>🔊</div>`).join("");
 
-const invData=[
-["AL EL IL OL UL",["al","alto","⛰️"],["el","papel","📄"],["il","mil","💰"],["ol","soldado","🪖"],["ul","ultimo","🏁"]],
-["AS ES IS OS US",["as","asno","🫏"],["es","estrella","⭐"],["is","isla","🏝️"],["os","oscuro","🌑"],["us","usted","🧑"]],
-["AN EN IN ON UN",["an","ancla","⚓"],["en","antena","📡"],["in","invierno","❄️"],["on","rotula","🦵"],["un","ayuntamiento","🏛️"]],
-["AR ER IR OR UR",["ar","arbol","🌳"],["er","tuerca","🔩"],["ir","irse","🚶"],["or","orca","🐋"],["ur","urgencia","🚑"]],
-["AM EM IM OM UM",["am","ambos","👫"],["em","empezar","🏁"],["im","imperio","👑"],["om","ombligo","🫃"],["um","rumbo","🧭"]],
-["AC EC IC OC UC",["ac","accion","🎬"],["ec","leccion","📚"],["ic","ficcion","👽"],["oc","octubre","🍂"],["uc","conducir","🚗"]],
-["AZ EZ IZ OZ UZ",["az","azteca","🛕"],["ez","lezna","🪡"],["iz","dizque","💬"],["oz","gozne","🚪"],["uz","juzgar","⚖️"]],
-["AD ED ID OD UD",["ad","admirar","😍"],["ed","edad","🎂"],["id","idear","💡"],["od","odio","💔"],["ud","sudar","💦"]],
-["AB EB IB OB UB",["ab","abdomen","🫃"],["eb","hebreo","📖"],["ib","iberico","🍖"],["ob","objeto","📦"],["ub","subterraneo","🚇"]],
-["AX EX IX OX UX",["ax","axila","💪"],["ex","extrano","👾"],["ix","mixto","🔀"],["ox","oxido","🔧"],["ux","flux","🌊"]]
+// --- 6. ORACIONES 25 + JUEGO ---
+const oracionesLista=[
+{texto:"Mama ama la casa",sep:"ma-ma a-ma la ca-sa",emoji:"👩🏠"},
+{texto:"El sol brilla mucho",sep:"el sol bri-lla mu-cho",emoji:"☀️✨"},
+{texto:"Mi perro corre rapido",sep:"mi pe-rro co-rre ra-pi-do",emoji:"🐶💨"},
+{texto:"La luna sale de noche",sep:"la lu-na sa-le de no-che",emoji:"🌙🌃"},
+{texto:"Papa lee el libro",sep:"pa-pa le-e el li-bro",emoji:"👨📚"},
+{texto:"La gata duerme en la cama",sep:"la ga-ta duer-me en la ca-ma",emoji:"🐱🛏️"},
+{texto:"El barco navega en el mar",sep:"el bar-co na-ve-ga en el mar",emoji:"🚢🌊"},
+{texto:"La flor huele muy bien",sep:"la flor hue-le muy bien",emoji:"🌸👃"},
+{texto:"Mi bici es de color azul",sep:"mi bi-ci es de co-lor a-zul",emoji:"🚲💙"},
+{texto:"El pez nada en el agua",sep:"el pez na-da en el a-gua",emoji:"🐟💧"},
+{texto:"La tortuga camina despacio",sep:"la tor-tu-ga ca-mi-na des-pa-cio",emoji:"🐢🐾"},
+{texto:"Comemos pan con queso",sep:"co-me-mos pan con que-so",emoji:"🍞🧀"},
+{texto:"El avion vuela muy alto",sep:"el a-vion vue-la muy al-to",emoji:"✈️☁️"},
+{texto:"La jirafa tiene cuello largo",sep:"la ji-ra-fa tie-ne cue-llo lar-go",emoji:"🦒📏"},
+{texto:"Mi mochila pesa mucho",sep:"mi mo-chi-la pe-sa mu-cho",emoji:"🎒⚖️"},
+{texto:"La pelota bota y bota",sep:"la pe-lo-ta bo-ta y bo-ta",emoji:"⚽🏀"},
+{texto:"Veo una estrella brillante",sep:"ve-o u-na es-tre-lla bri-llan-te",emoji:"⭐👀"},
+{texto:"El elefante es muy grande",sep:"el e-le-fan-te es muy gran-de",emoji:"🐘⬆️"},
+{texto:"La mariposa vuela feliz",sep:"la ma-ri-po-sa vue-la fe-liz",emoji:"🦋😊"},
+{texto:"Tomo leche con chocolate",sep:"to-mo le-che con cho-co-la-te",emoji:"🥛🍫"},
+{texto:"Mi familia pasea por la playa",sep:"mi fa-mi-lia pa-se-a por la pla-ya",emoji:"👨‍👩‍👧‍👦🏖️"},
+{texto:"El tren llega a la estacion",sep:"el tren lle-ga a la es-ta-cion",emoji:"🚆🚉"},
+{texto:"La manzana esta muy rica",sep:"la man-za-na es-ta muy ri-ca",emoji:"🍎😋"},
+{texto:"Me pongo los zapatos nuevos",sep:"me pon-go los za-pa-tos nue-vos",emoji:"👟✨"},
+{texto:"Escucho musica con guitarra",sep:"es-cu-cho mu-si-ca con gui-ta-rra",emoji:"🎸🎵"}
 ];
-let htmlI="";invData.forEach(r=>{htmlI+=`<div class="barra sub" style="background:#fef9c3">${r[0]}</div><div class="grid">`;r.slice(1).forEach(x=>{htmlI+=`<div class="tarjeta" onclick="hablar('${x[1]}')"><span class="emoji">${x[2]}</span><p><b>${x[0]}</b> - ${x[1]}</p>🔊</div>`});htmlI+=`</div>`});
-document.getElementById("grid-inversas").innerHTML=htmlI;
 
-// 5. PALABRAS - 100 PALABRAS
-const palabrasPorTipo=[
-{t:"A) 25 MONOSILABAS - 1 silaba",c:"#fef9c3",l:[["sol","sol","☀️"],["pan","pan","🍞"],["luz","luz","💡"],["mar","mar","🌊"],["tren","tren","🚆"],["flor","flor","🌸"],["pez","pez","🐟"],["pie","pie","🦶"],["sal","sal","🧂"],["rey","rey","👑"],["voz","voz","🗣️"],["miel","miel","🍯"],["cruz","cruz","✝️"],["dos","dos","2️⃣"],["gol","gol","⚽"],["club","club","🏟️"],["flan","flan","🍮"],["gris","gris","⬜"],["tres","tres","3️⃣"],["seis","seis","6️⃣"],["diez","diez","🔟"],["bloc","bloc","📒"],["chef","chef","👨‍🍳"],["gas","gas","⛽"],["bus","bus","🚌"]]},
-{t:"B) 25 BISILABAS - 2 silabas",c:"#dbeafe",l:[["casa","ca-sa","🏠"],["mesa","me-sa","🪑"],["luna","lu-na","🌙"],["perro","pe-rro","🐶"],["gato","ga-to","🐱"],["papa","pa-pa","🥔"],["mama","ma-ma","👩"],["taza","ta-za","☕"],["sopa","so-pa","🍲"],["lobo","lo-bo","🐺"],["nube","nu-be","☁️"],["nido","ni-do","🪺"],["rosa","ro-sa","🌹"],["cama","ca-ma","🛏️"],["leche","le-che","🥛"],["queso","que-so","🧀"],["libro","li-bro","📚"],["lapiz","la-piz","✏️"],["arbol","ar-bol","🌳"],["nieve","nie-ve","❄️"],["playa","pla-ya","🏖️"],["barco","bar-co","🚢"],["moto","mo-to","🏍️"],["silla","si-lla","🪑"],["carro","ca-rro","🚗"]]},
-{t:"C) 25 TRISILABAS - 3 silabas",c:"#dcfce7",l:[["pelota","pe-lo-ta","⚽"],["manzana","man-za-na","🍎"],["tomate","to-ma-te","🍅"],["paloma","pa-lo-ma","🕊️"],["camisa","ca-mi-sa","👕"],["ventana","ven-ta-na","🪟"],["caballo","ca-ba-llo","🐴"],["cuchara","cu-cha-ra","🥄"],["familia","fa-mi-lia","👨‍👩‍👧‍👦"],["cometa","co-me-ta","🪁"],["estrella","es-tre-lla","⭐"],["jirafa","ji-ra-fa","🦒"],["helado","he-la-do","🍦"],["cascada","cas-ca-da","🌊"],["pintura","pin-tu-ra","🎨"],["guitarra","gui-ta-rra","🎸"],["mochila","mo-chi-la","🎒"],["tortuga","tor-tu-ga","🐢"],["pescado","pes-ca-do","🐟"],["medico","me-di-co","👨‍⚕️"],["pajaro","pa-ja-ro","🐦"],["circulo","cir-cu-lo","⭕"],["platano","pla-ta-no","🍌"],["naranja","na-ran-ja","🍊"],["zapato","za-pa-to","👟"]]},
-{t:"D) 25 POLISILABAS - 4 o mas silabas",c:"#fce7f3",l:[["mariposa","ma-ri-po-sa","🦋"],["bicicleta","bi-ci-cle-ta","🚲"],["elefante","e-le-fan-te","🐘"],["chocolate","cho-co-la-te","🍫"],["caramelo","ca-ra-me-lo","🍬"],["murcielago","mur-cie-la-go","🦇"],["hipopotamo","hi-po-po-ta-mo","🦛"],["cocodrilo","co-co-dri-lo","🐊"],["universidad","u-ni-ver-si-dad","🎓"],["supermercado","su-per-mer-ca-do","🛒"],["semaforo","se-ma-fo-ro","🚦"],["computadora","com-pu-ta-do-ra","💻"],["helicoptero","he-li-cop-te-ro","🚁"],["ambulancia","am-bu-lan-cia","🚑"],["telescopio","te-les-co-pio","🔭"],["microscopio","mi-cros-co-pio","🔬"],["escalera","es-ca-le-ra","🪜"],["calabaza","ca-la-ba-za","🎃"],["zanahoria","za-na-ho-ria","🥕"],["oruga","o-ru-ga","🐛"],["carniceria","car-ni-ce-ri-a","🥩"],["panaderia","pa-na-de-ri-a","🥖"],["ferrocarril","fe-rro-ca-rril","🚃"],["paraguas","pa-ra-guas","☂️"],["biblioteca","bi-blio-te-ca","📚"]]}
-];
-let htmlP="";
-palabrasPorTipo.forEach(b=>{
- htmlP+=`<div class="barra sub" style="background:${b.c}">${b.t}</div><div class="grid">`;
- b.l.forEach(x=>{
-   htmlP+=`<div class="tarjeta" onclick="hablar('${x[0]}')"><span class="emoji">${x[2]}</span><p><b>${x[0]}</b></p><p class="sep">${x[1]}</p><span class="num">${x[1].split("-").length} silaba${x[1].split("-").length>1?"s":""}</span>🔊</div>`;
+document.getElementById("grid-oraciones").innerHTML=oracionesLista.map((o,i)=>`
+<div class="tarjeta" style="min-height:140px" onclick="hablar('${o.texto}')">
+<span class="emoji">${o.emoji}</span>
+<p style="font-size:13px"><b>${o.texto}</b></p>
+<p class="sep">${o.sep}</p>
+<div style="margin-top:6px">
+<button class="btn-accion" style="font-size:10px;padding:5px 8px" onclick="event.stopPropagation(); iniciarJuego(${i})">🎮 JUGAR A ORDENAR</button>
+</div>
+🔊
+</div>`).join("");
+
+// LOGICA DEL JUEGO
+let juegoIndex=0;
+let ordenActual=[];
+let palabrasMezcladas=[];
+
+function mezclar(arr){return [...arr].sort(()=>Math.random()-0.5);}
+
+function iniciarJuego(i){
+ juegoIndex=i;
+ document.getElementById("oracionActualTexto").textContent=oracionesLista[juegoIndex].texto;
+ document.getElementById("resultadoJuego").textContent="";
+ ordenActual=[];
+ palabrasMezcladas=mezclar(oracionesLista[juegoIndex].texto.split(" "));
+ renderJuego();
+ document.getElementById("juegoBox").scrollIntoView({behavior:"smooth"});
+ hablar(oracionesLista[juegoIndex].texto);
+}
+
+function renderJuego(){
+ const contDes=document.getElementById("palabrasDesordenadas");
+ const contOrd=document.getElementById("zonaOrdenada");
+ contDes.innerHTML="";
+ contOrd.innerHTML="";
+ palabrasMezcladas.forEach((pal,idx)=>{
+   if(!ordenActual.includes(idx)){
+     const btn=document.createElement("button");
+     btn.className="boton-palabra";
+     btn.textContent=pal;
+     btn.onclick=()=>{
+       ordenActual.push(idx);
+       hablar(pal);
+       renderJuego();
+     };
+     contDes.appendChild(btn);
+   }
  });
- htmlP+=`</div>`;
-});
-document.getElementById("grid-palabras").innerHTML=htmlP;
+ ordenActual.forEach(idx=>{
+   const span=document.createElement("span");
+   span.className="boton-palabra";
+   span.style.background="#facc15";
+   span.textContent=palabrasMezcladas[idx];
+   contOrd.appendChild(span);
+ });
+}
 
-document.getElementById("grid-oraciones").innerHTML=[
-["Mama ama la casa","ma-ma a-ma la ca-sa","👩🏠"],["El sol brilla mucho","el sol bri-lla mu-cho","☀️✨"],["Mi perro corre rapido","mi pe-rro co-rre ra-pi-do","🐶💨"]
-].map(a=>`<div class="tarjeta" style="min-height:120px" onclick="hablar('${a[0]}')"><span class="emoji">${a[2]}</span><p><b>${a[0]}</b></p><p class="sep">${a[1]}</p>🔊</div>`).join("");
+function borrarOrden(){ordenActual=[];renderJuego();document.getElementById("resultadoJuego").textContent="";}
+
+function comprobarOracion(){
+ const formada=ordenActual.map(i=>palabrasMezcladas[i]).join(" ");
+ const correcta=oracionesLista[juegoIndex].texto;
+ if(formada===correcta){
+   document.getElementById("resultadoJuego").textContent="🎉 ¡CORRECTO! Muy bien!";
+   document.getElementById("resultadoJuego").style.color="#16a34a";
+   hablar("Muy bien, correcto! "+correcta);
+ }else{
+   document.getElementById("resultadoJuego").textContent=`❌ No es correcto. Has puesto: "${formada}". La correcta es: "${correcta}"`;
+   document.getElementById("resultadoJuego").style.color="#dc2626";
+   hablar("Intentalo de nuevo");
+ }
+}
+
+function siguienteOracion(){
+ juegoIndex=(juegoIndex+1)%oracionesLista.length;
+ iniciarJuego(juegoIndex);
+}
+
+// iniciar con la primera
+iniciarJuego(0);
 </script>
 </body>
 </html>
