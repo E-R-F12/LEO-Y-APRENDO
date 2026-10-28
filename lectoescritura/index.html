@@ -8,9 +8,8 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
 body{background:#f6f8fb;color:#1e293b}
 header{background:white;padding:12px 4%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.06);position:sticky;top:0;z-index:99;flex-wrap:wrap;gap:10px}
-.logo{font-weight:900;font-size:24px;color:#1e3a8a} .logo span{color:#f59e0b}
+.logo{font-weight:900;font-size:24px;color:#1e3a8a}
 nav a{margin-left:12px;text-decoration:none;color:#1e3a8a;font-weight:700;font-size:14px}
-nav a.activo{border-bottom:3px solid #facc15}
 .hero{margin:14px 2%;background:#dbeafe;border-radius:18px;padding:24px 3%;text-align:center}
 .hero h1{color:#1e3a8a;font-size:32px}
 .hero p{font-size:17px;margin:8px 0 14px}
@@ -20,14 +19,12 @@ nav a.activo{border-bottom:3px solid #facc15}
 .menu-card:hover{border-color:#facc15;transform:translateY(-3px)}
 .menu-card .ico{font-size:42px}
 .menu-card h3{color:#1e3a8a;font-size:16px;margin:6px 0}
-.menu-card p{font-size:12px;color:#64748b}
 .section{padding:10px 2%}
-.barra{background:#facc15;color:#1e3a8a;font-weight:900;padding:10px 14px;border-radius:8px;margin:22px 0 12px;font-size:15px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:10px}
-.tarjeta{background:white;border-radius:12px;padding:12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06);cursor:pointer;transition:.15s}
-.tarjeta:hover{transform:translateY(-2px)}
+.barra{background:#facc15;color:#1e3a8a;font-weight:900;padding:10px 14px;border-radius:8px;margin:22px 0 12px;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+.tarjeta{background:white;border-radius:10px;padding:9px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.05);cursor:pointer;font-size:13px}
 .tarjeta b{color:#e11d48}
-.tarjeta .emoji{font-size:32px;display:block;margin-bottom:4px}
+.tarjeta .emoji{font-size:28px;display:block}
 footer{background:#1e3a8a;color:white;text-align:center;padding:18px;margin-top:30px;font-size:13px}
 </style>
 </head>
@@ -36,115 +33,104 @@ footer{background:#1e3a8a;color:white;text-align:center;padding:18px;margin-top:
 <header>
 <div class="logo">📖 LEO Y APRENDO</div>
 <nav>
-<a class="activo" href="#">Inicio</a>
-<a href="#letras">Letras</a>
-<a href="#grupos">Grupos</a>
-<a href="#directas">Directas</a>
-<a href="#inversas">Inversas</a>
-<a href="#palabras">Palabras</a>
-<a href="#oraciones">Oraciones</a>
+<a href="#">Inicio</a><a href="#letras">Letras</a><a href="#grupos">Grupos</a><a href="#directas">Directas</a><a href="#inversas">Inversas</a><a href="#palabras">Palabras</a><a href="#oraciones">Oraciones</a>
 </nav>
 </header>
 
 <div class="hero">
 <h1>Aprende a leer y escribir jugando</h1>
 <p>Desde las letras hasta las oraciones. Con audios para infantil y primaria.</p>
-<a class="btn" href="#letras">Empezar por las LETRAS</a>
-<a class="btn" style="background:white;border:2px solid #1e3a8a" href="#inversas">Ver Inversas</a>
 </div>
 
 <div class="menu">
-<a class="menu-card" href="#letras"><div class="ico">🔠</div><h3>1. LETRAS</h3><p>Abecedario completo A-Z</p></a>
-<a class="menu-card" href="#grupos"><div class="ico">🔤</div><h3>2. GRUPOS VOCÁLICOS</h3><p>ae ao ea eo oa oe ai au ei eu ia ie io iu ua ue ui ay ey oy</p></a>
-<a class="menu-card" href="#directas"><div class="ico">🅰️</div><h3>3. SÍLABAS DIRECTAS</h3><p>ma me mi mo mu, pa pe pi...</p></a>
-<a class="menu-card" style="background:#fef9c3;border-color:#facc15" href="#inversas"><div class="ico">🔊</div><h3>4. SÍLABAS INVERSAS</h3><p>50 palabras: AL EL IL OL UL...</p></a>
-<a class="menu-card" href="#palabras"><div class="ico">📝</div><h3>5. PALABRAS</h3><p>De 2, 3 y 4 sílabas</p></a>
-<a class="menu-card" href="#oraciones"><div class="ico">📖</div><h3>6. ORACIONES</h3><p>Frases cortas con dibujos</p></a>
+<a class="menu-card" href="#letras"><div class="ico">🔠</div><h3>1. LETRAS</h3><p>A-Z</p></a>
+<a class="menu-card" href="#grupos"><div class="ico">🔤</div><h3>2. GRUPOS VOCÁLICOS</h3><p>ae ao ea eo ai au ei eu...</p></a>
+<a class="menu-card" style="background:#fef9c3;border-color:#facc15" href="#directas"><div class="ico">🅰️</div><h3>3. SÍLABAS DIRECTAS</h3><p>TODAS: ba ca da fa ga ja la ma na pa...</p></a>
+<a class="menu-card" href="#inversas"><div class="ico">🔊</div><h3>4. INVERSAS</h3><p>50 palabras: AL EL IL...</p></a>
+<a class="menu-card" href="#palabras"><div class="ico">📝</div><h3>5. PALABRAS</h3></a>
+<a class="menu-card" href="#oraciones"><div class="ico">📖</div><h3>6. ORACIONES</h3></a>
 </div>
 
-<div id="letras" class="section">
-<div class="barra">1. LETRAS - El abecedario - Toca para escuchar</div>
-<div class="grid" id="grid-letras"></div>
-</div>
+<div id="letras" class="section"><div class="barra">1. LETRAS</div><div class="grid" id="grid-letras"></div></div>
+<div id="grupos" class="section"><div class="barra">2. GRUPOS VOCÁLICOS - ae ao ea eo oa oe ai au ei eu ia ie io iu ua ue ui ay ey oy</div><div class="grid" id="grid-grupos"></div></div>
+<div id="directas" class="section"><div class="barra">3. SÍLABAS DIRECTAS - TODAS LAS CONSONANTES</div><div id="grid-directas"></div></div>
+<div id="inversas" class="section"><div class="barra">4. SÍLABAS INVERSAS - 50 palabras</div><div id="grid-inversas"></div></div>
+<div id="palabras" class="section"><div class="barra">5. PALABRAS</div><div class="grid" id="grid-palabras"></div></div>
+<div id="oraciones" class="section"><div class="barra">6. ORACIONES</div><div class="grid" id="grid-oraciones"></div></div>
 
-<div id="grupos" class="section">
-<div class="barra">2. GRUPOS VOCÁLICOS - Diptongos e Hiatos: ae ao ea eo oa oe ai au ei eu ia ie io iu ua ue ui ay ey oy</div>
-<div class="grid" id="grid-grupos"></div>
-</div>
-
-<div id="directas" class="section">
-<div class="barra">3. SÍLABAS DIRECTAS - ma me mi mo mu, pa pe pi po pu, la le li lo lu...</div>
-<div class="grid" id="grid-directas"></div>
-</div>
-
-<div id="inversas" class="section">
-<div class="barra">4. SÍLABAS INVERSAS - 50 palabras con iconos - Pulsa para escuchar 🔊</div>
-<div id="grid-inversas"></div>
-</div>
-
-<div id="palabras" class="section">
-<div class="barra">5. PALABRAS</div>
-<div class="grid" id="grid-palabras"></div>
-</div>
-
-<div id="oraciones" class="section">
-<div class="barra">6. ORACIONES - Leo frases</div>
-<div class="grid" id="grid-oraciones"></div>
-</div>
-
-<footer>LEO Y APRENDO © 2024 - Recursos gratuitos de lectoescritura infantil</footer>
+<footer>LEO Y APRENDO © 2024</footer>
 
 <script>
-function hablar(t){speechSynthesis.cancel(); let m=new SpeechSynthesisUtterance(t); m.lang='es-ES'; m.rate=0.9; speechSynthesis.speak(m);}
+function hablar(t){speechSynthesis.cancel();let m=new SpeechSynthesisUtterance(t);m.lang='es-ES';m.rate=0.9;speechSynthesis.speak(m);}
 
-// 1. LETRAS
 const letras=[["A","Avión","✈️"],["E","Elefante","🐘"],["I","Iglú","🧊"],["O","Oso","🐻"],["U","Uva","🍇"],["M","Mamá","👩"],["P","Papá","👨"],["L","Luna","🌙"],["S","Sol","☀️"],["T","Taza","☕"],["N","Nube","☁️"],["D","Dado","🎲"],["R","Rosa","🌹"],["B","Barco","🚢"],["C","Casa","🏠"],["F","Foca","🦭"],["G","Gato","🐱"],["H","Hada","🧚"],["J","Jirafa","🦒"],["Q","Queso","🧀"],["V","Vaca","🐄"],["Y","Yate","🛥️"],["Z","Zorro","🦊"]];
-document.getElementById("grid-letras").innerHTML=letras.map(([l,pal,em])=>`<div class="tarjeta" onclick="hablar('${pal}')"><span class="emoji">${em}</span><p><b>${l}</b> - ${pal}</p>🔊</div>`).join(""));
+document.getElementById("grid-letras").innerHTML=letras.map(([l,pal,em])=>`<div class="tarjeta" onclick="hablar('${pal}')"><span class="emoji">${em}</span><p><b>${l}</b> - ${pal}</p></div>`).join("");
 
-// 2. GRUPOS VOCÁLICOS - CORREGIDO CON AE, AO, EA, EI, EO, OA, OE
-const grupos=[
-["ae","aéreo"],["ao","caos"],["ea","teatro"],["eo","león"],["oa","boa"],["oe","poeta"],
-["ai","aire"],["au","aula"],["ei","peine"],["eu","Europa"],
-["ia","piano"],["ie","cielo"],["io","avión"],["iu","ciudad"],
-["ua","agua"],["ue","huevo"],["ui","ruido"],["uo","antiguo"],
-["ay","playa"],["ey","rey"],["oy","hoy"]
+const grupos=[["ae","aéreo"],["ao","caos"],["ea","teatro"],["eo","león"],["oa","boa"],["oe","poeta"],["ai","aire"],["au","aula"],["ei","peine"],["eu","Europa"],["ia","piano"],["ie","cielo"],["io","avión"],["iu","ciudad"],["ua","agua"],["ue","huevo"],["ui","ruido"],["uo","antiguo"],["ay","playa"],["ey","rey"],["oy","hoy"]];
+document.getElementById("grid-grupos").innerHTML=grupos.map(([g,pal])=>`<div class="tarjeta" onclick="hablar('${pal}')"><p><b>${g}</b> - ${pal}</p>🔊</div>`).join("");
+
+// 3. SÍLABAS DIRECTAS COMPLETAS
+const directasCompletas=[
+{letra:"B - ba be bi bo bu", items:[["ba","barco"],["be","bebé"],["bi","bici"],["bo","bola"],["bu","burro"]]},
+{letra:"C - ca ce ci co cu - que qui", items:[["ca","casa"],["ce","cena"],["ci","cine"],["co","cola"],["cu","cuna"],["que","queso"],["qui","quitar"]]},
+{letra:"D - da de di do du", items:[["da","dado"],["de","dedo"],["di","día"],["do","domingo"],["du","duende"]]},
+{letra:"F - fa fe fi fo fu", items:[["fa","foca"],["fe","feo"],["fi","fiesta"],["fo","foco"],["fu","fuego"]]},
+{letra:"G - ga ge gi go gu - gue gui", items:[["ga","gato"],["ge","genio"],["gi","gigante"],["go","gorro"],["gu","guante"],["gue","guerra"],["gui","guitarra"]]},
+{letra:"H - ha he hi ho hu", items:[["ha","hada"],["he","helado"],["hi","hilo"],["ho","hola"],["hu","huevo"]]},
+{letra:"J - ja je ji jo ju", items:[["ja","jaula"],["je","jefe"],["ji","jirafa"],["jo","joya"],["ju","juguete"]]},
+{letra:"K - ka ke ki ko ku", items:[["ka","karate"],["ke","ketchup"],["ki","kiwi"],["ko","koala"],["ku","kung fu"]]},
+{letra:"L - la le li lo lu", items:[["la","luna"],["le","leche"],["li","lima"],["lo","lobo"],["lu","lupa"]]},
+{letra:"M - ma me mi mo mu", items:[["ma","mamá"],["me","mesa"],["mi","mimo"],["mo","moto"],["mu","mula"]]},
+{letra:"N - na ne ni no nu", items:[["na","nave"],["ne","nene"],["ni","nido"],["no","nota"],["nu","nube"]]},
+{letra:"Ñ - ña ñe ñi ño ñu", items:[["ña","piña"],["ñe","muñeca"],["ñi","niño"],["ño","año"],["ñu","ñu"]]},
+{letra:"P - pa pe pi po pu", items:[["pa","papa"],["pe","pera"],["pi","pino"],["po","polo"],["pu","puma"]]},
+{letra:"R - ra re ri ro ru", items:[["ra","rana"],["re","reloj"],["ri","risa"],["ro","rosa"],["ru","rueda"]]},
+{letra:"S - sa se si so su", items:[["sa","sapo"],["se","seta"],["si","silla"],["so","sopa"],["su","suma"]]},
+{letra:"T - ta te ti to tu", items:[["ta","taza"],["te","tela"],["ti","tigre"],["to","toro"],["tu","tuna"]]},
+{letra:"V - va ve vi vo vu", items:[["va","vaca"],["ve","vela"],["vi","vino"],["vo","voto"],["vu","vuelo"]]},
+{letra:"W - wa we wi wo wu", items:[["wa","waterpolo"],["we","web"],["wi","wifi"],["wo","wok"],["wu","wushu"]]},
+{letra:"Y - ya ye yi yo yu", items:[["ya","yate"],["ye","yema"],["yi","yihad"],["yo","yoyo"],["yu","yudo"]]},
+{letra:"Z - za ze zi zo zu", items:[["za","zapato"],["ze","cero"],["zi","cine"],["zo","zorro"],["zu","zumo"]]},
 ];
-document.getElementById("grid-grupos").innerHTML=grupos.map(([g,pal])=>`<div class="tarjeta" onclick="hablar('${pal}')"><p><b style="color:#e11d48">${g}</b> - ${pal}</p>🔊</div>`).join(""));
 
-// 3. DIRECTAS
-const directas=[["ma","mamá"],["me","mesa"],["mi","mimo"],["mo","moto"],["mu","mula"],["pa","papa"],["pe","pera"],["pi","pino"],["po","polo"],["pu","puma"],["la","luna"],["le","leche"],["li","lima"],["lo","lobo"],["lu","lupa"],["sa","sapo"],["se","seta"],["si","silla"],["so","sopa"],["su","suma"]];
-document.getElementById("grid-directas").innerHTML=directas.map(([s,pal])=>`<div class="tarjeta" onclick="hablar('${pal}')"><p><b style="color:#e11d48">${s}</b> - ${pal}</p>🔊</div>`).join(""));
+let htmlDir="";
+directasCompletas.forEach(b=>{
+htmlDir+=`<div class="barra" style="background:#e0e7ff">${b.letra}</div><div class="grid">`;
+b.items.forEach(([sil,pal])=>{
+htmlDir+=`<div class="tarjeta" onclick="hablar('${pal}')"><p><b>${sil}</b> - ${pal}</p>🔊</div>`;
+});
+htmlDir+=`</div>`;
+});
+document.getElementById("grid-directas").innerHTML=htmlDir;
 
 // 4. INVERSAS - 50
 const inversas=[
-{barra:"Con L: AL EL IL OL UL - alto, papel, mil, soldado, último", datos:[["al","alto","⛰️"],["el","papel","📄"],["il","mil","💰"],["ol","soldado","🪖"],["ul","último","🏁"]]},
-{barra:"Con S: AS ES IS OS US - asno, estrella, isla, oscuro, usted", datos:[["as","asno","🫏"],["es","estrella","⭐"],["is","isla","🏝️"],["os","oscuro","🌑"],["us","usted","🧑"]]},
-{barra:"Con N: AN EN IN ON UN - ancla, antena, invierno, rótula, ayuntamiento", datos:[["an","ancla","⚓"],["en","antena","📡"],["in","invierno","❄️"],["on","rótula","🦵"],["un","ayuntamiento","🏛️"]]},
-{barra:"Con R: AR ER IR OR UR - árbol, tuerca, irse, orca, urgencia", datos:[["ar","árbol","🌳"],["er","tuerca","🔩"],["ir","irse","🚶"],["or","orca","🐋"],["ur","urgencia","🚑"]]},
-{barra:"Con M: AM EM IM OM UM - ambos, empezar, imperio, ombligo, rumbo", datos:[["am","ambos","👫"],["em","empezar","🏁"],["im","imperio","👑"],["om","ombligo","🫃"],["um","rumbo","🧭"]]},
-{barra:"Con C: AC EC IC OC UC - acción, lección, ficción, octubre, conducir", datos:[["ac","acción","🎬"],["ec","lección","📚"],["ic","ficción","👽"],["oc","octubre","🍂"],["uc","conducir","🚗"]]},
-{barra:"Con Z: AZ EZ IZ OZ UZ - azteca, lezna, dizque, gozne, juzgar", datos:[["az","azteca","🛕"],["ez","lezna","🪡"],["iz","dizque","💬"],["oz","gozne","🚪"],["uz","juzgar","⚖️"]]},
-{barra:"Con D: AD ED ID OD UD - admirar, edad, idear, odio, sudar", datos:[["ad","admirar","😍"],["ed","edad","🎂"],["id","idear","💡"],["od","odio","💔"],["ud","sudar","💦"]]},
-{barra:"Con B: AB EB IB OB UB - abdomen, hebreo, ibérico, objeto, subterráneo", datos:[["ab","abdomen","🫃"],["eb","hebreo","📖"],["ib","ibérico","🍖"],["ob","objeto","📦"],["ub","subterráneo","🚇"]]},
-{barra:"Con X: AX EX IX OX UX - axila, extraño, mixto, óxido, flux", datos:[["ax","axila","💪"],["ex","extraño","👾"],["ix","mixto","🔀"],["ox","óxido","🔧"],["ux","flux","🌊"]]},
+{barra:"Con L: AL EL IL OL UL", datos:[["al","alto"],["el","papel"],["il","mil"],["ol","soldado"],["ul","último"]]},
+{barra:"Con S: AS ES IS OS US", datos:[["as","asno"],["es","estrella"],["is","isla"],["os","oscuro"],["us","usted"]]},
+{barra:"Con N: AN EN IN ON UN", datos:[["an","ancla"],["en","antena"],["in","invierno"],["on","rótula"],["un","ayuntamiento"]]},
+{barra:"Con R: AR ER IR OR UR", datos:[["ar","árbol"],["er","tuerca"],["ir","irse"],["or","orca"],["ur","urgencia"]]},
+{barra:"Con M: AM EM IM OM UM", datos:[["am","ambos"],["em","empezar"],["im","imperio"],["om","ombligo"],["um","rumbo"]]},
+{barra:"Con C: AC EC IC OC UC", datos:[["ac","acción"],["ec","lección"],["ic","ficción"],["oc","octubre"],["uc","conducir"]]},
+{barra:"Con Z: AZ EZ IZ OZ UZ", datos:[["az","azteca"],["ez","lezna"],["iz","dizque"],["oz","gozne"],["uz","juzgar"]]},
+{barra:"Con D: AD ED ID OD UD", datos:[["ad","admirar"],["ed","edad"],["id","idear"],["od","odio"],["ud","sudar"]]},
+{barra:"Con B: AB EB IB OB UB", datos:[["ab","abdomen"],["eb","hebreo"],["ib","ibérico"],["ob","objeto"],["ub","subterráneo"]]},
+{barra:"Con X: AX EX IX OX UX", datos:[["ax","axila"],["ex","extraño"],["ix","mixto"],["ox","óxido"],["ux","flux"]]},
 ];
 let htmlInv="";
 inversas.forEach(b=>{
 htmlInv+=`<div class="barra" style="background:#fef9c3">${b.barra}</div><div class="grid">`;
-b.datos.forEach(([sil,pal,em])=>{
-htmlInv+=`<div class="tarjeta" onclick="hablar('${pal}')"><span class="emoji">${em}</span><img src="./imagenes/iconos/inversas/${pal}.png" style="width:70px;height:70px;object-fit:contain;display:none" onload="this.style.display='block';this.previousElementSibling.style.display='none'" onerror="this.style.display='none'"><p><b>${sil}</b> - ${pal}</p>🔊</div>`;
+b.datos.forEach(([sil,pal])=>{
+htmlInv+=`<div class="tarjeta" onclick="hablar('${pal}')"><p><b>${sil}</b> - ${pal}</p>🔊<img src="./imagenes/iconos/inversas/${pal}.png" style="width:60px;display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></div>`;
 });
 htmlInv+=`</div>`;
 });
 document.getElementById("grid-inversas").innerHTML=htmlInv;
 
-// 5. PALABRAS
-const palabras=[["sol","☀️"],["casa","🏠"],["pelota","⚽"],["mariposa","🦋"],["elefante","🐘"],["bicicleta","🚲"]];
-document.getElementById("grid-palabras").innerHTML=palabras.map(([pal,em])=>`<div class="tarjeta" onclick="hablar('${pal}')"><span class="emoji">${em}</span><p>${pal}</p>🔊</div>`).join("");
+const palabras=[["sol","☀️"],["casa","🏠"],["pelota","⚽"],["mariposa","🦋"]];
+document.getElementById("grid-palabras").innerHTML=palabras.map(([pal,em])=>`<div class="tarjeta" onclick="hablar('${pal}')"><span class="emoji">${em}</span><p>${pal}</p></div>`).join("");
 
-// 6. ORACIONES
-const oraciones=[["Mamá ama la casa","👩🏠"],["El oso come miel","🐻🍯"],["La luna brilla","🌙✨"],["Mi pelota es roja","⚽🔴"]];
-document.getElementById("grid-oraciones").innerHTML=oraciones.map(([fr,em])=>`<div class="tarjeta" style="grid-column:span 2" onclick="hablar('${fr}')"><span class="emoji">${em}</span><p>${fr}</p>🔊</div>`).join("");
+const oraciones=[["Mamá ama la casa","👩🏠"],["El oso come miel","🐻🍯"]];
+document.getElementById("grid-oraciones").innerHTML=oraciones.map(([fr,em])=>`<div class="tarjeta" style="grid-column:span 2" onclick="hablar('${fr}')"><span class="emoji">${em}</span><p>${fr}</p></div>`).join("");
 </script>
 </body>
 </html>
