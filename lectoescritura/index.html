@@ -1,94 +1,128 @@
-<!-- BLOQUE INVERSAS COMPLETO - INSERTAR EN lectoescritura/index.html -->
-<section id="inversas-completas">
-<h2>🔤 SÍLABAS INVERSAS</h2>
+<!-- BLOQUE INVERSAS COMPLETO 50 ICONOS - LEO-Y-APRENDO -->
+<section id="inversas-completas" style="padding:20px; font-family: sans-serif;">
+<h2>🔤 Sílabas inversas - 50 palabras con iconos</h2>
+<p style="font-size:18px;">Pulsa el icono para escuchar 🔊 y aprender la sílaba inversa</p>
 
-<!-- CON L -->
+<style>
+.grid-inversas { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
+.tarjeta-icono { background: white; border-radius: 16px; padding: 12px; text-align: center; box-shadow: 0 3px 8px rgba(0,0,0,0.12); cursor: pointer; transition: transform 0.2s; border: 2px solid #f0f0f0; }
+.tarjeta-icono:hover { transform: scale(1.05); border-color: #f1c40f; }
+.tarjeta-icono img { width: 100px; height: 100px; object-fit: contain; }
+.tarjeta-icono p { font-size: 16px; margin: 6px 0 0 0; font-weight: bold; }
+.tarjeta-icono b { color: #e74c3c; font-size: 18px; }
+.grupo-inversa h3 { background: #f1c40f; padding: 12px 15px; border-radius: 12px; margin-top: 35px; font-size: 20px; }
+.grupo-inversa h3 span { font-weight: normal; font-size: 16px; }
+</style>
+
+<!-- GRUPO L - S - N - R - M (25 que ya tenías) -->
 <div class="grupo-inversa">
-<h3>Con L: AL EL IL OL UL</h3>
-<div class="grid-palabras">
-
-<div class="tarjeta">
-<img src="imagenes/inversas/alto.jpg" alt="alto">
-<p><b>al</b> - alto</p>
-<button onclick="playAudio('audios/inversas/alto.mp3')">🔊</button>
-<audio id="alto" src="audios/inversas/alto.mp3"></audio>
-</div>
-
-<div class="tarjeta">
-<img src="imagenes/inversas/papel.jpg" alt="papel">
-<p><b>el</b> - papel</p>
-<button onclick="document.getElementById('papel').play()">🔊</button>
-<audio id="papel" src="audios/inversas/papel.mp3"></audio>
-</div>
-
-<div class="tarjeta">
-<img src="imagenes/inversas/mil.jpg" alt="mil">
-<p><b>il</b> - mil</p>
-<button onclick="document.getElementById('mil').play()">🔊</button>
-<audio id="mil" src="audios/inversas/mil.mp3"></audio>
-</div>
-
-<div class="tarjeta">
-<img src="imagenes/inversas/soldado.jpg" alt="soldado">
-<p><b>ol</b> - soldado</p>
-<button onclick="document.getElementById('soldado').play()">🔊</button>
-<audio id="soldado" src="audios/inversas/soldado.mp3"></audio>
-</div>
-
-<div class="tarjeta">
-<img src="imagenes/inversas/ultimo.jpg" alt="último">
-<p><b>ul</b> - último</p>
-<button onclick="document.getElementById('ultimo').play()">🔊</button>
-<audio id="ultimo" src="audios/inversas/ultimo.mp3"></audio>
-</div>
+<h3>Con L: AL EL IL OL UL <span>- alto, papel, mil, soldado, último</span></h3>
+<div class="grid-inversas">
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/alto.mp3').play()"><img src="imagenes/iconos/inversas/alto.png"><p><b>al</b> - alto</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/papel.mp3').play()"><img src="imagenes/iconos/inversas/papel.png"><p><b>el</b> - papel</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/mil.mp3').play()"><img src="imagenes/iconos/inversas/mil.png"><p><b>il</b> - mil</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/soldado.mp3').play()"><img src="imagenes/iconos/inversas/soldado.png"><p><b>ol</b> - soldado</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/ultimo.mp3').play()"><img src="imagenes/iconos/inversas/ultimo.png"><p><b>ul</b> - último</p>🔊</div>
 </div>
 </div>
 
-<!-- CON S -->
 <div class="grupo-inversa">
-<h3>Con S: AS ES IS OS US</h3>
-<div class="grid-palabras">
-<div class="tarjeta"><img src="imagenes/inversas/asno.jpg"><p><b>as</b> - asno</p><button onclick="new Audio('audios/inversas/asno.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/estrella.jpg"><p><b>es</b> - estrella</p><button onclick="new Audio('audios/inversas/estrella.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/isla.jpg"><p><b>is</b> - isla</p><button onclick="new Audio('audios/inversas/isla.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/oscuro.jpg"><p><b>os</b> - oscuro</p><button onclick="new Audio('audios/inversas/oscuro.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/usted.jpg"><p><b>us</b> - usted</p><button onclick="new Audio('audios/inversas/usted.mp3').play()">🔊</button></div>
+<h3>Con S: AS ES IS OS US <span>- asno, estrella, isla, oscuro, usted</span></h3>
+<div class="grid-inversas">
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/asno.mp3').play()"><img src="imagenes/iconos/inversas/asno.png"><p><b>as</b> - asno</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/estrella.mp3').play()"><img src="imagenes/iconos/inversas/estrella.png"><p><b>es</b> - estrella</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/isla.mp3').play()"><img src="imagenes/iconos/inversas/isla.png"><p><b>is</b> - isla</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/oscuro.mp3').play()"><img src="imagenes/iconos/inversas/oscuro.png"><p><b>os</b> - oscuro</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/usted.mp3').play()"><img src="imagenes/iconos/inversas/usted.png"><p><b>us</b> - usted</p>🔊</div>
 </div>
 </div>
 
-<!-- CON N -->
 <div class="grupo-inversa">
-<h3>Con N: AN EN IN ON UN</h3>
-<div class="grid-palabras">
-<div class="tarjeta"><img src="imagenes/inversas/ancla.jpg"><p><b>an</b> - ancla</p><button onclick="new Audio('audios/inversas/ancla.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/antena.jpg"><p><b>en</b> - antena</p><button onclick="new Audio('audios/inversas/antena.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/invierno.jpg"><p><b>in</b> - invierno</p><button onclick="new Audio('audios/inversas/invierno.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/rotula.jpg"><p><b>on</b> - rótula</p><button onclick="new Audio('audios/inversas/rotula.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/ayuntamiento.jpg"><p><b>un</b> - ayuntamiento</p><button onclick="new Audio('audios/inversas/ayuntamiento.mp3').play()">🔊</button></div>
+<h3>Con N: AN EN IN ON UN <span>- ancla, antena, invierno, rótula, ayuntamiento</span></h3>
+<div class="grid-inversas">
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/ancla.mp3').play()"><img src="imagenes/iconos/inversas/ancla.png"><p><b>an</b> - ancla</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/antena.mp3').play()"><img src="imagenes/iconos/inversas/antena.png"><p><b>en</b> - antena</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/invierno.mp3').play()"><img src="imagenes/iconos/inversas/invierno.png"><p><b>in</b> - invierno</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/rotula.mp3').play()"><img src="imagenes/iconos/inversas/rotula.png"><p><b>on</b> - rótula</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/ayuntamiento.mp3').play()"><img src="imagenes/iconos/inversas/ayuntamiento.png"><p><b>un</b> - ayuntamiento</p>🔊</div>
 </div>
 </div>
 
-<!-- CON R -->
 <div class="grupo-inversa">
-<h3>Con R: AR ER IR OR UR</h3>
-<div class="grid-palabras">
-<div class="tarjeta"><img src="imagenes/inversas/arbol.jpg"><p><b>ar</b> - árbol</p><button onclick="new Audio('audios/inversas/arbol.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/tuerca.jpg"><p><b>er</b> - tuerca</p><button onclick="new Audio('audios/inversas/tuerca.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/irse.jpg"><p><b>ir</b> - irse</p><button onclick="new Audio('audios/inversas/irse.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/orca.jpg"><p><b>or</b> - orca</p><button onclick="new Audio('audios/inversas/orca.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/urgencia.jpg"><p><b>ur</b> - urgencia</p><button onclick="new Audio('audios/inversas/urgencia.mp3').play()">🔊</button></div>
+<h3>Con R: AR ER IR OR UR <span>- árbol, tuerca, irse, orca, urgencia</span></h3>
+<div class="grid-inversas">
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/arbol.mp3').play()"><img src="imagenes/iconos/inversas/arbol.png"><p><b>ar</b> - árbol</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/tuerca.mp3').play()"><img src="imagenes/iconos/inversas/tuerca.png"><p><b>er</b> - tuerca</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/irse.mp3').play()"><img src="imagenes/iconos/inversas/irse.png"><p><b>ir</b> - irse</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/orca.mp3').play()"><img src="imagenes/iconos/inversas/orca.png"><p><b>or</b> - orca</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/urgencia.mp3').play()"><img src="imagenes/iconos/inversas/urgencia.png"><p><b>ur</b> - urgencia</p>🔊</div>
 </div>
 </div>
 
-<!-- CON M -->
 <div class="grupo-inversa">
-<h3>Con M: AM EM IM OM UM</h3>
-<div class="grid-palabras">
-<div class="tarjeta"><img src="imagenes/inversas/ambos.jpg"><p><b>am</b> - ambos</p><button onclick="new Audio('audios/inversas/ambos.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/empezar.jpg"><p><b>em</b> - empezar</p><button onclick="new Audio('audios/inversas/empezar.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/imperio.jpg"><p><b>im</b> - imperio</p><button onclick="new Audio('audios/inversas/imperio.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/ombligo.jpg"><p><b>om</b> - ombligo</p><button onclick="new Audio('audios/inversas/ombligo.mp3').play()">🔊</button></div>
-<div class="tarjeta"><img src="imagenes/inversas/rumbo.jpg"><p><b>um</b> - rumbo</p><button onclick="new Audio('audios/inversas/rumbo.mp3').play()">🔊</button></div>
+<h3>Con M: AM EM IM OM UM <span>- ambos, empezar, imperio, ombligo, rumbo</span></h3>
+<div class="grid-inversas">
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/ambos.mp3').play()"><img src="imagenes/iconos/inversas/ambos.png"><p><b>am</b> - ambos</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/empezar.mp3').play()"><img src="imagenes/iconos/inversas/empezar.png"><p><b>em</b> - empezar</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/imperio.mp3').play()"><img src="imagenes/iconos/inversas/imperio.png"><p><b>im</b> - imperio</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/ombligo.mp3').play()"><img src="imagenes/iconos/inversas/ombligo.png"><p><b>om</b> - ombligo</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/rumbo.mp3').play()"><img src="imagenes/iconos/inversas/rumbo.png"><p><b>um</b> - rumbo</p>🔊</div>
+</div>
+</div>
+
+<!-- GRUPO C - Z - D - B - X (25 nuevas que faltaban) -->
+<div class="grupo-inversa">
+<h3>Con C: AC EC IC OC UC <span>- acción, lección, ficción, octubre, conducir</span></h3>
+<div class="grid-inversas">
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/accion.mp3').play()"><img src="imagenes/iconos/inversas/accion.png"><p><b>ac</b> - acción</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/leccion.mp3').play()"><img src="imagenes/iconos/inversas/leccion.png"><p><b>ec</b> - lección</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/ficcion.mp3').play()"><img src="imagenes/iconos/inversas/ficcion.png"><p><b>ic</b> - ficción</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/octubre.mp3').play()"><img src="imagenes/iconos/inversas/octubre.png"><p><b>oc</b> - octubre</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/conducir.mp3').play()"><img src="imagenes/iconos/inversas/conducir.png"><p><b>uc</b> - conducir</p>🔊</div>
+</div>
+</div>
+
+<div class="grupo-inversa">
+<h3>Con Z: AZ EZ IZ OZ UZ <span>- azteca, lezna, dizque, gozne, juzgar</span></h3>
+<div class="grid-inversas">
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/azteca.mp3').play()"><img src="imagenes/iconos/inversas/azteca.png"><p><b>az</b> - azteca</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/lezna.mp3').play()"><img src="imagenes/iconos/inversas/lezna.png"><p><b>ez</b> - lezna</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/dizque.mp3').play()"><img src="imagenes/iconos/inversas/dizque.png"><p><b>iz</b> - dizque</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/gozne.mp3').play()"><img src="imagenes/iconos/inversas/gozne.png"><p><b>oz</b> - gozne</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/juzgar.mp3').play()"><img src="imagenes/iconos/inversas/juzgar.png"><p><b>uz</b> - juzgar</p>🔊</div>
+</div>
+</div>
+
+<div class="grupo-inversa">
+<h3>Con D: AD ED ID OD UD <span>- admirar, edad, idear, odio, sudar</span></h3>
+<div class="grid-inversas">
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/admirar.mp3').play()"><img src="imagenes/iconos/inversas/admirar.png"><p><b>ad</b> - admirar</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/edad.mp3').play()"><img src="imagenes/iconos/inversas/edad.png"><p><b>ed</b> - edad</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/idear.mp3').play()"><img src="imagenes/iconos/inversas/idear.png"><p><b>id</b> - idear</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/odio.mp3').play()"><img src="imagenes/iconos/inversas/odio.png"><p><b>od</b> - odio</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/sudar.mp3').play()"><img src="imagenes/iconos/inversas/sudar.png"><p><b>ud</b> - sudar</p>🔊</div>
+</div>
+</div>
+
+<div class="grupo-inversa">
+<h3>Con B: AB EB IB OB UB <span>- abdomen, hebreo, ibérico, objeto, subterráneo</span></h3>
+<div class="grid-inversas">
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/abdomen.mp3').play()"><img src="imagenes/iconos/inversas/abdomen.png"><p><b>ab</b> - abdomen</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/hebreo.mp3').play()"><img src="imagenes/iconos/inversas/hebreo.png"><p><b>eb</b> - hebreo</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/iberico.mp3').play()"><img src="imagenes/iconos/inversas/iberico.png"><p><b>ib</b> - ibérico</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/objeto.mp3').play()"><img src="imagenes/iconos/inversas/objeto.png"><p><b>ob</b> - objeto</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/subterraneo.mp3').play()"><img src="imagenes/iconos/inversas/subterraneo.png"><p><b>ub</b> - subterráneo</p>🔊</div>
+</div>
+</div>
+
+<div class="grupo-inversa">
+<h3>Con X: AX EX IX OX UX <span>- axila, extraño, mixto, óxido, flux</span></h3>
+<div class="grid-inversas">
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/axila.mp3').play()"><img src="imagenes/iconos/inversas/axila.png"><p><b>ax</b> - axila</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/extrano.mp3').play()"><img src="imagenes/iconos/inversas/extrano.png"><p><b>ex</b> - extraño</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/mixto.mp3').play()"><img src="imagenes/iconos/inversas/mixto.png"><p><b>ix</b> - mixto</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/oxido.mp3').play()"><img src="imagenes/iconos/inversas/oxido.png"><p><b>ox</b> - óxido</p>🔊</div>
+<div class="tarjeta-icono" onclick="new Audio('audios/inversas/flux.mp3').play()"><img src="imagenes/iconos/inversas/flux.png"><p><b>ux</b> - flux</p>🔊</div>
 </div>
 </div>
 
