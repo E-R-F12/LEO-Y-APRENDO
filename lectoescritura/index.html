@@ -5,83 +5,100 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LEO Y APRENDO</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
 body{background:#f6f8fb;color:#1e293b}
 header{background:white;padding:12px 4%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.06);position:sticky;top:0;z-index:99}
-.logo{font-weight:900;font-size:24px;color:#1e3a8a}
-.barra{background:#facc15;color:#1e3a8a;font-weight:900;padding:10px 14px;border-radius:8px;margin:22px 0 12px}
-.barra.sub{background:#e0e7ff;font-size:13px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
-.tarjeta{background:white;border-radius:12px;padding:12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06);cursor:pointer;min-height:90px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.logo{font-weight:900;font-size:22px;color:#1e3a8a}
+.barra{background:#facc15;color:#1e3a8a;font-weight:900;padding:10px 14px;border-radius:8px;margin:20px 1% 12px}
+.barra.sub{background:#e0e7ff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:10px;padding:0 1%}
+.tarjeta{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.06);cursor:pointer;min-height:95px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.tarjeta .emoji{font-size:34px;display:block;margin-bottom:4px}
+.tarjeta p{font-size:12.5px}
 .tarjeta b{color:#c0265a}
-.tarjeta .emoji{font-size:34px!important;display:block!important;margin-bottom:6px}
-.tarjeta img.icono{width:50px;height:50px;object-fit:contain;display:none}
+footer{background:#1e3a8a;color:white;text-align:center;padding:16px;margin-top:30px}
 </style>
 </head>
 <body>
+<header><div class="logo">📖 LEO Y APRENDO</div></header>
 
 <div id="letras" class="section"><div class="barra">1. LETRAS - TODAS</div><div class="grid" id="grid-letras"></div></div>
-<div id="grupos" class="section"><div class="barra">2. GRUPOS VOCÁLICOS</div><div class="grid" id="grid-grupos"></div></div>
-<div id="directas" class="section"><div class="barra">3. SÍLABAS DIRECTAS</div><div id="grid-directas"></div></div>
-<div id="inversas" class="section"><div class="barra">4. INVERSAS - 50 palabras</div><div id="grid-inversas"></div></div>
+<div id="grupos" class="section"><div class="barra">2. GRUPOS VOCÁLICOS - ae ao ea eo oa oe ai au ei eu ia ie io iu ua ue ui ay ey oy</div><div class="grid" id="grid-grupos"></div></div>
+<div id="directas" class="section"><div class="barra">3. SÍLABAS DIRECTAS - TODAS CON ICONO</div><div id="grid-directas"></div></div>
+<div id="inversas" class="section"><div class="barra">4. SÍLABAS INVERSAS - 50 palabras CON ICONO</div><div id="grid-inversas"></div></div>
+
+<footer>LEO Y APRENDO - https://e-r-f12.github.io/LEO-Y-APRENDO/lectoescritura/</footer>
 
 <script>
 function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);}
 
-// 1. LETRAS - RESTAURADAS COMPLETAS (27 letras)
+// 1. LETRAS - TODAS
 const letras = [
-["A","Avión","✈️"],["E","Elefante","🐘"],["I","Iglú","🧊"],["O","Oso","🐻"],["U","Uva","🍇"],
+["A","Avion","✈️"],["E","Elefante","🐘"],["I","Iglu","🧊"],["O","Oso","🐻"],["U","Uva","🍇"],
 ["B","Barco","🚢"],["C","Casa","🏠"],["D","Dado","🎲"],["F","Foca","🦭"],["G","Gato","🐱"],
-["H","Hada","🧚"],["J","Jirafa","🦒"],["K","Kiwi","🥝"],["L","Luna","🌙"],["M","Mamá","👩"],
-["N","Nube","☁️"],["Ñ","Piña","🍍"],["P","Papá","👨"],["Q","Queso","🧀"],["R","Rosa","🌹"],
-["S","Sol","☀️"],["T","Taza","☕"],["V","Vaca","🐄"],["W","Waterpolo","🤽"],["X","Xilófono","🎼"],
+["H","Hada","🧚"],["J","Jirafa","🦒"],["K","Kiwi","🥝"],["L","Luna","🌙"],["M","Mama","👩"],
+["N","Nube","☁️"],["Ñ","Pina","🍍"],["P","Papa","👨"],["Q","Queso","🧀"],["R","Rosa","🌹"],
+["S","Sol","☀️"],["T","Taza","☕"],["V","Vaca","🐄"],["W","Waterpolo","🤽"],["X","Xilofono","🎼"],
 ["Y","Yate","🛥️"],["Z","Zorro","🦊"]
 ];
-document.getElementById("grid-letras").innerHTML=letras.map(([l,pal,em])=>`<div class="tarjeta" onclick="hablar('${pal}')"><div class="emoji">${em}</div><p><b>${l}</b> - ${pal}</p>🔊</div>`).join("");
+document.getElementById("grid-letras").innerHTML = letras.map(a=>`<div class="tarjeta" onclick="hablar('${a[1]}')"><span class="emoji">${a[2]}</span><p><b>${a[0]}</b> - ${a[1]}</p>🔊</div>`).join("");
 
-// 2. GRUPOS CON ICONO
-document.getElementById("grid-grupos").innerHTML=[["ae","aéreo","✈️"],["ao","caos","🌪️"],["ea","teatro","🎭"],["eo","león","🦁"],["oa","boa","🐍"],["oe","poeta","✍️"],["ai","aire","💨"],["au","aula","🏫"],["ei","peine","🪮"],["eu","Europa","🌍"],["ia","piano","🎹"],["ie","cielo","☁️"],["io","avión","✈️"],["iu","ciudad","🏙️"],["ua","agua","💧"],["ue","huevo","🥚"],["ui","ruido","🔊"],["uo","antiguo","🏛️"],["ay","playa","🏖️"],["ey","rey","👑"],["oy","hoy","📅"]].map(([g,pal,em])=>`<div class="tarjeta" onclick="hablar('${pal}')"><div class="emoji">${em}</div><p><b>${g}</b> - ${pal}</p>🔊</div>`).join("");
-
-// 3. DIRECTAS COMPLETAS CON ICONO
-const directas=[
-{title:"B - ba be bi bo bu", items:[["ba","barco","🚢"],["be","bebé","👶"],["bi","bici","🚲"],["bo","bola","⚽"],["bu","burro","🫏"]]},
-{title:"C - ca ce ci co cu + que qui", items:[["ca","casa","🏠"],["ce","cena","🍝"],["ci","cine","🎬"],["co","cola","🥤"],["cu","cuna","🍼"],["que","queso","🧀"],["qui","quitar","🗑️"]]},
-{title:"D - da de di do du", items:[["da","dado","🎲"],["de","dedo","☝️"],["di","día","☀️"],["do","domingo","📅"],["du","duende","🧝"]]},
-{title:"F - fa fe fi fo fu", items:[["fa","foca","🦭"],["fe","feo","🤪"],["fi","fiesta","🎉"],["fo","foco","💡"],["fu","fuego","🔥"]]},
-{title:"G - ga ge gi go gu + gue gui", items:[["ga","gato","🐱"],["ge","genio","🧞"],["gi","gigante","👹"],["go","gorro","🧢"],["gu","guante","🧤"],["gue","guerra","⚔️"],["gui","guitarra","🎸"]]},
-{title:"H - ha he hi ho hu", items:[["ha","hada","🧚"],["he","helado","🍦"],["hi","hilo","🧵"],["ho","hola","👋"],["hu","huevo","🥚"]]},
-{title:"J - ja je ji jo ju", items:[["ja","jaula","🗝️"],["je","jefe","👨‍💼"],["ji","jirafa","🦒"],["jo","joya","💎"],["ju","juguete","🧸"]]},
-{title:"K - ka ke ki ko ku", items:[["ka","karate","🥋"],["ke","ketchup","🍅"],["ki","kiwi","🥝"],["ko","koala","🐨"],["ku","kung fu","🥊"]]},
-{title:"L - la le li lo lu", items:[["la","luna","🌙"],["le","leche","🥛"],["li","lima","🍋"],["lo","lobo","🐺"],["lu","lupa","🔍"]]},
-{title:"M - ma me mi mo mu", items:[["ma","mamá","👩"],["me","mesa","🪑"],["mi","mimo","🤗"],["mo","moto","🏍️"],["mu","mula","🐴"]]},
-{title:"N - na ne ni no nu", items:[["na","nave","🚀"],["ne","nene","👶"],["ni","nido","🪺"],["no","nota","🎵"],["nu","nube","☁️"]]},
-{title:"Ñ - ña ñe ñi ño ñu", items:[["ña","piña","🍍"],["ñe","muñeca","🪆"],["ñi","niño","🧒"],["ño","año","🎂"],["ñu","ñu","🐃"]]},
-{title:"P - pa pe pi po pu", items:[["pa","papa","🥔"],["pe","pera","🍐"],["pi","pino","🌲"],["po","polo","🍦"],["pu","puma","🐆"]]},
-{title:"R - ra re ri ro ru", items:[["ra","rana","🐸"],["re","reloj","⏰"],["ri","risa","😂"],["ro","rosa","🌹"],["ru","rueda","🛞"]]},
-{title:"S - sa se si so su", items:[["sa","sapo","🐸"],["se","seta","🍄"],["si","silla","🪑"],["so","sopa","🍲"],["su","suma","➕"]]},
-{title:"T - ta te ti to tu", items:[["ta","taza","☕"],["te","tela","🧵"],["ti","tigre","🐯"],["to","toro","🐂"],["tu","tuna","🌵"]]},
-{title:"V - va ve vi vo vu", items:[["va","vaca","🐄"],["ve","vela","🕯️"],["vi","vino","🍷"],["vo","voto","🗳️"],["vu","vuelo","✈️"]]},
-{title:"W - wa we wi wo wu", items:[["wa","waterpolo","🤽"],["we","web","🌐"],["wi","wifi","📶"],["wo","wok","🍲"],["wu","wushu","🥋"]]},
-{title:"Y - ya ye yi yo yu", items:[["ya","yate","🛥️"],["ye","yema","🥚"],["yo","yoyo","🪀"],["yu","yudo","🥋"]]},
-{title:"Z - za ze zi zo zu", items:[["za","zapato","👟"],["ze","cero","0️⃣"],["zi","zinc","🔩"],["zo","zorro","🦊"],["zu","zumo","🧃"]]},
+// 2. GRUPOS VOCALICOS
+const grupos = [
+["ae","aereo","✈️"],["ao","caos","🌪️"],["ea","teatro","🎭"],["eo","leon","🦁"],["oa","boa","🐍"],["oe","poeta","✍️"],
+["ai","aire","💨"],["au","aula","🏫"],["ei","peine","🪮"],["eu","Europa","🌍"],
+["ia","piano","🎹"],["ie","cielo","☁️"],["io","avion","✈️"],["iu","ciudad","🏙️"],
+["ua","agua","💧"],["ue","huevo","🥚"],["ui","ruido","🔊"],["uo","antiguo","🏛️"],
+["ay","playa","🏖️"],["ey","rey","👑"],["oy","hoy","📅"]
 ];
-let htmlD=""; directas.forEach(b=>{ htmlD+=`<div class="barra sub">${b.title}</div><div class="grid">`; b.items.forEach(([sil,pal,em])=>{ htmlD+=`<div class="tarjeta" onclick="hablar('${pal}')"><div class="emoji">${em}</div><p><b>${sil}</b> - ${pal}</p>🔊</div>`; }); htmlD+=`</div>`; });
+document.getElementById("grid-grupos").innerHTML = grupos.map(a=>`<div class="tarjeta" onclick="hablar('${a[1]}')"><span class="emoji">${a[2]}</span><p><b>${a[0]}</b> - ${a[1]}</p>🔊</div>`).join("");
+
+// 3. DIRECTAS - TODAS CON ICONO
+const directasLista = [
+["B","ba","barco","🚢","be","bebe","👶","bi","bici","🚲","bo","bola","⚽","bu","burro","🫏"],
+["C","ca","casa","🏠","ce","cena","🍝","ci","cine","🎬","co","cola","🥤","cu","cuna","🍼","que","queso","🧀","qui","quitar","🗑️"],
+["D","da","dado","🎲","de","dedo","☝️","di","dia","☀️","do","domingo","📅","du","duende","🧝"],
+["F","fa","foca","🦭","fe","feo","🤪","fi","fiesta","🎉","fo","foco","💡","fu","fuego","🔥"],
+["G","ga","gato","🐱","ge","genio","🧞","gi","gigante","👹","go","gorro","🧢","gu","guante","🧤","gue","guerra","⚔️","gui","guitarra","🎸"],
+["H","ha","hada","🧚","he","helado","🍦","hi","hilo","🧵","ho","hola","👋","hu","huevo","🥚"],
+["J","ja","jaula","🗝️","je","jefe","👨‍💼","ji","jirafa","🦒","jo","joya","💎","ju","juguete","🧸"],
+["L","la","luna","🌙","le","leche","🥛","li","lima","🍋","lo","lobo","🐺","lu","lupa","🔍"],
+["M","ma","mama","👩","me","mesa","🪑","mi","mimo","🤗","mo","moto","🏍️","mu","mula","🐴"]
+];
+let htmlD="";
+directasLista.forEach(row=>{
+ let letra=row[0];
+ htmlD+=`<div class="barra sub">${letra} - ${row.slice(1).filter((_,i)=>i%3===0).join(" ")}</div><div class="grid">`;
+ for(let i=1;i<row.length;i+=3){
+   let sil=row[i], pal=row[i+1], emo=row[i+2];
+   htmlD+=`<div class="tarjeta" onclick="hablar('${pal}')"><span class="emoji">${emo}</span><p><b>${sil}</b> - ${pal}</p>🔊</div>`;
+ }
+ htmlD+=`</div>`;
+});
 document.getElementById("grid-directas").innerHTML=htmlD;
 
-// 4. INVERSAS CON EMOJI
-const inv=[
-{t:"Con M: AM EM IM OM UM", d:[["am","ambos","👫"],["em","empezar","🏁"],["im","imperio","👑"],["om","ombligo","🫃"],["um","rumbo","🧭"]]},
-{t:"Con C: AC EC IC OC UC", d:[["ac","acción","🎬"],["ec","lección","📚"],["ic","ficción","👽"],["oc","octubre","🍂"],["uc","conducir","🚗"]]},
-{t:"Con Z: AZ EZ IZ OZ UZ", d:[["az","azteca","🛕"],["ez","lezna","🪡"],["iz","dizque","💬"],["oz","gozne","🚪"],["uz","juzgar","⚖️"]]},
-{t:"Con D: AD ED ID OD UD", d:[["ad","admirar","😍"],["ed","edad","🎂"],["id","idear","💡"],["od","odio","💔"],["ud","sudar","💦"]]},
-{t:"Con B: AB EB IB OB UB", d:[["ab","abdomen","🫃"],["eb","hebreo","📖"],["ib","ibérico","🍖"],["ob","objeto","📦"],["ub","subterráneo","🚇"]]},
-{t:"Con L: AL EL IL OL UL", d:[["al","alto","⛰️"],["el","papel","📄"],["il","mil","💰"],["ol","soldado","🪖"],["ul","último","🏁"]]},
-{t:"Con S: AS ES IS OS US", d:[["as","asno","🫏"],["es","estrella","⭐"],["is","isla","🏝️"],["os","oscuro","🌑"],["us","usted","🧑"]]},
-{t:"Con N: AN EN IN ON UN", d:[["an","ancla","⚓"],["en","antena","📡"],["in","invierno","❄️"],["on","rótula","🦵"],["un","ayuntamiento","🏛️"]]},
-{t:"Con R: AR ER IR OR UR", d:[["ar","árbol","🌳"],["er","tuerca","🔩"],["ir","irse","🚶"],["or","orca","🐋"],["ur","urgencia","🚑"]]},
-{t:"Con X: AX EX IX OX UX", d:[["ax","axila","💪"],["ex","extraño","👾"],["ix","mixto","🔀"],["ox","óxido","🔧"],["ux","flux","🌊"]]},
+// 4. INVERSAS - 50 CON EMOJI FORZADO
+const inv = [
+["AL EL IL OL UL",["al","alto","⛰️"],["el","papel","📄"],["il","mil","💰"],["ol","soldado","🪖"],["ul","ultimo","🏁"]],
+["AS ES IS OS US",["as","asno","🫏"],["es","estrella","⭐"],["is","isla","🏝️"],["os","oscuro","🌑"],["us","usted","🧑"]],
+["AN EN IN ON UN",["an","ancla","⚓"],["en","antena","📡"],["in","invierno","❄️"],["on","rotula","🦵"],["un","ayuntamiento","🏛️"]],
+["AR ER IR OR UR",["ar","arbol","🌳"],["er","tuerca","🔩"],["ir","irse","🚶"],["or","orca","🐋"],["ur","urgencia","🚑"]],
+["AM EM IM OM UM",["am","ambos","👫"],["em","empezar","🏁"],["im","imperio","👑"],["om","ombligo","🫃"],["um","rumbo","🧭"]],
+["AC EC IC OC UC",["ac","accion","🎬"],["ec","leccion","📚"],["ic","ficcion","👽"],["oc","octubre","🍂"],["uc","conducir","🚗"]],
+["AZ EZ IZ OZ UZ",["az","azteca","🛕"],["ez","lezna","🪡"],["iz","dizque","💬"],["oz","gozne","🚪"],["uz","juzgar","⚖️"]],
+["AD ED ID OD UD",["ad","admirar","😍"],["ed","edad","🎂"],["id","idear","💡"],["od","odio","💔"],["ud","sudar","💦"]],
+["AB EB IB OB UB",["ab","abdomen","🫃"],["eb","hebreo","📖"],["ib","iberico","🍖"],["ob","objeto","📦"],["ub","subterraneo","🚇"]],
+["AX EX IX OX UX",["ax","axila","💪"],["ex","extrano","👾"],["ix","mixto","🔀"],["ox","oxido","🔧"],["ux","flux","🌊"]]
 ];
-let htmlI=""; inv.forEach(b=>{ htmlI+=`<div class="barra sub" style="background:#fef9c3">${b.t}</div><div class="grid">`; b.d.forEach(([sil,pal,em])=>{ htmlI+=`<div class="tarjeta" onclick="hablar('${pal}')"><div class="emoji">${em}</div><p><b>${sil}</b> - ${pal}</p>🔊</div>`; }); htmlI+=`</div>`; });
+let htmlI="";
+inv.forEach(row=>{
+ htmlI+=`<div class="barra sub" style="background:#fef9c3">${row[0]}</div><div class="grid">`;
+ for(let i=1;i<row.length;i++){
+   let sil=row[i][0], pal=row[i][1], emo=row[i][2];
+   htmlI+=`<div class="tarjeta" onclick="hablar('${pal}')"><span class="emoji">${emo}</span><p><b>${sil}</b> - ${pal}</p>🔊</div>`;
+ }
+ htmlI+=`</div>`;
+});
 document.getElementById("grid-inversas").innerHTML=htmlI;
 </script>
 </body>
