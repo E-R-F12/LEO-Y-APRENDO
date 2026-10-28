@@ -1,129 +1,139 @@
-<!-- BLOQUE INVERSAS COMPLETO 50 ICONOS - LEO-Y-APRENDO -->
-<section id="inversas-completas" style="padding:20px; font-family: sans-serif;">
-<h2>🔤 Sílabas inversas - 50 palabras con iconos</h2>
-<p style="font-size:18px;">Pulsa el icono para escuchar 🔊 y aprender la sílaba inversa</p>
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEO Y APRENDO - Aprende a leer y escribir jugando</title>
 <style>
-.grid-inversas { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
-.tarjeta-icono { background: white; border-radius: 16px; padding: 12px; text-align: center; box-shadow: 0 3px 8px rgba(0,0,0,0.12); cursor: pointer; transition: transform 0.2s; border: 2px solid #f0f0f0; }
-.tarjeta-icono:hover { transform: scale(1.05); border-color: #f1c40f; }
-.tarjeta-icono img { width: 100px; height: 100px; object-fit: contain; }
-.tarjeta-icono p { font-size: 16px; margin: 6px 0 0 0; font-weight: bold; }
-.tarjeta-icono b { color: #e74c3c; font-size: 18px; }
-.grupo-inversa h3 { background: #f1c40f; padding: 12px 15px; border-radius: 12px; margin-top: 35px; font-size: 20px; }
-.grupo-inversa h3 span { font-weight: normal; font-size: 16px; }
+:root{--azul:#1e3a8a; --celeste:#dbeafe; --amarillo:#facc15; --amarillo-osc:#eab308;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', system-ui, sans-serif;}
+body{background:#f5f7fb;color:#1e293b;}
+header{background:white;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.05);position:sticky;top:0;z-index:10;flex-wrap:wrap;gap:10px;}
+.logo{font-size:28px;font-weight:900;color:var(--azul);letter-spacing:-1px;display:flex;align-items:center;gap:10px;}
+.logo span{background:var(--amarillo);padding:2px 10px;border-radius:8px;transform:rotate(-2deg);display:inline-block;}
+nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap;}
+nav a{text-decoration:none;color:var(--azul);font-weight:700;font-size:16px;}
+nav a.activo{border-bottom:3px solid var(--amarillo);}
+.btn-azul{background:#2563eb;color:white;padding:10px 22px;border-radius:25px;text-decoration:none;font-weight:800;}
+.hero{margin:15px 2%;background:var(--celeste);border-radius:22px;padding:30px 4%;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.hero-text h1{font-size:clamp(26px,4vw,42px);color:var(--azul);line-height:1.1;}
+.hero-text p{margin:12px 0 18px;color:#334155;font-size:18px;max-width:600px;}
+.btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-amarillo{background:var(--amarillo);color:var(--azul);padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:900;font-size:18px;}
+.btn-blanco{background:white;color:var(--azul);padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:800;border:2px solid var(--azul);}
+.hero-img{font-size:90px;}
+.features{padding:25px 2%;text-align:center;}
+.features h2{font-size:28px;color:var(--azul);margin-bottom:18px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+.card{background:white;border-radius:18px;padding:22px;box-shadow:0 4px 15px rgba(0,0,0,.06);}
+.card .icono{font-size:42px;margin-bottom:8px;}
+.card h3{color:var(--azul);font-size:20px;margin-bottom:6px;}
+.destacado{margin:0 2%;}
+.barra-amarilla{background:var(--amarillo);padding:12px 18px;border-radius:10px;font-weight:900;color:var(--azul);margin:18px 0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.barra-amarilla span{font-weight:400;font-size:15px;}
+.grid-inversas{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;padding:10px 0;}
+.tarjeta-icono{background:white;border-radius:16px;padding:12px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.08);cursor:pointer;transition:.2s;border:2px solid transparent;}
+.tarjeta-icono:hover{transform:translateY(-4px);border-color:var(--amarillo);}
+.tarjeta-icono img{width:90px;height:90px;object-fit:contain;display:block;margin:0 auto 8px;background:#f8fafc;border-radius:10px;}
+.tarjeta-icono b{color:#dc2626;}
+footer{background:var(--azul);color:white;padding:22px 5%;margin-top:30px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:14px;}
+footer a{color:white;text-decoration:none;font-weight:700;}
 </style>
+</head>
+<body>
 
-<!-- GRUPO L - S - N - R - M (25 que ya tenías) -->
-<div class="grupo-inversa">
-<h3>Con L: AL EL IL OL UL <span>- alto, papel, mil, soldado, último</span></h3>
-<div class="grid-inversas">
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/alto.mp3').play()"><img src="imagenes/iconos/inversas/alto.png"><p><b>al</b> - alto</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/papel.mp3').play()"><img src="imagenes/iconos/inversas/papel.png"><p><b>el</b> - papel</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/mil.mp3').play()"><img src="imagenes/iconos/inversas/mil.png"><p><b>il</b> - mil</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/soldado.mp3').play()"><img src="imagenes/iconos/inversas/soldado.png"><p><b>ol</b> - soldado</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/ultimo.mp3').play()"><img src="imagenes/iconos/inversas/ultimo.png"><p><b>ul</b> - último</p>🔊</div>
-</div>
-</div>
+<header>
+<div class="logo">📖 LEO Y APRENDO</div>
+<nav>
+<a href="#" class="activo">Inicio</a>
+<a href="#silabas">Lectoescritura</a>
+<a href="#silabas">Sílabas</a>
+<a href="#juegos">Juegos</a>
+<a href="#">Recursos</a>
+<a class="btn-azul" href="#silabas">Comenzar</a>
+</nav>
+</header>
 
-<div class="grupo-inversa">
-<h3>Con S: AS ES IS OS US <span>- asno, estrella, isla, oscuro, usted</span></h3>
-<div class="grid-inversas">
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/asno.mp3').play()"><img src="imagenes/iconos/inversas/asno.png"><p><b>as</b> - asno</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/estrella.mp3').play()"><img src="imagenes/iconos/inversas/estrella.png"><p><b>es</b> - estrella</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/isla.mp3').play()"><img src="imagenes/iconos/inversas/isla.png"><p><b>is</b> - isla</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/oscuro.mp3').play()"><img src="imagenes/iconos/inversas/oscuro.png"><p><b>os</b> - oscuro</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/usted.mp3').play()"><img src="imagenes/iconos/inversas/usted.png"><p><b>us</b> - usted</p>🔊</div>
+<section class="hero">
+<div class="hero-text">
+<h1>Aprende a leer y escribir ¡divirtiéndote!</h1>
+<p>Recursos interactivos de lectoescritura para niños. Practica sílabas, palabras y lectura con audios y actividades divertidas.</p>
+<div class="btns">
+<a class="btn-amarillo" href="#silabas">Empezar ahora →</a>
+<a class="btn-blanco" href="#silabas">Ver actividades</a>
 </div>
 </div>
-
-<div class="grupo-inversa">
-<h3>Con N: AN EN IN ON UN <span>- ancla, antena, invierno, rótula, ayuntamiento</span></h3>
-<div class="grid-inversas">
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/ancla.mp3').play()"><img src="imagenes/iconos/inversas/ancla.png"><p><b>an</b> - ancla</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/antena.mp3').play()"><img src="imagenes/iconos/inversas/antena.png"><p><b>en</b> - antena</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/invierno.mp3').play()"><img src="imagenes/iconos/inversas/invierno.png"><p><b>in</b> - invierno</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/rotula.mp3').play()"><img src="imagenes/iconos/inversas/rotula.png"><p><b>on</b> - rótula</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/ayuntamiento.mp3').play()"><img src="imagenes/iconos/inversas/ayuntamiento.png"><p><b>un</b> - ayuntamiento</p>🔊</div>
-</div>
-</div>
-
-<div class="grupo-inversa">
-<h3>Con R: AR ER IR OR UR <span>- árbol, tuerca, irse, orca, urgencia</span></h3>
-<div class="grid-inversas">
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/arbol.mp3').play()"><img src="imagenes/iconos/inversas/arbol.png"><p><b>ar</b> - árbol</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/tuerca.mp3').play()"><img src="imagenes/iconos/inversas/tuerca.png"><p><b>er</b> - tuerca</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/irse.mp3').play()"><img src="imagenes/iconos/inversas/irse.png"><p><b>ir</b> - irse</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/orca.mp3').play()"><img src="imagenes/iconos/inversas/orca.png"><p><b>or</b> - orca</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/urgencia.mp3').play()"><img src="imagenes/iconos/inversas/urgencia.png"><p><b>ur</b> - urgencia</p>🔊</div>
-</div>
-</div>
-
-<div class="grupo-inversa">
-<h3>Con M: AM EM IM OM UM <span>- ambos, empezar, imperio, ombligo, rumbo</span></h3>
-<div class="grid-inversas">
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/ambos.mp3').play()"><img src="imagenes/iconos/inversas/ambos.png"><p><b>am</b> - ambos</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/empezar.mp3').play()"><img src="imagenes/iconos/inversas/empezar.png"><p><b>em</b> - empezar</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/imperio.mp3').play()"><img src="imagenes/iconos/inversas/imperio.png"><p><b>im</b> - imperio</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/ombligo.mp3').play()"><img src="imagenes/iconos/inversas/ombligo.png"><p><b>om</b> - ombligo</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/rumbo.mp3').play()"><img src="imagenes/iconos/inversas/rumbo.png"><p><b>um</b> - rumbo</p>🔊</div>
-</div>
-</div>
-
-<!-- GRUPO C - Z - D - B - X (25 nuevas que faltaban) -->
-<div class="grupo-inversa">
-<h3>Con C: AC EC IC OC UC <span>- acción, lección, ficción, octubre, conducir</span></h3>
-<div class="grid-inversas">
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/accion.mp3').play()"><img src="imagenes/iconos/inversas/accion.png"><p><b>ac</b> - acción</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/leccion.mp3').play()"><img src="imagenes/iconos/inversas/leccion.png"><p><b>ec</b> - lección</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/ficcion.mp3').play()"><img src="imagenes/iconos/inversas/ficcion.png"><p><b>ic</b> - ficción</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/octubre.mp3').play()"><img src="imagenes/iconos/inversas/octubre.png"><p><b>oc</b> - octubre</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/conducir.mp3').play()"><img src="imagenes/iconos/inversas/conducir.png"><p><b>uc</b> - conducir</p>🔊</div>
-</div>
-</div>
-
-<div class="grupo-inversa">
-<h3>Con Z: AZ EZ IZ OZ UZ <span>- azteca, lezna, dizque, gozne, juzgar</span></h3>
-<div class="grid-inversas">
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/azteca.mp3').play()"><img src="imagenes/iconos/inversas/azteca.png"><p><b>az</b> - azteca</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/lezna.mp3').play()"><img src="imagenes/iconos/inversas/lezna.png"><p><b>ez</b> - lezna</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/dizque.mp3').play()"><img src="imagenes/iconos/inversas/dizque.png"><p><b>iz</b> - dizque</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/gozne.mp3').play()"><img src="imagenes/iconos/inversas/gozne.png"><p><b>oz</b> - gozne</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/juzgar.mp3').play()"><img src="imagenes/iconos/inversas/juzgar.png"><p><b>uz</b> - juzgar</p>🔊</div>
-</div>
-</div>
-
-<div class="grupo-inversa">
-<h3>Con D: AD ED ID OD UD <span>- admirar, edad, idear, odio, sudar</span></h3>
-<div class="grid-inversas">
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/admirar.mp3').play()"><img src="imagenes/iconos/inversas/admirar.png"><p><b>ad</b> - admirar</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/edad.mp3').play()"><img src="imagenes/iconos/inversas/edad.png"><p><b>ed</b> - edad</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/idear.mp3').play()"><img src="imagenes/iconos/inversas/idear.png"><p><b>id</b> - idear</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/odio.mp3').play()"><img src="imagenes/iconos/inversas/odio.png"><p><b>od</b> - odio</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/sudar.mp3').play()"><img src="imagenes/iconos/inversas/sudar.png"><p><b>ud</b> - sudar</p>🔊</div>
-</div>
-</div>
-
-<div class="grupo-inversa">
-<h3>Con B: AB EB IB OB UB <span>- abdomen, hebreo, ibérico, objeto, subterráneo</span></h3>
-<div class="grid-inversas">
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/abdomen.mp3').play()"><img src="imagenes/iconos/inversas/abdomen.png"><p><b>ab</b> - abdomen</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/hebreo.mp3').play()"><img src="imagenes/iconos/inversas/hebreo.png"><p><b>eb</b> - hebreo</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/iberico.mp3').play()"><img src="imagenes/iconos/inversas/iberico.png"><p><b>ib</b> - ibérico</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/objeto.mp3').play()"><img src="imagenes/iconos/inversas/objeto.png"><p><b>ob</b> - objeto</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/subterraneo.mp3').play()"><img src="imagenes/iconos/inversas/subterraneo.png"><p><b>ub</b> - subterráneo</p>🔊</div>
-</div>
-</div>
-
-<div class="grupo-inversa">
-<h3>Con X: AX EX IX OX UX <span>- axila, extraño, mixto, óxido, flux</span></h3>
-<div class="grid-inversas">
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/axila.mp3').play()"><img src="imagenes/iconos/inversas/axila.png"><p><b>ax</b> - axila</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/extrano.mp3').play()"><img src="imagenes/iconos/inversas/extrano.png"><p><b>ex</b> - extraño</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/mixto.mp3').play()"><img src="imagenes/iconos/inversas/mixto.png"><p><b>ix</b> - mixto</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/oxido.mp3').play()"><img src="imagenes/iconos/inversas/oxido.png"><p><b>ox</b> - óxido</p>🔊</div>
-<div class="tarjeta-icono" onclick="new Audio('audios/inversas/flux.mp3').play()"><img src="imagenes/iconos/inversas/flux.png"><p><b>ux</b> - flux</p>🔊</div>
-</div>
-</div>
-
+<div class="hero-img">🧒📚👦✏️⭐️🔤</div>
 </section>
+
+<section class="features">
+<h2>¿Qué aprenderás en LEO Y APRENDO?</h2>
+<div class="cards">
+<div class="card"><div class="icono">🔊</div><h3>Sílabas inversas</h3><p>Practica 50+ palabras con audio. Aprende sílabas como AL, EL, IL, OL, UL de forma fácil.</p></div>
+<div class="card"><div class="icono">📖</div><h3>Lectura guiada</h3><p>Lee palabras y frases simples con ayuda de imágenes e iconos para mejorar la comprensión.</p></div>
+<div class="card"><div class="icono">⭐</div><h3>Actividades interactivas</h3><p>Juegos y ejercicios para reforzar el aprendizaje y ganar confianza al leer.</p></div>
+</div>
+</section>
+
+<section id="silabas" class="destacado">
+<div class="barra-amarilla">Contenido destacado: Sílabas inversas - 50 palabras con iconos <span>— Pulsa el icono para escuchar 🔊 y aprender</span></div>
+
+<!-- AQUÍ EMPIEZA TU BLOQUE DE 50 ICONOS - YA CORREGIDO -->
+<div id="contenedor-inversas"></div>
+
+<script>
+// DATOS DE LAS 50 INVERSAS - FUNCIONA AUNQUE NO TENGAS LAS IMÁGENES (USA EMOJI SI FALLA)
+const inversas = [
+{grupo:"Con L: AL EL IL OL UL - alto, papel, mil, soldado, último", palabras:[
+["al","alto","⛰️"],["el","papel","📄"],["il","mil","💰"],["ol","soldado","🪖"],["ul","último","🏁"]]},
+{grupo:"Con S: AS ES IS OS US - asno, estrella, isla, oscuro, usted", palabras:[
+["as","asno","🫏"],["es","estrella","⭐"],["is","isla","🏝️"],["os","oscuro","🌑"],["us","usted","🧑"]]},
+{grupo:"Con N: AN EN IN ON UN - ancla, antena, invierno, rótula, ayuntamiento", palabras:[
+["an","ancla","⚓"],["en","antena","📡"],["in","invierno","❄️"],["on","rótula","🦵"],["un","ayuntamiento","🏛️"]]},
+{grupo:"Con R: AR ER IR OR UR - árbol, tuerca, irse, orca, urgencia", palabras:[
+["ar","árbol","🌳"],["er","tuerca","🔩"],["ir","irse","🚶"],["or","orca","🐋"],["ur","urgencia","🚑"]]},
+{grupo:"Con M: AM EM IM OM UM - ambos, empezar, imperio, ombligo, rumbo", palabras:[
+["am","ambos","👫"],["em","empezar","🏁"],["im","imperio","👑"],["om","ombligo","🫃"],["um","rumbo","🧭"]]},
+{grupo:"Con C: AC EC IC OC UC - acción, lección, ficción, octubre, conducir", palabras:[
+["ac","acción","🎬"],["ec","lección","📚"],["ic","ficción","👽"],["oc","octubre","🍂"],["uc","conducir","🚗"]]},
+{grupo:"Con Z: AZ EZ IZ OZ UZ - azteca, lezna, dizque, gozne, juzgar", palabras:[
+["az","azteca","🛕"],["ez","lezna","🪡"],["iz","dizque","💬"],["oz","gozne","🚪"],["uz","juzgar","⚖️"]]},
+{grupo:"Con D: AD ED ID OD UD - admirar, edad, idear, odio, sudar", palabras:[
+["ad","admirar","😍"],["ed","edad","🎂"],["id","idear","💡"],["od","odio","💔"],["ud","sudar","💦"]]},
+{grupo:"Con B: AB EB IB OB UB - abdomen, hebreo, ibérico, objeto, subterráneo", palabras:[
+["ab","abdomen","🫃"],["eb","hebreo","📖"],["ib","ibérico","🍖"],["ob","objeto","📦"],["ub","subterráneo","🚇"]]},
+{grupo:"Con X: AX EX IX OX UX - axila, extraño, mixto, óxido, flux", palabras:[
+["ax","axila","💪"],["ex","extraño","👾"],["ix","mixto","🔀"],["ox","óxido","🔧"],["ux","flux","🌊"]]},
+];
+
+let html="";
+inversas.forEach(bloque=>{
+html+=`<div class="barra-amarilla" style="background:#fde68a">${bloque.grupo}</div><div class="grid-inversas">`;
+bloque.palabras.forEach(([sil,pal,emoji])=>{
+html+=`
+<div class="tarjeta-icono" onclick="hablar('${pal}')">
+<img src="./imagenes/iconos/inversas/${pal}.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+<div style="display:none;font-size:60px">${emoji}</div>
+<p><b>${sil}</b> - ${pal}</p><span style="font-size:12px">🔊</span>
+</div>`;
+});
+html+=`</div>`;
+});
+document.getElementById("contenedor-inversas").innerHTML=html;
+
+function hablar(texto){
+if('speechSynthesis' in window){
+let msg = new SpeechSynthesisUtterance(texto);
+msg.lang='es-ES'; speechSynthesis.speak(msg);
+}
+}
+</script>
+</section>
+
+<footer>
+<div>LEO Y APRENDO © 2024 - Recursos gratuitos de lectoescritura<br><small>Hecho para aprender jugando · Ideal para primaria</small></div>
+<div><a href="#">Privacidad</a> · <a href="#">Contacto</a> · <a href="#">Acerca de</a></div>
+</footer>
+
+</body>
+</html>
