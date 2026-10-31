@@ -46,17 +46,12 @@ nav a.active{background:#ffcc00;color:#000;border-color:#ffcc00}
 <div class="juego"><h3>🎮 JUEGO 1: Elige la IMAGEN correcta</h3><div id="pregunta1"></div><div class="opciones" id="opciones1"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego1()">Siguiente ▶️</button> <span id="puntos1"></span></div></div>
 <div class="juego"><h3>🎮 JUEGO 2: Elige la PALABRA correcta</h3><div id="pregunta2"></div><div class="opciones" id="opciones2"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego2()">Siguiente ▶️</button> <span id="puntos2"></span></div></div>
 
-<!-- JUEGOS TIPO WORDWALL EMBEBIDOS -->
 <div class="juego" style="background:#fffbeb;border:2px dashed #f59e0b">
-<h3>🎮 JUEGOS INTERACTIVOS TIPO WORDWALL - Bloque 9</h3>
-
-<h4 style="margin:12px 0 6px;color:#1e3a8a">Juego 1: Une la imagen con la palabra (estilo Wordwall)</h4>
-<iframe src="juego-wordwall-1.html" style="width:100%;height:540px;border:none;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.1)" allowfullscreen></iframe>
-
-<h4 style="margin:18px 0 6px;color:#1e3a8a">Juego 2: ¿Qué palabra es? (estilo Wordwall)</h4>
-<iframe src="juego-wordwall-2.html" style="width:100%;height:500px;border:none;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.1)" allowfullscreen></iframe>
-
-<p style="font-size:12px;color:#64748b;margin-top:12px">💡 Para poner un Wordwall real, cambia src="juego-wordwall-1.html" por tu enlace: https://wordwall.net/es/embed/XXXXXXXX</p>
+<h3>🎮 JUEGOS TIPO WORDWALL</h3>
+<h4 style="margin:12px 0 6px;color:#1e3a8a">Juego 1: Une imagen y palabra</h4>
+<iframe src="juego-wordwall-1.html" loading="lazy" style="width:100%;height:540px;border:none;border-radius:16px" allowfullscreen></iframe>
+<h4 style="margin:18px 0 6px;color:#1e3a8a">Juego 2: ¿Qué palabra es?</h4>
+<iframe src="juego-wordwall-2.html" loading="lazy" style="width:100%;height:500px;border:none;border-radius:16px" allowfullscreen></iframe>
 </div>
 
 <script>
@@ -125,7 +120,7 @@ function crear(){
  const gA=document.getElementById("gridA"),gB=document.getElementById("gridB");
  palabras.forEach(o=>{
   let d=document.createElement("div");d.className="tarjeta";
-  d.innerHTML=`<button class="audio" onclick="hablar('${o.p}')">🔊</button><img src="${base+o.img}" onerror="this.style.display='none'"><b>${o.p}</b><div class="sep">${o.sil}</div><div class="def">${o.def}</div>`;
+  d.innerHTML=`<button class="audio" onclick="hablar('${o.p}')">🔊</button><img src="${base+o.img}" loading="lazy" onerror="this.style.display='none'"><b>${o.p}</b><div class="sep">${o.sil}</div><div class="def">${o.def}</div>`;
   if(o.g=="A") gA.appendChild(d); else gB.appendChild(d);
  });
 }
@@ -136,13 +131,13 @@ function nuevoJuego1(){
  let e=palabras[Math.floor(Math.random()*palabras.length)];correcta1=e;
  document.getElementById("pregunta1").innerText=`¿Dónde está ${e.p}?`;hablar(e.p);
  let ops=[e];while(ops.length<4){let r=palabras[Math.floor(Math.random()*palabras.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>Math.random()-0.5);
- ops.forEach(o=>{let div=document.createElement("div");div.className="opcion";div.innerHTML=`<img src="${base+o.img}"><div>${o.p}</div>`;div.onclick=()=>{if(o.p===correcta1.p){div.classList.add("correcta");puntos1++;hablar("¡Correcto! "+o.p);}else{div.classList.add("error");hablar("Era "+correcta1.p);}document.getElementById("puntos1").innerText=`⭐ ${puntos1}`;};document.getElementById("opciones1").appendChild(div);});
+ ops.forEach(o=>{let div=document.createElement("div");div.className="opcion";div.innerHTML=`<img src="${base+o.img}" loading="lazy"><div>${o.p}</div>`;div.onclick=()=>{if(o.p===correcta1.p){div.classList.add("correcta");puntos1++;hablar("¡Correcto! "+o.p);}else{div.classList.add("error");hablar("Era "+correcta1.p);}document.getElementById("puntos1").innerText=`⭐ ${puntos1}`;};document.getElementById("opciones1").appendChild(div);});
 }
 let puntos2=0,correcta2=null;
 function nuevoJuego2(){
  document.getElementById("opciones2").innerHTML="";
  let e=palabras[Math.floor(Math.random()*palabras.length)];correcta2=e;
- document.getElementById("pregunta2").innerHTML=`<img src="${base+e.img}"><div>¿Qué palabra es?</div>`;hablar("¿Qué palabra es?");
+ document.getElementById("pregunta2").innerHTML=`<img src="${base+e.img}" loading="lazy"><div>¿Qué palabra es?</div>`;hablar("¿Qué palabra es?");
  let ops=[e];while(ops.length<4){let r=palabras[Math.floor(Math.random()*palabras.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>Math.random()-0.5);
  ops.forEach(o=>{let div=document.createElement("div");div.className="opcion";div.innerHTML=`<div style="padding:20px 0">${o.p}</div>`;div.onclick=()=>{if(o.p===correcta2.p){div.classList.add("correcta");puntos2++;hablar("¡Muy bien! "+o.p);}else{div.classList.add("error");hablar("Era "+correcta2.p);}document.getElementById("puntos2").innerText=`⭐ ${puntos2}`;};document.getElementById("opciones2").appendChild(div);});
 }
