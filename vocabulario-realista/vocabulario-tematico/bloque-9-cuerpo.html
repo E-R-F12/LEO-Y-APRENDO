@@ -6,27 +6,27 @@
 <title>BLOQUE 9 - CUERPO</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
-body{background:#f5f7fb}
-.header{background:white;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:10}
-.nav{display:flex;gap:6px;flex-wrap:wrap}
-.nav a{padding:6px 12px;border-radius:20px;background:#eef2f7;text-decoration:none;color:#2c3e6b;font-size:.85rem;font-weight:600}
-.nav a.active{background:#ffcc00;color:#000}
-.bloque-title{background:#ff9900;color:white;padding:12px 20px;font-weight:800;margin-top:10px;font-size:1.1rem}
-.sub-bloque{background:#e3f2fd;padding:8px 20px;color:#0d47a1;font-weight:700;margin-top:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;padding:12px 20px}
-.card{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.07)}
-.card img{width:100%;height:110px;object-fit:cover;border-radius:8px;background:#f0f0f0}
-.card h3{color:#b02a5c;margin-top:8px;font-size:.95rem;text-transform:uppercase}
-.card .sil{color:#666;font-size:.8rem}
-.card .def{font-size:.75rem;background:#e3f2fd;padding:4px;border-radius:6px;margin-top:4px;color:#1a237e}
-.audio{cursor:pointer}
+body{background:#f6f8fb;padding-bottom:40px}
+.header{background:white;padding:12px 3%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:10;flex-wrap:wrap;gap:8px}
+.logo{font-weight:900;font-size:18px;color:#1e3a8a}
+nav{display:flex;flex-wrap:wrap;gap:6px}
+nav a{background:#f1f5f9;color:#1e3a8a;text-decoration:none;font-weight:800;font-size:11px;padding:7px 11px;border-radius:20px;border:1px solid #e2e8f0}
+nav a.active{background:#ffcc00;color:#000;border-color:#ffcc00}
+.barra{background:#ff9900;color:white;font-weight:900;padding:10px 14px;border-radius:8px;margin:14px 1% 8px;font-size:15px}
+.barra.sub{font-size:13px;background:#e0f2fe;color:#0c4a6e;margin-top:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;padding:0 1%}
+.tarjeta{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.06);min-height:210px}
+.tarjeta img{width:100%;height:110px;object-fit:contain;border-radius:8px;background:white;margin-bottom:6px}
+.tarjeta b{color:#b02a5c;text-transform:uppercase;font-size:13px;display:block}
+.sep{color:#64748b;font-size:11px}
+.def{font-size:11px;color:#1e3a8a;background:#dbeafe;padding:4px 6px;border-radius:6px;margin-top:4px}
 </style>
 </head>
 <body>
 
 <div class="header">
-<div>📚 <b>VOCABULARIO REALISTA</b></div>
-<div class="nav">
+<div class="logo">📚 VOCABULARIO REALISTA</div>
+<nav>
 <a href="bloque-1-saludos.html">1 SALUDOS</a>
 <a href="bloque-2-casa.html">2 CASA</a>
 <a href="bloque-3-comida.html">3 COMIDA</a>
@@ -36,37 +36,76 @@ body{background:#f5f7fb}
 <a href="bloque-7-pueblo.html">7 PUEBLO</a>
 <a href="bloque-8-ropa.html">8 ROPA</a>
 <a href="bloque-9-cuerpo.html" class="active">9 CUERPO</a>
-</div>
+</nav>
 </div>
 
-<div class="bloque-title">9. BLOQUE 9 - CUERPO, CARACTERÍSTICAS Y ETAPAS</div>
+<div class="barra">9. BLOQUE 9 - CUERPO, CARACTERÍSTICAS Y ETAPAS - 55 palabras</div>
 
-<div class="sub-bloque">A) Partes del cuerpo y los 5 sentidos - 15 palabras</div>
+<div class="barra sub">A) Partes del cuerpo y los 5 sentidos - 25 palabras</div>
 <div class="grid">
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/pestana.jpg" onerror="this.src='../bloque-9-cuerpo/pestana.jpg'"><h3>PESTAÑA</h3><div class="sil">pes-ta-ña</div><div class="def">Pestaña con pelo que protege el ojo</div><span class="audio">🔊</span></div>
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/frente.jpg" onerror="this.src='../bloque-9-cuerpo/frente.jpg'"><h3>FRENTE</h3><div class="sil">fren-te</div><div class="def">Parte superior de la cara</div><span class="audio">🔊</span></div>
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/cuello.jpg" onerror="this.src='../bloque-9-cuerpo/cuello.jpg'"><h3>CUELLO</h3><div class="sil">cue-llo</div><div class="def">Une la cabeza con el cuerpo</div></div>
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/hombros.jpg"><h3>HOMBROS</h3><div class="sil">hom-bros</div><div class="def">Sostienen los brazos</div></div>
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/unas.jpg"><h3>UÑAS</h3><div class="sil">u-ñas</div><div class="def">Crecen en los dedos</div></div>
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/corazon.jpg"><h3>CORAZÓN</h3><div class="sil">co-ra-zón</div><div class="def">Bombea la sangre</div></div>
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/musculo.jpg"><h3>MÚSCULO</h3><div class="sil">mús-cu-lo</div><div class="def">Nos permite movernos</div></div>
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/hueso.jpg"><h3>HUESO</h3><div class="sil">hue-so</div><div class="def">Parte dura del esqueleto</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/pestana.jpg" onerror="this.src='../../vocabulario-realista/imagenes/bloque-9-cuerpo/pestana.jpg'"><b>PESTAÑA</b><div class="sep">pes-ta-ña</div><div class="def">Pestaña con pelo que protege el ojo</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/frente.jpg"><b>FRENTE</b><div class="sep">fren-te</div><div class="def">Parte superior de la cara</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/cuello.jpg"><b>CUELLO</b><div class="sep">cue-llo</div><div class="def">Une la cabeza con el cuerpo</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/hombros.jpg"><b>HOMBROS</b><div class="sep">hom-bros</div><div class="def">Sostienen los brazos</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/unas.jpg"><b>UÑAS</b><div class="sep">u-ñas</div><div class="def">Crecen en los dedos</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/corazon.jpg"><b>CORAZÓN</b><div class="sep">co-ra-zón</div><div class="def">Bombea la sangre</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/musculo.jpg"><b>MÚSCULO</b><div class="sep">mús-cu-lo</div><div class="def">Nos permite movernos</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/hueso.jpg"><b>HUESO</b><div class="sep">hue-so</div><div class="def">Parte dura del esqueleto</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/cabeza.jpg"><b>CABEZA</b><div class="sep">ca-be-za</div><div class="def">Parte superior del cuerpo</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/ojo.jpg"><b>OJO</b><div class="sep">o-jo</div><div class="def">Nos permite ver</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/nariz.jpg"><b>NARIZ</b><div class="sep">na-riz</div><div class="def">Para respirar y oler</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/boca.jpg"><b>BOCA</b><div class="sep">bo-ca</div><div class="def">Para comer y hablar</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/oreja.jpg"><b>OREJA</b><div class="sep">o-re-ja</div><div class="def">Para escuchar</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/mano.jpg"><b>MANO</b><div class="sep">ma-no</div><div class="def">Tiene 5 dedos</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/pie.jpg"><b>PIE</b><div class="sep">pie</div><div class="def">Para caminar</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/brazo.jpg"><b>BRAZO</b><div class="sep">bra-zo</div><div class="def">Une hombro y mano</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/pierna.jpg"><b>PIERNA</b><div class="sep">pier-na</div><div class="def">De la cadera al pie</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/rodilla.jpg"><b>RODILLA</b><div class="sep">ro-di-lla</div><div class="def">Articulación de la pierna</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/espalda.jpg"><b>ESPALDA</b><div class="sep">es-pal-da</div><div class="def">Parte trasera del cuerpo</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/cerebro.jpg"><b>CEREBRO</b><div class="sep">ce-re-bro</div><div class="def">Piensa y recuerda</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/piel.jpg"><b>PIEL</b><div class="sep">piel</div><div class="def">Cubre todo el cuerpo</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/sangre.jpg"><b>SANGRE</b><div class="sep">san-gre</div><div class="def">Circula por el cuerpo</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/diente.jpg"><b>DIENTE</b><div class="sep">dien-te</div><div class="def">Para masticar</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/lengua.jpg"><b>LENGUA</b><div class="sep">len-gua</div><div class="def">Para saborear</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/pulmon.jpg"><b>PULMÓN</b><div class="sep">pul-món</div><div class="def">Para respirar</div></div>
 </div>
 
-<div class="sub-bloque">B) Características físicas - 15 palabras</div>
+<div class="barra sub">B) Características físicas - 15 palabras</div>
 <div class="grid">
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/alta.jpg"><h3>ALTA</h3><div class="sil">al-ta</div></div>
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/baja.jpg"><h3>BAJA</h3><div class="sil">ba-ja</div></div>
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/delgada.jpg"><h3>DELGADA</h3><div class="sil">del-ga-da</div></div>
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/fuerte.jpg"><h3>FUERTE</h3><div class="sil">fuer-te</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/alta.jpg"><b>ALTA</b><div class="sep">al-ta</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/baja.jpg"><b>BAJA</b><div class="sep">ba-ja</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/delgada.jpg"><b>DELGADA</b><div class="sep">del-ga-da</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/gorda.jpg"><b>GORDA</b><div class="sep">gor-da</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/fuerte.jpg"><b>FUERTE</b><div class="sep">fuer-te</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/debil.jpg"><b>DÉBIL</b><div class="sep">dé-bil</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/rubia.jpg"><b>RUBIA</b><div class="sep">ru-bia</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/morena.jpg"><b>MORENA</b><div class="sep">mo-re-na</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/calva.jpg"><b>CALVA</b><div class="sep">cal-va</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/joven.jpg"><b>JOVEN</b><div class="sep">jo-ven</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/guapa.jpg"><b>GUAPA</b><div class="sep">gua-pa</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/fea.jpg"><b>FEA</b><div class="sep">fe-a</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/largo.jpg"><b>LARGO</b><div class="sep">lar-go</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/corto.jpg"><b>CORTO</b><div class="sep">cor-to</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/rizado.jpg"><b>RIZADO</b><div class="sep">ri-za-do</div></div>
 </div>
 
-<div class="sub-bloque">C) Etapas de la vida</div>
+<div class="barra sub">C) Etapas de la vida - 15 palabras</div>
 <div class="grid">
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/bebe.jpg"><h3>BEBÉ</h3><div class="sil">be-bé</div></div>
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/nino.jpg"><h3>NIÑO</h3><div class="sil">ni-ño</div></div>
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/adolescencia.jpg"><h3>ADOLESCENCIA</h3><div class="sil">a-do-les-cen-cia</div></div>
-<div class="card"><img src="../imagenes/bloque-9-cuerpo/adulto.jpg"><h3>ADULTO</h3><div class="sil">a-dul-to</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/bebe.jpg"><b>BEBÉ</b><div class="sep">be-bé</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/nino.jpg"><b>NIÑO</b><div class="sep">ni-ño</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/nina.jpg"><b>NIÑA</b><div class="sep">ni-ña</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/adolescencia.jpg"><b>ADOLESCENCIA</b><div class="sep">a-do-les-cen-cia</div><div class="def">Etapa de cambios y crecimiento</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/adolescente.jpg"><b>ADOLESCENTE</b><div class="sep">a-do-les-cen-te</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/adulto.jpg"><b>ADULTO</b><div class="sep">a-dul-to</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/adulta.jpg"><b>ADULTA</b><div class="sep">a-dul-ta</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/anciano.jpg"><b>ANCIANO</b><div class="sep">an-cia-no</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/anciana.jpg"><b>ANCIANA</b><div class="sep">an-cia-na</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/infancia.jpg"><b>INFANCIA</b><div class="sep">in-fan-cia</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/juventud.jpg"><b>JUVENTUD</b><div class="sep">ju-ven-tud</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/vejez.jpg"><b>VEJEZ</b><div class="sep">ve-jez</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/nacimiento.jpg"><b>NACIMIENTO</b><div class="sep">na-ci-mien-to</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/crecimiento.jpg"><b>CRECIMIENTO</b><div class="sep">cre-ci-mien-to</div></div>
+<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/vida.jpg"><b>VIDA</b><div class="sep">vi-da</div></div>
 </div>
 
 </body>
