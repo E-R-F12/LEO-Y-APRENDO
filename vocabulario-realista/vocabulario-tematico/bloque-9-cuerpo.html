@@ -37,7 +37,7 @@ nav a.active{background:#ffcc00;color:#000;border-color:#ffcc00}
 <div class="header"><div class="logo">📚 VOCABULARIO REALISTA</div><nav>
 <a href="bloque-1-saludos.html">1 SALUDOS</a><a href="bloque-2-casa.html">2 CASA</a><a href="bloque-3-comida.html">3 COMIDA</a><a href="bloque-4-escuela.html">4 ESCUELA</a><a href="bloque-5-animales.html">5 ANIMALES</a><a href="bloque-6-familia.html">6 FAMILIA</a><a href="bloque-7-pueblo.html">7 PUEBLO</a><a href="bloque-8-ropa.html">8 ROPA</a><a href="bloque-9-cuerpo.html" class="active">9 CUERPO</a></nav></div>
 
-<div class="barra">9. BLOQUE 9 - CUERPO, CARACTERÍSTICAS Y ETAPAS - 55 palabras</div>
+<div class="barra">9. BLOQUE 9 - CUERPO - 55 palabras - VERSIÓN CDN (sin bloqueo)</div>
 <div class="barra sub">A) Cuerpo, sentidos y etapas - 40 palabras</div>
 <div class="grid" id="gridA"></div>
 <div class="barra sub">B) Características - 15 palabras</div>
@@ -47,15 +47,15 @@ nav a.active{background:#ffcc00;color:#000;border-color:#ffcc00}
 <div class="juego"><h3>🎮 JUEGO 2: Elige la PALABRA correcta</h3><div id="pregunta2"></div><div class="opciones" id="opciones2"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego2()">Siguiente ▶️</button> <span id="puntos2"></span></div></div>
 
 <div class="juego" style="background:#fffbeb;border:2px dashed #f59e0b">
-<h3>🎮 JUEGOS TIPO WORDWALL</h3>
-<h4 style="margin:12px 0 6px;color:#1e3a8a">Juego 1: Une imagen y palabra</h4>
-<iframe src="juego-wordwall-1.html" loading="lazy" style="width:100%;height:540px;border:none;border-radius:16px" allowfullscreen></iframe>
-<h4 style="margin:18px 0 6px;color:#1e3a8a">Juego 2: ¿Qué palabra es?</h4>
-<iframe src="juego-wordwall-2.html" loading="lazy" style="width:100%;height:500px;border:none;border-radius:16px" allowfullscreen></iframe>
+<h3>🎮 JUEGOS TIPO WORDWALL EMBEBIDOS</h3>
+<iframe src="https://cdn.jsdelivr.net/gh/e-r-f12/LEO-Y-APRENDO@main/vocabulario-realista/vocabulario-tematico/juego-wordwall-1.html" loading="lazy" style="width:100%;height:540px;border:none;border-radius:16px" allowfullscreen></iframe>
+<iframe src="https://cdn.jsdelivr.net/gh/e-r-f12/LEO-Y-APRENDO@main/vocabulario-realista/vocabulario-tematico/juego-wordwall-2.html" loading="lazy" style="width:100%;height:500px;border:none;border-radius:16px;margin-top:12px" allowfullscreen></iframe>
 </div>
 
 <script>
-const base="../imagenes/bloque-9-cuerpo/";
+// NUEVA BASE CDN - YA NO USA github.io, EVITA EL RATE LIMIT
+const base="https://cdn.jsdelivr.net/gh/e-r-f12/LEO-Y-APRENDO@main/vocabulario-realista/imagenes/bloque-9-cuerpo/";
+
 const palabras=[
  {p:"ADOLESCENCIA",sil:"a-do-les-cen-cia",def:"Etapa de cambios",img:"adolescencia.jpg",g:"A"},
  {p:"BOCA",sil:"bo-ca",def:"Para comer y hablar",img:"boca.jpg",g:"A"},
