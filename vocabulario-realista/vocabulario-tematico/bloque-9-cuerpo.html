@@ -3,186 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VOCABULARIO REALISTA</title>
+<title>BLOQUE 9 - CUERPO</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
-body{background:#f6f8fb;color:#1e293b;padding-bottom:40px}
-header{background:white;padding:12px 3%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:100;flex-wrap:wrap;gap:8px}
-.logo{font-weight:900;font-size:22px;color:#1e3a8a}
-nav{display:flex;flex-wrap:wrap;gap:6px}
-nav a{background:#f1f5f9;color:#1e3a8a;text-decoration:none;font-weight:800;font-size:11px;padding:7px 11px;border-radius:20px;border:1px solid #e2e8f0}
-nav a:hover{background:#38bdf8;color:white}
-.barra{background:#38bdf8;color:white;font-weight:900;padding:10px 14px;border-radius:8px;margin:22px 1% 10px}
-.barra.sub{font-size:13px;background:#e0f2fe;color:#1e3a8a}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;padding:0 1%}
-.tarjeta{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.06);cursor:pointer;min-height:200px;display:flex;flex-direction:column;justify-content:flex-start;align-items:center}
-.tarjeta img{width:100%;height:110px;object-fit:contain;border-radius:8px;background:white;margin-bottom:6px}
-.tarjeta b{color:#c0265a;text-transform:uppercase}
-.sep{color:#64748b;font-size:10px}
-.def{font-size:11px;color:#1e3a8a;background:#dbeafe;padding:4px 6px;border-radius:6px;margin-top:4px}
-footer{background:#1e3a8a;color:white;text-align:center;padding:16px;margin-top:30px}
+body{background:#f5f7fb}
+.header{background:white;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:10}
+.nav{display:flex;gap:6px;flex-wrap:wrap}
+.nav a{padding:6px 12px;border-radius:20px;background:#eef2f7;text-decoration:none;color:#2c3e6b;font-size:.85rem;font-weight:600}
+.nav a.active{background:#ffcc00;color:#000}
+.bloque-title{background:#ff9900;color:white;padding:12px 20px;font-weight:800;margin-top:10px;font-size:1.1rem}
+.sub-bloque{background:#e3f2fd;padding:8px 20px;color:#0d47a1;font-weight:700;margin-top:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;padding:12px 20px}
+.card{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.07)}
+.card img{width:100%;height:110px;object-fit:cover;border-radius:8px;background:#f0f0f0}
+.card h3{color:#b02a5c;margin-top:8px;font-size:.95rem;text-transform:uppercase}
+.card .sil{color:#666;font-size:.8rem}
+.card .def{font-size:.75rem;background:#e3f2fd;padding:4px;border-radius:6px;margin-top:4px;color:#1a237e}
+.audio{cursor:pointer}
 </style>
 </head>
 <body>
-<header>
-<div class="logo">📖 VOCABULARIO REALISTA</div>
-<nav>
-<a href="#b1">1 SALUDOS</a><a href="#b2">2 CASA</a><a href="#b3">3 COMIDA</a><a href="#b4">4 ESCUELA</a>
-<a href="#b5">5 ANIMALES</a><a href="#b6">6 FAMILIA</a><a href="#b7">7 PUEBLO</a><a href="#b8">8 ROPA</a>
-<a href="#bloque9" style="background:#facc15">9 CUERPO</a>
-</nav>
-</header>
 
-<!-- BLOQUES 1-8 (se mantienen con tus imágenes) -->
-<div id="b1"><div class="barra">1. SALUDOS</div><div class="grid" id="g1"></div></div>
-<div id="b2"><div class="barra">2. CASA</div><div class="grid" id="g2"></div></div>
-<div id="b3"><div class="barra">3. COMIDA</div><div class="grid" id="g3"></div></div>
-<div id="b4"><div class="barra">4. ESCUELA</div><div class="grid" id="g4"></div></div>
-<div id="b5"><div class="barra">5. ANIMALES</div><div class="grid" id="g5"></div></div>
-<div id="b6"><div class="barra">6. FAMILIA</div><div class="grid" id="g6"></div></div>
-<div id="b7"><div class="barra">7. PUEBLO</div><div class="grid" id="g7"></div></div>
-<div id="b8"><div class="barra">8. ROPA</div><div class="grid" id="g8"></div></div>
-
-<!-- BLOQUE 9 NUEVO - CUERPO -->
-<div id="bloque9">
-<div class="barra" style="background:#f59e0b">9. BLOQUE 9 - CUERPO, CARACTERISTICAS Y ETAPAS</div>
-
-<div class="barra sub">A) Partes del cuerpo y los 5 sentidos - 15 palabras</div>
-<div class="grid" id="grid-9a"></div>
-
-<div class="barra sub" style="background:#fef9c3">B) Color de pelo - 5 palabras</div>
-<div class="grid" id="grid-9b"></div>
-
-<div class="barra sub" style="background:#dcfce7">C) Características y etapas de la vida - 17 palabras</div>
-<div class="grid" id="grid-9c"></div>
-
-<div class="barra" style="background:#facc15;color:#1e3a8a">🎮 JUEGOS FINALES BLOQUE 9</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;padding:10px 1%">
-  <div style="background:white;border-radius:12px;padding:14px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.06)">
-    <h3 style="color:#1e3a8a">1. ¿Qué escuchas?</h3>
-    <p id="juego-audio-txt" style="font-size:28px;margin:8px 0">🔊</p>
-    <button onclick="juegoEscucha()" style="background:#1e3a8a;color:white;border:none;padding:8px 14px;border-radius:20px;font-weight:800;cursor:pointer">ESCUCHAR</button>
-    <div id="juego-opciones" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px"></div>
-    <p id="juego-feedback" style="font-weight:900;margin-top:8px"></p>
-  </div>
-  <div style="background:white;border-radius:12px;padding:14px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.06)">
-    <h3 style="color:#1e3a8a">2. Ordena las etapas</h3>
-    <p style="font-size:11px;color:#64748b">Infancia → Juventud → Madurez → Vejez</p>
-    <div id="etapas-desorden" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:10px 0"></div>
-    <button onclick="comprobarEtapas()" style="background:#22c55e;color:white;border:none;padding:8px 14px;border-radius:20px;font-weight:800;cursor:pointer">COMPROBAR</button>
-    <p id="etapas-feedback" style="font-weight:900;margin-top:8px"></p>
-  </div>
+<div class="header">
+<div>📚 <b>VOCABULARIO REALISTA</b></div>
+<div class="nav">
+<a href="bloque-1-saludos.html">1 SALUDOS</a>
+<a href="bloque-2-casa.html">2 CASA</a>
+<a href="bloque-3-comida.html">3 COMIDA</a>
+<a href="bloque-4-escuela.html">4 ESCUELA</a>
+<a href="bloque-5-animales.html">5 ANIMALES</a>
+<a href="bloque-6-familia.html">6 FAMILIA</a>
+<a href="bloque-7-pueblo.html">7 PUEBLO</a>
+<a href="bloque-8-ropa.html">8 ROPA</a>
+<a href="bloque-9-cuerpo.html" class="active">9 CUERPO</a>
 </div>
 </div>
 
-<footer>LEO Y APRENDO - Vocabulario Realista</footer>
+<div class="bloque-title">9. BLOQUE 9 - CUERPO, CARACTERÍSTICAS Y ETAPAS</div>
 
-<script>
-function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);}
-function crearGridSimple(carpeta, lista, id){
- document.getElementById(id).innerHTML=lista.map(n=>`<div class="tarjeta" onclick="hablar('${n}')"><img src="imagenes/${carpeta}/${n}.jpg" onerror="this.src='imagenes/${carpeta}/${n}.jpeg'"><p><b>${n}</b></p>🔊</div>`).join("");
-}
-// Tus bloques anteriores - pon aquí los nombres exactos de tus jpg si quieres, ahora carga automático
-crearGridSimple("bloque-1-saludos",["hola","adios","buenos dias"],"g1");
-crearGridSimple("bloque-2-casa",["casa","puerta","ventana"],"g2");
-crearGridSimple("bloque-3-comida",["pan","agua","manzana"],"g3");
-crearGridSimple("bloque-4-escuela",["libro","lapiz","mesa"],"g4");
-crearGridSimple("bloque-5-animales",["perro","gato","pajaro"],"g5");
-crearGridSimple("bloque-6-familia",["mama","papa","hermano"],"g6");
-crearGridSimple("bloque-7-pueblo",["calle","plaza","tienda"],"g7");
-crearGridSimple("bloque-8-ropa",["camisa","pantalon","zapato"],"g8");
+<div class="sub-bloque">A) Partes del cuerpo y los 5 sentidos - 15 palabras</div>
+<div class="grid">
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/pestana.jpg" onerror="this.src='../bloque-9-cuerpo/pestana.jpg'"><h3>PESTAÑA</h3><div class="sil">pes-ta-ña</div><div class="def">Pestaña con pelo que protege el ojo</div><span class="audio">🔊</span></div>
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/frente.jpg" onerror="this.src='../bloque-9-cuerpo/frente.jpg'"><h3>FRENTE</h3><div class="sil">fren-te</div><div class="def">Parte superior de la cara</div><span class="audio">🔊</span></div>
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/cuello.jpg" onerror="this.src='../bloque-9-cuerpo/cuello.jpg'"><h3>CUELLO</h3><div class="sil">cue-llo</div><div class="def">Une la cabeza con el cuerpo</div></div>
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/hombros.jpg"><h3>HOMBROS</h3><div class="sil">hom-bros</div><div class="def">Sostienen los brazos</div></div>
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/unas.jpg"><h3>UÑAS</h3><div class="sil">u-ñas</div><div class="def">Crecen en los dedos</div></div>
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/corazon.jpg"><h3>CORAZÓN</h3><div class="sil">co-ra-zón</div><div class="def">Bombea la sangre</div></div>
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/musculo.jpg"><h3>MÚSCULO</h3><div class="sil">mús-cu-lo</div><div class="def">Nos permite movernos</div></div>
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/hueso.jpg"><h3>HUESO</h3><div class="sil">hue-so</div><div class="def">Parte dura del esqueleto</div></div>
+</div>
 
-// BLOQUE 9 - DATOS COMPLETOS CON DEFINICIÓN
-const bloque9A=[
-["pestaña","pes-ta-ña","pestana","Pestaña con pelo que protege el ojo"],
-["frente","fren-te","frente","Parte superior de la cara"],
-["cuello","cue-llo","cuello","Une la cabeza con el cuerpo"],
-["hombros","hom-bros","hombros","Sostienen los brazos"],
-["uñas","u-ñas","unas","Crecen en los dedos"],
-["corazón","co-ra-zón","corazon","Bombea la sangre"],
-["músculo","mús-cu-lo","musculo","Nos permite movernos"],
-["hueso","hue-so","hueso","Parte dura del esqueleto"],
-["esqueleto","es-que-le-to","esqueleto","Conjunto de huesos"],
-["sistema muscular","sis-te-ma mus-cu-lar","sistema-muscular","Conjunto de músculos"],
-["vista","vis-ta","vista","Sentido para ver"],
-["oído","o-í-do","oido","Sentido para oír"],
-["gusto","gus-to","gusto","Sentido para saborear"],
-["tacto","tac-to","tacto","Sentido para tocar"],
-["olfato","ol-fa-to","olfato","Sentido para oler"]
-];
-const bloque9B=[
-["moreno","mo-re-no","moreno","Cabello moreno oscuro casi negro"],
-["rubio","ru-bio","rubio","Cabello claro dorado"],
-["canoso","ca-no-so","canoso","Cabello gris por la edad"],
-["pelirrojo","pe-li-rro-jo","pelirrojo","Cabello rojo anaranjado"],
-["castaño","cas-ta-ño","castano","Cabello marrón castaño natural"]
-];
-const bloque9C=[
-["alto","al-to","alto","Persona de gran estatura"],
-["alta","al-ta","alta","Persona de gran estatura"],
-["bajo","ba-jo","bajo","Persona de poca estatura"],
-["baja","ba-ja","baja","Persona de poca estatura"],
-["gordo","gor-do","gordo","Complexión robusta"],
-["gorda","gor-da","gorda","Complexión robusta"],
-["delgado","del-ga-do","delgado","Complexión fina"],
-["delgada","del-ga-da","delgada","Complexión fina"],
-["joven","jo-ven","joven","Persona de poca edad"],
-["viejo","vie-jo","viejo","Persona de mucha edad"],
-["niño","ni-ño","nino","Infante masculino"],
-["niña","ni-ña","nina","Infante femenino"],
-["infancia","in-fan-cia","infancia","Primera etapa de la vida"],
-["juventud","ju-ven-tud","juventud","Etapa joven"],
-["adolescencia","a-do-les-cen-cia","adolescencia","Entre infancia y juventud"],
-["madurez","ma-du-rez","madurez","Etapa adulta"],
-["vejez","ve-jez","vejez","Última etapa"]
-];
-function crearGrid9(datos,id){
- let html="";
- datos.forEach(a=>{
-  html+=`<div class="tarjeta" onclick="hablar('${a[2]}')">
-   <img src="imagenes/bloque-9-cuerpo/${a[2]}.jpg" onerror="this.src='imagenes/bloque-9-cuerpo/${a[2]}.jpeg'">
-   <p><b>${a[0]}</b></p><p class="sep">${a[1]}</p>
-   <p class="def">${a[3]}</p>🔊
-  </div>`;
- });
- document.getElementById(id).innerHTML=html;
-}
-crearGrid9(bloque9A,"grid-9a");
-crearGrid9(bloque9B,"grid-9b");
-crearGrid9(bloque9C,"grid-9c");
+<div class="sub-bloque">B) Características físicas - 15 palabras</div>
+<div class="grid">
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/alta.jpg"><h3>ALTA</h3><div class="sil">al-ta</div></div>
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/baja.jpg"><h3>BAJA</h3><div class="sil">ba-ja</div></div>
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/delgada.jpg"><h3>DELGADA</h3><div class="sil">del-ga-da</div></div>
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/fuerte.jpg"><h3>FUERTE</h3><div class="sil">fuer-te</div></div>
+</div>
 
-// JUEGOS
-let palabraActual=null;
-const todos=[...bloque9A,...bloque9B,...bloque9C];
-function juegoEscucha(){
- palabraActual=todos[Math.floor(Math.random()*todos.length)];
- document.getElementById("juego-audio-txt").innerText="🔊 "+palabraActual[0].toUpperCase();
- hablar(palabraActual[0]);
- let ops=[palabraActual];
- while(ops.length<4){let r=todos[Math.floor(Math.random()*todos.length)]; if(!ops.includes(r)) ops.push(r);}
- ops.sort(()=>0.5-Math.random());
- document.getElementById("juego-opciones").innerHTML=ops.map(o=>`<button onclick="checkJuego('${o[0]}')" style="padding:8px;border-radius:8px;border:1px solid #e2e8f0;background:#f8fafc;cursor:pointer;font-weight:700">${o[0]}</button>`).join("");
- document.getElementById("juego-feedback").innerText="";
-}
-function checkJuego(eleccion){
- if(eleccion===palabraActual[0]){
-   document.getElementById("juego-feedback").innerText="¡Correcto! 🎉";
-   document.getElementById("juego-feedback").style.color="#16a34a";
- } else {
-   document.getElementById("juego-feedback").innerText="Era: "+palabraActual[0].toUpperCase()+" ❌";
-   document.getElementById("juego-feedback").style.color="#dc2626";
- }
-}
-const ordenCorrecto=["infancia","juventud","adolescencia","madurez","vejez"];
-let desorden=[...ordenCorrecto].sort(()=>0.5-Math.random());
-function renderEtapas(){
- document.getElementById("etapas-desorden").innerHTML=desorden.map(p=>`<span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:4px 8px;border-radius:12px;font-size:12px;font-weight:700">${p}</span>`).join("");
-}
-renderEtapas();
-function comprobarEtapas(){
- document.getElementById("etapas-feedback").innerText="Orden: INFANCIA → JUVENTUD → ADOLESCENCIA → MADUREZ → VEJEZ";
- document.getElementById("etapas-feedback").style.color="#1e3a8a";
-}
-</script>
+<div class="sub-bloque">C) Etapas de la vida</div>
+<div class="grid">
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/bebe.jpg"><h3>BEBÉ</h3><div class="sil">be-bé</div></div>
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/nino.jpg"><h3>NIÑO</h3><div class="sil">ni-ño</div></div>
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/adolescencia.jpg"><h3>ADOLESCENCIA</h3><div class="sil">a-do-les-cen-cia</div></div>
+<div class="card"><img src="../imagenes/bloque-9-cuerpo/adulto.jpg"><h3>ADULTO</h3><div class="sil">a-dul-to</div></div>
+</div>
+
 </body>
 </html>
