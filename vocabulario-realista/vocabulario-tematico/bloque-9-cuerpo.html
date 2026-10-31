@@ -36,18 +36,22 @@ nav a.active{background:#ffcc00;color:#000;border-color:#ffcc00}
 <body>
 <div class="header"><div class="logo">📚 VOCABULARIO REALISTA</div><nav>
 <a href="bloque-1-saludos.html">1 SALUDOS</a><a href="bloque-2-casa.html">2 CASA</a><a href="bloque-3-comida.html">3 COMIDA</a><a href="bloque-4-escuela.html">4 ESCUELA</a><a href="bloque-5-animales.html">5 ANIMALES</a><a href="bloque-6-familia.html">6 FAMILIA</a><a href="bloque-7-pueblo.html">7 PUEBLO</a><a href="bloque-8-ropa.html">8 ROPA</a><a href="bloque-9-cuerpo.html" class="active">9 CUERPO</a></nav></div>
-<div class="barra">9. BLOQUE 9 - CUERPO, CARACTERÍSTICAS Y ETAPAS - 55 palabras REALES DE TU CARPETA</div>
-<div class="barra sub">A) Cuerpo, sentidos y etapas - 25 palabras</div>
+
+<div class="barra">9. BLOQUE 9 - CUERPO, CARACTERÍSTICAS Y ETAPAS - 55 palabras</div>
+
+<div class="barra sub">A) Cuerpo, sentidos y etapas - 40 palabras</div>
 <div class="grid" id="gridA"></div>
+
 <div class="barra sub">B) Características - 15 palabras</div>
 <div class="grid" id="gridB"></div>
-<div class="barra sub">C) Más cuerpo y vida - 15 palabras</div>
-<div class="grid" id="gridC"></div>
+
 <div class="juego"><h3>🎮 JUEGO 1: Elige la IMAGEN correcta</h3><div id="pregunta1"></div><div class="opciones" id="opciones1"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego1()">Siguiente ▶️</button> <span id="puntos1"></span></div></div>
 <div class="juego"><h3>🎮 JUEGO 2: Elige la PALABRA correcta</h3><div id="pregunta2"></div><div class="opciones" id="opciones2"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego2()">Siguiente ▶️</button> <span id="puntos2"></span></div></div>
+
 <script>
 const base="../imagenes/bloque-9-cuerpo/";
 const palabras=[
+ // A - 40 palabras (las 25 anteriores + las 15 que estaban en C)
  {p:"ADOLESCENCIA",sil:"a-do-les-cen-cia",def:"Etapa de cambios",img:"adolescencia.jpg",g:"A"},
  {p:"BOCA",sil:"bo-ca",def:"Para comer y hablar",img:"boca.jpg",g:"A"},
  {p:"BRAZO",sil:"bra-zo",def:"Une hombro y mano",img:"brazo.jpg",g:"A"},
@@ -73,6 +77,24 @@ const palabras=[
  {p:"OJO",sil:"o-jo",def:"Para ver",img:"ojo.jpg",g:"A"},
  {p:"OJOS",sil:"o-jos",def:"Los dos ojos",img:"ojos.jpg",g:"A"},
  {p:"OREJA",sil:"o-re-ja",def:"Para escuchar",img:"oreja.jpg",g:"A"},
+ {p:"BARRIGA",sil:"ba-rri-ga",def:"Vientre",img:"barriga.jpg",g:"A"},
+ {p:"INFANCIA",sil:"in-fan-cia",def:"Primera etapa",img:"infancia.jpg",g:"A"},
+ {p:"JOVEN",sil:"jo-ven",def:"Edad joven",img:"joven.jpg",g:"A"},
+ {p:"JUVENTUD",sil:"ju-ven-tud",def:"Etapa joven",img:"juventud.jpg",g:"A"},
+ {p:"MADUREZ",sil:"ma-du-rez",def:"Edad adulta",img:"madurez.jpg",g:"A"},
+ {p:"OLFATO",sil:"ol-fa-to",def:"Sentido del olor",img:"olfato.jpg",g:"A"},
+ {p:"PECHO",sil:"pe-cho",def:"Parte del tronco",img:"pecho.jpg",g:"A"},
+ {p:"PELO",sil:"pe-lo",def:"Cabello",img:"pelo.jpg",g:"A"},
+ {p:"PIE",sil:"pie",def:"Para caminar",img:"pie.jpg",g:"A"},
+ {p:"PIEL",sil:"piel",def:"Cubre el cuerpo",img:"piel.jpg",g:"A"},
+ {p:"PIERNA",sil:"pier-na",def:"De cadera a pie",img:"pierna.jpg",g:"A"},
+ {p:"PIES",sil:"pies",def:"Los dos pies",img:"pies.jpg",g:"A"},
+ {p:"RODILLA",sil:"ro-di-lla",def:"Articulación pierna",img:"rodilla.jpg",g:"A"},
+ {p:"TACTO",sil:"tac-to",def:"Sentido del tacto",img:"tacto.jpg",g:"A"},
+ {p:"VEJEZ",sil:"ve-jez",def:"Última etapa",img:"vejez.jpg",g:"A"},
+ {p:"VIEJO",sil:"vie-jo",def:"Edad avanzada",img:"viejo.jpg",g:"A"},
+ {p:"VISTA",sil:"vis-ta",def:"Sentido de la vista",img:"vista.jpg",g:"A"},
+ // B - 15 características
  {p:"ALTA",sil:"al-ta",def:"De mucha estatura",img:"alta.jpg",g:"B"},
  {p:"ALTO",sil:"al-to",def:"De mucha estatura",img:"alto.jpg",g:"B"},
  {p:"BAJA",sil:"ba-ja",def:"De poca estatura",img:"baja.jpg",g:"B"},
@@ -86,31 +108,16 @@ const palabras=[
  {p:"MORENO",sil:"mo-re-no",def:"Pelo oscuro",img:"moreno.jpg",g:"B"},
  {p:"PELIRROJO",sil:"pe-li-rro-jo",def:"Pelo rojo",img:"pelirrojo.jpg",g:"B"},
  {p:"RUBIO",sil:"ru-bio",def:"Pelo claro",img:"rubio.jpg",g:"B"},
- {p:"BARRIGA",sil:"ba-rri-ga",def:"Vientre",img:"barriga.jpg",g:"C"},
- {p:"INFANCIA",sil:"in-fan-cia",def:"Primera etapa",img:"infancia.jpg",g:"C"},
- {p:"JOVEN",sil:"jo-ven",def:"Edad joven",img:"joven.jpg",g:"C"},
- {p:"JUVENTUD",sil:"ju-ven-tud",def:"Etapa joven",img:"juventud.jpg",g:"C"},
- {p:"MADUREZ",sil:"ma-du-rez",def:"Edad adulta",img:"madurez.jpg",g:"C"},
- {p:"OLFATO",sil:"ol-fa-to",def:"Sentido del olor",img:"olfato.jpg",g:"C"},
- {p:"PECHO",sil:"pe-cho",def:"Parte del tronco",img:"pecho.jpg",g:"C"},
- {p:"PELO",sil:"pe-lo",def:"Cabello",img:"pelo.jpg",g:"C"},
- {p:"PIE",sil:"pie",def:"Para caminar",img:"pie.jpg",g:"C"},
- {p:"PIEL",sil:"piel",def:"Cubre el cuerpo",img:"piel.jpg",g:"C"},
- {p:"PIERNA",sil:"pier-na",def:"De cadera a pie",img:"pierna.jpg",g:"C"},
- {p:"PIES",sil:"pies",def:"Los dos pies",img:"pies.jpg",g:"C"},
- {p:"RODILLA",sil:"ro-di-lla",def:"Articulación pierna",img:"rodilla.jpg",g:"C"},
- {p:"TACTO",sil:"tac-to",def:"Sentido del tacto",img:"tacto.jpg",g:"C"},
- {p:"VEJEZ",sil:"ve-jez",def:"Última etapa",img:"vejez.jpg",g:"C"},
- {p:"VIEJO",sil:"vie-jo",def:"Edad avanzada",img:"viejo.jpg",g:"C"},
- {p:"VISTA",sil:"vis-ta",def:"Sentido de la vista",img:"vista.jpg",g:"C"},
+ {p:"MORENO",sil:"mo-re-no",def:"Piel morena",img:"moreno.jpg",g:"B"},
+ {p:"CANOSO",sil:"ca-no-so",def:"Mayor",img:"canoso.jpg",g:"B"},
 ];
 function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang="es-ES";u.rate=0.9;speechSynthesis.speak(u);}
 function crear(){
- const gA=document.getElementById("gridA"),gB=document.getElementById("gridB"),gC=document.getElementById("gridC");
+ const gA=document.getElementById("gridA"),gB=document.getElementById("gridB");
  palabras.forEach(o=>{
   let d=document.createElement("div");d.className="tarjeta";
   d.innerHTML=`<button class="audio" onclick="hablar('${o.p}')">🔊</button><img src="${base+o.img}" onerror="this.style.display='none'"><b>${o.p}</b><div class="sep">${o.sil}</div><div class="def">${o.def}</div>`;
-  if(o.g=="A") gA.appendChild(d); else if(o.g=="B") gB.appendChild(d); else gC.appendChild(d);
+  if(o.g=="A") gA.appendChild(d); else gB.appendChild(d);
  });
 }
 crear();
