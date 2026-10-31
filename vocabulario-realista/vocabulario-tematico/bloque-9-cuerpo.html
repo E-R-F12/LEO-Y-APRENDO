@@ -7,23 +7,33 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
 body{background:#f6f8fb;padding-bottom:40px}
-.header{background:white;padding:12px 3%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:10;flex-wrap:wrap;gap:8px}
+.header{background:white;padding:12px 3%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:11;flex-wrap:wrap;gap:8px}
 .logo{font-weight:900;font-size:18px;color:#1e3a8a}
 nav{display:flex;flex-wrap:wrap;gap:6px}
 nav a{background:#f1f5f9;color:#1e3a8a;text-decoration:none;font-weight:800;font-size:11px;padding:7px 11px;border-radius:20px;border:1px solid #e2e8f0}
 nav a.active{background:#ffcc00;color:#000;border-color:#ffcc00}
 .barra{background:#ff9900;color:white;font-weight:900;padding:10px 14px;border-radius:8px;margin:14px 1% 8px;font-size:15px}
-.barra.sub{font-size:13px;background:#e0f2fe;color:#0c4a6e;margin-top:10px}
+.barra.sub{font-size:13px;background:#e0f2fe;color:#0c4a6e;margin-top:18px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;padding:0 1%}
-.tarjeta{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.06);min-height:210px}
-.tarjeta img{width:100%;height:110px;object-fit:contain;border-radius:8px;background:white;margin-bottom:6px}
+.tarjeta{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.06);min-height:225px;position:relative}
+.tarjeta img{width:100%;height:110px;object-fit:contain;border-radius:8px;background:#fff;margin-bottom:6px}
 .tarjeta b{color:#b02a5c;text-transform:uppercase;font-size:13px;display:block}
 .sep{color:#64748b;font-size:11px}
-.def{font-size:11px;color:#1e3a8a;background:#dbeafe;padding:4px 6px;border-radius:6px;margin-top:4px}
+.def{font-size:11px;color:#1e3a8a;background:#dbeafe;padding:4px 6px;border-radius:6px;margin-top:4px;min-height:28px}
+.audio{position:absolute;top:8px;right:8px;background:#ffcc00;border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:14px}
+.juego{background:white;margin:18px 1%;padding:16px;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.juego h3{color:#1e3a8a;margin-bottom:12px}
+.opciones{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.opcion{border:2px solid #e2e8f0;border-radius:12px;padding:8px;cursor:pointer;background:#f8fafc;text-align:center;font-weight:800}
+.opcion img{width:100%;height:80px;object-fit:contain}
+.opcion.correcta{border-color:#22c55e;background:#dcfce7}
+.opcion.error{border-color:#ef4444;background:#fee2e2}
+#pregunta{font-size:22px;font-weight:900;color:#b02a5c;margin-bottom:12px;text-align:center}
+#pregunta img{width:140px;height:100px;object-fit:contain;display:block;margin:0 auto 8px}
+.btn{background:#1e3a8a;color:white;border:none;padding:10px 18px;border-radius:20px;font-weight:800;cursor:pointer;margin-top:12px}
 </style>
 </head>
 <body>
-
 <div class="header">
 <div class="logo">📚 VOCABULARIO REALISTA</div>
 <nav>
@@ -41,72 +51,145 @@ nav a.active{background:#ffcc00;color:#000;border-color:#ffcc00}
 
 <div class="barra">9. BLOQUE 9 - CUERPO, CARACTERÍSTICAS Y ETAPAS - 55 palabras</div>
 
-<div class="barra sub">A) Partes del cuerpo y los 5 sentidos - 25 palabras</div>
-<div class="grid">
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/pestana.jpg" onerror="this.src='../../vocabulario-realista/imagenes/bloque-9-cuerpo/pestana.jpg'"><b>PESTAÑA</b><div class="sep">pes-ta-ña</div><div class="def">Pestaña con pelo que protege el ojo</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/frente.jpg"><b>FRENTE</b><div class="sep">fren-te</div><div class="def">Parte superior de la cara</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/cuello.jpg"><b>CUELLO</b><div class="sep">cue-llo</div><div class="def">Une la cabeza con el cuerpo</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/hombros.jpg"><b>HOMBROS</b><div class="sep">hom-bros</div><div class="def">Sostienen los brazos</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/unas.jpg"><b>UÑAS</b><div class="sep">u-ñas</div><div class="def">Crecen en los dedos</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/corazon.jpg"><b>CORAZÓN</b><div class="sep">co-ra-zón</div><div class="def">Bombea la sangre</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/musculo.jpg"><b>MÚSCULO</b><div class="sep">mús-cu-lo</div><div class="def">Nos permite movernos</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/hueso.jpg"><b>HUESO</b><div class="sep">hue-so</div><div class="def">Parte dura del esqueleto</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/cabeza.jpg"><b>CABEZA</b><div class="sep">ca-be-za</div><div class="def">Parte superior del cuerpo</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/ojo.jpg"><b>OJO</b><div class="sep">o-jo</div><div class="def">Nos permite ver</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/nariz.jpg"><b>NARIZ</b><div class="sep">na-riz</div><div class="def">Para respirar y oler</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/boca.jpg"><b>BOCA</b><div class="sep">bo-ca</div><div class="def">Para comer y hablar</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/oreja.jpg"><b>OREJA</b><div class="sep">o-re-ja</div><div class="def">Para escuchar</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/mano.jpg"><b>MANO</b><div class="sep">ma-no</div><div class="def">Tiene 5 dedos</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/pie.jpg"><b>PIE</b><div class="sep">pie</div><div class="def">Para caminar</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/brazo.jpg"><b>BRAZO</b><div class="sep">bra-zo</div><div class="def">Une hombro y mano</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/pierna.jpg"><b>PIERNA</b><div class="sep">pier-na</div><div class="def">De la cadera al pie</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/rodilla.jpg"><b>RODILLA</b><div class="sep">ro-di-lla</div><div class="def">Articulación de la pierna</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/espalda.jpg"><b>ESPALDA</b><div class="sep">es-pal-da</div><div class="def">Parte trasera del cuerpo</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/cerebro.jpg"><b>CEREBRO</b><div class="sep">ce-re-bro</div><div class="def">Piensa y recuerda</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/piel.jpg"><b>PIEL</b><div class="sep">piel</div><div class="def">Cubre todo el cuerpo</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/sangre.jpg"><b>SANGRE</b><div class="sep">san-gre</div><div class="def">Circula por el cuerpo</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/diente.jpg"><b>DIENTE</b><div class="sep">dien-te</div><div class="def">Para masticar</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/lengua.jpg"><b>LENGUA</b><div class="sep">len-gua</div><div class="def">Para saborear</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/pulmon.jpg"><b>PULMÓN</b><div class="sep">pul-món</div><div class="def">Para respirar</div></div>
-</div>
-
+<div class="barra sub">A) Partes del cuerpo y 5 sentidos - 25 palabras</div>
+<div class="grid" id="gridA"></div>
 <div class="barra sub">B) Características físicas - 15 palabras</div>
-<div class="grid">
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/alta.jpg"><b>ALTA</b><div class="sep">al-ta</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/baja.jpg"><b>BAJA</b><div class="sep">ba-ja</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/delgada.jpg"><b>DELGADA</b><div class="sep">del-ga-da</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/gorda.jpg"><b>GORDA</b><div class="sep">gor-da</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/fuerte.jpg"><b>FUERTE</b><div class="sep">fuer-te</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/debil.jpg"><b>DÉBIL</b><div class="sep">dé-bil</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/rubia.jpg"><b>RUBIA</b><div class="sep">ru-bia</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/morena.jpg"><b>MORENA</b><div class="sep">mo-re-na</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/calva.jpg"><b>CALVA</b><div class="sep">cal-va</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/joven.jpg"><b>JOVEN</b><div class="sep">jo-ven</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/guapa.jpg"><b>GUAPA</b><div class="sep">gua-pa</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/fea.jpg"><b>FEA</b><div class="sep">fe-a</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/largo.jpg"><b>LARGO</b><div class="sep">lar-go</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/corto.jpg"><b>CORTO</b><div class="sep">cor-to</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/rizado.jpg"><b>RIZADO</b><div class="sep">ri-za-do</div></div>
-</div>
-
+<div class="grid" id="gridB"></div>
 <div class="barra sub">C) Etapas de la vida - 15 palabras</div>
-<div class="grid">
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/bebe.jpg"><b>BEBÉ</b><div class="sep">be-bé</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/nino.jpg"><b>NIÑO</b><div class="sep">ni-ño</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/nina.jpg"><b>NIÑA</b><div class="sep">ni-ña</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/adolescencia.jpg"><b>ADOLESCENCIA</b><div class="sep">a-do-les-cen-cia</div><div class="def">Etapa de cambios y crecimiento</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/adolescente.jpg"><b>ADOLESCENTE</b><div class="sep">a-do-les-cen-te</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/adulto.jpg"><b>ADULTO</b><div class="sep">a-dul-to</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/adulta.jpg"><b>ADULTA</b><div class="sep">a-dul-ta</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/anciano.jpg"><b>ANCIANO</b><div class="sep">an-cia-no</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/anciana.jpg"><b>ANCIANA</b><div class="sep">an-cia-na</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/infancia.jpg"><b>INFANCIA</b><div class="sep">in-fan-cia</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/juventud.jpg"><b>JUVENTUD</b><div class="sep">ju-ven-tud</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/vejez.jpg"><b>VEJEZ</b><div class="sep">ve-jez</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/nacimiento.jpg"><b>NACIMIENTO</b><div class="sep">na-ci-mien-to</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/crecimiento.jpg"><b>CRECIMIENTO</b><div class="sep">cre-ci-mien-to</div></div>
-<div class="tarjeta"><img src="../imagenes/bloque-9-cuerpo/vida.jpg"><b>VIDA</b><div class="sep">vi-da</div></div>
+<div class="grid" id="gridC"></div>
+
+<div class="juego">
+<h3>🎮 JUEGO 1: Elige la IMAGEN correcta</h3>
+<div id="pregunta1"></div>
+<div class="opciones" id="opciones1"></div>
+<div style="text-align:center"><button class="btn" onclick="nuevoJuego1()">Siguiente ▶️</button> <span id="puntos1"></span></div>
 </div>
 
+<div class="juego">
+<h3>🎮 JUEGO 2: Elige la PALABRA correcta</h3>
+<div id="pregunta2"></div>
+<div class="opciones" id="opciones2"></div>
+<div style="text-align:center"><button class="btn" onclick="nuevoJuego2()">Siguiente ▶️</button> <span id="puntos2"></span></div>
+</div>
+
+<script>
+const base="../imagenes/bloque-9-cuerpo/";
+const palabras=[
+ // A 25
+ {p:"PESTAÑA",sil:"pes-ta-ña",def:"Pelo que protege el ojo",img:"pestana.jpg",grupo:"A"},
+ {p:"FRENTE",sil:"fren-te",def:"Parte superior de la cara",img:"frente.jpg",grupo:"A"},
+ {p:"CUELLO",sil:"cue-llo",def:"Une la cabeza con el cuerpo",img:"cuello.jpg",grupo:"A"},
+ {p:"HOMBROS",sil:"hom-bros",def:"Sostienen los brazos",img:"hombros.jpg",grupo:"A"},
+ {p:"UÑAS",sil:"u-ñas",def:"Crecen en los dedos",img:"unas.jpg",grupo:"A"},
+ {p:"CORAZÓN",sil:"co-ra-zón",def:"Bombea la sangre",img:"corazon.jpg",grupo:"A"},
+ {p:"MÚSCULO",sil:"mús-cu-lo",def:"Nos permite movernos",img:"musculo.jpg",grupo:"A"},
+ {p:"HUESO",sil:"hue-so",def:"Parte dura del esqueleto",img:"hueso.jpg",grupo:"A"},
+ {p:"CABEZA",sil:"ca-be-za",def:"Parte superior del cuerpo",img:"cabeza.jpg",grupo:"A"},
+ {p:"OJO",sil:"o-jo",def:"Nos permite ver",img:"ojo.jpg",grupo:"A"},
+ {p:"NARIZ",sil:"na-riz",def:"Para respirar y oler",img:"nariz.jpg",grupo:"A"},
+ {p:"BOCA",sil:"bo-ca",def:"Para comer y hablar",img:"boca.jpg",grupo:"A"},
+ {p:"OREJA",sil:"o-re-ja",def:"Para escuchar",img:"oreja.jpg",grupo:"A"},
+ {p:"MANO",sil:"ma-no",def:"Tiene 5 dedos",img:"mano.jpg",grupo:"A"},
+ {p:"PIE",sil:"pie",def:"Para caminar",img:"pie.jpg",grupo:"A"},
+ {p:"BRAZO",sil:"bra-zo",def:"Une hombro y mano",img:"brazo.jpg",grupo:"A"},
+ {p:"PIERNA",sil:"pier-na",def:"De la cadera al pie",img:"pierna.jpg",grupo:"A"},
+ {p:"RODILLA",sil:"ro-di-lla",def:"Articulación de la pierna",img:"rodilla.jpg",grupo:"A"},
+ {p:"ESPALDA",sil:"es-pal-da",def:"Parte trasera del cuerpo",img:"espalda.jpg",grupo:"A"},
+ {p:"CEREBRO",sil:"ce-re-bro",def:"Piensa y recuerda",img:"cerebro.jpg",grupo:"A"},
+ {p:"PIEL",sil:"piel",def:"Cubre todo el cuerpo",img:"piel.jpg",grupo:"A"},
+ {p:"SANGRE",sil:"san-gre",def:"Circula por el cuerpo",img:"sangre.jpg",grupo:"A"},
+ {p:"DIENTE",sil:"dien-te",def:"Para masticar",img:"diente.jpg",grupo:"A"},
+ {p:"LENGUA",sil:"len-gua",def:"Para saborear",img:"lengua.jpg",grupo:"A"},
+ {p:"PULMÓN",sil:"pul-món",def:"Para respirar",img:"pulmon.jpg",grupo:"A"},
+ // B 15
+ {p:"ALTA",sil:"al-ta",def:"",img:"alta.jpg",grupo:"B"},
+ {p:"BAJA",sil:"ba-ja",def:"",img:"baja.jpg",grupo:"B"},
+ {p:"DELGADA",sil:"del-ga-da",def:"",img:"delgada.jpg",grupo:"B"},
+ {p:"GORDA",sil:"gor-da",def:"",img:"gorda.jpg",grupo:"B"},
+ {p:"FUERTE",sil:"fuer-te",def:"",img:"fuerte.jpg",grupo:"B"},
+ {p:"DÉBIL",sil:"dé-bil",def:"",img:"debil.jpg",grupo:"B"},
+ {p:"RUBIA",sil:"ru-bia",def:"",img:"rubia.jpg",grupo:"B"},
+ {p:"MORENA",sil:"mo-re-na",def:"",img:"morena.jpg",grupo:"B"},
+ {p:"CALVA",sil:"cal-va",def:"",img:"calva.jpg",grupo:"B"},
+ {p:"JOVEN",sil:"jo-ven",def:"",img:"joven.jpg",grupo:"B"},
+ {p:"GUAPA",sil:"gua-pa",def:"",img:"guapa.jpg",grupo:"B"},
+ {p:"FEA",sil:"fe-a",def:"",img:"fea.jpg",grupo:"B"},
+ {p:"LARGO",sil:"lar-go",def:"",img:"largo.jpg",grupo:"B"},
+ {p:"CORTO",sil:"cor-to",def:"",img:"corto.jpg",grupo:"B"},
+ {p:"RIZADO",sil:"ri-za-do",def:"",img:"rizado.jpg",grupo:"B"},
+ // C 15
+ {p:"BEBÉ",sil:"be-bé",def:"",img:"bebe.jpg",grupo:"C"},
+ {p:"NIÑO",sil:"ni-ño",def:"Etapa de la niñez",img:"nino.jpg",grupo:"C"},
+ {p:"NIÑA",sil:"ni-ña",def:"Etapa de la niñez",img:"nina.jpg",grupo:"C"},
+ {p:"ADOLESCENCIA",sil:"a-do-les-cen-cia",def:"Etapa de cambios",img:"adolescencia.jpg",grupo:"C"},
+ {p:"ADOLESCENTE",sil:"a-do-les-cen-te",def:"",img:"adolescente.jpg",grupo:"C"},
+ {p:"ADULTO",sil:"a-dul-to",def:"",img:"adulto.jpg",grupo:"C"},
+ {p:"ADULTA",sil:"a-dul-ta",def:"",img:"adulta.jpg",grupo:"C"},
+ {p:"ANCIANO",sil:"an-cia-no",def:"",img:"anciano.jpg",grupo:"C"},
+ {p:"ANCIANA",sil:"an-cia-na",def:"",img:"anciana.jpg",grupo:"C"},
+ {p:"INFANCIA",sil:"in-fan-cia",def:"",img:"infancia.jpg",grupo:"C"},
+ {p:"JUVENTUD",sil:"ju-ven-tud",def:"",img:"juventud.jpg",grupo:"C"},
+ {p:"VEJEZ",sil:"ve-jez",def:"",img:"vejez.jpg",grupo:"C"},
+ {p:"NACIMIENTO",sil:"na-ci-mien-to",def:"",img:"nacimiento.jpg",grupo:"C"},
+ {p:"CRECIMIENTO",sil:"cre-ci-mien-to",def:"",img:"crecimiento.jpg",grupo:"C"},
+ {p:"VIDA",sil:"vi-da",def:"",img:"vida.jpg",grupo:"C"},
+];
+
+function hablar(t){
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang="es-ES"; u.rate=0.9;
+  speechSynthesis.speak(u);
+}
+function crearTarjetas(){
+  const gA=document.getElementById("gridA"), gB=document.getElementById("gridB"), gC=document.getElementById("gridC");
+  palabras.forEach(o=>{
+    const d=document.createElement("div");
+    d.className="tarjeta";
+    d.innerHTML=`<button class="audio" onclick="hablar('${o.p}')">🔊</button><img src="${base+o.img}" onerror="this.src='../../vocabulario-realista/imagenes/bloque-9-cuerpo/${o.img}'; this.onerror=function(){this.style.display='none'}"><b>${o.p}</b><div class="sep">${o.sil}</div>${o.def?`<div class="def">${o.def}</div>`:''}`;
+    if(o.grupo=="A") gA.appendChild(d); else if(o.grupo=="B") gB.appendChild(d); else gC.appendChild(d);
+  });
+}
+crearTarjetas();
+
+// JUEGO 1: Elige imagen
+let puntos1=0, correcta1=null;
+function nuevoJuego1(){
+  document.getElementById("opciones1").innerHTML="";
+  const elegida=palabras[Math.floor(Math.random()*palabras.length)];
+  correcta1=elegida;
+  document.getElementById("pregunta1").innerHTML=`¿Dónde está <b>${elegida.p}</b>?`;
+  hablar(elegida.p);
+  let ops=[elegida];
+  while(ops.length<4){ let r=palabras[Math.floor(Math.random()*palabras.length)]; if(!ops.includes(r)) ops.push(r); }
+  ops.sort(()=>Math.random()-0.5);
+  ops.forEach(o=>{
+    const div=document.createElement("div"); div.className="opcion";
+    div.innerHTML=`<img src="${base+o.img}" onerror="this.src='../../vocabulario-realista/imagenes/bloque-9-cuerpo/${o.img}'"><div>${o.p}</div>`;
+    div.onclick=()=>{ if(o.p===correcta1.p){div.classList.add("correcta"); puntos1++; hablar("¡Correcto! "+o.p);} else {div.classList.add("error"); hablar("Era "+correcta1.p);} document.getElementById("puntos1").innerText=`⭐ ${puntos1} aciertos`; };
+    document.getElementById("opciones1").appendChild(div);
+  });
+}
+nuevoJuego1();
+
+// JUEGO 2: Elige palabra
+let puntos2=0, correcta2=null;
+function nuevoJuego2(){
+  document.getElementById("opciones2").innerHTML="";
+  const elegida=palabras[Math.floor(Math.random()*palabras.length)];
+  correcta2=elegida;
+  document.getElementById("pregunta2").innerHTML=`<img src="${base+elegida.img}" onerror="this.src='../../vocabulario-realista/imagenes/bloque-9-cuerpo/${elegida.img}'"><div>¿Qué palabra es?</div>`;
+  hablar("¿Qué palabra es?");
+  let ops=[elegida];
+  while(ops.length<4){ let r=palabras[Math.floor(Math.random()*palabras.length)]; if(!ops.includes(r)) ops.push(r); }
+  ops.sort(()=>Math.random()-0.5);
+  ops.forEach(o=>{
+    const div=document.createElement("div"); div.className="opcion"; div.innerHTML=`<div style="font-size:18px;padding:20px 0">${o.p}</div>`;
+    div.onclick=()=>{ if(o.p===correcta2.p){div.classList.add("correcta"); puntos2++; hablar("¡Muy bien! "+o.p);} else {div.classList.add("error"); hablar("Era "+correcta2.p);} document.getElementById("puntos2").innerText=`⭐ ${puntos2} aciertos`; };
+    document.getElementById("opciones2").appendChild(div);
+  });
+}
+nuevoJuego2();
+</script>
 </body>
 </html>
