@@ -14,7 +14,8 @@ nav a{background:#f1f5f9;color:#1e3a8a;text-decoration:none;font-weight:800;font
 nav a.active{background:#ffcc00;color:#000;border-color:#ffcc00}
 .barra{background:#ff9900;color:white;font-weight:900;padding:10px 14px;border-radius:8px;margin:14px 1% 8px;font-size:15px}
 .barra.sub{font-size:13px;background:#e0f2fe;color:#0c4a6e;margin-top:18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;padding:0 1%}
+.barra.grupo{font-size:12px;background:#fef3c7;color:#92400e;margin:10px 1% 6px;border-left:4px solid #f59e0b}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;padding:0 1% 10px}
 .tarjeta{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.06);min-height:225px;position:relative}
 .tarjeta img{width:100%;height:110px;object-fit:contain;border-radius:8px;background:#fff;margin-bottom:6px}
 .tarjeta b{color:#b02a5c;text-transform:uppercase;font-size:13px;display:block}
@@ -37,9 +38,18 @@ nav a.active{background:#ffcc00;color:#000;border-color:#ffcc00}
 <div class="header"><div class="logo">📚 VOCABULARIO REALISTA</div><nav>
 <a href="bloque-1-saludos.html">1 SALUDOS</a><a href="bloque-2-casa.html">2 CASA</a><a href="bloque-3-comida.html">3 COMIDA</a><a href="bloque-4-escuela.html">4 ESCUELA</a><a href="bloque-5-animales.html">5 ANIMALES</a><a href="bloque-6-familia.html">6 FAMILIA</a><a href="bloque-7-pueblo.html">7 PUEBLO</a><a href="bloque-8-ropa.html">8 ROPA</a><a href="bloque-9-cuerpo.html" class="active">9 CUERPO</a></nav></div>
 
-<div class="barra">9. BLOQUE 9 - CUERPO - 55 palabras - VERSIÓN FINAL SIN BLOQUEO</div>
+<div class="barra">9. BLOQUE 9 - CUERPO - 55 palabras</div>
 <div class="barra sub">A) Cuerpo, sentidos y etapas - 40 palabras</div>
-<div class="grid" id="gridA"></div>
+
+<div class="barra grupo">🧍 A1) CUERPO - 28 palabras</div>
+<div class="grid" id="gridCuerpo"></div>
+
+<div class="barra grupo">👃 A2) SENTIDOS - 5 palabras</div>
+<div class="grid" id="gridSentidos"></div>
+
+<div class="barra grupo">👶➡️👴 A3) ETAPAS DE LA VIDA - 7 palabras</div>
+<div class="grid" id="gridEtapas"></div>
+
 <div class="barra sub">B) Características - 15 palabras</div>
 <div class="grid" id="gridB"></div>
 
@@ -53,90 +63,105 @@ nav a.active{background:#ffcc00;color:#000;border-color:#ffcc00}
 </div>
 
 <script>
-// BASE FINAL - RAW.GITHACK PARA QUE NO FALTE NINGUNA FOTO
 const base="https://raw.githack.com/e-r-f12/LEO-Y-APRENDO/main/vocabulario-realista/imagenes/bloque-9-cuerpo/";
 
-const palabras=[
- {p:"ADOLESCENCIA",sil:"a-do-les-cen-cia",def:"Etapa de cambios",img:"adolescencia.jpg",g:"A"},
- {p:"BARRIGA",sil:"ba-rri-ga",def:"Vientre",img:"barriga.jpg",g:"A"},
- {p:"BOCA",sil:"bo-ca",def:"Para comer y hablar",img:"boca.jpg",g:"A"},
- {p:"BRAZO",sil:"bra-zo",def:"Une hombro y mano",img:"brazo.jpg",g:"A"},
- {p:"CABEZA",sil:"ca-be-za",def:"Parte superior",img:"cabeza.jpg",g:"A"},
- {p:"CARA",sil:"ca-ra",def:"Rostro",img:"cara.jpg",g:"A"},
- {p:"CEJA",sil:"ce-ja",def:"Encima del ojo",img:"ceja.jpg",g:"A"},
- {p:"CODO",sil:"co-do",def:"Articulación brazo",img:"codo.jpg",g:"A"},
- {p:"CORAZÓN",sil:"co-ra-zón",def:"Bombea sangre",img:"corazon.jpg",g:"A"},
- {p:"CUERPO",sil:"cuer-po",def:"Todo el organismo",img:"cuerpo.jpg",g:"A"},
- {p:"DEDO",sil:"de-do",def:"De mano o pie",img:"dedo.jpg",g:"A"},
- {p:"DIENTE",sil:"dien-te",def:"Para masticar",img:"diente.jpg",g:"A"},
- {p:"DIENTES",sil:"dien-tes",def:"Varios dientes",img:"dientes.jpg",g:"A"},
- {p:"ESPALDA",sil:"es-pal-da",def:"Parte trasera",img:"espalda.jpg",g:"A"},
- {p:"GUSTO",sil:"gus-to",def:"Sentido sabor",img:"gusto.jpg",g:"A"},
- {p:"HUESO",sil:"hue-so",def:"Parte dura esqueleto",img:"hueso.jpg",g:"A"},
- {p:"INFANCIA",sil:"in-fan-cia",def:"Primera etapa",img:"infancia.jpg",g:"A"},
- {p:"JUVENTUD",sil:"ju-ven-tud",def:"Etapa joven",img:"juventud.jpg",g:"A"},
- {p:"LENGUA",sil:"len-gua",def:"Para saborear",img:"lengua.jpg",g:"A"},
- {p:"MADUREZ",sil:"ma-du-rez",def:"Edad adulta",img:"madurez.jpg",g:"A"},
- {p:"MANO",sil:"ma-no",def:"Tiene 5 dedos",img:"mano.jpg",g:"A"},
- {p:"MANOS",sil:"ma-nos",def:"Las dos manos",img:"manos.jpg",g:"A"},
- {p:"NARIZ",sil:"na-riz",def:"Respirar y oler",img:"nariz.jpg",g:"A"},
- {p:"NIÑA",sil:"ni-ña",def:"Etapa niñez",img:"nina.jpg",g:"A"},
- {p:"NIÑO",sil:"ni-ño",def:"Etapa niñez",img:"nino.jpg",g:"A"},
- {p:"OÍDO",sil:"o-í-do",def:"Sentido oído",img:"oido.jpg",g:"A"},
- {p:"OJO",sil:"o-jo",def:"Para ver",img:"ojo.jpg",g:"A"},
- {p:"OJOS",sil:"o-jos",def:"Los dos ojos",img:"ojos.jpg",g:"A"},
- {p:"OLFATO",sil:"ol-fa-to",def:"Sentido olor",img:"olfato.jpg",g:"A"},
- {p:"OREJA",sil:"o-re-ja",def:"Para escuchar",img:"oreja.jpg",g:"A"},
- {p:"PECHO",sil:"pe-cho",def:"Parte tronco",img:"pecho.jpg",g:"A"},
- {p:"PELO",sil:"pe-lo",def:"Cabello",img:"pelo.jpg",g:"A"},
- {p:"PIE",sil:"pie",def:"Para caminar",img:"pie.jpg",g:"A"},
- {p:"PIEL",sil:"piel",def:"Cubre cuerpo",img:"piel.jpg",g:"A"},
- {p:"PIERNA",sil:"pier-na",def:"De cadera a pie",img:"pierna.jpg",g:"A"},
- {p:"PIES",sil:"pies",def:"Los dos pies",img:"pies.jpg",g:"A"},
- {p:"RODILLA",sil:"ro-di-lla",def:"Articulación pierna",img:"rodilla.jpg",g:"A"},
- {p:"TACTO",sil:"tac-to",def:"Sentido tacto",img:"tacto.jpg",g:"A"},
- {p:"VEJEZ",sil:"ve-jez",def:"Última etapa",img:"vejez.jpg",g:"A"},
- {p:"VISTA",sil:"vis-ta",def:"Sentido vista",img:"vista.jpg",g:"A"},
- {p:"ALTA",sil:"al-ta",def:"Mucha estatura",img:"alta.jpg",g:"B"},
- {p:"ALTO",sil:"al-to",def:"Mucha estatura",img:"alto.jpg",g:"B"},
- {p:"BAJA",sil:"ba-ja",def:"Poca estatura",img:"baja.jpg",g:"B"},
- {p:"BAJO",sil:"ba-jo",def:"Poca estatura",img:"bajo.jpg",g:"B"},
- {p:"CANOSO",sil:"ca-no-so",def:"Pelo blanco",img:"canoso.jpg",g:"B"},
- {p:"CASTAÑO",sil:"cas-ta-ño",def:"Color pelo",img:"castano.jpg",g:"B"},
- {p:"DELGADA",sil:"del-ga-da",def:"Poco peso",img:"delgada.jpg",g:"B"},
- {p:"DELGADO",sil:"del-ga-do",def:"Poco peso",img:"delgado.jpg",g:"B"},
- {p:"GORDA",sil:"gor-da",def:"Mucho peso",img:"gorda.jpg",g:"B"},
- {p:"GORDO",sil:"gor-do",def:"Mucho peso",img:"gordo.jpg",g:"B"},
- {p:"JOVEN",sil:"jo-ven",def:"Edad joven",img:"joven.jpg",g:"B"},
- {p:"MORENO",sil:"mo-re-no",def:"Pelo oscuro",img:"moreno.jpg",g:"B"},
- {p:"PELIRROJO",sil:"pe-li-rro-jo",def:"Pelo rojo",img:"pelirrojo.jpg",g:"B"},
- {p:"RUBIO",sil:"ru-bio",def:"Pelo claro",img:"rubio.jpg",g:"B"},
- {p:"VIEJO",sil:"vie-jo",def:"Edad avanzada",img:"viejo.jpg",g:"B"}
+const cuerpo=[
+ {p:"BARRIGA",sil:"ba-rri-ga",def:"Vientre",img:"barriga.jpg"},
+ {p:"BOCA",sil:"bo-ca",def:"Para comer y hablar",img:"boca.jpg"},
+ {p:"BRAZO",sil:"bra-zo",def:"Une hombro y mano",img:"brazo.jpg"},
+ {p:"CABEZA",sil:"ca-be-za",def:"Parte superior",img:"cabeza.jpg"},
+ {p:"CARA",sil:"ca-ra",def:"Rostro",img:"cara.jpg"},
+ {p:"CEJA",sil:"ce-ja",def:"Encima del ojo",img:"ceja.jpg"},
+ {p:"CODO",sil:"co-do",def:"Articulación brazo",img:"codo.jpg"},
+ {p:"CORAZÓN",sil:"co-ra-zón",def:"Bombea sangre",img:"corazon.jpg"},
+ {p:"CUERPO",sil:"cuer-po",def:"Todo el organismo",img:"cuerpo.jpg"},
+ {p:"DEDO",sil:"de-do",def:"De mano o pie",img:"dedo.jpg"},
+ {p:"DIENTE",sil:"dien-te",def:"Para masticar",img:"diente.jpg"},
+ {p:"DIENTES",sil:"dien-tes",def:"Varios dientes",img:"dientes.jpg"},
+ {p:"ESPALDA",sil:"es-pal-da",def:"Parte trasera",img:"espalda.jpg"},
+ {p:"HUESO",sil:"hue-so",def:"Parte dura esqueleto",img:"hueso.jpg"},
+ {p:"LENGUA",sil:"len-gua",def:"Para saborear",img:"lengua.jpg"},
+ {p:"MANO",sil:"ma-no",def:"Tiene 5 dedos",img:"mano.jpg"},
+ {p:"MANOS",sil:"ma-nos",def:"Las dos manos",img:"manos.jpg"},
+ {p:"NARIZ",sil:"na-riz",def:"Respirar y oler",img:"nariz.jpg"},
+ {p:"OJO",sil:"o-jo",def:"Para ver",img:"ojo.jpg"},
+ {p:"OJOS",sil:"o-jos",def:"Los dos ojos",img:"ojos.jpg"},
+ {p:"OREJA",sil:"o-re-ja",def:"Para escuchar",img:"oreja.jpg"},
+ {p:"PECHO",sil:"pe-cho",def:"Parte tronco",img:"pecho.jpg"},
+ {p:"PELO",sil:"pe-lo",def:"Cabello",img:"pelo.jpg"},
+ {p:"PIE",sil:"pie",def:"Para caminar",img:"pie.jpg"},
+ {p:"PIEL",sil:"piel",def:"Cubre cuerpo",img:"piel.jpg"},
+ {p:"PIERNA",sil:"pier-na",def:"De cadera a pie",img:"pierna.jpg"},
+ {p:"PIES",sil:"pies",def:"Los dos pies",img:"pies.jpg"},
+ {p:"RODILLA",sil:"ro-di-lla",def:"Articulación pierna",img:"rodilla.jpg"}
 ];
+
+const sentidos=[
+ {p:"GUSTO",sil:"gus-to",def:"Sentido sabor",img:"gusto.jpg"},
+ {p:"OÍDO",sil:"o-í-do",def:"Sentido oído",img:"oido.jpg"},
+ {p:"OLFATO",sil:"ol-fa-to",def:"Sentido olor",img:"olfato.jpg"},
+ {p:"TACTO",sil:"tac-to",def:"Sentido tacto",img:"tacto.jpg"},
+ {p:"VISTA",sil:"vis-ta",def:"Sentido vista",img:"vista.jpg"}
+];
+
+const etapas=[
+ {p:"ADOLESCENCIA",sil:"a-do-les-cen-cia",def:"Etapa de cambios",img:"adolescencia.jpg"},
+ {p:"INFANCIA",sil:"in-fan-cia",def:"Primera etapa",img:"infancia.jpg"},
+ {p:"NIÑA",sil:"ni-ña",def:"Etapa niñez",img:"nina.jpg"},
+ {p:"NIÑO",sil:"ni-ño",def:"Etapa niñez",img:"nino.jpg"},
+ {p:"JUVENTUD",sil:"ju-ven-tud",def:"Etapa joven",img:"juventud.jpg"},
+ {p:"MADUREZ",sil:"ma-du-rez",def:"Edad adulta",img:"madurez.jpg"},
+ {p:"VEJEZ",sil:"ve-jez",def:"Última etapa",img:"vejez.jpg"}
+];
+
+const caracteristicas=[
+ {p:"ALTA",sil:"al-ta",def:"Mucha estatura",img:"alta.jpg"},
+ {p:"ALTO",sil:"al-to",def:"Mucha estatura",img:"alto.jpg"},
+ {p:"BAJA",sil:"ba-ja",def:"Poca estatura",img:"baja.jpg"},
+ {p:"BAJO",sil:"ba-jo",def:"Poca estatura",img:"bajo.jpg"},
+ {p:"CANOSO",sil:"ca-no-so",def:"Pelo blanco",img:"canoso.jpg"},
+ {p:"CASTAÑO",sil:"cas-ta-ño",def:"Color pelo",img:"castano.jpg"},
+ {p:"DELGADA",sil:"del-ga-da",def:"Poco peso",img:"delgada.jpg"},
+ {p:"DELGADO",sil:"del-ga-do",def:"Poco peso",img:"delgado.jpg"},
+ {p:"GORDA",sil:"gor-da",def:"Mucho peso",img:"gorda.jpg"},
+ {p:"GORDO",sil:"gor-do",def:"Mucho peso",img:"gordo.jpg"},
+ {p:"JOVEN",sil:"jo-ven",def:"Edad joven",img:"joven.jpg"},
+ {p:"MORENO",sil:"mo-re-no",def:"Pelo oscuro",img:"moreno.jpg"},
+ {p:"PELIRROJO",sil:"pe-li-rro-jo",def:"Pelo rojo",img:"pelirrojo.jpg"},
+ {p:"RUBIO",sil:"ru-bio",def:"Pelo claro",img:"rubio.jpg"},
+ {p:"VIEJO",sil:"vie-jo",def:"Edad avanzada",img:"viejo.jpg"}
+];
+
+const todas=[...cuerpo,...sentidos,...etapas,...caracteristicas];
+
 function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang="es-ES";u.rate=0.9;speechSynthesis.speak(u);}
-function crear(){
- const gA=document.getElementById("gridA"),gB=document.getElementById("gridB");
- palabras.forEach(o=>{
+function crearTarjetas(lista, idGrid){
+ const grid=document.getElementById(idGrid);
+ lista.forEach(o=>{
   let d=document.createElement("div");d.className="tarjeta";
-  d.innerHTML=`<button class="audio" onclick="hablar('${o.p}')">🔊</button><img src="${base+o.img}" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'padding:20px;color:#ef4444\\'>Falta<br>${o.img}</div>'"><b>${o.p}</b><div class="sep">${o.sil}</div><div class="def">${o.def}</div>`;
-  if(o.g=="A") gA.appendChild(d); else gB.appendChild(d);
+  d.innerHTML=`<button class="audio" onclick="hablar('${o.p}')">🔊</button><img src="${base+o.img}" loading="lazy" onerror="this.style.display='none'"><b>${o.p}</b><div class="sep">${o.sil}</div><div class="def">${o.def}</div>`;
+  grid.appendChild(d);
  });
 }
-crear();
+crearTarjetas(cuerpo,"gridCuerpo");
+crearTarjetas(sentidos,"gridSentidos");
+crearTarjetas(etapas,"gridEtapas");
+crearTarjetas(caracteristicas,"gridB");
+
 let puntos1=0,correcta1=null;
 function nuevoJuego1(){
  document.getElementById("opciones1").innerHTML="";
- let e=palabras[Math.floor(Math.random()*palabras.length)];correcta1=e;
+ let e=todas[Math.floor(Math.random()*todas.length)];correcta1=e;
  document.getElementById("pregunta1").innerText=`¿Dónde está ${e.p}?`;hablar(e.p);
- let ops=[e];while(ops.length<4){let r=palabras[Math.floor(Math.random()*palabras.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>Math.random()-0.5);
+ let ops=[e];while(ops.length<4){let r=todas[Math.floor(Math.random()*todas.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>Math.random()-0.5);
  ops.forEach(o=>{let div=document.createElement("div");div.className="opcion";div.innerHTML=`<img src="${base+o.img}" loading="lazy"><div>${o.p}</div>`;div.onclick=()=>{if(o.p===correcta1.p){div.classList.add("correcta");puntos1++;hablar("¡Correcto! "+o.p);}else{div.classList.add("error");hablar("Era "+correcta1.p);}document.getElementById("puntos1").innerText=`⭐ ${puntos1}`;};document.getElementById("opciones1").appendChild(div);});
 }
 let puntos2=0,correcta2=null;
 function nuevoJuego2(){
  document.getElementById("opciones2").innerHTML="";
- let e=palabras[Math.floor(Math.random()*palabras.length)];correcta2=e;
+ let e=todas[Math.floor(Math.random()*todas.length)];correcta2=e;
  document.getElementById("pregunta2").innerHTML=`<img src="${base+e.img}" loading="lazy"><div>¿Qué palabra es?</div>`;hablar("¿Qué palabra es?");
- let ops=[e];while(ops.length<4){let r=palabras[Math.floor(Math.random()*palabras.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>Math.random()-0.5);
+ let ops=[e];while(ops.length<4){let r=todas[Math.floor(Math.random()*todas.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>Math.random()-0.5);
  ops.forEach(o=>{let div=document.createElement("div");div.className="opcion";div.innerHTML=`<div style="padding:20px 0">${o.p}</div>`;div.onclick=()=>{if(o.p===correcta2.p){div.classList.add("correcta");puntos2++;hablar("¡Muy bien! "+o.p);}else{div.classList.add("error");hablar("Era "+correcta2.p);}document.getElementById("puntos2").innerText=`⭐ ${puntos2}`;};document.getElementById("opciones2").appendChild(div);});
 }
 nuevoJuego1();nuevoJuego2();
