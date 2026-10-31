@@ -5,66 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LEO Y APRENDO - Página de Inicio</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap');
-body{
-  margin:0;
-  font-family:'Nunito',Arial,sans-serif;
-  background:#d6eaff;
-  min-height:100vh;
-  padding:20px;
-  text-align:center;
-}
-h1{
-  color:#1a237e;
-  font-size: clamp(28px, 6vw, 52px);
-  margin:10px 0 5px;
-  letter-spacing:1px;
-}
-.sub{
-  font-size:20px;
-  color:#333;
-  font-weight:800;
-  margin-bottom:25px;
-}
-.grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap:22px;
-  max-width:1000px;
-  margin:0 auto;
-}
-.card{
-  background:white;
-  border-radius:24px;
-  padding:28px 15px;
-  text-decoration:none;
-  color:#1a237e;
-  box-shadow:0 8px 0 rgba(0,0,0,0.08), 0 8px 20px rgba(0,0,0,0.1);
-  transition:0.2s;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:12px;
-}
-.card:hover{transform:translateY(-5px); box-shadow:0 12px 0 rgba(0,0,0,0.08), 0 12px 25px rgba(0,0,0,0.15);}
-.icon{font-size:56px; line-height:1}
-.label{font-size:22px; font-weight:800; letter-spacing:0.5px}
-.c1{background:#fff3b0}.c2{background:#ffd6d6}.c3{background:#d6f5c9}.c4{background:#e0d4ff}.c5{background:#ffe0b3}.c6{background:#c8f0e8}.c7{background:#cde5ff}.c8{background:#ffd6cc}.c9{background:#fff0b3}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
+body{background:#dbeafe;min-height:100vh;padding:20px}
+h1{text-align:center;color:#1e3a8a;font-weight:900;font-size:32px;margin-top:10px}
+h2{text-align:center;color:#1e3a8a;font-size:16px;margin:8px 0 20px;font-weight:700;letter-spacing:1px}
+.grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+.card{background:white;border-radius:18px;padding:22px 10px;text-align:center;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,.08);transition:transform .15s;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:110px}
+.card:hover{transform:translateY(-3px)}
+.card div{font-size:42px;margin-bottom:8px}
+.card span{font-weight:900;color:#1e3a8a;font-size:15px}
+.c1{background:#fef9c3}.c2{background:#fecaca}.c3{background:#dcfce7}
+.c4{background:#f3e8ff}.c5{background:#ffedd5}.c6{background:#ccfbf1}
+.c7{background:#dbeafe}.c8{background:#ffe4e6}.c9{background:#fef3c7}
+.c10{background:#e0f2fe;border:2px solid #0ea5e9}
 </style>
 </head>
 <body>
 <h1>📚 LEO Y APRENDO 📖</h1>
-<div class="sub">PÁGINA DE INICIO</div>
+<h2>PÁGINA DE INICIO</h2>
 <div class="grid">
-<a class="card c1" href="vocabulario-tematico/bloque-1-saludos.html"><span class="icon">👋</span><span class="label">1. SALUDOS</span></a>
-<a class="card c2" href="vocabulario-tematico/bloque-2-casa.html"><span class="icon">🏠</span><span class="label">2. CASA</span></a>
-<a class="card c3" href="vocabulario-tematico/bloque-3-comida.html"><span class="icon">🍎</span><span class="label">3. COMIDA</span></a>
-<a class="card c4" href="vocabulario-tematico/bloque-4-escuela.html"><span class="icon">🎒</span><span class="label">4. COLEGIO</span></a>
-<a class="card c5" href="vocabulario-tematico/bloque-5-animales.html"><span class="icon">🐶</span><span class="label">5. ANIMALES</span></a>
-<a class="card c6" href="vocabulario-tematico/bloque-6-familia.html"><span class="icon">👨‍👩‍👧</span><span class="label">6. FAMILIA</span></a>
-<a class="card c7" href="vocabulario-tematico/bloque-7-pueblo.html"><span class="icon">🏘️</span><span class="label">7. PUEBLO</span></a>
-<a class="card c8" href="vocabulario-tematico/bloque-8-ropa.html"><span class="icon">👕</span><span class="label">8. ROPA</span></a>
-<a class="card c9" href="vocabulario-tematico/bloque-9-cuerpo.html"><span class="icon">🖐️</span><span class="label">9. CUERPO</span></a>
+<a href="vocabulario-tematico/bloque-1-saludos.html" class="card c1"><div>👋</div><span>1. SALUDOS</span></a>
+<a href="vocabulario-tematico/bloque-2-casa.html" class="card c2"><div>🏠</div><span>2. CASA</span></a>
+<a href="vocabulario-tematico/bloque-3-comida.html" class="card c3"><div>🍎</div><span>3. COMIDA</span></a>
+<a href="vocabulario-tematico/bloque-4-colegio.html" class="card c4"><div>🎒</div><span>4. COLEGIO</span></a>
+<a href="vocabulario-tematico/bloque-5-animales.html" class="card c5"><div>🐶</div><span>5. ANIMALES</span></a>
+<a href="vocabulario-tematico/bloque-6-familia.html" class="card c6"><div>👨‍👩‍👧‍👦</div><span>6. FAMILIA</span></a>
+<a href="vocabulario-tematico/bloque-7-pueblo.html" class="card c7"><div>🏘️</div><span>7. PUEBLO</span></a>
+<a href="vocabulario-tematico/bloque-8-ropa.html" class="card c8"><div>👕</div><span>8. ROPA</span></a>
+<a href="vocabulario-tematico/bloque-9-cuerpo.html" class="card c9"><div>🖐️</div><span>9. CUERPO</span></a>
+<a href="vocabulario-tematico/bloque-10-numeros.html" class="card c10"><div>🔢</div><span>10. NÚMEROS</span></a>
 </div>
 </body>
 </html>
