@@ -1,41 +1,91 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LEO Y APRENDO - Página de Inicio</title>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<title>BLOQUE 11 - HORAS 24H</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
-body{background:#dbeafe;min-height:100vh;padding:20px}
-h1{text-align:center;color:#1e3a8a;font-weight:900;font-size:32px;margin-top:10px}
-h2{text-align:center;color:#1e3a8a;font-size:16px;margin:8px 0 20px;font-weight:700;letter-spacing:1px}
-.grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
-.card{background:white;border-radius:18px;padding:22px 10px;text-align:center;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,.08);transition:transform .15s;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:110px}
-.card:hover{transform:translateY(-3px)}
-.card div{font-size:42px;margin-bottom:8px}
-.card span{font-weight:900;color:#1e3a8a;font-size:15px}
-.c1{background:#fef9c3}.c2{background:#fecaca}.c3{background:#dcfce7}
-.c4{background:#f3e8ff}.c5{background:#ffedd5}.c6{background:#ccfbf1}
-.c7{background:#dbeafe}.c8{background:#ffe4e6}.c9{background:#fef3c7}
-.c10{background:#e0f2fe;border:2px solid #0ea5e9}
-</style>
-</head>
-<body>
-<h1>📚 LEO Y APRENDO 📖</h1>
-<h2>PÁGINA DE INICIO</h2>
-<div class="grid">
-<a href="vocabulario-tematico/bloque-1-saludos.html" class="card c1"><div>👋</div><span>1. SALUDOS</span></a>
-<a href="vocabulario-tematico/bloque-2-casa.html" class="card c2"><div>🏠</div><span>2. CASA</span></a>
-<a href="vocabulario-tematico/bloque-3-comida.html" class="card c3"><div>🍎</div><span>3. COMIDA</span></a>
-<a href="vocabulario-tematico/bloque-4-colegio.html" class="card c4"><div>🎒</div><span>4. COLEGIO</span></a>
-<a href="vocabulario-tematico/bloque-5-animales.html" class="card c5"><div>🐶</div><span>5. ANIMALES</span></a>
-<a href="vocabulario-tematico/bloque-6-familia.html" class="card c6"><div>👨‍👩‍👧‍👦</div><span>6. FAMILIA</span></a>
-<a href="vocabulario-tematico/bloque-7-pueblo.html" class="card c7"><div>🏘️</div><span>7. PUEBLO</span></a>
-<a href="vocabulario-tematico/bloque-8-ropa.html" class="card c8"><div>👕</div><span>8. ROPA</span></a>
-<a href="vocabulario-tematico/bloque-9-cuerpo.html" class="card c9"><div>🖐️</div><span>9. CUERPO</span></a>
-<a href="vocabulario-tematico/bloque-10-numeros.html" class="card c10"><div>🔢</div><span>10. NÚMEROS</span></a>
-<a href="vocabulario-tematico/bloque-11-horas.html" class="card" style="background:#fef9c3;border:2px solid #eab308"><div>🕐</div><span>11. HORAS</span></a>
-</div>
-</body>
-</html>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}body{background:#f6f8fb;padding-bottom:40px}
+.header{background:white;padding:12px 3%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:11;flex-wrap:wrap;gap:8px}.logo{font-weight:900;font-size:18px;color:#1e3a8a}nav{display:flex;flex-wrap:wrap;gap:6px}nav a{background:#f1f5f9;color:#1e3a8a;text-decoration:none;font-weight:800;font-size:11px;padding:7px 11px;border-radius:20px;border:1px solid #e2e8f0}nav a.active{background:#0ea5e9;color:white}
+.barra{background:#0ea5e9;color:white;font-weight:900;padding:10px 14px;border-radius:8px;margin:14px 1% 8px;font-size:15px}.barra.sub{font-size:13px;background:#e0f2fe;color:#0c4a6e;margin-top:18px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:10px;padding:0 1% 10px}
+.tarjeta{background:white;border-radius:14px;padding:8px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.06);min-height:225px;position:relative}
+.reloj-box{display:flex;gap:6px;justify-content:center;align-items:center;margin-bottom:6px}
+.reloj-analog{width:70px;height:70px;background:#f0f9ff;border-radius:50%;border:2px solid #0ea5e9}
+.reloj-digital{background:#0c4a6e;color:#ffcc00;font-weight:900;font-size:13px;padding:5px 6px;border-radius:6px;min-width:56px;border:1px solid #ffcc00}
+.tarjeta b{color:#b02a5c;text-transform:uppercase;font-size:11px;display:block;min-height:28px;line-height:12px}
+.sep{font-family:'Dancing Script','Caveat',cursive;font-size:17px;color:#1e3a8a;font-weight:700;line-height:16px}
+.def{font-size:9px;color:#fff;background:#0ea5e9;padding:2px 5px;border-radius:6px;margin-top:3px;font-weight:800}.audio{position:absolute;top:4px;right:4px;background:#ffcc00;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:10px}
+.juego{background:white;margin:18px 1%;padding:16px;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.08)}.juego h3{color:#0c4a6e;margin-bottom:12px}.opciones{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.opcion{border:2px solid #e2e8f0;border-radius:12px;padding:10px;cursor:pointer;background:#f8fafc;text-align:center;font-weight:800}.opcion.correcta{border-color:#22c55e;background:#dcfce7}.opcion.error{border-color:#ef4444;background:#fee2e2}.btn{background:#0c4a6e;color:white;border:none;padding:10px 18px;border-radius:20px;font-weight:800;cursor:pointer;margin-top:12px}
+</style></head><body>
+<div class="header"><div class="logo">📚 VOCABULARIO REALISTA</div><nav><a href="bloque-10-numeros.html">10 NÚMEROS</a><a href="bloque-11-horas.html" class="active">11 HORAS 24H</a></nav></div>
+<div class="barra">11. LAS HORAS EN 24 HORAS - 00:00 medianoche y 12:00 mediodía</div>
+<div class="barra sub">MAÑANA 00:00 a 11:55 - TARDE 12:00 a 23:55 - Todo en formato digital 24H</div>
+<div class="grid" id="gridTodo"></div>
+<div class="juego"><h3>🎮 JUEGO 1: Escucha la HORA y elige el RELOJ DIGITAL 24H</h3><div id="pregunta1" style="font-size:22px;font-weight:900;color:#0c4a6e;text-align:center;margin-bottom:10px"></div><div class="opciones" id="opciones1"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego1()">Siguiente ▶️</button> <span id="puntos1"></span></div></div>
+<div class="juego"><h3>🎮 JUEGO 2: Ves el RELOJ 24H, elige la frase</h3><div id="pregunta2" style="text-align:center"></div><div class="opciones" id="opciones2"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego2()">Siguiente ▶️</button> <span id="puntos2"></span></div></div>
+<script>
+function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang="es-ES";u.rate=0.85;speechSynthesis.speak(u);}
+function drawClock(c,h,m){let x=c.getContext('2d'),r=c.width/2;x.clearRect(0,0,c.width,c.height);x.fillStyle='#fff';x.beginPath();x.arc(r,r,r-2,0,2*Math.PI);x.fill();x.strokeStyle='#0ea5e9';x.lineWidth=2;x.stroke();x.fillStyle='#0c4a6e';x.font='bold 9px sans-serif';x.textAlign='center';x.textBaseline='middle';for(let i=1;i<=12;i++){let a=(i*30-90)*Math.PI/180;x.fillText(i,r+Math.cos(a)*(r-12),r+Math.sin(a)*(r-12));}let ha=(h%12+m/60)*30-90;let aH=ha*Math.PI/180;x.strokeStyle='#0c4a6e';x.lineWidth=3;x.beginPath();x.moveTo(r,r);x.lineTo(r+Math.cos(aH)*(r-26),r+Math.sin(aH)*(r-26));x.stroke();let aM=(m*6-90)*Math.PI/180;x.strokeStyle='#ef4444';x.lineWidth=2;x.beginPath();x.moveTo(r,r);x.lineTo(r+Math.cos(aM)*(r-16),r+Math.sin(aM)*(r-16));x.stroke();x.fillStyle='#0c4a6e';x.beginPath();x.arc(r,r,3,0,2*Math.PI);x.fill();}
+const exps=[{t:'en punto',m:0},{t:'y cinco',m:5},{t:'y diez',m:10},{t:'y cuarto',m:15},{t:'y veinte',m:20},{t:'y veinticinco',m:25},{t:'y media',m:30},{t:'menos veinticinco',m:35,menos:25},{t:'menos veinte',m:40,menos:20},{t:'menos cuarto',m:45,menos:15},{t:'menos diez',m:50,menos:10},{t:'menos cinco',m:55,menos:5}];
+function textoHora(h24, e){
+ let h12 = h24 % 12; if(h12===0) h12=12;
+ let nombres=['','una','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez','once','doce'];
+ let art = h12===1 ? 'La una' : 'Las '+nombres[h12];
+ return art+' '+e.t;
+}
+function sufijo(h24){if(h24===0) return 'medianoche 00:00'; if(h24===12) return 'mediodía 12:00'; if(h24>=1&&h24<=6) return 'madrugada'; if(h24<=12) return 'mañana'; if(h24<=20) return 'tarde'; return 'noche';}
+const horas=[];
+for(let h24=0;h24<24;h24++){
+  exps.forEach(e=>{
+    let mReal=e.m; let hReal=h24;
+    let txt = textoHora((h24+ (e.menos!==undefined ? 1 : 0))%24, e);
+    if(e.menos!==undefined){ hReal = (h24-1+24)%24; mReal=e.m; txt = textoHora(h24, e); }
+    let digital = String(hReal).padStart(2,'0')+':'+String(mReal).padStart(2,'0');
+    let detalle = sufijo(hReal);
+    // Texto especial para medianoche y mediodía
+    if(hReal===0 && mReal===0) txt='Las doce en punto - medianoche';
+    if(hReal===12 && mReal===0) txt='Las doce en punto - mediodía';
+    horas.push({h24:hReal, h12:hReal%12||12, mReal, texto:txt, digital, detalle, hRef:h24});
+  });
+}
+function crear(){
+ const g=document.getElementById('gridTodo');
+ horas.forEach((o,i)=>{
+  let d=document.createElement('div');d.className='tarjeta';
+  let cId='c'+i;
+  d.innerHTML=`<button class="audio" onclick="hablar('${o.texto}')">🔊</button>
+  <div class="reloj-box"><canvas id="${cId}" width="70" height="70" class="reloj-analog"></canvas><div class="reloj-digital">${o.digital}</div></div>
+  <b>${o.texto.toUpperCase()}</b>
+  <div class="sep">${o.texto}</div>
+  <div class="def">${o.digital} - ${o.detalle}</div>`;
+  g.appendChild(d);
+  setTimeout(()=>{let cv=document.getElementById(cId); if(cv) drawClock(cv,o.h12,o.mReal);},5);
+ });
+}
+crear();
+let p1=0,c1=null;
+function nuevoJuego1(){
+ document.getElementById('opciones1').innerHTML='';
+ let e=horas[Math.floor(Math.random()*horas.length)];c1=e;
+ document.getElementById('pregunta1').innerText=`¿Dónde está "${e.texto}"? - ${e.digital}`;hablar(e.texto);
+ let ops=[e];while(ops.length<4){let r=horas[Math.floor(Math.random()*horas.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>0.5-Math.random()).forEach(o=>{
+  let div=document.createElement('div');div.className='opcion';let cvId='j1'+Math.random().toString(36).slice(2);
+  div.innerHTML=`<canvas id="${cvId}" width="70" height="70" style="border-radius:50%"></canvas><div style="margin-top:4px;background:#0c4a6e;color:#ffcc00;border-radius:6px;padding:2px 6px;display:inline-block;font-size:13px">${o.digital}</div>`;
+  div.onclick=()=>{if(o===c1){div.classList.add('correcta');p1++;}else{div.classList.add('error');}document.getElementById('puntos1').innerText='⭐ '+p1;};
+  document.getElementById('opciones1').appendChild(div);
+  setTimeout(()=>{let cv=document.getElementById(cvId); if(cv) drawClock(cv,o.h12,o.mReal);},20);
+ });
+}
+let p2=0,c2=null;
+function nuevoJuego2(){
+ document.getElementById('opciones2').innerHTML='';
+ let e=horas[Math.floor(Math.random()*horas.length)];c2=e;
+ document.getElementById('pregunta2').innerHTML=`<div style="display:flex;justify-content:center;gap:10px;align-items:center"><canvas id="preg2" width="90" height="90" style="border-radius:50%;border:2px solid #0ea5e9"></canvas><div style="font-size:24px;font-weight:900;background:#0c4a6e;color:#ffcc00;padding:8px 14px;border-radius:10px">${e.digital}</div></div>`;
+ setTimeout(()=>{drawClock(document.getElementById('preg2'),e.h12,e.mReal);},20);
+ let ops=[e];while(ops.length<4){let r=horas[Math.floor(Math.random()*horas.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>0.5-Math.random()).forEach(o=>{
+  let div=document.createElement('div');div.className='opcion';
+  div.innerHTML=`<div style="font-family:'Dancing Script',cursive;font-size:18px">${o.texto}</div><div style="font-size:11px">${o.digital}</div>`;
+  div.onclick=()=>{if(o===c2){div.classList.add('correcta');p2++;}else{div.classList.add('error');}document.getElementById('puntos2').innerText='⭐ '+p2;};
+  document.getElementById('opciones2').appendChild(div);
+ });
+}
+nuevoJuego1();nuevoJuego2();
+</script></body></html>
