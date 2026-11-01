@@ -3,75 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LEO Y APRENDO - Vocabulario</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<title>LEO Y APRENDO</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:#f8fafc;color:#0f172a}
-.header{background:#fff;border-bottom:1px solid #e2e8f0;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
-.logo{display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:26px}
-.nav{display:flex;gap:28px;align-items:center}
-.nav a{text-decoration:none;color:#475569;font-weight:600;font-size:15px}
-.nav a.active{color:#0f172a;border-bottom:2.5px solid #14a8b8;padding-bottom:4px}
-.btn-ingresar{background:#14a8b8;color:#fff!important;padding:9px 18px;border-radius:10px;font-weight:700}
-.hero{display:grid;grid-template-columns:1.1fr 0.9fr;gap:20px;background:linear-gradient(90deg,#b8d8de 0%, #e6e9ee 100%);padding:38px 40px;align-items:center}
-.hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:52px;line-height:0.95;font-weight:800}
-.hero p{margin:16px 0 22px;color:#334155;font-size:16px;max-width:520px}
-.hero-buttons{display:flex;gap:12px}
-.btn-primary{background:#14a8b8;color:#fff;border:none;padding:12px 22px;border-radius:10px;font-weight:700;cursor:pointer}
-.btn-secondary{background:transparent;border:1.5px solid #334155;color:#0f172a;padding:12px 22px;border-radius:10px;font-weight:700;cursor:pointer}
+body{font-family:Inter,sans-serif;background:#f8fafc;color:#0f172a}
+.header{background:#fff;padding:18px 32px;border-bottom:1px solid #e2e8f0}
+.logo{font-weight:800;font-size:26px;letter-spacing:-0.5px}
+.hero{display:grid;grid-template-columns:1.1fr 0.9fr;gap:20px;background:linear-gradient(90deg,#b8d8de 0%, #e6e9ee 100%);padding:42px 40px;align-items:center}
+.hero h1{font-size:50px;line-height:0.95;font-weight:800}
+.hero p{margin:16px 0 22px;color:#334155;max-width:520px}
+.btn-primary{background:#14a8b8;color:#fff;border:none;padding:13px 24px;border-radius:10px;font-weight:700;cursor:pointer;font-size:15px}
 .hero-img{border-radius:16px;overflow:hidden;height:300px}
 .hero-img img{width:100%;height:100%;object-fit:cover}
 .section{max-width:1280px;margin:0 auto;padding:36px 24px}
 .section h2{text-align:center;font-size:34px;font-weight:800}
-.section p.sub{text-align:center;color:#64748b;margin:8px 0 28px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px}
-.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);transition:.2s;text-decoration:none;color:inherit;border:1px solid #f1f5f9}
+.sub{text-align:center;color:#64748b;margin:8px 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);text-decoration:none;color:inherit;border:1px solid #f1f5f9;transition:.2s}
 .card:hover{transform:translateY(-4px)}
-.card-img{height:120px;background:#f1f5f9;display:flex;align-items:center;justify-content:center;font-size:48px}
+.card-img{height:140px;overflow:hidden;background:#eee}
+.card-img img{width:100%;height:100%;object-fit:cover}
 .card-body{padding:12px 14px}
 .card-body h3{font-size:15px;font-weight:700}
 .card-body span{font-size:12px;color:#64748b}
-.footer{text-align:center;padding:20px;color:#94a3b8;font-size:13px;border-top:1px solid #e2e8f0;background:#fff}
+.footer{text-align:center;padding:20px;color:#94a3b8;font-size:13px;border-top:1px solid #e2e8f0;background:#fff;margin-top:20px}
 </style>
 </head>
 <body>
-<header class="header">
-<div class="logo">📘 LEO Y APRENDO</div>
-<nav class="nav">
-<a class="active" href="#">INICIO</a>
-<a href="#">JUEGOS</a>
-<a href="#">VIDEOS</a>
-<a href="#">ACTIVIDADES</a>
-<a class="btn-ingresar" href="#">INGRESAR</a>
-</nav>
-</header>
+<header class="header"><div class="logo">📘 LEO Y APRENDO</div></header>
 <div class="hero">
 <div>
-<h1>Aprende a tu ritmo. Explora. Juega. Crece.</h1>
-<p>Recursos interactivos para secundaria. 11 bloques temáticos de vocabulario realista con imágenes y juegos.</p>
-<div class="hero-buttons">
+<h1>Aprende a tu ritmo.<br>Explora. Crece.</h1>
+<p>11 bloques temáticos de vocabulario realista para secundaria con imágenes reales y actividades prácticas.</p>
 <button class="btn-primary" onclick="document.getElementById('temas').scrollIntoView({behavior:'smooth'})">Empezar ahora</button>
-<button class="btn-secondary">Ver cómo funciona</button>
-</div>
 </div>
 <div class="hero-img"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000" alt="secundaria"></div>
 </div>
 <section class="section" id="temas">
 <h2>Explora los 11 temas</h2>
-<p class="sub">Elige un bloque y comienza</p>
+<p class="sub">Imágenes reales, no dibujos infantiles</p>
 <div class="grid">
-<a class="card" href="vocabulario-tematico/bloque-1-saludos.html"><div class="card-img">👋</div><div class="card-body"><h3>1. SALUDOS</h3><span>12 palabras</span></div></a>
-<a class="card" href="vocabulario-tematico/bloque-2-casa.html"><div class="card-img">🏠</div><div class="card-body"><h3>2. CASA</h3><span>18 palabras</span></div></a>
-<a class="card" href="vocabulario-tematico/bloque-3-comida.html"><div class="card-img">🍎</div><div class="card-body"><h3>3. COMIDA</h3><span>24 palabras</span></div></a>
-<a class="card" href="vocabulario-tematico/bloque-4-colegio.html"><div class="card-img">🎒</div><div class="card-body"><h3>4. COLEGIO</h3><span>20 palabras</span></div></a>
-<a class="card" href="vocabulario-tematico/bloque-5-animales.html"><div class="card-img">🐾</div><div class="card-body"><h3>5. ANIMALES</h3><span>22 palabras</span></div></a>
-<a class="card" href="vocabulario-tematico/bloque-6-familia.html"><div class="card-img">👨‍👩‍👧</div><div class="card-body"><h3>6. FAMILIA</h3><span>16 palabras</span></div></a>
-<a class="card" href="vocabulario-tematico/bloque-7-pueblo.html"><div class="card-img">🏘️</div><div class="card-body"><h3>7. PUEBLO</h3><span>20 palabras</span></div></a>
-<a class="card" href="vocabulario-tematico/bloque-8-ropa.html"><div class="card-img">👕</div><div class="card-body"><h3>8. ROPA</h3><span>32 palabras</span></div></a>
-<a class="card" href="vocabulario-tematico/bloque-9-cuerpo.html"><div class="card-img">🧍</div><div class="card-body"><h3>9. CUERPO</h3><span>18 palabras</span></div></a>
-<a class="card" href="vocabulario-tematico/bloque-10-escuela.html"><div class="card-img">📚</div><div class="card-body"><h3>10. ESCUELA</h3><span>15 palabras</span></div></a>
-<a class="card" href="vocabulario-tematico/bloque-11-horas.html"><div class="card-img">⏰</div><div class="card-body"><h3>11. HORAS</h3><span>14 palabras</span></div></a>
+<a class="card" href="vocabulario-tematico/bloque-1-saludos.html"><div class="card-img"><img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400"></div><div class="card-body"><h3>1. SALUDOS</h3><span>Presentaciones</span></div></a>
+<a class="card" href="vocabulario-tematico/bloque-2-casa.html"><div class="card-img"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400"></div><div class="card-body"><h3>2. CASA</h3><span>Hogar</span></div></a>
+<a class="card" href="vocabulario-tematico/bloque-3-comida.html"><div class="card-img"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400"></div><div class="card-body"><h3>3. COMIDA</h3><span>Alimentos</span></div></a>
+<a class="card" href="vocabulario-tematico/bloque-4-colegio.html"><div class="card-img"><img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400"></div><div class="card-body"><h3>4. COLEGIO</h3><span>Material escolar</span></div></a>
+<a class="card" href="vocabulario-tematico/bloque-5-animales.html"><div class="card-img"><img src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=400"></div><div class="card-body"><h3>5. ANIMALES</h3><span>Fauna</span></div></a>
+<a class="card" href="vocabulario-tematico/bloque-6-familia.html"><div class="card-img"><img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=400"></div><div class="card-body"><h3>6. FAMILIA</h3><span>Parentesco</span></div></a>
+<a class="card" href="vocabulario-tematico/bloque-7-pueblo.html"><div class="card-img"><img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400"></div><div class="card-body"><h3>7. PUEBLO</h3><span>Ciudad</span></div></a>
+<a class="card" href="vocabulario-tematico/bloque-8-ropa.html"><div class="card-img"><img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=400"></div><div class="card-body"><h3>8. ROPA</h3><span>Vestimenta</span></div></a>
+<a class="card" href="vocabulario-tematico/bloque-9-cuerpo.html"><div class="card-img"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400"></div><div class="card-body"><h3>9. CUERPO</h3><span>Anatomía</span></div></a>
+<a class="card" href="vocabulario-tematico/bloque-10-escuela.html"><div class="card-img"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400"></div><div class="card-body"><h3>10. ESCUELA</h3><span>Asignaturas</span></div></a>
+<a class="card" href="vocabulario-tematico/bloque-11-horas.html"><div class="card-img"><img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=400"></div><div class="card-body"><h3>11. HORAS</h3><span>Tiempo</span></div></a>
 </div>
 </section>
 <footer class="footer">LEO Y APRENDO © 2024 • Para secundaria</footer>
