@@ -1,0 +1,402 @@
+[
+  {
+    "id": "acera",
+    "palabra": "acera",
+    "imagen": "imagenes/bloque-12-ciudad/acera.jpg",
+    "audio": "audios/bloque-12-ciudad/acera.mp3",
+    "frase": "Camino por la acera.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "aeropuerto",
+    "palabra": "aeropuerto",
+    "imagen": "imagenes/bloque-12-ciudad/aeropuerto.jpg",
+    "audio": "audios/bloque-12-ciudad/aeropuerto.mp3",
+    "frase": "El avión sale del aeropuerto.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "atico",
+    "palabra": "ático",
+    "imagen": "imagenes/bloque-12-ciudad/atico.jpg",
+    "audio": "audios/bloque-12-ciudad/atico.mp3",
+    "frase": "Vivo en un ático con vistas.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "avenida",
+    "palabra": "avenida",
+    "imagen": "imagenes/bloque-12-ciudad/avenida.jpg",
+    "audio": "audios/bloque-12-ciudad/avenida.mp3",
+    "frase": "La avenida es muy ancha.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "ayuntamiento",
+    "palabra": "ayuntamiento",
+    "imagen": "imagenes/bloque-12-ciudad/ayuntamiento.jpg",
+    "audio": "audios/bloque-12-ciudad/ayuntamiento.mp3",
+    "frase": "El ayuntamiento está en la plaza mayor.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "barrio",
+    "palabra": "barrio",
+    "imagen": "imagenes/bloque-12-ciudad/barrio.jpg",
+    "audio": "audios/bloque-12-ciudad/barrio.mp3",
+    "frase": "Mi barrio es muy tranquilo.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "biblioteca",
+    "palabra": "biblioteca",
+    "imagen": "imagenes/bloque-12-ciudad/biblioteca.jpg",
+    "audio": "audios/bloque-12-ciudad/biblioteca.mp3",
+    "frase": "Voy a la biblioteca a estudiar.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "bloque_de_pisos",
+    "palabra": "bloque de pisos",
+    "imagen": "imagenes/bloque-12-ciudad/bloque_de_pisos.jpg",
+    "audio": "audios/bloque-12-ciudad/bloque_de_pisos.mp3",
+    "frase": "Vivo en un bloque de pisos.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "bulevar",
+    "palabra": "bulevar",
+    "imagen": "imagenes/bloque-12-ciudad/bulevar.jpg",
+    "audio": "audios/bloque-12-ciudad/bulevar.mp3",
+    "frase": "Paseamos por el bulevar.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "callejon",
+    "palabra": "callejón",
+    "imagen": "imagenes/bloque-12-ciudad/callejon.jpg",
+    "audio": "audios/bloque-12-ciudad/callejon.mp3",
+    "frase": "El callejón es estrecho.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "carril_bici",
+    "palabra": "carril bici",
+    "imagen": "imagenes/bloque-12-ciudad/carril_bici.jpg",
+    "audio": "audios/bloque-12-ciudad/carril_bici.mp3",
+    "frase": "Voy por el carril bici.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "centro_comercial",
+    "palabra": "centro comercial",
+    "imagen": "imagenes/bloque-12-ciudad/centro_comercial.jpg",
+    "audio": "audios/bloque-12-ciudad/centro_comercial.mp3",
+    "frase": "Compramos en el centro comercial.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "colegio",
+    "palabra": "colegio",
+    "imagen": "imagenes/bloque-12-ciudad/colegio.jpg",
+    "audio": "audios/bloque-12-ciudad/colegio.mp3",
+    "frase": "Los niños van al colegio.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "comisaria",
+    "palabra": "comisaría",
+    "imagen": "imagenes/bloque-12-ciudad/comisaria.jpg",
+    "audio": "audios/bloque-12-ciudad/comisaria.mp3",
+    "frase": "La comisaría está cerca del parque.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "contaminacion",
+    "palabra": "contaminación",
+    "imagen": "imagenes/bloque-12-ciudad/contaminacion.jpg",
+    "audio": "audios/bloque-12-ciudad/contaminacion.mp3",
+    "frase": "Hay mucha contaminación en la ciudad.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "estacion_de_bomberos",
+    "palabra": "estación de bomberos",
+    "imagen": "imagenes/bloque-12-ciudad/estacion_de_bomberos.jpg",
+    "audio": "audios/bloque-12-ciudad/estacion_de_bomberos.mp3",
+    "frase": "Los bomberos están en la estación de bomberos.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "estacion_de_autobuses",
+    "palabra": "estación de autobuses",
+    "imagen": "imagenes/bloque-12-ciudad/estacion_de_autobuses.jpg",
+    "audio": "audios/bloque-12-ciudad/estacion_de_autobuses.mp3",
+    "frase": "El autobús sale de la estación de autobuses.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "estadio",
+    "palabra": "estadio",
+    "imagen": "imagenes/bloque-12-ciudad/estadio.jpg",
+    "audio": "audios/bloque-12-ciudad/estadio.mp3",
+    "frase": "Vamos al estadio a ver fútbol.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "farmacia",
+    "palabra": "farmacia",
+    "imagen": "imagenes/bloque-12-ciudad/farmacia.jpg",
+    "audio": "audios/bloque-12-ciudad/farmacia.mp3",
+    "frase": "Compro medicinas en la farmacia.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "fuente",
+    "palabra": "fuente",
+    "imagen": "imagenes/bloque-12-ciudad/fuente.jpg",
+    "audio": "audios/bloque-12-ciudad/fuente.mp3",
+    "frase": "Hay una fuente en la plaza.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "gimnasio",
+    "palabra": "gimnasio",
+    "imagen": "imagenes/bloque-12-ciudad/gimnasio.jpg",
+    "audio": "audios/bloque-12-ciudad/gimnasio.mp3",
+    "frase": "Voy al gimnasio por la tarde.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "hospital",
+    "palabra": "hospital",
+    "imagen": "imagenes/bloque-12-ciudad/hospital.jpg",
+    "audio": "audios/bloque-12-ciudad/hospital.mp3",
+    "frase": "El hospital está lejos del centro.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "mercado_central",
+    "palabra": "mercado central",
+    "imagen": "imagenes/bloque-12-ciudad/mercado_central.jpg",
+    "audio": "audios/bloque-12-ciudad/mercado_central.mp3",
+    "frase": "Compro fruta en el mercado central.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "metro",
+    "palabra": "metro",
+    "imagen": "imagenes/bloque-12-ciudad/metro.jpg",
+    "audio": "audios/bloque-12-ciudad/metro.mp3",
+    "frase": "Voy en metro al trabajo.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "museo",
+    "palabra": "museo",
+    "imagen": "imagenes/bloque-12-ciudad/museo.jpg",
+    "audio": "audios/bloque-12-ciudad/museo.mp3",
+    "frase": "Visitamos el museo de la ciudad.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "oficina",
+    "palabra": "oficina",
+    "imagen": "imagenes/bloque-12-ciudad/oficina.jpg",
+    "audio": "audios/bloque-12-ciudad/oficina.mp3",
+    "frase": "Trabajo en una oficina del centro.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "panaderia",
+    "palabra": "panadería",
+    "imagen": "imagenes/bloque-12-ciudad/panaderia.jpg",
+    "audio": "audios/bloque-12-ciudad/panaderia.mp3",
+    "frase": "Compro pan en la panadería.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "parque",
+    "palabra": "parque",
+    "imagen": "imagenes/bloque-12-ciudad/parque.jpg",
+    "audio": "audios/bloque-12-ciudad/parque.mp3",
+    "frase": "Los niños juegan en el parque.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "paso_de_cebra",
+    "palabra": "paso de cebra",
+    "imagen": "imagenes/bloque-12-ciudad/paso_de_cebra.jpg",
+    "audio": "audios/bloque-12-ciudad/paso_de_cebra.mp3",
+    "frase": "Cruzo por el paso de cebra.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "plaza_mayor",
+    "palabra": "plaza mayor",
+    "imagen": "imagenes/bloque-12-ciudad/plaza_mayor.jpg",
+    "audio": "audios/bloque-12-ciudad/plaza_mayor.mp3",
+    "frase": "Nos vemos en la plaza mayor.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "poligono_industrial",
+    "palabra": "polígono industrial",
+    "imagen": "imagenes/bloque-12-ciudad/poligono_industrial.jpg",
+    "audio": "audios/bloque-12-ciudad/poligono_industrial.mp3",
+    "frase": "Trabaja en el polígono industrial.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "puente",
+    "palabra": "puente",
+    "imagen": "imagenes/bloque-12-ciudad/puente.jpg",
+    "audio": "audios/bloque-12-ciudad/puente.mp3",
+    "frase": "Cruzamos el puente.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "puerto",
+    "palabra": "puerto",
+    "imagen": "imagenes/bloque-12-ciudad/puerto.jpg",
+    "audio": "audios/bloque-12-ciudad/puerto.mp3",
+    "frase": "Los barcos están en el puerto.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "rascacielos",
+    "palabra": "rascacielos",
+    "imagen": "imagenes/bloque-12-ciudad/rascacielos.jpg",
+    "audio": "audios/bloque-12-ciudad/rascacielos.mp3",
+    "frase": "Ese rascacielos es muy alto.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "rotonda",
+    "palabra": "rotonda",
+    "imagen": "imagenes/bloque-12-ciudad/rotonda.jpg",
+    "audio": "audios/bloque-12-ciudad/rotonda.mp3",
+    "frase": "Gira en la rotonda.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "ruido",
+    "palabra": "ruido",
+    "imagen": "imagenes/bloque-12-ciudad/ruido.jpg",
+    "audio": "audios/bloque-12-ciudad/ruido.mp3",
+    "frase": "Hay mucho ruido en el centro.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "semaforo",
+    "palabra": "semáforo",
+    "imagen": "imagenes/bloque-12-ciudad/semaforo.jpg",
+    "audio": "audios/bloque-12-ciudad/semaforo.mp3",
+    "frase": "El semáforo está en rojo.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "suburbio",
+    "palabra": "suburbio",
+    "imagen": "imagenes/bloque-12-ciudad/suburbio.jpg",
+    "audio": "audios/bloque-12-ciudad/suburbio.mp3",
+    "frase": "Vive en un suburbio de la ciudad.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "supermercado",
+    "palabra": "supermercado",
+    "imagen": "imagenes/bloque-12-ciudad/supermercado.jpg",
+    "audio": "audios/bloque-12-ciudad/supermercado.mp3",
+    "frase": "Compro en el supermercado.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "teatro",
+    "palabra": "teatro",
+    "imagen": "imagenes/bloque-12-ciudad/teatro.jpg",
+    "audio": "audios/bloque-12-ciudad/teatro.mp3",
+    "frase": "Vamos al teatro el sábado.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "trafico",
+    "palabra": "tráfico",
+    "imagen": "imagenes/bloque-12-ciudad/trafico.jpg",
+    "audio": "audios/bloque-12-ciudad/trafico.mp3",
+    "frase": "Hay mucho tráfico por la mañana.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "transporte_publico",
+    "palabra": "transporte público",
+    "imagen": "imagenes/bloque-12-ciudad/transporte_publico.jpg",
+    "audio": "audios/bloque-12-ciudad/transporte_publico.mp3",
+    "frase": "Uso el transporte público.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "tranvia",
+    "palabra": "tranvía",
+    "imagen": "imagenes/bloque-12-ciudad/tranvia.jpg",
+    "audio": "audios/bloque-12-ciudad/tranvia.mp3",
+    "frase": "El tranvía pasa por la avenida.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "tren",
+    "palabra": "tren",
+    "imagen": "imagenes/bloque-12-ciudad/tren.jpg",
+    "audio": "audios/bloque-12-ciudad/tren.mp3",
+    "frase": "El tren llega a las tres.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "tunel",
+    "palabra": "túnel",
+    "imagen": "imagenes/bloque-12-ciudad/tunel.jpg",
+    "audio": "audios/bloque-12-ciudad/tunel.mp3",
+    "frase": "El coche entra en el túnel.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "universidad",
+    "palabra": "universidad",
+    "imagen": "imagenes/bloque-12-ciudad/universidad.jpg",
+    "audio": "audios/bloque-12-ciudad/universidad.mp3",
+    "frase": "Estudia en la universidad.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "discoteca",
+    "palabra": "discoteca",
+    "imagen": "imagenes/bloque-12-ciudad/discoteca.jpg",
+    "audio": "audios/bloque-12-ciudad/discoteca.mp3",
+    "frase": "Vamos a la discoteca por la noche.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "cine",
+    "palabra": "cine",
+    "imagen": "imagenes/bloque-12-ciudad/cine.jpg",
+    "audio": "audios/bloque-12-ciudad/cine.mp3",
+    "frase": "Vamos al cine a ver una película.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "bar",
+    "palabra": "bar",
+    "imagen": "imagenes/bloque-12-ciudad/bar.jpg",
+    "audio": "audios/bloque-12-ciudad/bar.mp3",
+    "frase": "Tomamos algo en el bar.",
+    "categoria": "bloque-12-ciudad"
+  },
+  {
+    "id": "banco",
+    "palabra": "banco",
+    "imagen": "imagenes/bloque-12-ciudad/banco.jpg",
+    "audio": "audios/bloque-12-ciudad/banco.mp3",
+    "frase": "Saco dinero del banco.",
+    "categoria": "bloque-12-ciudad"
+  }
+]
