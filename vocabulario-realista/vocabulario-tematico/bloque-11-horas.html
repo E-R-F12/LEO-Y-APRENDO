@@ -18,9 +18,9 @@ nav{display:none !important;}
 .audio{position:absolute;top:8px;right:8px;background:#ffcc00;border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:14px;box-shadow:0 2px 4px rgba(0,0,0,.2)}
 .juego{background:white;margin:22px 1%;padding:18px;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.08)}.juego h3{color:#0c4a6e;margin-bottom:12px;font-size:18px}.opciones{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.opcion{border:2px solid #e2e8f0;border-radius:14px;padding:12px;cursor:pointer;background:#f8fafc;text-align:center;font-weight:800}.opcion.correcta{border-color:#22c55e;background:#dcfce7}.opcion.error{border-color:#ef4444;background:#fee2e2}.btn{background:#0c4a6e;color:white;border:none;padding:12px 22px;border-radius:22px;font-weight:800;cursor:pointer;margin-top:14px;font-size:15px}
 </style></head><body>
-<div class="header"><div class="logo">📚 VOCABULARIO REALISTA - 11. HORAS 24H</div></div>
-<div class="barra">11. LAS HORAS EN 24 HORAS - 00:00 medianoche y 12:00 mediodía - Con doble numeración 1-13, 2-14...</div>
-<div class="barra sub">Cada reloj muestra debajo de cada hora su equivalencia en 24h: 1→13, 2→14 ... 12→00</div>
+<div class="header"><div class="logo">📚 VOCABULARIO REALISTA - 11. HORAS 24H - ORDEN 00:00 a 23:55</div></div>
+<div class="barra">11. HORAS ORDENADAS DE 00:00 MEDIANOCHE A 23:55 NOCHE</div>
+<div class="barra sub">Orden ascendente: 00:00 → 00:55 → 01:00 → ... → 12:00 mediodía → 13:00 → ... → 23:55 → 00:00 medianoche</div>
 <div class="grid" id="gridTodo"></div>
 <div class="juego"><h3>🎮 JUEGO 1: Escucha la HORA y elige el DIGITAL 24H</h3><div id="pregunta1" style="font-size:22px;font-weight:900;color:#0c4a6e;text-align:center;margin-bottom:10px"></div><div class="opciones" id="opciones1"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego1()">Siguiente ▶️</button> <span id="puntos1"></span></div></div>
 <div class="juego"><h3>🎮 JUEGO 2: Ves el RELOJ 24H, elige la frase</h3><div id="pregunta2" style="text-align:center"></div><div class="opciones" id="opciones2"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego2()">Siguiente ▶️</button> <span id="puntos2"></span></div></div>
@@ -34,29 +34,37 @@ function drawClock(c,h,m){
  x.textAlign='center';x.textBaseline='middle';
  for(let i=1;i<=12;i++){
   let a=(i*30-90)*Math.PI/180;
-  let xr=r+Math.cos(a)*(r-14);
-  let yr=r+Math.sin(a)*(r-14);
-  x.fillStyle='#0c4a6e';x.font='bold 15px sans-serif';
-  x.fillText(i,xr,yr);
+  let xr=r+Math.cos(a)*(r-14);let yr=r+Math.sin(a)*(r-14);
+  x.fillStyle='#0c4a6e';x.font='bold 15px sans-serif';x.fillText(i,xr,yr);
   let h24 = i===12 ? '00' : String(i+12);
-  let xr2=r+Math.cos(a)*(r-40);
-  let yr2=r+Math.sin(a)*(r-40);
-  x.fillStyle='#e11d48';x.font='bold 12px sans-serif';
-  x.fillText(h24,xr2,yr2);
+  let xr2=r+Math.cos(a)*(r-40);let yr2=r+Math.sin(a)*(r-40);
+  x.fillStyle='#e11d48';x.font='bold 12px sans-serif';x.fillText(h24,xr2,yr2);
  }
  let ha=(h%12+m/60)*30-90;let aH=ha*Math.PI/180;
  x.strokeStyle='#0c4a6e';x.lineWidth=5;x.beginPath();x.moveTo(r,r);x.lineTo(r+Math.cos(aH)*(r-54),r+Math.sin(aH)*(r-54));x.stroke();
  let aM=(m*6-90)*Math.PI/180;x.strokeStyle='#ef4444';x.lineWidth=3;x.beginPath();x.moveTo(r,r);x.lineTo(r+Math.cos(aM)*(r-38),r+Math.sin(aM)*(r-38));x.stroke();
  x.fillStyle='#0c4a6e';x.beginPath();x.arc(r,r,5,0,2*Math.PI);x.fill();
 }
-const exps=[{t:'en punto',m:0},{t:'y cinco',m:5},{t:'y diez',m:10},{t:'y cuarto',m:15},{t:'y veinte',m:20},{t:'y veinticinco',m:25},{t:'y media',m:30},{t:'menos veinticinco',m:35},{t:'menos veinte',m:40},{t:'menos cuarto',m:45},{t:'menos diez',m:50},{t:'menos cinco',m:55}];
-function textoHora(h24, e){let h12=h24%12;if(h12===0)h12=12;let nombres=['','una','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez','once','doce'];let art=h12===1?'La una':'Las '+nombres[h12];return art+' '+e.t;}
-function sufijo(h24){if(h24===0)return'medianoche 00:00';if(h24===12)return'mediodía 12:00';if(h24>=1&&h24<=6)return'madrugada';if(h24<=11)return'mañana';if(h24<=20)return'tarde';return'noche';}
+const mapaMin={0:{t:'en punto'},5:{t:'y cinco'},10:{t:'y diez'},15:{t:'y cuarto'},20:{t:'y veinte'},25:{t:'y veinticinco'},30:{t:'y media'},35:{t:'menos veinticinco'},40:{t:'menos veinte'},45:{t:'menos cuarto'},50:{t:'menos diez'},55:{t:'menos cinco'}};
+function textoHora(hSpoken, exp){let h12=hSpoken%12;if(h12===0)h12=12;let nombres=['','una','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez','once','doce'];let art=h12===1?'La una':'Las '+nombres[h12];return art+' '+exp.t;}
+function sufijo(h){if(h===0)return'medianoche 00:00';if(h===12)return'mediodía 12:00';if(h>=1&&h<=6)return'madrugada';if(h<=11)return'mañana';if(h<=20)return'tarde';return'noche';}
 const horas=[];
-for(let h24=0;h24<24;h24++){exps.forEach(e=>{let mReal=e.m;let hReal=h24;let txt=textoHora((h24+(e.m>=35?1:0))%24,e);if(e.m>=35){hReal=(h24-1+24)%24;txt=textoHora(h24,e);}let digital=String(hReal).padStart(2,'0')+':'+String(mReal).padStart(2,'0');let detalle=sufijo(hReal);if(hReal===0&&mReal===0)txt='Las doce en punto - medianoche';if(hReal===12&&mReal===0)txt='Las doce en punto - mediodía';horas.push({h24:hReal,h12:hReal%12||12,mReal,texto:txt,digital,detalle});});}
-function crear(){const g=document.getElementById('gridTodo');horas.forEach((o,i)=>{let d=document.createElement('div');d.className='tarjeta';let cId='c'+i;d.innerHTML=`<button class="audio" onclick="hablar('${o.texto}')">🔊</button><div class="reloj-box"><canvas id="${cId}" width="160" height="160" class="reloj-analog"></canvas><div class="reloj-digital">${o.digital}</div></div><b>${o.texto.toUpperCase()}</b><div class="sep">${o.texto}</div><div class="def">${o.digital} - ${o.detalle}</div>`;g.appendChild(d);setTimeout(()=>{let cv=document.getElementById(cId);if(cv)drawClock(cv,o.h12,o.mReal);},5);});}
+for(let hd=0;hd<24;hd++){
+ for(let md of [0,5,10,15,20,25,30,35,40,45,50,55]){
+  let exp=mapaMin[md];
+  let hSpoken = md<=30 ? hd : (hd+1)%24;
+  let txt=textoHora(hSpoken,exp);
+  if(hd===0&&md===0) txt='Las doce en punto - medianoche';
+  if(hd===12&&md===0) txt='Las doce en punto - mediodía';
+  let digital=String(hd).padStart(2,'0')+':'+String(md).padStart(2,'0');
+  let detalle=sufijo(hd);
+  let h12Vis = hd%12||12;
+  horas.push({hd,md,h12:h12Vis,mReal:md,texto:txt,digital,detalle});
+ }
+}
+function crear(){const g=document.getElementById('gridTodo');horas.forEach((o,i)=>{let d=document.createElement('div');d.className='tarjeta';let cId='c'+i;d.innerHTML=`<button class="audio" onclick="hablar('${o.texto}')">🔊</button><div class="reloj-box"><canvas id="${cId}" width="160" height="160" class="reloj-analog"></canvas><div class="reloj-digital">${o.digital}</div></div><b>${o.texto.toUpperCase()}</b><div class="sep">${o.texto}</div><div class="def">${o.digital} - ${o.detalle}</div>`;g.appendChild(d);setTimeout(()=>{let cv=document.getElementById(cId);if(cv)drawClock(cv,o.h12,o.md);},5);});}
 crear();
-let p1=0,c1=null;function nuevoJuego1(){document.getElementById('opciones1').innerHTML='';let e=horas[Math.floor(Math.random()*horas.length)];c1=e;document.getElementById('pregunta1').innerText=`¿Dónde está "${e.texto}"? - ${e.digital}`;hablar(e.texto);let ops=[e];while(ops.length<4){let r=horas[Math.floor(Math.random()*horas.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>0.5-Math.random()).forEach(o=>{let div=document.createElement('div');div.className='opcion';let cvId='j1'+Math.random().toString(36).slice(2);div.innerHTML=`<canvas id="${cvId}" width="120" height="120" style="border-radius:50%"></canvas><div style="margin-top:6px;background:#0c4a6e;color:#ffcc00;border-radius:8px;padding:4px 10px;display:inline-block;font-size:16px">${o.digital}</div>`;div.onclick=()=>{if(o===c1){div.classList.add('correcta');p1++;}else{div.classList.add('error');}document.getElementById('puntos1').innerText='⭐ '+p1;};document.getElementById('opciones1').appendChild(div);setTimeout(()=>{let cv=document.getElementById(cvId);if(cv)drawClock(cv,o.h12,o.mReal);},20);});}
-let p2=0,c2=null;function nuevoJuego2(){document.getElementById('opciones2').innerHTML='';let e=horas[Math.floor(Math.random()*horas.length)];c2=e;document.getElementById('pregunta2').innerHTML=`<div style="display:flex;justify-content:center;gap:16px;align-items:center"><canvas id="preg2" width="140" height="140" style="border-radius:50%;border:3px solid #0ea5e9"></canvas><div style="font-size:30px;font-weight:900;background:#0c4a6e;color:#ffcc00;padding:10px 18px;border-radius:12px">${e.digital}</div></div>`;setTimeout(()=>{drawClock(document.getElementById('preg2'),e.h12,e.mReal);},20);let ops=[e];while(ops.length<4){let r=horas[Math.floor(Math.random()*horas.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>0.5-Math.random()).forEach(o=>{let div=document.createElement('div');div.className='opcion';div.innerHTML=`<div style="font-family:'Dancing Script',cursive;font-size:20px">${o.texto}</div><div style="font-size:13px">${o.digital}</div>`;div.onclick=()=>{if(o===c2){div.classList.add('correcta');p2++;}else{div.classList.add('error');}document.getElementById('puntos2').innerText='⭐ '+p2;};document.getElementById('opciones2').appendChild(div);});}
+let p1=0,c1=null;function nuevoJuego1(){document.getElementById('opciones1').innerHTML='';let e=horas[Math.floor(Math.random()*horas.length)];c1=e;document.getElementById('pregunta1').innerText=`¿Dónde está "${e.texto}"? - ${e.digital}`;hablar(e.texto);let ops=[e];while(ops.length<4){let r=horas[Math.floor(Math.random()*horas.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>0.5-Math.random()).forEach(o=>{let div=document.createElement('div');div.className='opcion';let cvId='j1'+Math.random().toString(36).slice(2);div.innerHTML=`<canvas id="${cvId}" width="120" height="120" style="border-radius:50%"></canvas><div style="margin-top:6px;background:#0c4a6e;color:#ffcc00;border-radius:8px;padding:4px 10px;display:inline-block;font-size:16px">${o.digital}</div>`;div.onclick=()=>{if(o===c1){div.classList.add('correcta');p1++;}else{div.classList.add('error');}document.getElementById('puntos1').innerText='⭐ '+p1;};document.getElementById('opciones1').appendChild(div);setTimeout(()=>{let cv=document.getElementById(cvId);if(cv)drawClock(cv,o.h12,o.md);},20);});}
+let p2=0,c2=null;function nuevoJuego2(){document.getElementById('opciones2').innerHTML='';let e=horas[Math.floor(Math.random()*horas.length)];c2=e;document.getElementById('pregunta2').innerHTML=`<div style="display:flex;justify-content:center;gap:16px;align-items:center"><canvas id="preg2" width="140" height="140" style="border-radius:50%;border:3px solid #0ea5e9"></canvas><div style="font-size:30px;font-weight:900;background:#0c4a6e;color:#ffcc00;padding:10px 18px;border-radius:12px">${e.digital}</div></div>`;setTimeout(()=>{drawClock(document.getElementById('preg2'),e.h12,e.md);},20);let ops=[e];while(ops.length<4){let r=horas[Math.floor(Math.random()*horas.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>0.5-Math.random()).forEach(o=>{let div=document.createElement('div');div.className='opcion';div.innerHTML=`<div style="font-family:'Dancing Script',cursive;font-size:20px">${o.texto}</div><div style="font-size:13px">${o.digital}</div>`;div.onclick=()=>{if(o===c2){div.classList.add('correcta');p2++;}else{div.classList.add('error');}document.getElementById('puntos2').innerText='⭐ '+p2;};document.getElementById('opciones2').appendChild(div);});}
 nuevoJuego1();nuevoJuego2();
 </script></body></html>
