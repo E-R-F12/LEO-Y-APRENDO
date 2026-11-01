@@ -7,34 +7,59 @@
 .header{background:white;padding:14px 2%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:11}.logo{font-weight:900;font-size:22px;color:#1e3a8a}
 nav{display:none !important;}
 .barra{background:#0ea5e9;color:white;font-weight:900;padding:12px 16px;border-radius:10px;margin:16px 1% 10px;font-size:18px}.barra.sub{font-size:15px;background:#e0f2fe;color:#0c4a6e;margin-top:18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;padding:0 1% 10px}
-.tarjeta{background:white;border-radius:18px;padding:14px 10px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.08);min-height:310px;position:relative;border:1px solid #e2e8f0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;padding:0 1% 10px}
+.tarjeta{background:white;border-radius:18px;padding:14px 10px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.08);min-height:340px;position:relative;border:1px solid #e2e8f0}
 .reloj-box{display:flex;flex-direction:column;gap:8px;justify-content:center;align-items:center;margin-bottom:8px}
-.reloj-analog{width:130px;height:130px;background:#f0f9ff;border-radius:50%;border:3px solid #0ea5e9}
-.reloj-digital{background:#0c4a6e;color:#ffcc00;font-weight:900;font-size:18px;padding:6px 14px;border-radius:8px;min-width:90px;border:2px solid #ffcc00;letter-spacing:1px}
+.reloj-analog{width:150px;height:150px;background:#f0f9ff;border-radius:50%;border:3px solid #0ea5e9}
+.reloj-digital{background:#0c4a6e;color:#ffcc00;font-weight:900;font-size:20px;padding:6px 16px;border-radius:8px;min-width:100px;border:2px solid #ffcc00;letter-spacing:1px}
 .tarjeta b{color:#b02a5c;text-transform:uppercase;font-size:12px;display:block;min-height:30px;line-height:13px;margin-top:4px}
-.sep{font-family:'Dancing Script','Caveat',cursive;font-size:20px;color:#1e3a8a;font-weight:700;line-height:20px;margin-top:2px}
+.sep{font-family:'Dancing Script','Caveat',cursive;font-size:21px;color:#1e3a8a;font-weight:700;line-height:20px;margin-top:2px}
 .def{font-size:11px;color:#fff;background:#0ea5e9;padding:4px 8px;border-radius:8px;margin-top:6px;font-weight:800}
 .audio{position:absolute;top:8px;right:8px;background:#ffcc00;border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:14px;box-shadow:0 2px 4px rgba(0,0,0,.2)}
 .juego{background:white;margin:22px 1%;padding:18px;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.08)}.juego h3{color:#0c4a6e;margin-bottom:12px;font-size:18px}.opciones{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.opcion{border:2px solid #e2e8f0;border-radius:14px;padding:12px;cursor:pointer;background:#f8fafc;text-align:center;font-weight:800}.opcion.correcta{border-color:#22c55e;background:#dcfce7}.opcion.error{border-color:#ef4444;background:#fee2e2}.btn{background:#0c4a6e;color:white;border:none;padding:12px 22px;border-radius:22px;font-weight:800;cursor:pointer;margin-top:14px;font-size:15px}
 </style></head><body>
 <div class="header"><div class="logo">📚 VOCABULARIO REALISTA - 11. HORAS 24H</div></div>
-<div class="barra">11. LAS HORAS EN 24 HORAS - 00:00 medianoche y 12:00 mediodía</div>
-<div class="barra sub">MAÑANA 00:00 a 11:55 - TARDE 12:00 a 23:55 - Todo en formato digital 24H</div>
+<div class="barra">11. LAS HORAS EN 24 HORAS - 00:00 medianoche y 12:00 mediodía - Con doble numeración 1-13, 2-14...</div>
+<div class="barra sub">Cada reloj muestra debajo de cada hora su equivalencia en 24h: 1→13, 2→14 ... 12→00</div>
 <div class="grid" id="gridTodo"></div>
-<div class="juego"><h3>🎮 JUEGO 1: Escucha la HORA y elige el RELOJ DIGITAL 24H</h3><div id="pregunta1" style="font-size:22px;font-weight:900;color:#0c4a6e;text-align:center;margin-bottom:10px"></div><div class="opciones" id="opciones1"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego1()">Siguiente ▶️</button> <span id="puntos1"></span></div></div>
+<div class="juego"><h3>🎮 JUEGO 1: Escucha la HORA y elige el DIGITAL 24H</h3><div id="pregunta1" style="font-size:22px;font-weight:900;color:#0c4a6e;text-align:center;margin-bottom:10px"></div><div class="opciones" id="opciones1"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego1()">Siguiente ▶️</button> <span id="puntos1"></span></div></div>
 <div class="juego"><h3>🎮 JUEGO 2: Ves el RELOJ 24H, elige la frase</h3><div id="pregunta2" style="text-align:center"></div><div class="opciones" id="opciones2"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego2()">Siguiente ▶️</button> <span id="puntos2"></span></div></div>
 <script>
 function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang="es-ES";u.rate=0.85;speechSynthesis.speak(u);}
-function drawClock(c,h,m){let x=c.getContext('2d'),r=c.width/2;x.clearRect(0,0,c.width,c.height);x.fillStyle='#fff';x.beginPath();x.arc(r,r,r-2,0,2*Math.PI);x.fill();x.strokeStyle='#0ea5e9';x.lineWidth=3;x.stroke();x.fillStyle='#0c4a6e';x.font='bold 13px sans-serif';x.textAlign='center';x.textBaseline='middle';for(let i=1;i<=12;i++){let a=(i*30-90)*Math.PI/180;x.fillText(i,r+Math.cos(a)*(r-18),r+Math.sin(a)*(r-18));}let ha=(h%12+m/60)*30-90;let aH=ha*Math.PI/180;x.strokeStyle='#0c4a6e';x.lineWidth=5;x.beginPath();x.moveTo(r,r);x.lineTo(r+Math.cos(aH)*(r-42),r+Math.sin(aH)*(r-42));x.stroke();let aM=(m*6-90)*Math.PI/180;x.strokeStyle='#ef4444';x.lineWidth=3;x.beginPath();x.moveTo(r,r);x.lineTo(r+Math.cos(aM)*(r-28),r+Math.sin(aM)*(r-28));x.stroke();x.fillStyle='#0c4a6e';x.beginPath();x.arc(r,r,5,0,2*Math.PI);x.fill();}
+function drawClock(c,h,m){
+ let x=c.getContext('2d'),r=c.width/2;
+ x.clearRect(0,0,c.width,c.height);
+ x.fillStyle='#fff';x.beginPath();x.arc(r,r,r-2,0,2*Math.PI);x.fill();
+ x.strokeStyle='#0ea5e9';x.lineWidth=3;x.stroke();
+ // números 1-12 grandes fuera
+ x.textAlign='center';x.textBaseline='middle';
+ for(let i=1;i<=12;i++){
+  let a=(i*30-90)*Math.PI/180;
+  let xr=r+Math.cos(a)*(r-18);
+  let yr=r+Math.sin(a)*(r-18);
+  x.fillStyle='#0c4a6e';x.font='bold 14px sans-serif';
+  x.fillText(i,xr,yr);
+  // número 24h debajo/pequeño interior
+  let h24 = i===12 ? '00' : String(i+12).padStart(2,'0');
+  let xr2=r+Math.cos(a)*(r-36);
+  let yr2=r+Math.sin(a)*(r-36);
+  x.fillStyle='#0ea5e9';x.font='bold 10px sans-serif';
+  x.fillText(h24,xr2,yr2);
+ }
+ // manecillas
+ let ha=(h%12+m/60)*30-90;let aH=ha*Math.PI/180;
+ x.strokeStyle='#0c4a6e';x.lineWidth=5;x.beginPath();x.moveTo(r,r);x.lineTo(r+Math.cos(aH)*(r-50),r+Math.sin(aH)*(r-50));x.stroke();
+ let aM=(m*6-90)*Math.PI/180;x.strokeStyle='#ef4444';x.lineWidth=3;x.beginPath();x.moveTo(r,r);x.lineTo(r+Math.cos(aM)*(r-34),r+Math.sin(aM)*(r-34));x.stroke();
+ x.fillStyle='#0c4a6e';x.beginPath();x.arc(r,r,5,0,2*Math.PI);x.fill();
+}
 const exps=[{t:'en punto',m:0},{t:'y cinco',m:5},{t:'y diez',m:10},{t:'y cuarto',m:15},{t:'y veinte',m:20},{t:'y veinticinco',m:25},{t:'y media',m:30},{t:'menos veinticinco',m:35},{t:'menos veinte',m:40},{t:'menos cuarto',m:45},{t:'menos diez',m:50},{t:'menos cinco',m:55}];
 function textoHora(h24, e){let h12=h24%12;if(h12===0)h12=12;let nombres=['','una','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez','once','doce'];let art=h12===1?'La una':'Las '+nombres[h12];return art+' '+e.t;}
 function sufijo(h24){if(h24===0)return'medianoche 00:00';if(h24===12)return'mediodía 12:00';if(h24>=1&&h24<=6)return'madrugada';if(h24<=11)return'mañana';if(h24<=20)return'tarde';return'noche';}
 const horas=[];
 for(let h24=0;h24<24;h24++){exps.forEach(e=>{let mReal=e.m;let hReal=h24;let txt=textoHora((h24+(e.m>=35?1:0))%24,e);if(e.m>=35){hReal=(h24-1+24)%24;txt=textoHora(h24,e);}let digital=String(hReal).padStart(2,'0')+':'+String(mReal).padStart(2,'0');let detalle=sufijo(hReal);if(hReal===0&&mReal===0)txt='Las doce en punto - medianoche';if(hReal===12&&mReal===0)txt='Las doce en punto - mediodía';horas.push({h24:hReal,h12:hReal%12||12,mReal,texto:txt,digital,detalle});});}
-function crear(){const g=document.getElementById('gridTodo');horas.forEach((o,i)=>{let d=document.createElement('div');d.className='tarjeta';let cId='c'+i;d.innerHTML=`<button class="audio" onclick="hablar('${o.texto}')">🔊</button><div class="reloj-box"><canvas id="${cId}" width="130" height="130" class="reloj-analog"></canvas><div class="reloj-digital">${o.digital}</div></div><b>${o.texto.toUpperCase()}</b><div class="sep">${o.texto}</div><div class="def">${o.digital} - ${o.detalle}</div>`;g.appendChild(d);setTimeout(()=>{let cv=document.getElementById(cId);if(cv)drawClock(cv,o.h12,o.mReal);},5);});}
+function crear(){const g=document.getElementById('gridTodo');horas.forEach((o,i)=>{let d=document.createElement('div');d.className='tarjeta';let cId='c'+i;d.innerHTML=`<button class="audio" onclick="hablar('${o.texto}')">🔊</button><div class="reloj-box"><canvas id="${cId}" width="150" height="150" class="reloj-analog"></canvas><div class="reloj-digital">${o.digital}</div></div><b>${o.texto.toUpperCase()}</b><div class="sep">${o.texto}</div><div class="def">${o.digital} - ${o.detalle}</div>`;g.appendChild(d);setTimeout(()=>{let cv=document.getElementById(cId);if(cv)drawClock(cv,o.h12,o.mReal);},5);});}
 crear();
-let p1=0,c1=null;function nuevoJuego1(){document.getElementById('opciones1').innerHTML='';let e=horas[Math.floor(Math.random()*horas.length)];c1=e;document.getElementById('pregunta1').innerText=`¿Dónde está "${e.texto}"? - ${e.digital}`;hablar(e.texto);let ops=[e];while(ops.length<4){let r=horas[Math.floor(Math.random()*horas.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>0.5-Math.random()).forEach(o=>{let div=document.createElement('div');div.className='opcion';let cvId='j1'+Math.random().toString(36).slice(2);div.innerHTML=`<canvas id="${cvId}" width="110" height="110" style="border-radius:50%"></canvas><div style="margin-top:6px;background:#0c4a6e;color:#ffcc00;border-radius:8px;padding:4px 10px;display:inline-block;font-size:16px">${o.digital}</div>`;div.onclick=()=>{if(o===c1){div.classList.add('correcta');p1++;}else{div.classList.add('error');}document.getElementById('puntos1').innerText='⭐ '+p1;};document.getElementById('opciones1').appendChild(div);setTimeout(()=>{let cv=document.getElementById(cvId);if(cv)drawClock(cv,o.h12,o.mReal);},20);});}
-let p2=0,c2=null;function nuevoJuego2(){document.getElementById('opciones2').innerHTML='';let e=horas[Math.floor(Math.random()*horas.length)];c2=e;document.getElementById('pregunta2').innerHTML=`<div style="display:flex;justify-content:center;gap:16px;align-items:center"><canvas id="preg2" width="130" height="130" style="border-radius:50%;border:3px solid #0ea5e9"></canvas><div style="font-size:28px;font-weight:900;background:#0c4a6e;color:#ffcc00;padding:10px 18px;border-radius:12px">${e.digital}</div></div>`;setTimeout(()=>{drawClock(document.getElementById('preg2'),e.h12,e.mReal);},20);let ops=[e];while(ops.length<4){let r=horas[Math.floor(Math.random()*horas.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>0.5-Math.random()).forEach(o=>{let div=document.createElement('div');div.className='opcion';div.innerHTML=`<div style="font-family:'Dancing Script',cursive;font-size:20px">${o.texto}</div><div style="font-size:13px">${o.digital}</div>`;div.onclick=()=>{if(o===c2){div.classList.add('correcta');p2++;}else{div.classList.add('error');}document.getElementById('puntos2').innerText='⭐ '+p2;};document.getElementById('opciones2').appendChild(div);});}
+let p1=0,c1=null;function nuevoJuego1(){document.getElementById('opciones1').innerHTML='';let e=horas[Math.floor(Math.random()*horas.length)];c1=e;document.getElementById('pregunta1').innerText=`¿Dónde está "${e.texto}"? - ${e.digital}`;hablar(e.texto);let ops=[e];while(ops.length<4){let r=horas[Math.floor(Math.random()*horas.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>0.5-Math.random()).forEach(o=>{let div=document.createElement('div');div.className='opcion';let cvId='j1'+Math.random().toString(36).slice(2);div.innerHTML=`<canvas id="${cvId}" width="120" height="120" style="border-radius:50%"></canvas><div style="margin-top:6px;background:#0c4a6e;color:#ffcc00;border-radius:8px;padding:4px 10px;display:inline-block;font-size:16px">${o.digital}</div>`;div.onclick=()=>{if(o===c1){div.classList.add('correcta');p1++;}else{div.classList.add('error');}document.getElementById('puntos1').innerText='⭐ '+p1;};document.getElementById('opciones1').appendChild(div);setTimeout(()=>{let cv=document.getElementById(cvId);if(cv)drawClock(cv,o.h12,o.mReal);},20);});}
+let p2=0,c2=null;function nuevoJuego2(){document.getElementById('opciones2').innerHTML='';let e=horas[Math.floor(Math.random()*horas.length)];c2=e;document.getElementById('pregunta2').innerHTML=`<div style="display:flex;justify-content:center;gap:16px;align-items:center"><canvas id="preg2" width="140" height="140" style="border-radius:50%;border:3px solid #0ea5e9"></canvas><div style="font-size:30px;font-weight:900;background:#0c4a6e;color:#ffcc00;padding:10px 18px;border-radius:12px">${e.digital}</div></div>`;setTimeout(()=>{drawClock(document.getElementById('preg2'),e.h12,e.mReal);},20);let ops=[e];while(ops.length<4){let r=horas[Math.floor(Math.random()*horas.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>0.5-Math.random()).forEach(o=>{let div=document.createElement('div');div.className='opcion';div.innerHTML=`<div style="font-family:'Dancing Script',cursive;font-size:20px">${o.texto}</div><div style="font-size:13px">${o.digital}</div>`;div.onclick=()=>{if(o===c2){div.classList.add('correcta');p2++;}else{div.classList.add('error');}document.getElementById('puntos2').innerText='⭐ '+p2;};document.getElementById('opciones2').appendChild(div);});}
 nuevoJuego1();nuevoJuego2();
 </script></body></html>
