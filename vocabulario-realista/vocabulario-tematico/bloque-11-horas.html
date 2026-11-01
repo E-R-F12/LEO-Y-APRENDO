@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Caveat:wght@700&display=swap" rel="stylesheet">
-<title>BLOQUE 11 - HORAS 24H</title>
+<title>BLOQUE 11 - HORAS 24H ORDENADO</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}body{background:#f6f8fb;padding-bottom:40px}
 .header{background:white;padding:14px 2%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:11}.logo{font-weight:900;font-size:22px;color:#1e3a8a}
@@ -11,16 +11,16 @@ nav{display:none !important;}
 .tarjeta{background:white;border-radius:18px;padding:14px 10px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.08);min-height:350px;position:relative;border:1px solid #e2e8f0}
 .reloj-box{display:flex;flex-direction:column;gap:8px;justify-content:center;align-items:center;margin-bottom:8px}
 .reloj-analog{width:160px;height:160px;background:#f0f9ff;border-radius:50%;border:3px solid #0ea5e9}
-.reloj-digital{background:#0c4a6e;color:#ffcc00;font-weight:900;font-size:20px;padding:6px 16px;border-radius:8px;min-width:100px;border:2px solid #ffcc00;letter-spacing:1px}
+.reloj-digital{background:#0c4a6e;color:#ffcc00;font-weight:900;font-size:20px;padding:6px 16px;border-radius:8px;min-width:110px;border:2px solid #ffcc00;letter-spacing:1px}
 .tarjeta b{color:#b02a5c;text-transform:uppercase;font-size:12px;display:block;min-height:30px;line-height:13px;margin-top:4px}
 .sep{font-family:'Dancing Script','Caveat',cursive;font-size:21px;color:#1e3a8a;font-weight:700;line-height:20px;margin-top:2px}
 .def{font-size:11px;color:#fff;background:#0ea5e9;padding:4px 8px;border-radius:8px;margin-top:6px;font-weight:800}
 .audio{position:absolute;top:8px;right:8px;background:#ffcc00;border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:14px;box-shadow:0 2px 4px rgba(0,0,0,.2)}
 .juego{background:white;margin:22px 1%;padding:18px;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.08)}.juego h3{color:#0c4a6e;margin-bottom:12px;font-size:18px}.opciones{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.opcion{border:2px solid #e2e8f0;border-radius:14px;padding:12px;cursor:pointer;background:#f8fafc;text-align:center;font-weight:800}.opcion.correcta{border-color:#22c55e;background:#dcfce7}.opcion.error{border-color:#ef4444;background:#fee2e2}.btn{background:#0c4a6e;color:white;border:none;padding:12px 22px;border-radius:22px;font-weight:800;cursor:pointer;margin-top:14px;font-size:15px}
 </style></head><body>
-<div class="header"><div class="logo">📚 VOCABULARIO REALISTA - 11. HORAS 24H - ORDEN 00:00 a 23:55</div></div>
-<div class="barra">11. HORAS ORDENADAS DE 00:00 MEDIANOCHE A 23:55 NOCHE</div>
-<div class="barra sub">Orden ascendente: 00:00 → 00:55 → 01:00 → ... → 12:00 mediodía → 13:00 → ... → 23:55 → 00:00 medianoche</div>
+<div class="header"><div class="logo">📚 VOCABULARIO REALISTA - 11. HORAS 24H - 00:00 a 00:00 día siguiente</div></div>
+<div class="barra">11. HORAS ORDENADAS - De 00:00 a 23:55 y 00:00 del día siguiente - Cada 5 minutos</div>
+<div class="barra sub">Orden perfecto: 00:00 medianoche inicio → 01:00 → 12:00 mediodía → 13:00 → 23:55 → 00:00 medianoche final</div>
 <div class="grid" id="gridTodo"></div>
 <div class="juego"><h3>🎮 JUEGO 1: Escucha la HORA y elige el DIGITAL 24H</h3><div id="pregunta1" style="font-size:22px;font-weight:900;color:#0c4a6e;text-align:center;margin-bottom:10px"></div><div class="opciones" id="opciones1"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego1()">Siguiente ▶️</button> <span id="puntos1"></span></div></div>
 <div class="juego"><h3>🎮 JUEGO 2: Ves el RELOJ 24H, elige la frase</h3><div id="pregunta2" style="text-align:center"></div><div class="opciones" id="opciones2"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego2()">Siguiente ▶️</button> <span id="puntos2"></span></div></div>
@@ -45,22 +45,36 @@ function drawClock(c,h,m){
  let aM=(m*6-90)*Math.PI/180;x.strokeStyle='#ef4444';x.lineWidth=3;x.beginPath();x.moveTo(r,r);x.lineTo(r+Math.cos(aM)*(r-38),r+Math.sin(aM)*(r-38));x.stroke();
  x.fillStyle='#0c4a6e';x.beginPath();x.arc(r,r,5,0,2*Math.PI);x.fill();
 }
-const mapaMin={0:{t:'en punto'},5:{t:'y cinco'},10:{t:'y diez'},15:{t:'y cuarto'},20:{t:'y veinte'},25:{t:'y veinticinco'},30:{t:'y media'},35:{t:'menos veinticinco'},40:{t:'menos veinte'},45:{t:'menos cuarto'},50:{t:'menos diez'},55:{t:'menos cinco'}};
-function textoHora(hSpoken, exp){let h12=hSpoken%12;if(h12===0)h12=12;let nombres=['','una','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez','once','doce'];let art=h12===1?'La una':'Las '+nombres[h12];return art+' '+exp.t;}
-function sufijo(h){if(h===0)return'medianoche 00:00';if(h===12)return'mediodía 12:00';if(h>=1&&h<=6)return'madrugada';if(h<=11)return'mañana';if(h<=20)return'tarde';return'noche';}
+const mapaMin={0:'en punto',5:'y cinco',10:'y diez',15:'y cuarto',20:'y veinte',25:'y veinticinco',30:'y media',35:'menos veinticinco',40:'menos veinte',45:'menos cuarto',50:'menos diez',55:'menos cinco'};
+function textoHora(hSpoken, txtMin){let h12=hSpoken%12;if(h12===0)h12=12;let nombres=['','una','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez','once','doce'];let art=h12===1?'La una':'Las '+nombres[h12];return art+' '+txtMin;}
+function sufijo(h, esFinal){
+ if(esFinal) return '00:00 FIN - medianoche día siguiente';
+ if(h===0) return 'medianoche 00:00 INICIO';
+ if(h===12) return 'mediodía 12:00';
+ if(h>=1&&h<=6) return 'madrugada';
+ if(h<=11) return 'mañana';
+ if(h<=20) return 'tarde';
+ return 'noche';
+}
 const horas=[];
-for(let hd=0;hd<24;hd++){
- for(let md of [0,5,10,15,20,25,30,35,40,45,50,55]){
-  let exp=mapaMin[md];
-  let hSpoken = md<=30 ? hd : (hd+1)%24;
-  let txt=textoHora(hSpoken,exp);
-  if(hd===0&&md===0) txt='Las doce en punto - medianoche';
-  if(hd===12&&md===0) txt='Las doce en punto - mediodía';
-  let digital=String(hd).padStart(2,'0')+':'+String(md).padStart(2,'0');
-  let detalle=sufijo(hd);
-  let h12Vis = hd%12||12;
-  horas.push({hd,md,h12:h12Vis,mReal:md,texto:txt,digital,detalle});
- }
+// Generamos de 00:00 a 24:00 inclusive cada 5 minutos = 289 relojes ordenados
+for(let totalMin=0; totalMin<=1440; totalMin+=5){
+ let hd = Math.floor(totalMin/60)%24;
+ let md = totalMin%60;
+ if(totalMin===1440){ hd=0; md=0; } // último es 00:00 del día siguiente
+ let txtMin = mapaMin[md];
+ let hSpoken = md<=30 ? (totalMin===1440?0:hd) : (hd+1)%24;
+ if(totalMin===1440) hSpoken=0;
+ let txt=textoHora(hSpoken,txtMin);
+ if(totalMin===0) txt='Las doce en punto - medianoche INICIO';
+ if(totalMin===720) txt='Las doce en punto - mediodía';
+ if(totalMin===1440) txt='Las doce en punto - medianoche FIN - día siguiente';
+ let esFinal = totalMin===1440;
+ let digital = esFinal ? '00:00' : String(hd).padStart(2,'0')+':'+String(md).padStart(2,'0');
+ let detalle = sufijo(hd, esFinal);
+ let h12Vis = hd%12||12;
+ let digitalLabel = esFinal ? '00:00 (24:00)' : digital;
+ horas.push({totalMin, hd, md, h12:h12Vis, mReal:md, texto:txt, digital: digitalLabel, detalle, esFinal});
 }
 function crear(){const g=document.getElementById('gridTodo');horas.forEach((o,i)=>{let d=document.createElement('div');d.className='tarjeta';let cId='c'+i;d.innerHTML=`<button class="audio" onclick="hablar('${o.texto}')">🔊</button><div class="reloj-box"><canvas id="${cId}" width="160" height="160" class="reloj-analog"></canvas><div class="reloj-digital">${o.digital}</div></div><b>${o.texto.toUpperCase()}</b><div class="sep">${o.texto}</div><div class="def">${o.digital} - ${o.detalle}</div>`;g.appendChild(d);setTimeout(()=>{let cv=document.getElementById(cId);if(cv)drawClock(cv,o.h12,o.md);},5);});}
 crear();
