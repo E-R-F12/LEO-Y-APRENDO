@@ -3,111 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloque 6 - La Familia | LEO Y APRENDO</title>
+<title>Bloque 6 - Familia - LEO Y APRENDO</title>
 <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Arial, sans-serif; }
-  body { background:#fff7ed; color:#1e293b; }
-  header { background:linear-gradient(135deg,#f97316,#ea580c); color:white; padding:28px 20px; text-align:center; }
-  header h1 { font-size:2.2rem; }
-  header p { opacity:.9; margin-top:6px; }
-  .top-bar { max-width:1100px; margin:18px auto 0; padding:0 20px; display:flex; justify-content:space-between; align-items:center; }
-  .top-bar a { text-decoration:none; background:white; border:2px solid #f97316; color:#ea580c; padding:8px 16px; border-radius:999px; font-weight:700; }
-  .container { max-width:1100px; margin:20px auto; padding:0 20px 40px; }
-  .intro { background:white; border-radius:16px; padding:20px; box-shadow:0 4px 16px rgba(0,0,0,.08); margin-bottom:22px; }
-  .intro h2 { color:#ea580c; margin-bottom:8px; }
-  /* IMAGENES GRANDES */
-  .vocab-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:22px; }
-  .vocab-card { background:white; border-radius:18px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,.10); }
-  .vocab-card img { width:100%; height:280px; object-fit:cover; display:block; }
-  .vocab-card-body { padding:16px; text-align:center; }
-  .vocab-card-body h3 { font-size:1.5rem; color:#1e293b; }
-  .vocab-card-body p { color:#64748b; margin-top:4px; font-size:1rem; }
-  .badge { display:inline-block; background:#ffedd5; color:#c2410c; padding:4px 10px; border-radius:999px; font-size:.85rem; font-weight:700; margin-top:8px; }
-  footer { text-align:center; padding:20px; color:#94a3b8; }
-  @media (max-width:600px){ .vocab-grid{grid-template-columns:1fr 1fr; gap:12px;} .vocab-card img{height:180px;} }
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#fff7ed;color:#1e293b;padding:20px}
+a.volver{display:inline-block;margin-bottom:14px;text-decoration:none;background:white;padding:8px 14px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.08);color:#ea580c;font-weight:bold}
+h1{text-align:center;font-size:2rem;color:#ea580c}
+p.sub{text-align:center;color:#64748b;margin:8px 0 20px}
+.grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.08);text-align:center;padding-bottom:12px}
+.card img{width:100%;height:150px;object-fit:cover;display:block}
+.card h2{font-size:1.4rem;margin:10px 0 4px}
+.card p{color:#64748b;padding:0 12px;font-size:.95rem}
+.card span{display:inline-block;margin-top:8px;background:#ffedd5;color:#ea580c;padding:4px 10px;border-radius:20px;font-size:.8rem;font-weight:bold}
+.miembro{transition:all .2s}
+.resaltado{border:4px solid red !important;border-radius:50px !important;box-shadow:0 0 0 4px red !important;transform:scale(1.05)}
+button{padding:8px 12px;border-radius:20px;border:1px solid #ddd;background:white;cursor:pointer;font-size:.9rem}
+button:hover{background:#ffedd5}
+@media(max-width:600px){.grid{grid-template-columns:1fr 1fr}.card img{height:110px}}
 </style>
 </head>
 <body>
-<header>
-  <h1>👨‍👩‍👧‍👦 Bloque 6 - La Familia</h1>
-  <p>Vocabulario realista con imágenes grandes para secundaria</p>
-</header>
+<a class="volver" href="index.html">⬅ Volver</a>
+<h1>👨‍👩‍👧 Bloque 6 - La Familia</h1>
+<p class="sub">Aprende las palabras de tu familia. Pincha en el árbol de abajo.</p>
 
-<div class="top-bar">
-  <a href="../index.html">← Volver a Vocabulario</a>
-  <a href="../../index.html">🏠 Inicio</a>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800"><h2>👨 Padre</h2><p>Mi padre se llama ___</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800"><h2>👩 Madre</h2><p>Mi madre se llama ___</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1473186505569-9c61870c11f9?w=800"><h2>👴 Abuelo</h2><p>Mi abuelo es mayor</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1447005497901-b3e9ee359928?w=800"><h2>👵 Abuela</h2><p>Mi abuela es cariñosa</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800"><h2>👦 Hermano</h2><p>Mi hermano juega conmigo</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800"><h2>👧 Hermana</h2><p>Mi hermana es divertida</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800"><h2>👨 Tío</h2><p>Mi tío es el hermano de mi padre</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800"><h2>👩 Tía</h2><p>Mi tía es la hermana de mi madre</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800"><h2>👦 Primo</h2><p>Mi primo es el hijo de mi tía</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800"><h2>👧 Prima</h2><p>Mi prima es la hija de mi tía</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=800"><h2>👶 Hijo</h2><p>Mi hijo es pequeño</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=800"><h2>👶 Hija</h2><p>Mi hija es pequeña</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1519340241574-2cec6d8d8c01?w=800"><h2>👶 Nieto</h2><p>Soy el nieto de mi abuelo</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1519340241574-2cec6d8d8c01?w=800"><h2>👶 Nieta</h2><p>Soy la nieta de mi abuela</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800"><h2>🍼 Bebé</h2><p>El bebé duerme mucho</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800"><h2>🧒 Yo</h2><p>¡Yo soy el centro de mi familia!</p><span>Bloque 6 • Familia</span></div>
 </div>
 
-<div class="container">
-  <div class="intro">
-    <h2>¿Quién es quién en tu familia?</h2>
-    <p>Toca cada tarjeta, mira la foto grande y repite la palabra en voz alta. Luego escribe una frase: <b>“Mi ___ se llama ___”</b>.</p>
-  </div>
-
-  <div class="vocab-grid" id="grid"></div>
-</div>
-
-<footer>LEO Y APRENDO • Bloque 6 - La Familia</footer>
-
-<script>
-const palabras = [
-  {palabra:"Padre", ejemplo:"Mi padre se llama Juan.", img:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"},
-  {palabra:"Madre", ejemplo:"Mi madre es profesora.", img:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80"},
-  {palabra:"Hijo", ejemplo:"Soy el hijo mayor.", img:"https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80"},
-  {palabra:"Hija", ejemplo:"Mi hija tiene 10 años.", img:"https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=800&q=80"},
-  {palabra:"Hermano", ejemplo:"Mi hermano juega al fútbol.", img:"https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80"},
-  {palabra:"Hermana", ejemplo:"Mi hermana es mi mejor amiga.", img:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&q=80"},
-  {palabra:"Abuelo", ejemplo:"Mi abuelo cuenta historias.", img:"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80"},
-  {palabra:"Abuela", ejemplo:"Mi abuela cocina muy bien.", img:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80"},
-  {palabra:"Tío", ejemplo:"Mi tío vive en Burgos.", img:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80"},
-  {palabra:"Tía", ejemplo:"Mi tía es enfermera.", img:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&q=80"},
-  {palabra:"Primo", ejemplo:"Mi primo es de mi edad.", img:"https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=800&q=80"},
-  {palabra:"Prima", ejemplo:"Mi prima viene los domingos.", img:"https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=80"},
-  {palabra:"Nieto", ejemplo:"Soy el nieto de Rosa.", img:"https://images.unsplash.com/photo-1472162072942-cd5147eb3902?w=800&q=80"},
-  {palabra:"Nieta", ejemplo:"La nieta pequeña.", img:"https://images.unsplash.com/photo-1543342384-1f1350e27861?w=800&q=80"},
-  {palabra:"Bebé", ejemplo:"El bebé duerme.", img:"https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&q=80"},
-  {palabra:"Familia", ejemplo:"Mi familia es grande.", img:"https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&q=80"}
-];
-
-const grid = document.getElementById('grid');
-palabras.forEach(p=>{
-  grid.innerHTML += `
-  <div class="vocab-card">
-    <img src="${p.img}" alt="${p.palabra}" loading="lazy">
-    <div class="vocab-card-body">
-      <h3>${p.palabra}</h3>
-      <p>${p.ejemplo}</p>
-      <span class="badge">Bloque 6 • Familia</span>
-    </div>
-  </div>`;
-});
-</script>
+<!-- ÁRBOL GENEALÓGICO CON CÍRCULO ROJO -->
 <div style="max-width:900px;margin:30px auto;background:white;border-radius:16px;padding:22px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.08)">
 <h2 style="color:#ea580c;font-size:1.6rem">🌳 El árbol de mi familia</h2>
-<p style="color:#64748b;margin:8px 0 18px">Mira cómo está conectada cada palabra. ¡Señálala en el árbol!</p>
+<p style="color:#64748b;margin:8px 0 18px">Pincha en una palabra y mira quién se pone el círculo rojo:</p>
 
-<div style="font-size:2rem">👴 Abuelo &nbsp; ❤️ &nbsp; 👵 Abuela</div>
-<div style="font-size:1.5rem;color:#cbd5e1">↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↓</div>
-<div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:10px 0">
-<div style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px"><b>👨 Padre</b><br><small>Mi padre se llama __</small></div>
-<div style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px"><b>👩 Madre</b><br><small>Mi madre se llama __</small></div>
-<div style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px"><b>👩 Tía</b><br><small>Hermana de mi padre</small></div>
-<div style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px"><b>👨 Tío</b><br><small>Hermano de mi padre</small></div>
+<div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:18px">
+<button onclick="resaltar('abuelo')">Abuelo</button>
+<button onclick="resaltar('abuela')">Abuela</button>
+<button onclick="resaltar('padre')">Padre</button>
+<button onclick="resaltar('madre')">Madre</button>
+<button onclick="resaltar('tia')">Tía</button>
+<button onclick="resaltar('tio')">Tío</button>
+<button onclick="resaltar('yo')">Yo</button>
+<button onclick="resaltar('hermano')">Hermano</button>
+<button onclick="resaltar('hermana')">Hermana</button>
+<button onclick="resaltar('primo')">Primo</button>
+<button onclick="resaltar('prima')">Prima</button>
+<button onclick="resaltar('nieto')">Nieto</button>
+<button onclick="resaltar('nieta')">Nieta</button>
+<button onclick="resaltar('bebe')">Bebé</button>
+</div>
+
+<div style="font-size:1.3rem">👴 <span class="miembro" id="abuelo" style="display:inline-block;padding:6px 12px;border:2px solid #fdba74;border-radius:12px;background:#fff7ed">Abuelo</span> ❤️ 👵 <span class="miembro" id="abuela" style="display:inline-block;padding:6px 12px;border:2px solid #fdba74;border-radius:12px;background:#fff7ed">Abuela</span></div>
+<div style="font-size:1.5rem;color:#cbd5e1">↓ &nbsp;&nbsp;&nbsp; ↓</div>
+<div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:10px 0">
+<div class="miembro" id="padre" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px">👨 <b>Padre</b></div>
+<div class="miembro" id="madre" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px">👩 <b>Madre</b></div>
+<div class="miembro" id="tia" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px">👩 <b>Tía</b></div>
+<div class="miembro" id="tio" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px">👨 <b>Tío</b></div>
 </div>
 <div style="font-size:1.5rem;color:#cbd5e1">↓</div>
-<div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:10px 0">
-<div style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px"><b>🧒 Yo</b><br><small>¡Yo soy el centro!</small></div>
-<div style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px"><b>👦 Hermano</b></div>
-<div style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px"><b>👧 Hermana</b></div>
-<div style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px"><b>👦 Primo</b></div>
-<div style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px"><b>👧 Prima</b></div>
+<div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:10px 0">
+<div class="miembro" id="yo" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px">🧒 <b>Yo</b></div>
+<div class="miembro" id="hermano" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px">👦 <b>Hermano</b></div>
+<div class="miembro" id="hermana" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px">👧 <b>Hermana</b></div>
+<div class="miembro" id="primo" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px">👦 <b>Primo</b></div>
+<div class="miembro" id="prima" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px">👧 <b>Prima</b></div>
 </div>
 <div style="font-size:1.5rem;color:#cbd5e1">↓</div>
-<div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap">
-<div style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px 14px"><b>👶 Hijo / Hija</b></div>
-<div style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px 14px"><b>👶 Nieto / Nieta</b></div>
-<div style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px 14px"><b>🍼 Bebé</b></div>
+<div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+<div class="miembro" id="nieto" style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px 14px">👶 <b>Nieto</b></div>
+<div class="miembro" id="nieta" style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px 14px">👶 <b>Nieta</b></div>
+<div class="miembro" id="bebe" style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px 14px">🍼 <b>Bebé</b></div>
 </div>
-<p style="margin-top:18px;font-size:1.1rem"><b>Actividad:</b> Dibuja tu árbol y escribe: <i>“Mi ___ se llama ___”</i></p>
-</div></body>
+<p style="margin-top:18px;font-size:1.1rem"><b>Actividad:</b> Dibuja tu árbol y escribe: “Mi ___ se llama ___”</p>
+</div>
+
+<script>
+function resaltar(id){
+  document.querySelectorAll('.miembro').forEach(e=>e.classList.remove('resaltado'));
+  let el=document.getElementById(id);
+  if(el){ el.classList.add('resaltado'); el.scrollIntoView({behavior:'smooth',block:'center'}); }
+}
+</script>
+</body>
 </html>
