@@ -12,89 +12,96 @@ h1{text-align:center;font-size:2rem;color:#ea580c}
 p.sub{text-align:center;color:#64748b;margin:8px 0 20px}
 .grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.08);text-align:center;padding-bottom:12px}
-.card img{width:100%;height:150px;object-fit:cover;display:block}
-.card h2{font-size:1.4rem;margin:10px 0 4px}
+.card img{width:100%;height:170px;object-fit:cover;display:block}
+.card h2{font-size:1.5rem;margin:10px 0 4px;color:#1e293b}
 .card p{color:#64748b;padding:0 12px;font-size:.95rem}
 .card span{display:inline-block;margin-top:8px;background:#ffedd5;color:#ea580c;padding:4px 10px;border-radius:20px;font-size:.8rem;font-weight:bold}
+.btn-audio{display:inline-block;margin-top:10px;background:#ea580c;color:white;border:none;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:.95rem;font-weight:bold}
+.btn-audio:hover{background:#c2410c}
 .miembro{transition:all .2s}
 .resaltado{border:4px solid red !important;border-radius:50px !important;box-shadow:0 0 0 4px red !important;transform:scale(1.05)}
-button{padding:8px 12px;border-radius:20px;border:1px solid #ddd;background:white;cursor:pointer;font-size:.9rem}
-button:hover{background:#ffedd5}
-@media(max-width:600px){.grid{grid-template-columns:1fr 1fr}.card img{height:110px}}
+button.arbol{padding:8px 12px;border-radius:20px;border:1px solid #ddd;background:white;cursor:pointer;font-size:.9rem}
+button.arbol:hover{background:#ffedd5}
+@media(max-width:600px){.grid{grid-template-columns:1fr 1fr}.card img{height:120px}}
 </style>
 </head>
 <body>
-<a class="volver" href="index.html">⬅ Volver</a>
-<h1>👨‍👩‍👧 Bloque 6 - La Familia</h1>
-<p class="sub">Aprende las palabras de tu familia. Pincha en el árbol de abajo.</p>
+<a class="volver" href="index.html">Volver</a>
+<h1>Bloque 6 - La Familia</h1>
+<p class="sub">Pulsa Escuchar para oír cada palabra. Abajo, pulsa en el árbol para ver el círculo rojo.</p>
 
 <div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800"><h2>👨 Padre</h2><p>Mi padre se llama ___</p><span>Bloque 6 • Familia</span></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800"><h2>👩 Madre</h2><p>Mi madre se llama ___</p><span>Bloque 6 • Familia</span></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1473186505569-9c61870c11f9?w=800"><h2>👴 Abuelo</h2><p>Mi abuelo es mayor</p><span>Bloque 6 • Familia</span></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1447005497901-b3e9ee359928?w=800"><h2>👵 Abuela</h2><p>Mi abuela es cariñosa</p><span>Bloque 6 • Familia</span></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800"><h2>👦 Hermano</h2><p>Mi hermano juega conmigo</p><span>Bloque 6 • Familia</span></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800"><h2>👧 Hermana</h2><p>Mi hermana es divertida</p><span>Bloque 6 • Familia</span></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800"><h2>👨 Tío</h2><p>Mi tío es el hermano de mi padre</p><span>Bloque 6 • Familia</span></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800"><h2>👩 Tía</h2><p>Mi tía es la hermana de mi madre</p><span>Bloque 6 • Familia</span></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800"><h2>👦 Primo</h2><p>Mi primo es el hijo de mi tía</p><span>Bloque 6 • Familia</span></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800"><h2>👧 Prima</h2><p>Mi prima es la hija de mi tía</p><span>Bloque 6 • Familia</span></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=800"><h2>👶 Hijo</h2><p>Mi hijo es pequeño</p><span>Bloque 6 • Familia</span></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=800"><h2>👶 Hija</h2><p>Mi hija es pequeña</p><span>Bloque 6 • Familia</span></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1519340241574-2cec6d8d8c01?w=800"><h2>👶 Nieto</h2><p>Soy el nieto de mi abuelo</p><span>Bloque 6 • Familia</span></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1519340241574-2cec6d8d8c01?w=800"><h2>👶 Nieta</h2><p>Soy la nieta de mi abuela</p><span>Bloque 6 • Familia</span></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800"><h2>🍼 Bebé</h2><p>El bebé duerme mucho</p><span>Bloque 6 • Familia</span></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800"><h2>🧒 Yo</h2><p>¡Yo soy el centro de mi familia!</p><span>Bloque 6 • Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800"><h2>Padre</h2><p>Mi padre se llama ___</p><button class="btn-audio" onclick="hablar('Padre')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800"><h2>Madre</h2><p>Mi madre se llama ___</p><button class="btn-audio" onclick="hablar('Madre')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=800"><h2>Abuelo</h2><p>Mi abuelo es mayor</p><button class="btn-audio" onclick="hablar('Abuelo')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800"><h2>Abuela</h2><p>Mi abuela es cariñosa</p><button class="btn-audio" onclick="hablar('Abuela')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800"><h2>Hermano</h2><p>Mi hermano juega conmigo</p><button class="btn-audio" onclick="hablar('Hermano')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=800"><h2>Hermana</h2><p>Mi hermana es divertida</p><button class="btn-audio" onclick="hablar('Hermana')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800"><h2>Tío</h2><p>Mi tío es el hermano de mi padre</p><button class="btn-audio" onclick="hablar('Tío')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800"><h2>Tía</h2><p>Mi tía es la hermana de mi madre</p><button class="btn-audio" onclick="hablar('Tía')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1519340241574-2cec6d8d8c01?w=800"><h2>Primo</h2><p>Mi primo es el hijo de mi tía</p><button class="btn-audio" onclick="hablar('Primo')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800"><h2>Prima</h2><p>Mi prima es la hija de mi tía</p><button class="btn-audio" onclick="hablar('Prima')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800"><h2>Hijo</h2><p>Mi hijo es pequeño</p><button class="btn-audio" onclick="hablar('Hijo')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=800"><h2>Hija</h2><p>Mi hija es pequeña</p><button class="btn-audio" onclick="hablar('Hija')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800"><h2>Nieto</h2><p>Soy el nieto de mi abuelo</p><button class="btn-audio" onclick="hablar('Nieto')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=800"><h2>Nieta</h2><p>Soy la nieta de mi abuela</p><button class="btn-audio" onclick="hablar('Nieta')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800"><h2>Bebé</h2><p>El bebé duerme mucho</p><button class="btn-audio" onclick="hablar('Bebé')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800"><h2>Yo</h2><p>Yo soy el centro de mi familia</p><button class="btn-audio" onclick="hablar('Yo')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
 </div>
 
-<!-- ÁRBOL GENEALÓGICO CON CÍRCULO ROJO -->
 <div style="max-width:900px;margin:30px auto;background:white;border-radius:16px;padding:22px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.08)">
-<h2 style="color:#ea580c;font-size:1.6rem">🌳 El árbol de mi familia</h2>
-<p style="color:#64748b;margin:8px 0 18px">Pincha en una palabra y mira quién se pone el círculo rojo:</p>
-
+<h2 style="color:#ea580c;font-size:1.6rem">El árbol de mi familia</h2>
+<p style="color:#64748b;margin:8px 0 18px">Pulsa en una palabra y mira quién se pone el círculo rojo:</p>
 <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:18px">
-<button onclick="resaltar('abuelo')">Abuelo</button>
-<button onclick="resaltar('abuela')">Abuela</button>
-<button onclick="resaltar('padre')">Padre</button>
-<button onclick="resaltar('madre')">Madre</button>
-<button onclick="resaltar('tia')">Tía</button>
-<button onclick="resaltar('tio')">Tío</button>
-<button onclick="resaltar('yo')">Yo</button>
-<button onclick="resaltar('hermano')">Hermano</button>
-<button onclick="resaltar('hermana')">Hermana</button>
-<button onclick="resaltar('primo')">Primo</button>
-<button onclick="resaltar('prima')">Prima</button>
-<button onclick="resaltar('nieto')">Nieto</button>
-<button onclick="resaltar('nieta')">Nieta</button>
-<button onclick="resaltar('bebe')">Bebé</button>
+<button class="arbol" onclick="resaltar('abuelo');hablar('Abuelo')">Abuelo</button>
+<button class="arbol" onclick="resaltar('abuela');hablar('Abuela')">Abuela</button>
+<button class="arbol" onclick="resaltar('padre');hablar('Padre')">Padre</button>
+<button class="arbol" onclick="resaltar('madre');hablar('Madre')">Madre</button>
+<button class="arbol" onclick="resaltar('tia');hablar('Tía')">Tía</button>
+<button class="arbol" onclick="resaltar('tio');hablar('Tío')">Tío</button>
+<button class="arbol" onclick="resaltar('yo');hablar('Yo')">Yo</button>
+<button class="arbol" onclick="resaltar('hermano');hablar('Hermano')">Hermano</button>
+<button class="arbol" onclick="resaltar('hermana');hablar('Hermana')">Hermana</button>
+<button class="arbol" onclick="resaltar('primo');hablar('Primo')">Primo</button>
+<button class="arbol" onclick="resaltar('prima');hablar('Prima')">Prima</button>
+<button class="arbol" onclick="resaltar('nieto');hablar('Nieto')">Nieto</button>
+<button class="arbol" onclick="resaltar('nieta');hablar('Nieta')">Nieta</button>
+<button class="arbol" onclick="resaltar('bebe');hablar('Bebé')">Bebé</button>
 </div>
-
-<div style="font-size:1.3rem">👴 <span class="miembro" id="abuelo" style="display:inline-block;padding:6px 12px;border:2px solid #fdba74;border-radius:12px;background:#fff7ed">Abuelo</span> ❤️ 👵 <span class="miembro" id="abuela" style="display:inline-block;padding:6px 12px;border:2px solid #fdba74;border-radius:12px;background:#fff7ed">Abuela</span></div>
+<div style="font-size:1.3rem"><span class="miembro" id="abuelo" style="display:inline-block;padding:6px 12px;border:2px solid #fdba74;border-radius:12px;background:#fff7ed">Abuelo</span> - <span class="miembro" id="abuela" style="display:inline-block;padding:6px 12px;border:2px solid #fdba74;border-radius:12px;background:#fff7ed">Abuela</span></div>
 <div style="font-size:1.5rem;color:#cbd5e1">↓ &nbsp;&nbsp;&nbsp; ↓</div>
 <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:10px 0">
-<div class="miembro" id="padre" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px">👨 <b>Padre</b></div>
-<div class="miembro" id="madre" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px">👩 <b>Madre</b></div>
-<div class="miembro" id="tia" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px">👩 <b>Tía</b></div>
-<div class="miembro" id="tio" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px">👨 <b>Tío</b></div>
+<div class="miembro" id="padre" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px"><b>Padre</b></div>
+<div class="miembro" id="madre" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px"><b>Madre</b></div>
+<div class="miembro" id="tia" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px"><b>Tía</b></div>
+<div class="miembro" id="tio" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px"><b>Tío</b></div>
 </div>
 <div style="font-size:1.5rem;color:#cbd5e1">↓</div>
 <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:10px 0">
-<div class="miembro" id="yo" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px">🧒 <b>Yo</b></div>
-<div class="miembro" id="hermano" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px">👦 <b>Hermano</b></div>
-<div class="miembro" id="hermana" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px">👧 <b>Hermana</b></div>
-<div class="miembro" id="primo" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px">👦 <b>Primo</b></div>
-<div class="miembro" id="prima" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px">👧 <b>Prima</b></div>
+<div class="miembro" id="yo" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px"><b>Yo</b></div>
+<div class="miembro" id="hermano" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px"><b>Hermano</b></div>
+<div class="miembro" id="hermana" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px"><b>Hermana</b></div>
+<div class="miembro" id="primo" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px"><b>Primo</b></div>
+<div class="miembro" id="prima" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px"><b>Prima</b></div>
 </div>
 <div style="font-size:1.5rem;color:#cbd5e1">↓</div>
 <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
-<div class="miembro" id="nieto" style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px 14px">👶 <b>Nieto</b></div>
-<div class="miembro" id="nieta" style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px 14px">👶 <b>Nieta</b></div>
-<div class="miembro" id="bebe" style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px 14px">🍼 <b>Bebé</b></div>
+<div class="miembro" id="nieto" style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px 14px"><b>Nieto</b></div>
+<div class="miembro" id="nieta" style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px 14px"><b>Nieta</b></div>
+<div class="miembro" id="bebe" style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px 14px"><b>Bebé</b></div>
 </div>
 <p style="margin-top:18px;font-size:1.1rem"><b>Actividad:</b> Dibuja tu árbol y escribe: “Mi ___ se llama ___”</p>
 </div>
 
 <script>
+function hablar(texto){
+  try{
+    speechSynthesis.cancel();
+    let u = new SpeechSynthesisUtterance(texto);
+    u.lang='es-ES'; u.rate=0.9;
+    speechSynthesis.speak(u);
+  }catch(e){ alert('Activa el sonido en tu navegador'); }
+}
 function resaltar(id){
   document.querySelectorAll('.miembro').forEach(e=>e.classList.remove('resaltado'));
   let el=document.getElementById(id);
