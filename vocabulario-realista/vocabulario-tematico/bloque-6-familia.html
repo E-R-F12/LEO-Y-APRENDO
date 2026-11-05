@@ -3,134 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloque 6 - Familia - LEO Y APRENDO</title>
+<title>Bloque 6 - Mi Árbol Genealógico - LEO Y APRENDO</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
-body{background:#fff7ed;color:#1e293b;padding:20px}
-a.volver{display:inline-block;margin-bottom:14px;text-decoration:none;background:white;padding:8px 14px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.08);color:#ea580c;font-weight:bold}
-h1{text-align:center;font-size:2rem;color:#ea580c}
-p.sub{text-align:center;color:#64748b;margin:8px 0 20px}
-.grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.08);text-align:center;padding-bottom:12px}
-.dibujo{width:100%;height:200px;display:flex;align-items:center;justify-content:center}
-.card h2{font-size:1.5rem;margin:10px 0 4px}
-.card p{color:#64748b;padding:0 12px;font-size:.95rem}
-.card span{display:inline-block;margin-top:8px;background:#ffedd5;color:#ea580c;padding:4px 10px;border-radius:20px;font-size:.8rem;font-weight:bold}
-.btn-audio{display:inline-block;margin-top:10px;background:#ea580c;color:white;border:none;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:.95rem;font-weight:bold}
-.miembro{transition:all .2s}
-.resaltado{border:4px solid red !important;border-radius:50px !important;box-shadow:0 0 0 4px red !important;transform:scale(1.05)}
-button.arbol{padding:8px 12px;border-radius:20px;border:1px solid #ddd;background:white;cursor:pointer;font-size:.9rem}
-@media(max-width:600px){.grid{grid-template-columns:1fr 1fr}.dibujo{height:150px}}
+body{background:#fffdf7;color:#1e293b;padding:16px}
+a.volver{display:inline-block;margin-bottom:10px;text-decoration:none;background:white;padding:8px 14px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.08);color:#ea580c;font-weight:bold}
+h1{text-align:center;font-size:2rem;color:#1e293b;letter-spacing:1px}
+p.sub{text-align:center;color:#64748b;margin:8px 0 16px}
+.arbol{max-width:1000px;margin:0 auto;background:white;border:3px solid #fde68a;border-radius:20px;padding:18px;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.fila{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:10px 0}
+.flecha{text-align:center;color:#94a3b8;font-size:1.4rem;line-height:1}
+.nodo{width:122px;text-align:center;cursor:pointer;background:#fef3c7;border:3px solid #fcd34d;border-radius:14px;padding:6px 6px 8px;transition:all .2s}
+.nodo img{width:96px;height:96px;object-fit:cover;border-radius:50%;border:3px solid #fcd34d;background:white;display:block;margin:0 auto 6px}
+.nodo b{display:block;font-size:.95rem;background:#fde68a;border-radius:8px;padding:4px 2px}
+.nodo small{display:block;color:#64748b;font-size:.8rem;margin:4px 0 6px}
+.nodo.seleccionado{border-color:red;transform:scale(1.08)}
+.nodo.seleccionado img{border:5px solid red;box-shadow:0 0 0 4px red}
+.nodo.seleccionado b{background:red;color:white}
+.grupo{border:2px dashed #fde68a;border-radius:16px;padding:8px}
+.grupo-titulo{text-align:center;font-size:.85rem;color:#92400e;font-weight:bold;margin-bottom:6px}
+.yo-destacado{border:3px solid #ea580c !important;background:#ffedd5 !important}
+.yo-destacado img{border-color:#ea580c}
+.btn-escuchar{background:#ea580c;color:white;border:none;padding:6px 12px;border-radius:20px;cursor:pointer;font-size:.85rem;font-weight:bold;width:100%}
+.btn-escuchar:active{transform:scale(.95)}
+.leyenda{text-align:center;margin-top:14px;color:#64748b;font-size:.95rem}
+.btn-grande{display:block;margin:14px auto 0;background:#ea580c;color:white;border:none;padding:10px 20px;border-radius:20px;font-weight:bold;cursor:pointer;font-size:1rem}
+@media(max-width:600px){.nodo{width:102px}.nodo img{width:76px;height:76px}}
 </style>
 </head>
 <body>
 <a class="volver" href="index.html">Volver</a>
-<h1>Bloque 6 - La Familia</h1>
-<p class="sub">Cada palabra con su dibujo bonito. Pulsa Escuchar para oírla. Abajo, pulsa en el árbol para ver el círculo rojo.</p>
-<div class="grid">
+<h1>MI ÁRBOL GENEALÓGICO</h1>
+<p class="sub">Pulsa en la foto para el círculo rojo. Pulsa en Escuchar para oír el nombre.</p>
 
-<!-- PADRE MEJORADO -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#bae6fd,#e0f2fe)"><svg width="170" height="190" viewBox="0 0 170 190"><circle cx="150" cy="18" r="10" fill="#fde047"/><ellipse cx="85" cy="172" rx="55" ry="8" fill="#86efac"/><ellipse cx="85" cy="38" rx="30" ry="32" fill="#ffdbac"/><path d="M55 40 Q55 8 85 8 Q115 8 115 40 L115 28 Q100 18 85 18 Q70 18 55 28 Z" fill="#4a2c17"/><circle cx="73" cy="38" r="3" fill="#111"/><circle cx="97" cy="38" r="3" fill="#111"/><circle cx="74" cy="37" r="1" fill="#fff"/><circle cx="98" cy="37" r="1" fill="#fff"/><path d="M70 46 Q85 50 100 46" stroke="#4a2c17" stroke-width="2" fill="none"/><path d="M72 55 Q85 62 98 55 Q98 70 85 70 Q72 70 72 55" fill="#4a2c17"/><path d="M72 58 Q85 65 98 58" stroke="#fff" stroke-width="1" fill="none" opacity=".3"/><rect x="58" y="72" width="54" height="58" rx="12" fill="#2563eb"/><rect x="78" y="78" width="14" height="14" rx="2" fill="#93c5fd" stroke="#1e40af"/><rect x="62" y="130" width="22" height="32" rx="6" fill="#1e293b"/><rect x="86" y="130" width="22" height="32" rx="6" fill="#1e293b"/><ellipse cx="73" cy="168" rx="14" ry="6" fill="#111"/><ellipse cx="97" cy="168" rx="14" ry="6" fill="#111"/><path d="M58 90 L45 115" stroke="#ffdbac" stroke-width="8" stroke-linecap="round"/><path d="M112 90 L125 115" stroke="#ffdbac" stroke-width="8" stroke-linecap="round"/></svg></div><h2>Padre</h2><p>Mi padre se llama ___</p><button class="btn-audio" onclick="hablar('Padre')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
+<div class="arbol">
 
-<!-- MADRE MEJORADA -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#fbcfe8,#fdf2f8)"><svg width="170" height="190" viewBox="0 0 170 190"><circle cx="150" cy="18" r="10" fill="#fde047"/><ellipse cx="85" cy="172" rx="55" ry="8" fill="#fda4af"/><path d="M45 110 Q35 15 85 15 Q135 15 125 110 L110 110 Q115 40 85 40 Q55 40 60 110 Z" fill="#7c2d12"/><ellipse cx="85" cy="40" rx="30" ry="32" fill="#ffdbac"/><circle cx="73" cy="40" r="3" fill="#111"/><circle cx="97" cy="40" r="3" fill="#111"/><path d="M73 52 Q85 60 97 52" stroke="#111" stroke-width="2" fill="none"/><circle cx="65" cy="48" r="4" fill="#fda4af" opacity=".7"/><circle cx="105" cy="48" r="4" fill="#fda4af" opacity=".7"/><path d="M58 72 Q85 62 112 72 L112 130 Q85 140 58 130 Z" fill="#db2777"/><circle cx="85" cy="100" r="6" fill="#fde047"/><rect x="62" y="130" width="22" height="32" rx="6" fill="#831843"/><rect x="86" y="130" width="22" height="32" rx="6" fill="#831843"/><ellipse cx="73" cy="168" rx="14" ry="6" fill="#111"/><ellipse cx="97" cy="168" rx="14" ry="6" fill="#111"/></svg></div><h2>Madre</h2><p>Mi madre se llama ___</p><button class="btn-audio" onclick="hablar('Madre')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
-
-<!-- ABUELO MEJORADO -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#fef9c3,#fef3c7)"><svg width="170" height="190" viewBox="0 0 170 190"><ellipse cx="85" cy="172" rx="55" ry="8" fill="#d6d3d1"/><ellipse cx="85" cy="38" rx="30" ry="32" fill="#ffdbac"/><path d="M55 38 Q55 5 85 5 Q115 5 115 38 L115 22 Q85 10 55 22 Z" fill="#fff"/><circle cx="73" cy="38" r="9" fill="none" stroke="#111" stroke-width="2.5"/><circle cx="97" cy="38" r="9" fill="none" stroke="#111" stroke-width="2.5"/><line x1="82" y1="38" x2="88" y2="38" stroke="#111" stroke-width="2"/><path d="M68 50 Q85 45 102 50" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M70 58 Q85 65 100 58" stroke="#111" stroke-width="2" fill="none"/><rect x="58" y="72" width="54" height="58" rx="12" fill="#78716c"/><line x1="60" y1="85" x2="110" y2="85" stroke="#57534e" stroke-width="2"/><line x1="60" y1="100" x2="110" y2="100" stroke="#57534e" stroke-width="2"/><rect x="62" y="130" width="22" height="32" rx="6" fill="#44403c"/><rect x="86" y="130" width="22" height="32" rx="6" fill="#44403c"/><ellipse cx="73" cy="168" rx="14" ry="6" fill="#111"/><ellipse cx="97" cy="168" rx="14" ry="6" fill="#111"/><line x1="130" y1="85" x2="130" y2="168" stroke="#78350f" stroke-width="5" stroke-linecap="round"/><circle cx="130" cy="82" r="6" fill="#78350f"/></svg></div><h2>Abuelo</h2><p>Mi abuelo es mayor y tiene el pelo blanco</p><button class="btn-audio" onclick="hablar('Abuelo')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
-
-<!-- ABUELA MEJORADA -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#e9d5ff,#fdf4ff)"><svg width="170" height="190" viewBox="0 0 170 190"><ellipse cx="85" cy="172" rx="55" ry="8" fill="#ddd6fe"/><circle cx="85" cy="12" r="13" fill="#fff" stroke="#e5e7eb" stroke-width="2"/><ellipse cx="85" cy="40" rx="30" ry="32" fill="#ffdbac"/><circle cx="73" cy="40" r="9" fill="none" stroke="#111" stroke-width="2.5"/><circle cx="97" cy="40" r="9" fill="none" stroke="#111" stroke-width="2.5"/><path d="M73 54 Q85 62 97 54" stroke="#111" stroke-width="2" fill="none"/><circle cx="65" cy="48" r="4" fill="#fda4af" opacity=".8"/><circle cx="105" cy="48" r="4" fill="#fda4af" opacity=".8"/><path d="M55 74 Q85 62 115 74 L115 132 Q85 142 55 132 Z" fill="#9333ea"/><circle cx="85" cy="105" r="7" fill="#fde047"/><rect x="62" y="132" width="22" height="30" rx="6" fill="#581c87"/><rect x="86" y="132" width="22" height="30" rx="6" fill="#581c87"/><ellipse cx="73" cy="168" rx="14" ry="6" fill="#111"/><ellipse cx="97" cy="168" rx="14" ry="6" fill="#111"/></svg></div><h2>Abuela</h2><p>Mi abuela es mayor y es cariñosa</p><button class="btn-audio" onclick="hablar('Abuela')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
-
-<!-- HERMANO MEJORADO -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#bae6fd,#eff6ff)"><svg width="170" height="190" viewBox="0 0 170 190"><ellipse cx="85" cy="172" rx="50" ry="8" fill="#86efac"/><ellipse cx="85" cy="42" rx="28" ry="30" fill="#ffdbac"/><path d="M57 42 Q57 14 85 14 Q113 14 113 42 L113 30 Q85 18 57 30 Z" fill="#92400e"/><circle cx="74" cy="42" r="3" fill="#111"/><circle cx="96" cy="42" r="3" fill="#111"/><path d="M74 54 Q85 62 96 54" stroke="#111" stroke-width="2" fill="none"/><rect x="60" y="74" width="50" height="52" rx="10" fill="#0891b2"/><rect x="64" y="126" width="20" height="32" rx="6" fill="#155e75"/><rect x="86" y="126" width="20" height="32" rx="6" fill="#155e75"/><ellipse cx="74" cy="164" rx="13" ry="6" fill="#111"/><ellipse cx="96" cy="164" rx="13" ry="6" fill="#111"/><circle cx="130" cy="120" r="14" fill="#f97316"/><path d="M130 106 L130 134 M116 120 L144 120" stroke="#fff" stroke-width="3"/></svg></div><h2>Hermano</h2><p>Mi hermano juega conmigo</p><button class="btn-audio" onclick="hablar('Hermano')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
-
-<!-- HERMANA MEJORADA -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#fbcfe8,#fff1f2)"><svg width="170" height="190" viewBox="0 0 170 190"><ellipse cx="85" cy="172" rx="50" ry="8" fill="#fda4af"/><circle cx="52" cy="68" r="13" fill="#92400e"/><circle cx="118" cy="68" r="13" fill="#92400e"/><circle cx="52" cy="68" r="4" fill="#f472b6"/><circle cx="118" cy="68" r="4" fill="#f472b6"/><ellipse cx="85" cy="42" rx="28" ry="30" fill="#ffdbac"/><circle cx="74" cy="42" r="3" fill="#111"/><circle cx="96" cy="42" r="3" fill="#111"/><path d="M74 54 Q85 62 96 54" stroke="#111" stroke-width="2" fill="none"/><path d="M60 74 Q85 64 110 74 L110 128 Q85 138 60 128 Z" fill="#ec4899"/><rect x="64" y="128" width="20" height="30" rx="6" fill="#9d174d"/><rect x="86" y="128" width="20" height="30" rx="6" fill="#9d174d"/><ellipse cx="74" cy="164" rx="13" ry="6" fill="#111"/><ellipse cx="96" cy="164" rx="13" ry="6" fill="#111"/></svg></div><h2>Hermana</h2><p>Mi hermana es divertida</p><button class="btn-audio" onclick="hablar('Hermana')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
-
-<!-- TIO MEJORADO -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#c7d2fe,#eef2ff)"><svg width="170" height="190" viewBox="0 0 170 190"><ellipse cx="85" cy="172" rx="50" ry="8" fill="#a5b4fc"/><ellipse cx="85" cy="42" rx="28" ry="30" fill="#ffdbac"/><path d="M57 32 L113 32 L108 20 L62 20 Z" fill="#1e40af"/><rect x="55" y="30" width="60" height="6" rx="3" fill="#1e40af"/><circle cx="74" cy="42" r="3" fill="#111"/><circle cx="96" cy="42" r="3" fill="#111"/><path d="M70 52 Q85 45 100 52" stroke="#111" stroke-width="3" fill="none"/><rect x="60" y="74" width="50" height="52" rx="10" fill="#1e40af"/><rect x="64" y="126" width="20" height="32" rx="6" fill="#1e293b"/><rect x="86" y="126" width="20" height="32" rx="6" fill="#1e293b"/><ellipse cx="74" cy="164" rx="13" ry="6" fill="#111"/><ellipse cx="96" cy="164" rx="13" ry="6" fill="#111"/></svg></div><h2>Tío</h2><p>Mi tío es el hermano de mi padre</p><button class="btn-audio" onclick="hablar('Tío')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
-
-<!-- TIA MEJORADA -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#fed7aa,#fff7ed)"><svg width="170" height="190" viewBox="0 0 170 190"><ellipse cx="85" cy="172" rx="50" ry="8" fill="#fdba74"/><path d="M55 70 Q50 15 85 15 Q120 15 115 70 Q105 40 85 40 Q65 40 55 70" fill="#451a03"/><ellipse cx="85" cy="42" rx="28" ry="30" fill="#ffdbac"/><circle cx="74" cy="42" r="3" fill="#111"/><circle cx="96" cy="42" r="3" fill="#111"/><path d="M74 54 Q85 62 96 54" stroke="#111" stroke-width="2" fill="none"/><circle cx="65" cy="48" r="4" fill="#fda4af" opacity=".7"/><circle cx="105" cy="48" r="4" fill="#fda4af" opacity=".7"/><path d="M60 74 Q85 64 110 74 L110 128 Q85 138 60 128 Z" fill="#ea580c"/><circle cx="85" cy="98" r="6" fill="#fff"/><rect x="64" y="128" width="20" height="30" rx="6" fill="#7c2d12"/><rect x="86" y="128" width="20" height="30" rx="6" fill="#7c2d12"/><ellipse cx="74" cy="164" rx="13" ry="6" fill="#111"/><ellipse cx="96" cy="164" rx="13" ry="6" fill="#111"/></svg></div><h2>Tía</h2><p>Mi tía es la hermana de mi madre</p><button class="btn-audio" onclick="hablar('Tía')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
-
-<!-- PRIMO MEJORADO: DOS NIÑOS + BALON -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#bbf7d0,#f0fdf4)"><svg width="200" height="190" viewBox="0 0 200 190"><ellipse cx="100" cy="172" rx="80" ry="8" fill="#86efac"/><ellipse cx="55" cy="48" rx="24" ry="26" fill="#ffdbac"/><path d="M33 48 Q33 22 55 22 Q77 22 77 48 L77 36 Q55 26 33 36 Z" fill="#4a2c17"/><circle cx="47" cy="48" r="2.5" fill="#111"/><circle cx="63" cy="48" r="2.5" fill="#111"/><path d="M47 58 Q55 64 63 58" stroke="#111" stroke-width="1.5" fill="none"/><rect x="35" y="76" width="40" height="48" rx="9" fill="#16a34a"/><rect x="38" y="124" width="16" height="28" rx="5" fill="#14532d"/><rect x="56" y="124" width="16" height="28" rx="5" fill="#14532d"/><ellipse cx="145" cy="48" rx="24" ry="26" fill="#ffdbac"/><path d="M123 48 Q123 22 145 22 Q167 22 167 48 L167 36 Q145 26 123 36 Z" fill="#92400e"/><circle cx="137" cy="48" r="2.5" fill="#111"/><circle cx="153" cy="48" r="2.5" fill="#111"/><path d="M137 58 Q145 64 153 58" stroke="#111" stroke-width="1.5" fill="none"/><rect x="125" y="76" width="40" height="48" rx="9" fill="#2563eb"/><rect x="128" y="124" width="16" height="28" rx="5" fill="#1e293b"/><rect x="146" y="124" width="16" height="28" rx="5" fill="#1e293b"/><circle cx="100" cy="145" r="16" fill="#fff" stroke="#111" stroke-width="2"/><path d="M100 129 L100 161 M84 145 L116 145" stroke="#111" stroke-width="2"/></svg></div><h2>Primo</h2><p>Mi primo es el hijo de mi tía. Jugamos juntos.</p><button class="btn-audio" onclick="hablar('Primo')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
-
-<!-- PRIMA MEJORADA -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#fbcfe8,#fdf2f8)"><svg width="200" height="190" viewBox="0 0 200 190"><ellipse cx="100" cy="172" rx="80" ry="8" fill="#fda4af"/><circle cx="32" cy="62" r="11" fill="#7c2d12"/><circle cx="78" cy="62" r="11" fill="#7c2d12"/><ellipse cx="55" cy="48" rx="24" ry="26" fill="#ffdbac"/><circle cx="47" cy="48" r="2.5" fill="#111"/><circle cx="63" cy="48" r="2.5" fill="#111"/><path d="M47 58 Q55 64 63 58" stroke="#111" stroke-width="1.5" fill="none"/><rect x="35" y="76" width="40" height="48" rx="9" fill="#db2777"/><circle cx="122" cy="62" r="11" fill="#92400e"/><circle cx="168" cy="62" r="11" fill="#92400e"/><ellipse cx="145" cy="48" rx="24" ry="26" fill="#ffdbac"/><circle cx="137" cy="48" r="2.5" fill="#111"/><circle cx="153" cy="48" r="2.5" fill="#111"/><path d="M137 58 Q145 64 153 58" stroke="#111" stroke-width="1.5" fill="none"/><rect x="125" y="76" width="40" height="48" rx="9" fill="#9333ea"/><circle cx="100" cy="140" r="10" fill="#f472b6"/><circle cx="100" cy="140" r="4" fill="#fde047"/></svg></div><h2>Prima</h2><p>Mi prima es la hija de mi tía</p><button class="btn-audio" onclick="hablar('Prima')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
-
-<!-- HIJO -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#bae6fd,#eff6ff)"><svg width="170" height="190" viewBox="0 0 170 190"><ellipse cx="85" cy="172" rx="50" ry="8" fill="#86efac"/><ellipse cx="85" cy="42" rx="28" ry="30" fill="#ffdbac"/><path d="M57 42 Q57 14 85 14 Q113 14 113 42 L113 30 Q85 18 57 30 Z" fill="#4a2c17"/><circle cx="74" cy="42" r="3" fill="#111"/><circle cx="96" cy="42" r="3" fill="#111"/><path d="M74 54 Q85 62 96 54" stroke="#111" stroke-width="2" fill="none"/><rect x="60" y="74" width="50" height="52" rx="10" fill="#2563eb"/><rect x="64" y="126" width="20" height="32" rx="6" fill="#1e293b"/><rect x="86" y="126" width="20" height="32" rx="6" fill="#1e293b"/><ellipse cx="74" cy="164" rx="13" ry="6" fill="#111"/><ellipse cx="96" cy="164" rx="13" ry="6" fill="#111"/></svg></div><h2>Hijo</h2><p>Mi hijo es pequeño</p><button class="btn-audio" onclick="hablar('Hijo')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
-
-<!-- HIJA -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#fbcfe8,#fff1f2)"><svg width="170" height="190" viewBox="0 0 170 190"><ellipse cx="85" cy="172" rx="50" ry="8" fill="#fda4af"/><circle cx="52" cy="68" r="13" fill="#92400e"/><circle cx="118" cy="68" r="13" fill="#92400e"/><ellipse cx="85" cy="42" rx="28" ry="30" fill="#ffdbac"/><circle cx="74" cy="42" r="3" fill="#111"/><circle cx="96" cy="42" r="3" fill="#111"/><path d="M74 54 Q85 62 96 54" stroke="#111" stroke-width="2" fill="none"/><path d="M60 74 Q85 64 110 74 L110 128 Q85 138 60 128 Z" fill="#ec4899"/><rect x="64" y="128" width="20" height="30" rx="6" fill="#9d174d"/><rect x="86" y="128" width="20" height="30" rx="6" fill="#9d174d"/><ellipse cx="74" cy="164" rx="13" ry="6" fill="#111"/><ellipse cx="96" cy="164" rx="13" ry="6" fill="#111"/></svg></div><h2>Hija</h2><p>Mi hija es pequeña</p><button class="btn-audio" onclick="hablar('Hija')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
-
-<!-- NIETO -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#fef9c3,#fef3c7)"><svg width="200" height="190" viewBox="0 0 200 190"><ellipse cx="100" cy="172" rx="80" ry="8" fill="#d6d3d1"/><ellipse cx="50" cy="48" rx="24" ry="26" fill="#ffdbac"/><path d="M28 48 Q28 18 50 18 Q72 18 72 48 L72 32 Q50 20 28 32 Z" fill="#fff"/><circle cx="42" cy="48" r="6" fill="none" stroke="#111" stroke-width="1.5"/><circle cx="58" cy="48" r="6" fill="none" stroke="#111" stroke-width="1.5"/><path d="M42 58 Q50 64 58 58" stroke="#111" stroke-width="1.5" fill="none"/><rect x="30" y="76" width="40" height="48" rx="9" fill="#78716c"/><ellipse cx="145" cy="52" rx="22" ry="24" fill="#ffdbac"/><path d="M125 52 Q125 28 145 28 Q165 28 165 52 L165 40 Q145 30 125 40 Z" fill="#4a2c17"/><circle cx="137" cy="52" r="2.5" fill="#111"/><circle cx="153" cy="52" r="2.5" fill="#111"/><path d="M137 62 Q145 68 153 62" stroke="#111" stroke-width="1.5" fill="none"/><rect x="125" y="80" width="40" height="44" rx="9" fill="#16a34a"/></svg></div><h2>Nieto</h2><p>Soy el nieto de mi abuelo</p><button class="btn-audio" onclick="hablar('Nieto')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
-
-<!-- NIETA -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#fef9c3,#fef3c7)"><svg width="200" height="190" viewBox="0 0 200 190"><ellipse cx="100" cy="172" rx="80" ry="8" fill="#ddd6fe"/><circle cx="50" cy="16" r="10" fill="#fff" stroke="#e5e7eb"/><ellipse cx="50" cy="48" rx="24" ry="26" fill="#ffdbac"/><circle cx="42" cy="48" r="6" fill="none" stroke="#111" stroke-width="1.5"/><circle cx="58" cy="48" r="6" fill="none" stroke="#111" stroke-width="1.5"/><path d="M42 58 Q50 64 58 58" stroke="#111" stroke-width="1.5" fill="none"/><rect x="30" y="76" width="40" height="48" rx="9" fill="#9333ea"/><circle cx="123" cy="64" r="10" fill="#92400e"/><circle cx="167" cy="64" r="10" fill="#92400e"/><ellipse cx="145" cy="52" rx="22" ry="24" fill="#ffdbac"/><circle cx="137" cy="52" r="2.5" fill="#111"/><circle cx="153" cy="52" r="2.5" fill="#111"/><path d="M137 62 Q145 68 153 62" stroke="#111" stroke-width="1.5" fill="none"/><rect x="125" y="80" width="40" height="44" rx="9" fill="#ec4899"/></svg></div><h2>Nieta</h2><p>Soy la nieta de mi abuela</p><button class="btn-audio" onclick="hablar('Nieta')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
-
-<!-- BEBE MEJORADO -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#e0f2fe,#f0f9ff)"><svg width="170" height="190" viewBox="0 0 170 190"><ellipse cx="85" cy="172" rx="55" ry="8" fill="#bae6fd"/><ellipse cx="85" cy="105" rx="48" ry="52" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/><ellipse cx="85" cy="58" rx="30" ry="32" fill="#ffdbac"/><path d="M55 55 Q85 35 115 55 Q100 45 85 45 Q70 45 55 55" fill="#fde68a"/><circle cx="73" cy="58" r="3.5" fill="#111"/><circle cx="97" cy="58" r="3.5" fill="#111"/><circle cx="65" cy="66" r="5" fill="#fda4af" opacity=".8"/><circle cx="105" cy="66" r="5" fill="#fda4af" opacity=".8"/><path d="M73 72 Q85 80 97 72" stroke="#111" stroke-width="2" fill="none"/><circle cx="85" cy="105" r="8" fill="#fff"/><circle cx="85" cy="105" r="3" fill="#f59e0b"/><rect x="60" y="125" width="50" height="10" rx="5" fill="#f59e0b"/></svg></div><h2>Bebé</h2><p>El bebé duerme mucho</p><button class="btn-audio" onclick="hablar('Bebé')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
-
-<!-- YO MEJORADO -->
-<div class="card"><div class="dibujo" style="background:linear-gradient(#bbf7d0,#f0fdf4)"><svg width="170" height="190" viewBox="0 0 170 190"><ellipse cx="85" cy="172" rx="50" ry="8" fill="#86efac"/><ellipse cx="85" cy="42" rx="28" ry="30" fill="#ffdbac"/><path d="M57 42 Q57 14 85 14 Q113 14 113 42 L113 30 Q85 18 57 30 Z" fill="#92400e"/><circle cx="74" cy="42" r="3" fill="#111"/><circle cx="96" cy="42" r="3" fill="#111"/><path d="M70 54 Q85 64 100 54" stroke="#111" stroke-width="2.5" fill="none"/><rect x="60" y="74" width="50" height="52" rx="10" fill="#16a34a"/><circle cx="85" cy="98" r="8" fill="#fde047"/><path d="M85 90 L85 106 M77 98 L93 98" stroke="#111" stroke-width="2"/><rect x="64" y="126" width="20" height="32" rx="6" fill="#14532d"/><rect x="86" y="126" width="20" height="32" rx="6" fill="#14532d"/><ellipse cx="74" cy="164" rx="13" ry="6" fill="#111"/><ellipse cx="96" cy="164" rx="13" ry="6" fill="#111"/></svg></div><h2>Yo</h2><p>Yo soy el centro de mi familia</p><button class="btn-audio" onclick="hablar('Yo')">Escuchar</button><br><span>Bloque 6 - Familia</span></div>
-
+<!-- FILA 1: ABUELOS -->
+<div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+<div class="grupo" style="flex:1">
+<div class="grupo-titulo">FAMILIA DE PAPÁ</div>
+<div class="fila">
+<div class="nodo" onclick="seleccionar(this,'Abuela')"><img src="abuela.jpg"><b>ABUELA</b><small>La mamá de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuela')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Abuelo')"><img src="abuelo.jpg"><b>ABUELO</b><small>El papá de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuelo')">Escuchar</button></div>
+</div>
+</div>
+<div class="grupo" style="flex:1">
+<div class="grupo-titulo">FAMILIA DE MAMÁ</div>
+<div class="fila">
+<div class="nodo" onclick="seleccionar(this,'Abuelo')"><img src="abuelo.jpg"><b>ABUELO</b><small>El papá de Mamá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuelo')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Abuela')"><img src="abuela.jpg"><b>ABUELA</b><small>La mamá de Mamá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuela')">Escuchar</button></div>
+</div>
+</div>
 </div>
 
-<div style="max-width:900px;margin:30px auto;background:white;border-radius:16px;padding:22px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.08)">
-<h2 style="color:#ea580c;font-size:1.6rem">El árbol de mi familia</h2>
-<p style="color:#64748b;margin:8px 0 18px">Pulsa en una palabra y mira quién se pone el círculo rojo:</p>
-<div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:18px">
-<button class="arbol" onclick="resaltar('abuelo');hablar('Abuelo')">Abuelo</button>
-<button class="arbol" onclick="resaltar('abuela');hablar('Abuela')">Abuela</button>
-<button class="arbol" onclick="resaltar('padre');hablar('Padre')">Padre</button>
-<button class="arbol" onclick="resaltar('madre');hablar('Madre')">Madre</button>
-<button class="arbol" onclick="resaltar('tia');hablar('Tía')">Tía</button>
-<button class="arbol" onclick="resaltar('tio');hablar('Tío')">Tío</button>
-<button class="arbol" onclick="resaltar('yo');hablar('Yo')">Yo</button>
-<button class="arbol" onclick="resaltar('hermano');hablar('Hermano')">Hermano</button>
-<button class="arbol" onclick="resaltar('hermana');hablar('Hermana')">Hermana</button>
-<button class="arbol" onclick="resaltar('primo');hablar('Primo')">Primo</button>
-<button class="arbol" onclick="resaltar('prima');hablar('Prima')">Prima</button>
-<button class="arbol" onclick="resaltar('nieto');hablar('Nieto')">Nieto</button>
-<button class="arbol" onclick="resaltar('nieta');hablar('Nieta')">Nieta</button>
-<button class="arbol" onclick="resaltar('bebe');hablar('Bebé')">Bebé</button>
+<div class="flecha">↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↓</div>
+
+<!-- FILA 2: PADRES Y TÍOS -->
+<div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+<div class="grupo" style="flex:1">
+<div class="fila">
+<div class="nodo" onclick="seleccionar(this,'Tía')"><img src="tia.jpg"><b>TÍA</b><small>Hermana de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tía')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Tío')"><img src="tio.jpg"><b>TÍO</b><small>Hermano de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tío')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Papá')"><img src="padre.jpg"><b>PAPÁ</b><small>Mi padre</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Papá')">Escuchar</button></div>
 </div>
-<div style="font-size:1.3rem"><span class="miembro" id="abuelo" style="display:inline-block;padding:6px 12px;border:2px solid #fdba74;border-radius:12px;background:#fff7ed">Abuelo</span> - <span class="miembro" id="abuela" style="display:inline-block;padding:6px 12px;border:2px solid #fdba74;border-radius:12px;background:#fff7ed">Abuela</span></div>
-<div style="font-size:1.5rem;color:#cbd5e1">↓ &nbsp;&nbsp;&nbsp; ↓</div>
-<div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:10px 0">
-<div class="miembro" id="padre" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px"><b>Padre</b></div>
-<div class="miembro" id="madre" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px"><b>Madre</b></div>
-<div class="miembro" id="tia" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px"><b>Tía</b></div>
-<div class="miembro" id="tio" style="background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:10px 14px"><b>Tío</b></div>
 </div>
-<div style="font-size:1.5rem;color:#cbd5e1">↓</div>
-<div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:10px 0">
-<div class="miembro" id="yo" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px"><b>Yo</b></div>
-<div class="miembro" id="hermano" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px"><b>Hermano</b></div>
-<div class="miembro" id="hermana" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px"><b>Hermana</b></div>
-<div class="miembro" id="primo" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px"><b>Primo</b></div>
-<div class="miembro" id="prima" style="background:#f0f9ff;border:2px solid #7dd3fc;border-radius:12px;padding:10px 14px"><b>Prima</b></div>
+<div class="grupo" style="flex:1">
+<div class="fila">
+<div class="nodo" onclick="seleccionar(this,'Mamá')"><img src="madre.jpg"><b>MAMÁ</b><small>Mi madre</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Mamá')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Tía')"><img src="tia.jpg"><b>TÍA</b><small>Hermana de Mamá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tía')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Tía')"><img src="tia.jpg"><b>TÍA</b><small>Hermana de Mamá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tía')">Escuchar</button></div>
 </div>
-<div style="font-size:1.5rem;color:#cbd5e1">↓</div>
-<div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
-<div class="miembro" id="nieto" style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px 14px"><b>Nieto</b></div>
-<div class="miembro" id="nieta" style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px 14px"><b>Nieta</b></div>
-<div class="miembro" id="bebe" style="background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px 14px"><b>Bebé</b></div>
 </div>
-<p style="margin-top:18px;font-size:1.1rem"><b>Actividad:</b> Dibuja tu árbol y escribe: “Mi ___ se llama ___”</p>
+</div>
+
+<div class="flecha">↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↓</div>
+
+<!-- FILA 3: PRIMOS Y YO -->
+<div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+<div class="grupo" style="flex:1">
+<div class="fila">
+<div class="nodo" onclick="seleccionar(this,'Prima')"><img src="prima.jpg"><b>PRIMA</b><small>Hija de mi tía</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Prima')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Primo')"><img src="primo.jpg"><b>PRIMO</b><small>Hijo de mi tío</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Primo')">Escuchar</button></div>
+</div>
+</div>
+<div class="grupo yo-destacado" style="flex:1">
+<div class="grupo-titulo">YO</div>
+<div class="fila">
+<div class="nodo yo-destacado" onclick="seleccionar(this,'Yo')"><img src="yo.jpg"><b>YO</b><small>Yo soy el centro</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Yo')">Escuchar</button></div>
+</div>
+</div>
+<div class="grupo" style="flex:1">
+<div class="fila">
+<div class="nodo" onclick="seleccionar(this,'Prima')"><img src="prima.jpg"><b>PRIMA</b><small>Hija de mi tía</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Prima')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Prima')"><img src="prima.jpg"><b>PRIMA</b><small>Hija de mi tía</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Prima')">Escuchar</button></div>
+</div>
+</div>
+</div>
+
+<!-- FILA 4: PARA REPASAR -->
+<div style="margin-top:14px;border-top:2px solid #fde68a;padding-top:12px">
+<div class="grupo-titulo">PARA REPASAR: HIJOS Y NIETOS</div>
+<div class="fila">
+<div class="nodo" onclick="seleccionar(this,'Hijo')"><img src="hijo.jpg"><b>HIJO</b><small>Mi hijo</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hijo')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Hija')"><img src="hija.jpg"><b>HIJA</b><small>Mi hija</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hija')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Nieto')"><img src="nieto.jpg"><b>NIETO</b><small>Nieto del abuelo</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Nieto')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Nieta')"><img src="nieta.jpg"><b>NIETA</b><small>Nieta de la abuela</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Nieta')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Bebé')"><img src="bebe.jpg"><b>BEBÉ</b><small>El bebé</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Bebé')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Hermano')"><img src="hermano.jpg"><b>HERMANO</b><small>Mi hermano</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hermano')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Hermana')"><img src="hermana.jpg"><b>HERMANA</b><small>Mi hermana</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hermana')">Escuchar</button></div>
+</div>
+</div>
+
+<p class="leyenda"><b>Actividad:</b> Pulsa en cada persona, escucha su nombre y di: “Mi ___ se llama ___”</p>
+<button class="btn-grande" onclick="hablar('Este es mi árbol genealógico. Abuelo, abuela, papá, mamá, tío, tía, primo, prima y yo.')">Escuchar todo el árbol</button>
+
 </div>
 
 <script>
 function hablar(texto){
   try{ speechSynthesis.cancel(); let u=new SpeechSynthesisUtterance(texto); u.lang='es-ES'; u.rate=0.9; speechSynthesis.speak(u); }catch(e){}
 }
-function resaltar(id){
-  document.querySelectorAll('.miembro').forEach(e=>e.classList.remove('resaltado'));
-  let el=document.getElementById(id);
-  if(el){ el.classList.add('resaltado'); el.scrollIntoView({behavior:'smooth',block:'center'}); }
+function seleccionar(el, nombre){
+  document.querySelectorAll('.nodo').forEach(n=>n.classList.remove('seleccionado'));
+  el.classList.add('seleccionado');
+  el.scrollIntoView({behavior:'smooth',block:'center'});
+  hablar(nombre);
 }
 </script>
 </body>
