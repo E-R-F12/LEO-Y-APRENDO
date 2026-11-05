@@ -14,11 +14,13 @@ p.sub{text-align:center;color:#64748b;margin:8px 0 16px}
 .fila{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:10px 0}
 .flecha{text-align:center;color:#94a3b8;font-size:1.4rem}
 .nodo{width:122px;text-align:center;cursor:pointer;background:#fef3c7;border:3px solid #fcd34d;border-radius:14px;padding:6px 6px 8px}
-.nodo img{width:96px;height:96px;object-fit:cover;border-radius:50%;border:3px solid #fcd34d;background:#fff7ed;display:block;margin:0 auto 6px}
+.foto{width:96px;height:96px;border-radius:50%;border:3px solid #fcd34d;margin:0 auto 6px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1.1rem;color:white}
+.foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.foto span{position:relative;z-index:1}
 .nodo b{display:block;font-size:.95rem;background:#fde68a;border-radius:8px;padding:4px 2px}
 .nodo small{display:block;color:#64748b;font-size:.8rem;margin:4px 0 6px}
 .nodo.seleccionado{border-color:red;transform:scale(1.08)}
-.nodo.seleccionado img{border:5px solid red;box-shadow:0 0 0 4px red}
+.nodo.seleccionado .foto{border:5px solid red;box-shadow:0 0 0 4px red}
 .nodo.seleccionado b{background:red;color:white}
 .grupo{border:2px dashed #fde68a;border-radius:16px;padding:8px}
 .grupo-titulo{text-align:center;font-size:.85rem;color:#92400e;font-weight:bold;margin-bottom:6px}
@@ -26,7 +28,7 @@ p.sub{text-align:center;color:#64748b;margin:8px 0 16px}
 .btn-escuchar{background:#ea580c;color:white;border:none;padding:6px 12px;border-radius:20px;cursor:pointer;font-size:.85rem;font-weight:bold;width:100%}
 .leyenda{text-align:center;margin-top:14px;color:#64748b;font-size:.95rem}
 .btn-grande{display:block;margin:14px auto 0;background:#ea580c;color:white;border:none;padding:10px 20px;border-radius:20px;font-weight:bold;cursor:pointer;font-size:1rem}
-@media(max-width:600px){.nodo{width:102px}.nodo img{width:76px;height:76px}}
+@media(max-width:600px){.nodo{width:102px}.foto{width:76px;height:76px}}
 </style>
 </head>
 <body>
@@ -36,51 +38,51 @@ p.sub{text-align:center;color:#64748b;margin:8px 0 16px}
 <div class="arbol">
 <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
 <div class="grupo" style="flex:1"><div class="grupo-titulo">FAMILIA DE PAPÁ</div><div class="fila">
-<div class="nodo" onclick="seleccionar(this,'Abuela')"><img src="abuela.jpg"><b>ABUELA</b><small>La mamá de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuela')">Escuchar</button></div>
-<div class="nodo" onclick="seleccionar(this,'Abuelo')"><img src="abuelo.jpg"><b>ABUELO</b><small>El papá de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuelo')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Abuela')"><div class="foto" style="background:#9333ea"><img src="abuela.jpg" onerror="this.remove()"><span>ABUELA</span></div><b>ABUELA</b><small>La mamá de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuela')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Abuelo')"><div class="foto" style="background:#78716c"><img src="abuelo.jpg" onerror="this.remove()"><span>ABUELO</span></div><b>ABUELO</b><small>El papá de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuelo')">Escuchar</button></div>
 </div></div>
 <div class="grupo" style="flex:1"><div class="grupo-titulo">FAMILIA DE MAMÁ</div><div class="fila">
-<div class="nodo" onclick="seleccionar(this,'Abuelo')"><img src="abuelo.jpg"><b>ABUELO</b><small>El papá de Mamá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuelo')">Escuchar</button></div>
-<div class="nodo" onclick="seleccionar(this,'Abuela')"><img src="abuela.jpg"><b>ABUELA</b><small>La mamá de Mamá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuela')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Abuelo')"><div class="foto" style="background:#78716c"><img src="abuelo.jpg" onerror="this.remove()"><span>ABUELO</span></div><b>ABUELO</b><small>El papá de Mamá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuelo')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Abuela')"><div class="foto" style="background:#9333ea"><img src="abuela.jpg" onerror="this.remove()"><span>ABUELA</span></div><b>ABUELA</b><small>La mamá de Mamá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuela')">Escuchar</button></div>
 </div></div>
 </div>
 <div class="flecha">↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↓</div>
 <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
 <div class="grupo" style="flex:1"><div class="fila">
-<div class="nodo" onclick="seleccionar(this,'Tía')"><img src="tia.jpg"><b>TÍA</b><small>Hermana de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tía')">Escuchar</button></div>
-<div class="nodo" onclick="seleccionar(this,'Tío')"><img src="tio.jpg"><b>TÍO</b><small>Hermano de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tío')">Escuchar</button></div>
-<div class="nodo" onclick="seleccionar(this,'Papá')"><img src="padre.jpg"><b>PAPÁ</b><small>Mi padre</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Papá')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Tía')"><div class="foto" style="background:#ea580c"><img src="tia.jpg" onerror="this.remove()"><span>TÍA</span></div><b>TÍA</b><small>Hermana de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tía')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Tío')"><div class="foto" style="background:#1e40af"><img src="tio.jpg" onerror="this.remove()"><span>TÍO</span></div><b>TÍO</b><small>Hermano de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tío')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Papá')"><div class="foto" style="background:#2563eb"><img src="padre.jpg" onerror="this.remove()"><span>PAPÁ</span></div><b>PAPÁ</b><small>Mi padre</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Papá')">Escuchar</button></div>
 </div></div>
 <div class="grupo" style="flex:1"><div class="fila">
-<div class="nodo" onclick="seleccionar(this,'Mamá')"><img src="madre.jpg"><b>MAMÁ</b><small>Mi madre</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Mamá')">Escuchar</button></div>
-<div class="nodo" onclick="seleccionar(this,'Tía')"><img src="tia.jpg"><b>TÍA</b><small>Hermana de Mamá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tía')">Escuchar</button></div>
-<div class="nodo" onclick="seleccionar(this,'Tía')"><img src="tia.jpg"><b>TÍA</b><small>Hermana de Mamá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tía')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Mamá')"><div class="foto" style="background:#db2777"><img src="madre.jpg" onerror="this.remove()"><span>MAMÁ</span></div><b>MAMÁ</b><small>Mi madre</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Mamá')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Tía')"><div class="foto" style="background:#ea580c"><img src="tia.jpg" onerror="this.remove()"><span>TÍA</span></div><b>TÍA</b><small>Hermana de Mamá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tía')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Tía')"><div class="foto" style="background:#ea580c"><img src="tia.jpg" onerror="this.remove()"><span>TÍA</span></div><b>TÍA</b><small>Hermana de Mamá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tía')">Escuchar</button></div>
 </div></div>
 </div>
 <div class="flecha">↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↓</div>
 <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
 <div class="grupo" style="flex:1"><div class="fila">
-<div class="nodo" onclick="seleccionar(this,'Prima')"><img src="prima.jpg"><b>PRIMA</b><small>Hija de mi tía</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Prima')">Escuchar</button></div>
-<div class="nodo" onclick="seleccionar(this,'Primo')"><img src="primo.jpg"><b>PRIMO</b><small>Hijo de mi tío</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Primo')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Prima')"><div class="foto" style="background:#9333ea"><img src="prima.jpg" onerror="this.remove()"><span>PRIMA</span></div><b>PRIMA</b><small>Hija de mi tía</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Prima')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Primo')"><div class="foto" style="background:#16a34a"><img src="primo.jpg" onerror="this.remove()"><span>PRIMO</span></div><b>PRIMO</b><small>Hijo de mi tío</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Primo')">Escuchar</button></div>
 </div></div>
 <div class="grupo yo-destacado" style="flex:1"><div class="grupo-titulo">YO</div><div class="fila">
-<div class="nodo yo-destacado" onclick="seleccionar(this,'Yo')"><img src="yo.jpg"><b>YO</b><small>Yo soy el centro</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Yo')">Escuchar</button></div>
+<div class="nodo yo-destacado" onclick="seleccionar(this,'Yo')"><div class="foto" style="background:#16a34a"><img src="yo.jpg" onerror="this.remove()"><span>YO</span></div><b>YO</b><small>Yo soy el centro</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Yo')">Escuchar</button></div>
 </div></div>
 <div class="grupo" style="flex:1"><div class="fila">
-<div class="nodo" onclick="seleccionar(this,'Prima')"><img src="prima.jpg"><b>PRIMA</b><small>Hija de mi tía</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Prima')">Escuchar</button></div>
-<div class="nodo" onclick="seleccionar(this,'Prima')"><img src="prima.jpg"><b>PRIMA</b><small>Hija de mi tía</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Prima')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Prima')"><div class="foto" style="background:#9333ea"><img src="prima.jpg" onerror="this.remove()"><span>PRIMA</span></div><b>PRIMA</b><small>Hija de mi tía</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Prima')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Prima')"><div class="foto" style="background:#9333ea"><img src="prima.jpg" onerror="this.remove()"><span>PRIMA</span></div><b>PRIMA</b><small>Hija de mi tía</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Prima')">Escuchar</button></div>
 </div></div>
 </div>
 <div style="margin-top:14px;border-top:2px solid #fde68a;padding-top:12px">
 <div class="grupo-titulo">PARA REPASAR: HIJOS Y NIETOS</div>
 <div class="fila">
-<div class="nodo" onclick="seleccionar(this,'Hijo')"><img src="hijo.jpg"><b>HIJO</b><small>Mi hijo</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hijo')">Escuchar</button></div>
-<div class="nodo" onclick="seleccionar(this,'Hija')"><img src="hija.jpg"><b>HIJA</b><small>Mi hija</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hija')">Escuchar</button></div>
-<div class="nodo" onclick="seleccionar(this,'Nieto')"><img src="nieto.jpg"><b>NIETO</b><small>Nieto del abuelo</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Nieto')">Escuchar</button></div>
-<div class="nodo" onclick="seleccionar(this,'Nieta')"><img src="nieta.jpg"><b>NIETA</b><small>Nieta de la abuela</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Nieta')">Escuchar</button></div>
-<div class="nodo" onclick="seleccionar(this,'Bebé')"><img src="bebe.jpg"><b>BEBÉ</b><small>El bebé</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Bebé')">Escuchar</button></div>
-<div class="nodo" onclick="seleccionar(this,'Hermano')"><img src="hermano.jpg"><b>HERMANO</b><small>Mi hermano</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hermano')">Escuchar</button></div>
-<div class="nodo" onclick="seleccionar(this,'Hermana')"><img src="hermana.jpg"><b>HERMANA</b><small>Mi hermana</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hermana')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Hijo')"><div class="foto" style="background:#2563eb"><img src="hijo.jpg" onerror="this.remove()"><span>HIJO</span></div><b>HIJO</b><small>Mi hijo</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hijo')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Hija')"><div class="foto" style="background:#ec4899"><img src="hija.jpg" onerror="this.remove()"><span>HIJA</span></div><b>HIJA</b><small>Mi hija</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hija')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Nieto')"><div class="foto" style="background:#16a34a"><img src="nieto.jpg" onerror="this.remove()"><span>NIETO</span></div><b>NIETO</b><small>Nieto del abuelo</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Nieto')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Nieta')"><div class="foto" style="background:#ec4899"><img src="nieta.jpg" onerror="this.remove()"><span>NIETA</span></div><b>NIETA</b><small>Nieta de la abuela</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Nieta')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Bebé')"><div class="foto" style="background:#f59e0b"><img src="bebe.jpg" onerror="this.remove()"><span>BEBÉ</span></div><b>BEBÉ</b><small>El bebé</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Bebé')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Hermano')"><div class="foto" style="background:#0891b2"><img src="hermano.jpg" onerror="this.remove()"><span>HERMANO</span></div><b>HERMANO</b><small>Mi hermano</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hermano')">Escuchar</button></div>
+<div class="nodo" onclick="seleccionar(this,'Hermana')"><div class="foto" style="background:#ec4899"><img src="hermana.jpg" onerror="this.remove()"><span>HERMANA</span></div><b>HERMANA</b><small>Mi hermana</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hermana')">Escuchar</button></div>
 </div>
 </div>
 <p class="leyenda"><b>Actividad:</b> Pulsa en cada persona, escucha su nombre y di: “Mi ___ se llama ___”</p>
