@@ -19,6 +19,24 @@ p.sub{text-align:center;color:#64748b;margin:8px 0 12px;font-size:1.15rem}
 .tarjeta small{display:block;color:#64748b;margin:8px 0 12px;font-size:1.15rem}
 .btn-escuchar{background:#ea580c;color:white;border:none;padding:14px 36px;border-radius:24px;cursor:pointer;font-weight:bold;font-size:1.2rem}
 .btn-grande{display:block;margin:20px auto;background:#ea580c;color:white;border:none;padding:16px 32px;border-radius:24px;font-weight:bold;cursor:pointer;font-size:1.3rem}
+/* JUEGOS */
+.juegos{max-width:1200px;margin:28px auto 0}
+.juegos h2{text-align:center;font-size:2rem;margin-bottom:14px}
+.juego{background:white;border:4px solid #bbf7d0;border-radius:24px;padding:18px;margin:16px 0;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.juego h3{font-size:1.6rem;margin-bottom:8px}
+.juego p{color:#64748b;margin-bottom:12px;font-size:1.1rem}
+.juego img{width:100%;max-width:800px;border-radius:16px;margin:0 auto 12px;display:block}
+.opciones{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.opciones button{background:#fef3c7;border:3px solid #fcd34d;padding:14px 28px;border-radius:20px;font-size:1.3rem;font-weight:bold;cursor:pointer}
+.opciones button.correcto{background:#22c55e;color:white;border-color:#22c55e}
+.opciones button.mal{background:#ef4444;color:white;border-color:#ef4444}
+.marcador{font-size:1.3rem;font-weight:bold;margin:10px 0}
+.btn-juego{background:#16a34a;color:white;border:none;padding:14px 30px;border-radius:24px;font-size:1.2rem;font-weight:bold;cursor:pointer;margin:8px}
+.btn-azul{background:#2563eb;color:white;border:none;padding:14px 30px;border-radius:24px;font-size:1.2rem;font-weight:bold;cursor:pointer;margin:8px}
+.parejas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.parejas button{background:white;border:3px solid #e2e8f0;padding:14px 20px;border-radius:16px;font-size:1.2rem;font-weight:bold;cursor:pointer;min-width:140px}
+.parejas button.seleccionado{border-color:#2563eb;background:#dbeafe}
+.parejas button.acertado{background:#22c55e;color:white;border-color:#22c55e}
 </style>
 </head>
 <body>
@@ -26,34 +44,131 @@ p.sub{text-align:center;color:#64748b;margin:8px 0 12px;font-size:1.15rem}
 <h1>MI ÁRBOL GENEALÓGICO</h1>
 <p class="sub">Pulsa en cada imagen para marcarla en rojo. Pulsa en Escuchar para oír el nombre.</p>
 <div class="contenedor">
-
 <div class="tarjeta" onclick="seleccionar(this,'Abuelo')"><img src="../imagenes/bloque-6-familia/abuelo.jpg"><b>ABUELO</b><small>El papá de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuelo')">Escuchar</button></div>
-
 <div class="tarjeta" onclick="seleccionar(this,'Abuela')"><img src="../imagenes/bloque-6-familia/abuela.jpg"><b>ABUELA</b><small>La mamá de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuela')">Escuchar</button></div>
-
 <div class="tarjeta" onclick="seleccionar(this,'Papá')"><img src="../imagenes/bloque-6-familia/papa.jpg"><b>PAPÁ</b><small>Mi padre</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Papá')">Escuchar</button></div>
-
 <div class="tarjeta" onclick="seleccionar(this,'Mamá')"><img src="../imagenes/bloque-6-familia/mama.jpg"><b>MAMÁ</b><small>Mi madre</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Mamá')">Escuchar</button></div>
-
 <div class="tarjeta" onclick="seleccionar(this,'Tío')"><img src="../imagenes/bloque-6-familia/tio.jpg"><b>TÍO</b><small>Hermano de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tío')">Escuchar</button></div>
-
 <div class="tarjeta" onclick="seleccionar(this,'Tía')"><img src="../imagenes/bloque-6-familia/tia.jpg"><b>TÍA</b><small>Hermana de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tía')">Escuchar</button></div>
-
 <div class="tarjeta" onclick="seleccionar(this,'Hijo')"><img src="../imagenes/bloque-6-familia/hijo.jpg"><b>HIJO</b><small>Mi hijo</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hijo')">Escuchar</button></div>
-
 <div class="tarjeta" onclick="seleccionar(this,'Hija')"><img src="../imagenes/bloque-6-familia/hija.jpg"><b>HIJA</b><small>Mi hija</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hija')">Escuchar</button></div>
-
 <div class="tarjeta" onclick="seleccionar(this,'Bebé')"><img src="../imagenes/bloque-6-familia/bebe.jpg"><b>BEBÉ</b><small>El bebé</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Bebé')">Escuchar</button></div>
-
 <div class="tarjeta" onclick="seleccionar(this,'Primo')"><img src="../imagenes/bloque-6-familia/primo.jpg"><b>PRIMO</b><small>Hijo de mi tío</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Primo')">Escuchar</button></div>
-
 <div class="tarjeta" onclick="seleccionar(this,'Prima')"><img src="../imagenes/bloque-6-familia/prima.jpg"><b>PRIMA</b><small>Hija de mi tía</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Prima')">Escuchar</button></div>
-
 <button class="btn-grande" onclick="hablar('Este es mi árbol genealógico. Abuelo, abuela, papá, mamá, tío, tía, hijo, hija, bebé, primo y prima.')">Escuchar todo el árbol</button>
 </div>
+
+<!-- JUEGOS FINALES -->
+<div class="juegos">
+<h2>🎮 JUEGOS FINALES</h2>
+
+<!-- JUEGO 1: ¿QUIÉN ES? -->
+<div class="juego">
+<h3>Juego 1 - ¿Quién es?</h3>
+<p>Mira la imagen grande y pulsa el nombre correcto. ¡Ganas puntos!</p>
+<div class="marcador">Puntos: <span id="puntos1">0</span> / 5</div>
+<img id="img-quiz" src="../imagenes/bloque-6-familia/bebe.jpg">
+<div class="opciones" id="opciones-quiz"></div>
+<p id="mensaje-quiz" style="font-weight:bold;font-size:1.2rem"></p>
+<button class="btn-juego" onclick="siguienteQuiz()">Siguiente ➡️</button>
+</div>
+
+<!-- JUEGO 2: ESCUCHA Y PULSA -->
+<div class="juego">
+<h3>Juego 2 - Escucha y pulsa</h3>
+<p>Pulsa Escuchar, oye el nombre y pulsa la imagen correcta de abajo.</p>
+<button class="btn-azul" onclick="jugarEscucha()">🔊 Escuchar</button>
+<div class="marcador">Puntos: <span id="puntos2">0</span> / 5 &nbsp; | &nbsp; <span id="palabra-escucha">Pulsa Escuchar</span></div>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px">
+<button class="btn-escuchar" style="background:#fef3c7;color:#1e293b;border:3px solid #fcd34d" onclick="comprobarEscucha('Abuelo')">ABUELO</button>
+<button class="btn-escuchar" style="background:#fef3c7;color:#1e293b;border:3px solid #fcd34d" onclick="comprobarEscucha('Mamá')">MAMÁ</button>
+<button class="btn-escuchar" style="background:#fef3c7;color:#1e293b;border:3px solid #fcd34d" onclick="comprobarEscucha('Bebé')">BEBÉ</button>
+<button class="btn-escuchar" style="background:#fef3c7;color:#1e293b;border:3px solid #fcd34d" onclick="comprobarEscucha('Primo')">PRIMO</button>
+<button class="btn-escuchar" style="background:#fef3c7;color:#1e293b;border:3px solid #fcd34d" onclick="comprobarEscucha('Tía')">TÍA</button>
+</div>
+<p id="mensaje-escucha" style="font-weight:bold;font-size:1.2rem;margin-top:10px"></p>
+</div>
+
+<!-- JUEGO 3: UNE LA PAREJA -->
+<div class="juego">
+<h3>Juego 3 - Une la pareja</h3>
+<p>Pulsa una palabra y luego su imagen. ¡Únelas todas!</p>
+<div class="marcador">Parejas acertadas: <span id="puntos3">0</span> / 4</div>
+<div class="parejas" id="parejas-palabras">
+<button onclick="elegirPalabra(this,'Abuela')">ABUELA</button>
+<button onclick="elegirPalabra(this,'Papá')">PAPÁ</button>
+<button onclick="elegirPalabra(this,'Hija')">HIJA</button>
+<button onclick="elegirPalabra(this,'Primo')">PRIMO</button>
+</div>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px">
+<img src="../imagenes/bloque-6-familia/primo.jpg" style="width:150px;cursor:pointer;border:4px solid #e2e8f0;border-radius:14px" onclick="elegirImagen(this,'Primo')">
+<img src="../imagenes/bloque-6-familia/abuela.jpg" style="width:150px;cursor:pointer;border:4px solid #e2e8f0;border-radius:14px" onclick="elegirImagen(this,'Abuela')">
+<img src="../imagenes/bloque-6-familia/hija.jpg" style="width:150px;cursor:pointer;border:4px solid #e2e8f0;border-radius:14px" onclick="elegirImagen(this,'Hija')">
+<img src="../imagenes/bloque-6-familia/papa.jpg" style="width:150px;cursor:pointer;border:4px solid #e2e8f0;border-radius:14px" onclick="elegirImagen(this,'Papá')">
+</div>
+<p id="mensaje-parejas" style="font-weight:bold;font-size:1.2rem;margin-top:10px"></p>
+<button class="btn-juego" onclick="reiniciarParejas()">Volver a jugar 🔄</button>
+</div>
+
+<!-- JUEGO 4: MI FRASE -->
+<div class="juego">
+<h3>Juego 4 - Di mi frase</h3>
+<p>Pulsa y repite en voz alta: “Mi ___ se llama ___”</p>
+<button class="btn-azul" onclick="hablar('Mi abuelo se llama abuelo. Mi mamá se llama mamá. Mi primo se llama primo.')">🔊 Escuchar frase</button>
+<button class="btn-juego" onclick="hablar('¡Muy bien! ¡Lo has hecho genial!')">🏆 ¡Lo conseguí!</button>
+</div>
+
+</div>
+
 <script>
 function hablar(t){ try{ speechSynthesis.cancel(); let u=new SpeechSynthesisUtterance(t); u.lang='es-ES'; u.rate=0.9; speechSynthesis.speak(u);}catch(e){} }
 function seleccionar(el,nombre){ document.querySelectorAll('.tarjeta').forEach(n=>n.classList.remove('seleccionado')); el.classList.add('seleccionado'); el.scrollIntoView({behavior:'smooth',block:'center'}); hablar(nombre); }
+
+// JUEGO 1
+let quiz=[
+{img:'../imagenes/bloque-6-familia/bebe.jpg',correcta:'Bebé',opciones:['Bebé','Abuelo','Primo']},
+{img:'../imagenes/bloque-6-familia/abuelo.jpg',correcta:'Abuelo',opciones:['Papá','Abuelo','Tío']},
+{img:'../imagenes/bloque-6-familia/mama.jpg',correcta:'Mamá',opciones:['Tía','Mamá','Hija']},
+{img:'../imagenes/bloque-6-familia/primo.jpg',correcta:'Primo',opciones:['Hijo','Primo','Bebé']},
+{img:'../imagenes/bloque-6-familia/tia.jpg',correcta:'Tía',opciones:['Tía','Abuela','Mamá']}
+];
+let qi=0, puntos1=0;
+function cargarQuiz(){
+  let q=quiz[qi];
+  document.getElementById('img-quiz').src=q.img;
+  document.getElementById('mensaje-quiz').textContent='';
+  let cont=document.getElementById('opciones-quiz'); cont.innerHTML='';
+  q.opciones.forEach(op=>{
+    let b=document.createElement('button'); b.textContent=op;
+    b.onclick=()=>{
+      if(op===q.correcta){ b.classList.add('correcto'); document.getElementById('mensaje-quiz').textContent='¡Muy bien! 🎉'; puntos1++; document.getElementById('puntos1').textContent=puntos1; hablar('¡Muy bien! Es '+op); }
+      else{ b.classList.add('mal'); document.getElementById('mensaje-quiz').textContent='Inténtalo otra vez'; hablar('Inténtalo otra vez'); }
+    };
+    cont.appendChild(b);
+  });
+}
+function siguienteQuiz(){ qi=(qi+1)%quiz.length; cargarQuiz(); }
+cargarQuiz();
+
+// JUEGO 2
+let listaEscucha=['Abuelo','Mamá','Bebé','Primo','Tía'];
+let actualEscucha='', puntos2=0;
+function jugarEscucha(){ actualEscucha=listaEscucha[Math.floor(Math.random()*listaEscucha.length)]; document.getElementById('palabra-escucha').textContent='Escucha...'; hablar(actualEscucha); }
+function comprobarEscucha(respuesta){
+  if(!actualEscucha){ hablar('Primero pulsa Escuchar'); return; }
+  if(respuesta===actualEscucha){ document.getElementById('mensaje-escucha').textContent='¡Correcto! Era '+actualEscucha+' 🎉'; puntos2++; document.getElementById('puntos2').textContent=puntos2; hablar('¡Correcto!'); }
+  else{ document.getElementById('mensaje-escucha').textContent='Esa no es, escucha otra vez'; hablar('Esa no es'); }
+}
+
+// JUEGO 3
+let palabraSel=null, puntos3=0;
+function elegirPalabra(btn,pal){ document.querySelectorAll('#parejas-palabras button').forEach(b=>b.classList.remove('seleccionado')); btn.classList.add('seleccionado'); palabraSel=pal; hablar(pal); }
+function elegirImagen(img,pal){
+  if(!palabraSel){ document.getElementById('mensaje-parejas').textContent='Primero pulsa una palabra'; return; }
+  if(pal===palabraSel){ img.style.border='4px solid #22c55e'; document.getElementById('mensaje-parejas').textContent='¡Pareja correcta! '+pal+' 🎉'; puntos3++; document.getElementById('puntos3').textContent=puntos3; hablar('¡Muy bien!'); palabraSel=null; }
+  else{ document.getElementById('mensaje-parejas').textContent='Esa no es su pareja'; hablar('Esa no es'); }
+}
+function reiniciarParejas(){ puntos3=0; document.getElementById('puntos3').textContent='0'; document.getElementById('mensaje-parejas').textContent=''; palabraSel=null; document.querySelectorAll('img').forEach(i=>i.style.border='4px solid #e2e8f0'); document.querySelectorAll('#parejas-palabras button').forEach(b=>b.classList.remove('seleccionado')); }
 </script>
 </body>
 </html>
