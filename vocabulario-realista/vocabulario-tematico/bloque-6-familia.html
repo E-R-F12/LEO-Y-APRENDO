@@ -6,19 +6,19 @@
 <title>Bloque 6 - Mi Árbol Genealógico - LEO Y APRENDO</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
-body{background:#fffdf7;color:#1e293b;padding:16px}
-a.volver{display:inline-block;margin-bottom:10px;text-decoration:none;background:white;padding:8px 14px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.08);color:#ea580c;font-weight:bold}
-h1{text-align:center;font-size:2rem}
-p.sub{text-align:center;color:#64748b;margin:8px 0 16px}
-.contenedor{max-width:1000px;margin:0 auto}
-.tarjeta{background:white;border:3px solid #fde68a;border-radius:20px;padding:14px;margin:14px 0;box-shadow:0 4px 16px rgba(0,0,0,.08);cursor:pointer;text-align:center}
-.tarjeta.seleccionado{border:4px solid red;transform:scale(1.02)}
-.tarjeta img{width:100%;max-width:700px;border-radius:14px;display:block;margin:0 auto;background:white}
-.tarjeta b{display:inline-block;margin-top:10px;font-size:1.4rem;background:#fde68a;padding:6px 22px;border-radius:20px}
+body{background:#fffdf7;color:#1e293b;padding:8px}
+a.volver{display:inline-block;margin:8px 0 10px 8px;text-decoration:none;background:white;padding:10px 18px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.08);color:#ea580c;font-weight:bold;font-size:1.1rem}
+h1{text-align:center;font-size:2.4rem}
+p.sub{text-align:center;color:#64748b;margin:8px 0 12px;font-size:1.15rem}
+.contenedor{max-width:1200px;margin:0 auto}
+.tarjeta{background:white;border:4px solid #fde68a;border-radius:24px;padding:10px 10px 16px;margin:16px 0;box-shadow:0 4px 16px rgba(0,0,0,.08);cursor:pointer;text-align:center}
+.tarjeta.seleccionado{border:6px solid red}
+.tarjeta img{width:100%;max-width:1150px;height:auto;border-radius:16px;display:block;margin:0 auto;background:white}
+.tarjeta b{display:inline-block;margin-top:14px;font-size:1.8rem;background:#fde68a;padding:8px 32px;border-radius:20px}
 .tarjeta.seleccionado b{background:red;color:white}
-.tarjeta small{display:block;color:#64748b;margin:6px 0 10px;font-size:1rem}
-.btn-escuchar{background:#ea580c;color:white;border:none;padding:10px 22px;border-radius:20px;cursor:pointer;font-weight:bold;font-size:1rem}
-.btn-grande{display:block;margin:18px auto 0;background:#ea580c;color:white;border:none;padding:12px 24px;border-radius:20px;font-weight:bold;cursor:pointer;font-size:1.1rem}
+.tarjeta small{display:block;color:#64748b;margin:8px 0 12px;font-size:1.15rem}
+.btn-escuchar{background:#ea580c;color:white;border:none;padding:14px 36px;border-radius:24px;cursor:pointer;font-weight:bold;font-size:1.2rem}
+.btn-grande{display:block;margin:20px auto;background:#ea580c;color:white;border:none;padding:16px 32px;border-radius:24px;font-weight:bold;cursor:pointer;font-size:1.3rem}
 </style>
 </head>
 <body>
@@ -43,7 +43,7 @@ p.sub{text-align:center;color:#64748b;margin:8px 0 16px}
 
 <div class="tarjeta" onclick="seleccionar(this,'Hija')"><img src="../imagenes/bloque-6-familia/hija.jpg"><b>HIJA</b><small>Mi hija</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hija')">Escuchar</button></div>
 
-<div class="tarjeta" onclick="seleccionar(this,'Bebé')"><img src="../imagenes/bloque-6-familia/bebe.jpg"><b>BEBÉ</b><small>El bebé - como en tu muestra, con el círculo rojo</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Bebé')">Escuchar</button></div>
+<div class="tarjeta" onclick="seleccionar(this,'Bebé')"><img src="../imagenes/bloque-6-familia/bebe.jpg"><b>BEBÉ</b><small>El bebé</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Bebé')">Escuchar</button></div>
 
 <div class="tarjeta" onclick="seleccionar(this,'Primo')"><img src="../imagenes/bloque-6-familia/primo.jpg"><b>PRIMO</b><small>Hijo de mi tío</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Primo')">Escuchar</button></div>
 
