@@ -3,122 +3,321 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LEO Y APRENDO</title>
+<title>LEO Y APRENDO - Lectoescritura</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
-body{background:#f6f8fb;color:#1e293b;padding-bottom:40px}
-header{background:white;padding:12px 3%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:100;flex-wrap:wrap;gap:8px}
-.logo{font-weight:900;font-size:22px;color:#1e3a8a}
-nav{display:flex;flex-wrap:wrap;gap:6px}
-nav a{background:#f1f5f9;color:#1e3a8a;text-decoration:none;font-weight:800;font-size:11px;padding:7px 11px;border-radius:20px;border:1px solid #e2e8f0}
-nav a:hover{background:#facc15}
-.hero{margin:14px 1%;background:#dbeafe;border-radius:18px;padding:20px;text-align:center}
-.hero h1{color:#1e3a8a}
-.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;padding:10px 1%}
-.menu-card{background:white;border-radius:14px;padding:14px;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,.05);text-decoration:none;color:#1e293b;border:2px solid transparent}
-.menu-card:hover{border-color:#facc15}
-.menu-card .ico{font-size:36px}
-.barra{background:#facc15;color:#1e3a8a;font-weight:900;padding:10px 14px;border-radius:8px;margin:22px 1% 10px;font-size:14px}
-.barra.sub{font-size:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:10px;padding:0 1%}
-.tarjeta{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.06);cursor:pointer;min-height:105px;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:.15s}
-.tarjeta:hover{transform:translateY(-2px);box-shadow:0 6px 12px rgba(0,0,0,.1)}
-.tarjeta .emoji{font-size:34px;display:block;margin-bottom:4px}
-.tarjeta b{color:#c0265a}
-.sep{color:#64748b;font-size:11px;margin-top:2px}
-.num{font-size:9px;color:#1e3a8a;background:#e0e7ff;border-radius:10px;padding:2px 6px;margin-top:3px}
-footer{background:#1e3a8a;color:white;text-align:center;padding:16px;margin-top:30px}
+*{box-sizing:border-box}
+body{font-family:Arial,sans-serif;margin:0;background:#fff8e1;color:#333}
+header{background:#fff;padding:15px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 5px rgba(0,0,0,.1)}
+header h1{color:#1a3a8f;margin:0;font-size:28px}
+nav{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+nav a{background:#eef2ff;border:1px solid #ddd;padding:8px 14px;border-radius:20px;text-decoration:none;color:#1a3a8f;font-weight:bold;font-size:14px}
+nav a:hover{background:#1a3a8f;color:#fff}
+.titulo-seccion{background:#ffcc00;padding:12px 15px;border-radius:10px;margin:25px 10px 10px;font-size:20px;color:#1a3a8f}
+.subtitulo{background:#fff3c4;padding:8px 12px;border-radius:8px;margin:15px 10px 5px;color:#1a3a8f;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;padding:10px}
+.card{background:#fff;border:1px solid #eee;border-radius:15px;padding:15px 10px;text-align:center;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,.05)}
+.card:hover{transform:scale(1.03)}
+.icono{font-size:42px;margin-bottom:8px}
+.card div:nth-child(2){font-size:18px}
+.rojo{color:#d50000;font-weight:bold}
+.audio{font-size:20px;margin-top:5px;opacity:.7}
+.letras-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:10px;padding:10px}
+.letra{background:#fff;border-radius:15px;text-align:center;padding:15px;font-size:32px;font-weight:bold;color:#1a3a8f;cursor:pointer}
+footer{text-align:center;padding:20px;color:#888}
 </style>
 </head>
 <body>
 <header>
-<div class="logo">📖 LEO Y APRENDO</div>
+<h1>📖 LEO Y APRENDO</h1>
 <nav>
-<a href="#letras">🔠 LETRAS</a>
-<a href="#grupos">🔤 GRUPOS</a>
-<a href="#directas">🅰️ DIRECTAS</a>
-<a href="#inversas">🔊 INVERSAS</a>
-<a href="#palabras">📝 PALABRAS</a>
-<a href="#oraciones">📖 ORACIONES</a>
+<a href="#letras">LETRAS</a>
+<a href="#grupos">GRUPOS</a>
+<a href="#directas">DIRECTAS</a>
+<a href="#trabadas">TRABADAS</a>
+<a href="#inversas">INVERSAS</a>
+<a href="#palabras">PALABRAS</a>
+<a href="#oraciones">ORACIONES</a>
 </nav>
 </header>
 
-<div class="hero"><h1>Aprende a leer y escribir jugando</h1><p>Toca cada tarjeta para escuchar el audio 🔊</p></div>
-
-<div class="menu">
-<a class="menu-card" href="#letras"><div class="ico">🔠</div><h3>1. LETRAS</h3></a>
-<a class="menu-card" href="#grupos"><div class="ico">🔤</div><h3>2. GRUPOS</h3></a>
-<a class="menu-card" href="#directas"><div class="ico">🅰️</div><h3>3. DIRECTAS</h3></a>
-<a class="menu-card" href="#inversas"><div class="ico">🔊</div><h3>4. INVERSAS</h3></a>
-<a class="menu-card" href="#palabras"><div class="ico">📝</div><h3>5. PALABRAS</h3></a>
-<a class="menu-card" href="#oraciones"><div class="ico">📖</div><h3>6. ORACIONES</h3></a>
+<!-- 1. LETRAS -->
+<section id="letras">
+<h2 class="titulo-seccion">1. LETRAS</h2>
+<div class="letras-grid">
+<div class="letra" onclick="hablar('a')">A</div><div class="letra" onclick="hablar('b')">B</div><div class="letra" onclick="hablar('c')">C</div><div class="letra" onclick="hablar('d')">D</div><div class="letra" onclick="hablar('e')">E</div><div class="letra" onclick="hablar('f')">F</div><div class="letra" onclick="hablar('g')">G</div><div class="letra" onclick="hablar('h')">H</div><div class="letra" onclick="hablar('i')">I</div><div class="letra" onclick="hablar('j')">J</div><div class="letra" onclick="hablar('k')">K</div><div class="letra" onclick="hablar('l')">L</div><div class="letra" onclick="hablar('m')">M</div><div class="letra" onclick="hablar('n')">N</div><div class="letra" onclick="hablar('ñ')">Ñ</div><div class="letra" onclick="hablar('o')">O</div><div class="letra" onclick="hablar('p')">P</div><div class="letra" onclick="hablar('q')">Q</div><div class="letra" onclick="hablar('r')">R</div><div class="letra" onclick="hablar('s')">S</div><div class="letra" onclick="hablar('t')">T</div><div class="letra" onclick="hablar('u')">U</div><div class="letra" onclick="hablar('v')">V</div><div class="letra" onclick="hablar('w')">W</div><div class="letra" onclick="hablar('x')">X</div><div class="letra" onclick="hablar('y')">Y</div><div class="letra" onclick="hablar('z')">Z</div>
 </div>
+</section>
 
-<div id="letras"><div class="barra">1. LETRAS - TODAS</div><div class="grid" id="grid-letras"></div></div>
-<div id="grupos"><div class="barra">2. GRUPOS VOCALICOS</div><div class="grid" id="grid-grupos"></div></div>
-<div id="directas"><div class="barra">3. SILABAS DIRECTAS</div><div id="grid-directas"></div></div>
-<div id="inversas"><div class="barra">4. SILABAS INVERSAS - 50 palabras</div><div id="grid-inversas"></div></div>
-<div id="palabras"><div class="barra">5. PALABRAS - 100 palabras con separacion silabica</div><div id="grid-palabras"></div></div>
-<div id="oraciones"><div class="barra">6. ORACIONES</div><div class="grid" id="grid-oraciones"></div></div>
+<!-- 2. GRUPOS -->
+<section id="grupos">
+<h2 class="titulo-seccion">2. GRUPOS</h2>
+<h3 class="subtitulo">VOCALES - a e i o u</h3>
+<div class="grid">
+<div class="card" onclick="hablar('a - avión')"><div class="icono">✈️</div><div><b class="rojo">a</b> - avión</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('e - elefante')"><div class="icono">🐘</div><div><b class="rojo">e</b> - elefante</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('i - isla')"><div class="icono">🏝️</div><div><b class="rojo">i</b> - isla</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('o - oso')"><div class="icono">🐻</div><div><b class="rojo">o</b> - oso</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('u - uva')"><div class="icono">🍇</div><div><b class="rojo">u</b> - uva</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">DIPTONGOS - ai ei oi au eu iu ia ie io ua ue ui</h3>
+<div class="grid">
+<div class="card" onclick="hablar('aire')"><div class="icono">💨</div><div><b class="rojo">ai</b> - aire</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('seis')"><div class="icono">6️⃣</div><div><b class="rojo">ei</b> - seis</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('oigo')"><div class="icono">👂</div><div><b class="rojo">oi</b> - oigo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('auto')"><div class="icono">🚗</div><div><b class="rojo">au</b> - auto</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('euro')"><div class="icono">💶</div><div><b class="rojo">eu</b> - euro</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('ciudad')"><div class="icono">🏙️</div><div><b class="rojo">iu</b> - ciudad</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('piano')"><div class="icono">🎹</div><div><b class="rojo">ia</b> - piano</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('cielo')"><div class="icono">☁️</div><div><b class="rojo">ie</b> - cielo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('piojo')"><div class="icono">🪲</div><div><b class="rojo">io</b> - piojo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('agua')"><div class="icono">💧</div><div><b class="rojo">ua</b> - agua</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('cueva')"><div class="icono">🕳️</div><div><b class="rojo">ue</b> - cueva</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('ruido')"><div class="icono">📣</div><div><b class="rojo">ui</b> - ruido</div><div class="audio">🔊</div></div>
+</div>
+</section>
 
-<footer>https://e-r-f12.github.io/LEO-Y-APRENDO/lectoescritura/</footer>
+<!-- 3. DIRECTAS -->
+<section id="directas">
+<h2 class="titulo-seccion">3. SÍLABAS DIRECTAS</h2>
+<h3 class="subtitulo">BA BE BI BO BU</h3>
+<div class="grid">
+<div class="card" onclick="hablar('barco')"><div class="icono">🚢</div><div><b class="rojo">ba</b> - barco</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('bebé')"><div class="icono">👶</div><div><b class="rojo">be</b> - bebé</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('bici')"><div class="icono">🚲</div><div><b class="rojo">bi</b> - bici</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('boca')"><div class="icono">👄</div><div><b class="rojo">bo</b> - boca</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('burro')"><div class="icono">🐴</div><div><b class="rojo">bu</b> - burro</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">CA CE CI CO CU - QUE QUI - CHA CHE CHI CHO CHU</h3>
+<div class="grid">
+<div class="card" onclick="hablar('casa')"><div class="icono">🏠</div><div><b class="rojo">ca</b> - casa</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('cena')"><div class="icono">🍽️</div><div><b class="rojo">ce</b> - cena</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('cine')"><div class="icono">🎬</div><div><b class="rojo">ci</b> - cine</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('coco')"><div class="icono">🥥</div><div><b class="rojo">co</b> - coco</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('cuna')"><div class="icono">🛏️</div><div><b class="rojo">cu</b> - cuna</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('queso')"><div class="icono">🧀</div><div><b class="rojo">que</b> - queso</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('quinto')"><div class="icono">5️⃣</div><div><b class="rojo">qui</b> - quinto</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('chapa')"><div class="icono">🔩</div><div><b class="rojo">cha</b> - chapa</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('chepa')"><div class="icono">🐪</div><div><b class="rojo">che</b> - chepa</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('chico')"><div class="icono">👦</div><div><b class="rojo">chi</b> - chico</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">DA DE DI DO DU - FA FE FI FO FU - GA GE GI GO GU - GUE GUI</h3>
+<div class="grid">
+<div class="card" onclick="hablar('dado')"><div class="icono">🎲</div><div><b class="rojo">da</b> - dado</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('dedo')"><div class="icono">☝️</div><div><b class="rojo">de</b> - dedo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('día')"><div class="icono">☀️</div><div><b class="rojo">di</b> - día</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('dominó')"><div class="icono">🁢</div><div><b class="rojo">do</b> - dominó</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('ducha')"><div class="icono">🚿</div><div><b class="rojo">du</b> - ducha</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('faro')"><div class="icono">🗼</div><div><b class="rojo">fa</b> - faro</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('foca')"><div class="icono">🦭</div><div><b class="rojo">fe</b> - foca</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('ficha')"><div class="icono">🃏</div><div><b class="rojo">fi</b> - ficha</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('foto')"><div class="icono">📸</div><div><b class="rojo">fo</b> - foto</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('fuego')"><div class="icono">🔥</div><div><b class="rojo">fu</b> - fuego</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">JA JE JI JO JU - LA LE LI LO LU - MA ME MI MO MU - NA NE NI NO NU - ÑA ÑE ÑI ÑO ÑU</h3>
+<div class="grid">
+<div class="card" onclick="hablar('jarra')"><div class="icono">🏺</div><div><b class="rojo">ja</b> - jarra</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('jefe')"><div class="icono">👨‍💼</div><div><b class="rojo">je</b> - jefe</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('jirafa')"><div class="icono">🦒</div><div><b class="rojo">ji</b> - jirafa</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('jota')"><div class="icono">🎵</div><div><b class="rojo">jo</b> - jota</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('jugo')"><div class="icono">🧃</div><div><b class="rojo">ju</b> - jugo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('lata')"><div class="icono">🥫</div><div><b class="rojo">la</b> - lata</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('leche')"><div class="icono">🥛</div><div><b class="rojo">le</b> - leche</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('lima')"><div class="icono">🍋</div><div><b class="rojo">li</b> - lima</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('lobo')"><div class="icono">🐺</div><div><b class="rojo">lo</b> - lobo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('luna')"><div class="icono">🌙</div><div><b class="rojo">lu</b> - luna</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">PA PE PI PO PU - RA RE RI RO RU - SA SE SI SO SU - TA TE TI TO TU - VA VE VI VO VU - YA YE YI YO YU - ZA ZE ZI ZO ZU</h3>
+<div class="grid">
+<div class="card" onclick="hablar('pato')"><div class="icono">🦆</div><div><b class="rojo">pa</b> - pato</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('pera')"><div class="icono">🍐</div><div><b class="rojo">pe</b> - pera</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('pino')"><div class="icono">🌲</div><div><b class="rojo">pi</b> - pino</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('pollo')"><div class="icono">🐔</div><div><b class="rojo">po</b> - pollo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('puma')"><div class="icono">🐆</div><div><b class="rojo">pu</b> - puma</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('rata')"><div class="icono">🐀</div><div><b class="rojo">ra</b> - rata</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('red')"><div class="icono">🕸️</div><div><b class="rojo">re</b> - red</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('risa')"><div class="icono">😂</div><div><b class="rojo">ri</b> - risa</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('rosa')"><div class="icono">🌹</div><div><b class="rojo">ro</b> - rosa</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('runa')"><div class="icono">🪨</div><div><b class="rojo">ru</b> - runa</div><div class="audio">🔊</div></div>
+</div>
+</section>
 
+<!-- 4. TRABADAS -->
+<section id="trabadas">
+<h2 class="titulo-seccion">4. SÍLABAS TRABADAS - 65 palabras</h2>
+<h3 class="subtitulo">BL - bla ble bli blo blu</h3>
+<div class="grid">
+<div class="card" onclick="hablar('blanco')"><div class="icono">⬜</div><div><b class="rojo">bla</b> - blanco</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('pueblo')"><div class="icono">🏘️</div><div><b class="rojo">ble</b> - pueblo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('público')"><div class="icono">👥</div><div><b class="rojo">bli</b> - público</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('bloque')"><div class="icono">🧱</div><div><b class="rojo">blo</b> - bloque</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('blusa')"><div class="icono">👚</div><div><b class="rojo">blu</b> - blusa</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">CL - cla cle cli clo clu</h3>
+<div class="grid">
+<div class="card" onclick="hablar('clase')"><div class="icono">🏫</div><div><b class="rojo">cla</b> - clase</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('bicicleta')"><div class="icono">🚲</div><div><b class="rojo">cle</b> - bicicleta</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('clima')"><div class="icono">🌤️</div><div><b class="rojo">cli</b> - clima</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('clavo')"><div class="icono">🔩</div><div><b class="rojo">clo</b> - clavo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('club')"><div class="icono">🏟️</div><div><b class="rojo">clu</b> - club</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">FL - fla fle fli flo flu</h3>
+<div class="grid">
+<div class="card" onclick="hablar('flan')"><div class="icono">🍮</div><div><b class="rojo">fla</b> - flan</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('flecha')"><div class="icono">🏹</div><div><b class="rojo">fle</b> - flecha</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('flipar')"><div class="icono">🤪</div><div><b class="rojo">fli</b> - flipar</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('flor')"><div class="icono">🌸</div><div><b class="rojo">flo</b> - flor</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('flauta')"><div class="icono">🎶</div><div><b class="rojo">flu</b> - flauta</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">GL - gla gle gli glo glu</h3>
+<div class="grid">
+<div class="card" onclick="hablar('glaciar')"><div class="icono">🧊</div><div><b class="rojo">gla</b> - glaciar</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('iglesia')"><div class="icono">⛪</div><div><b class="rojo">gle</b> - iglesia</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('glifo')"><div class="icono">🪨</div><div><b class="rojo">gli</b> - glifo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('globo')"><div class="icono">🎈</div><div><b class="rojo">glo</b> - globo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('gluten')"><div class="icono">🍞</div><div><b class="rojo">glu</b> - gluten</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">PL - pla ple pli plo plu</h3>
+<div class="grid">
+<div class="card" onclick="hablar('playa')"><div class="icono">🏖️</div><div><b class="rojo">pla</b> - playa</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('pleno')"><div class="icono">✅</div><div><b class="rojo">ple</b> - pleno</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('pliego')"><div class="icono">📄</div><div><b class="rojo">pli</b> - pliego</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('plomo')"><div class="icono">🪨</div><div><b class="rojo">plo</b> - plomo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('pluma')"><div class="icono">🪶</div><div><b class="rojo">plu</b> - pluma</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">TL - tla tle tli tlo tlu</h3>
+<div class="grid">
+<div class="card" onclick="hablar('atlas')"><div class="icono">🗺️</div><div><b class="rojo">tla</b> - atlas</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('atleta')"><div class="icono">🏃</div><div><b class="rojo">tle</b> - atleta</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('atlántico')"><div class="icono">🌊</div><div><b class="rojo">tli</b> - atlántico</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('título')"><div class="icono">📖</div><div><b class="rojo">tlo</b> - título</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('tul')"><div class="icono">👗</div><div><b class="rojo">tlu</b> - tul</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">BR - bra bre bri bro bru</h3>
+<div class="grid">
+<div class="card" onclick="hablar('brazo')"><div class="icono">💪</div><div><b class="rojo">bra</b> - brazo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('breve')"><div class="icono">⏱️</div><div><b class="rojo">bre</b> - breve</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('brisa')"><div class="icono">🍃</div><div><b class="rojo">bri</b> - brisa</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('broma')"><div class="icono">😂</div><div><b class="rojo">bro</b> - broma</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('bruja')"><div class="icono">🧙</div><div><b class="rojo">bru</b> - bruja</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">CR - cra cre cri cro cru</h3>
+<div class="grid">
+<div class="card" onclick="hablar('cráneo')"><div class="icono">💀</div><div><b class="rojo">cra</b> - cráneo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('crema')"><div class="icono">🍦</div><div><b class="rojo">cre</b> - crema</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('cristal')"><div class="icono">💎</div><div><b class="rojo">cri</b> - cristal</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('cromo')"><div class="icono">🎨</div><div><b class="rojo">cro</b> - cromo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('cruz')"><div class="icono">✝️</div><div><b class="rojo">cru</b> - cruz</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">DR - dra dre dri dro dru</h3>
+<div class="grid">
+<div class="card" onclick="hablar('dragón')"><div class="icono">🐉</div><div><b class="rojo">dra</b> - dragón</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('madre')"><div class="icono">👩</div><div><b class="rojo">dre</b> - madre</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('madrid')"><div class="icono">🏙️</div><div><b class="rojo">dri</b> - madrid</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('dromedario')"><div class="icono">🐪</div><div><b class="rojo">dro</b> - dromedario</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('druida')"><div class="icono">🧙‍♂️</div><div><b class="rojo">dru</b> - druida</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">FR - fra fre fri fro fru</h3>
+<div class="grid">
+<div class="card" onclick="hablar('frase')"><div class="icono">💬</div><div><b class="rojo">fra</b> - frase</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('fresa')"><div class="icono">🍓</div><div><b class="rojo">fre</b> - fresa</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('frío')"><div class="icono">❄️</div><div><b class="rojo">fri</b> - frío</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('frota')"><div class="icono">🧽</div><div><b class="rojo">fro</b> - frota</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('fruta')"><div class="icono">🍎</div><div><b class="rojo">fru</b> - fruta</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">GR - gra gre gri gro gru</h3>
+<div class="grid">
+<div class="card" onclick="hablar('grano')"><div class="icono">🌾</div><div><b class="rojo">gra</b> - grano</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('gremio')"><div class="icono">👷</div><div><b class="rojo">gre</b> - gremio</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('grito')"><div class="icono">📣</div><div><b class="rojo">gri</b> - grito</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('ogro')"><div class="icono">👹</div><div><b class="rojo">gro</b> - ogro</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('grupo')"><div class="icono">👧👦</div><div><b class="rojo">gru</b> - grupo</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">PR - pra pre pri pro pru</h3>
+<div class="grid">
+<div class="card" onclick="hablar('prado')"><div class="icono">🌿</div><div><b class="rojo">pra</b> - prado</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('premio')"><div class="icono">🏆</div><div><b class="rojo">pre</b> - premio</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('primo')"><div class="icono">👦</div><div><b class="rojo">pri</b> - primo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('profe')"><div class="icono">👩‍🏫</div><div><b class="rojo">pro</b> - profe</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('prueba')"><div class="icono">📝</div><div><b class="rojo">pru</b> - prueba</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">TR - tra tre tri tro tru</h3>
+<div class="grid">
+<div class="card" onclick="hablar('tren')"><div class="icono">🚂</div><div><b class="rojo">tra</b> - tren</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('trece')"><div class="icono">1️⃣3️⃣</div><div><b class="rojo">tre</b> - trece</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('triciclo')"><div class="icono">🚲</div><div><b class="rojo">tri</b> - triciclo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('tronco')"><div class="icono">🪵</div><div><b class="rojo">tro</b> - tronco</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('trueno')"><div class="icono">⛈️</div><div><b class="rojo">tru</b> - trueno</div><div class="audio">🔊</div></div>
+</div>
+</section>
+
+<!-- 5. INVERSAS -->
+<section id="inversas">
+<h2 class="titulo-seccion">5. SÍLABAS INVERSAS - 50 palabras</h2>
+<h3 class="subtitulo">AL EL IL OL UL</h3>
+<div class="grid">
+<div class="card" onclick="hablar('alto')"><div class="icono">🏔️</div><div><b class="rojo">al</b> - alto</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('papel')"><div class="icono">📄</div><div><b class="rojo">el</b> - papel</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('mil')"><div class="icono">💰</div><div><b class="rojo">il</b> - mil</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('soldado')"><div class="icono">🪖</div><div><b class="rojo">ol</b> - soldado</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('ultimo')"><div class="icono">🏁</div><div><b class="rojo">ul</b> - ultimo</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">AS ES IS OS US</h3>
+<div class="grid">
+<div class="card" onclick="hablar('asno')"><div class="icono">🐴</div><div><b class="rojo">as</b> - asno</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('estrella')"><div class="icono">⭐</div><div><b class="rojo">es</b> - estrella</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('isla')"><div class="icono">🏝️</div><div><b class="rojo">is</b> - isla</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('oscuro')"><div class="icono">🌑</div><div><b class="rojo">os</b> - oscuro</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('usted')"><div class="icono">🙂</div><div><b class="rojo">us</b> - usted</div><div class="audio">🔊</div></div>
+</div>
+<h3 class="subtitulo">AN EN IN ON UN - AR ER IR OR UR - AZ EZ IZ OZ UZ</h3>
+<div class="grid">
+<div class="card" onclick="hablar('antojo')"><div class="icono">🍬</div><div><b class="rojo">an</b> - antojo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('ente')"><div class="icono">👤</div><div><b class="rojo">en</b> - ente</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('inca')"><div class="icono">🏛️</div><div><b class="rojo">in</b> - inca</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('onda')"><div class="icono">🌊</div><div><b class="rojo">on</b> - onda</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('unir')"><div class="icono">🔗</div><div><b class="rojo">un</b> - unir</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('arte')"><div class="icono">🎨</div><div><b class="rojo">ar</b> - arte</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('verde')"><div class="icono">🟢</div><div><b class="rojo">er</b> - verde</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('circo')"><div class="icono">🎪</div><div><b class="rojo">ir</b> - circo</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('corto')"><div class="icono">✂️</div><div><b class="rojo">or</b> - corto</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('curso')"><div class="icono">📚</div><div><b class="rojo">ur</b> - curso</div><div class="audio">🔊</div></div>
+</div>
+</section>
+
+<!-- 6. PALABRAS -->
+<section id="palabras">
+<h2 class="titulo-seccion">6. PALABRAS</h2>
+<div class="grid">
+<div class="card" onclick="hablar('mamá')"><div class="icono">👩</div><div><b class="rojo">mamá</b></div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('papá')"><div class="icono">👨</div><div><b class="rojo">papá</b></div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('casa')"><div class="icono">🏠</div><div><b class="rojo">casa</b></div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('perro')"><div class="icono">🐶</div><div><b class="rojo">perro</b></div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('gato')"><div class="icono">🐱</div><div><b class="rojo">gato</b></div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('sol')"><div class="icono">☀️</div><div><b class="rojo">sol</b></div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('luna')"><div class="icono">🌙</div><div><b class="rojo">luna</b></div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('agua')"><div class="icono">💧</div><div><b class="rojo">agua</b></div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('pan')"><div class="icono">🍞</div><div><b class="rojo">pan</b></div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('leche')"><div class="icono">🥛</div><div><b class="rojo">leche</b></div><div class="audio">🔊</div></div>
+</div>
+</section>
+
+<!-- 7. ORACIONES -->
+<section id="oraciones">
+<h2 class="titulo-seccion">7. ORACIONES</h2>
+<div class="grid">
+<div class="card" onclick="hablar('Mamá me ama')"><div class="icono">❤️</div><div>Mamá me ama</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('El sol brilla')"><div class="icono">☀️</div><div>El sol brilla</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('Mi perro corre')"><div class="icono">🐶</div><div>Mi perro corre</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('Me gusta la playa')"><div class="icono">🏖️</div><div>Me gusta la playa</div><div class="audio">🔊</div></div>
+<div class="card" onclick="hablar('El tren va rápido')"><div class="icono">🚂</div><div>El tren va rápido</div><div class="audio">🔊</div></div>
+</div>
+</section>
+
+<footer>LEO Y APRENDO - Lectoescritura</footer>
 <script>
-function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);}
-
-const letras=[["A","Avion","✈️"],["E","Elefante","🐘"],["I","Iglu","🧊"],["O","Oso","🐻"],["U","Uva","🍇"],["B","Barco","🚢"],["C","Casa","🏠"],["D","Dado","🎲"],["F","Foca","🦭"],["G","Gato","🐱"],["H","Hada","🧚"],["J","Jirafa","🦒"],["K","Kiwi","🥝"],["L","Luna","🌙"],["M","Mama","👩"],["N","Nube","☁️"],["Ñ","Pina","🍍"],["P","Papa","👨"],["Q","Queso","🧀"],["R","Rosa","🌹"],["S","Sol","☀️"],["T","Taza","☕"],["V","Vaca","🐄"],["W","Waterpolo","🤽"],["X","Xilofono","🎼"],["Y","Yate","🛥️"],["Z","Zorro","🦊"]];
-document.getElementById("grid-letras").innerHTML=letras.map(a=>`<div class="tarjeta" onclick="hablar('${a[1]}')"><span class="emoji">${a[2]}</span><p><b>${a[0]}</b> - ${a[1]}</p>🔊</div>`).join("");
-
-const grupos=[["ae","aereo","✈️"],["ao","caos","🌪️"],["ea","teatro","🎭"],["eo","leon","🦁"],["oa","boa","🐍"],["oe","poeta","✍️"],["ai","aire","💨"],["au","aula","🏫"],["ei","peine","🪮"],["eu","Europa","🌍"],["ia","piano","🎹"],["ie","cielo","☁️"],["io","avion","✈️"],["iu","ciudad","🏙️"],["ua","agua","💧"],["ue","huevo","🥚"],["ui","ruido","🔊"],["uo","antiguo","🏛️"],["ay","playa","🏖️"],["ey","rey","👑"],["oy","hoy","📅"]];
-document.getElementById("grid-grupos").innerHTML=grupos.map(a=>`<div class="tarjeta" onclick="hablar('${a[1]}')"><span class="emoji">${a[2]}</span><p><b>${a[0]}</b> - ${a[1]}</p>🔊</div>`).join("");
-
-const directasData=[
-["B",["ba","barco","🚢"],["be","bebe","👶"],["bi","bici","🚲"],["bo","bola","⚽"],["bu","burro","🫏"]],
-["C",["ca","casa","🏠"],["ce","cena","🍝"],["ci","cine","🎬"],["co","cola","🥤"],["cu","cuna","🍼"],["que","queso","🧀"],["qui","quitar","🗑️"]],
-["D",["da","dado","🎲"],["de","dedo","☝️"],["di","dia","☀️"],["do","domingo","📅"],["du","duende","🧝"]],
-["F",["fa","foca","🦭"],["fe","feo","🤪"],["fi","fiesta","🎉"],["fo","foco","💡"],["fu","fuego","🔥"]],
-["G",["ga","gato","🐱"],["ge","genio","🧞"],["gi","gigante","👹"],["go","gorro","🧢"],["gu","guante","🧤"],["gue","guerra","⚔️"],["gui","guitarra","🎸"]],
-["L",["la","luna","🌙"],["le","leche","🥛"],["li","lima","🍋"],["lo","lobo","🐺"],["lu","lupa","🔍"]],
-["M",["ma","mama","👩"],["me","mesa","🪑"],["mi","mimo","🤗"],["mo","moto","🏍️"],["mu","mula","🐴"]]
-];
-let htmlD="";directasData.forEach(r=>{htmlD+=`<div class="barra sub" style="background:#e0e7ff">Con ${r[0]} - ${r.slice(1).map(x=>x[0]).join(" ")}</div><div class="grid">`;r.slice(1).forEach(x=>{htmlD+=`<div class="tarjeta" onclick="hablar('${x[1]}')"><span class="emoji">${x[2]}</span><p><b>${x[0]}</b> - ${x[1]}</p>🔊</div>`});htmlD+=`</div>`});
-document.getElementById("grid-directas").innerHTML=htmlD;
-
-const invData=[
-["AL EL IL OL UL",["al","alto","⛰️"],["el","papel","📄"],["il","mil","💰"],["ol","soldado","🪖"],["ul","ultimo","🏁"]],
-["AS ES IS OS US",["as","asno","🫏"],["es","estrella","⭐"],["is","isla","🏝️"],["os","oscuro","🌑"],["us","usted","🧑"]],
-["AN EN IN ON UN",["an","ancla","⚓"],["en","antena","📡"],["in","invierno","❄️"],["on","rotula","🦵"],["un","ayuntamiento","🏛️"]],
-["AR ER IR OR UR",["ar","arbol","🌳"],["er","tuerca","🔩"],["ir","irse","🚶"],["or","orca","🐋"],["ur","urgencia","🚑"]],
-["AM EM IM OM UM",["am","ambos","👫"],["em","empezar","🏁"],["im","imperio","👑"],["om","ombligo","🫃"],["um","rumbo","🧭"]],
-["AC EC IC OC UC",["ac","accion","🎬"],["ec","leccion","📚"],["ic","ficcion","👽"],["oc","octubre","🍂"],["uc","conducir","🚗"]],
-["AZ EZ IZ OZ UZ",["az","azteca","🛕"],["ez","lezna","🪡"],["iz","dizque","💬"],["oz","gozne","🚪"],["uz","juzgar","⚖️"]],
-["AD ED ID OD UD",["ad","admirar","😍"],["ed","edad","🎂"],["id","idear","💡"],["od","odio","💔"],["ud","sudar","💦"]],
-["AB EB IB OB UB",["ab","abdomen","🫃"],["eb","hebreo","📖"],["ib","iberico","🍖"],["ob","objeto","📦"],["ub","subterraneo","🚇"]],
-["AX EX IX OX UX",["ax","axila","💪"],["ex","extrano","👾"],["ix","mixto","🔀"],["ox","oxido","🔧"],["ux","flux","🌊"]]
-];
-let htmlI="";invData.forEach(r=>{htmlI+=`<div class="barra sub" style="background:#fef9c3">${r[0]}</div><div class="grid">`;r.slice(1).forEach(x=>{htmlI+=`<div class="tarjeta" onclick="hablar('${x[1]}')"><span class="emoji">${x[2]}</span><p><b>${x[0]}</b> - ${x[1]}</p>🔊</div>`});htmlI+=`</div>`});
-document.getElementById("grid-inversas").innerHTML=htmlI;
-
-// 5. PALABRAS - 100 PALABRAS
-const palabrasPorTipo=[
-{t:"A) 25 MONOSILABAS - 1 silaba",c:"#fef9c3",l:[["sol","sol","☀️"],["pan","pan","🍞"],["luz","luz","💡"],["mar","mar","🌊"],["tren","tren","🚆"],["flor","flor","🌸"],["pez","pez","🐟"],["pie","pie","🦶"],["sal","sal","🧂"],["rey","rey","👑"],["voz","voz","🗣️"],["miel","miel","🍯"],["cruz","cruz","✝️"],["dos","dos","2️⃣"],["gol","gol","⚽"],["club","club","🏟️"],["flan","flan","🍮"],["gris","gris","⬜"],["tres","tres","3️⃣"],["seis","seis","6️⃣"],["diez","diez","🔟"],["bloc","bloc","📒"],["chef","chef","👨‍🍳"],["gas","gas","⛽"],["bus","bus","🚌"]]},
-{t:"B) 25 BISILABAS - 2 silabas",c:"#dbeafe",l:[["casa","ca-sa","🏠"],["mesa","me-sa","🪑"],["luna","lu-na","🌙"],["perro","pe-rro","🐶"],["gato","ga-to","🐱"],["papa","pa-pa","🥔"],["mama","ma-ma","👩"],["taza","ta-za","☕"],["sopa","so-pa","🍲"],["lobo","lo-bo","🐺"],["nube","nu-be","☁️"],["nido","ni-do","🪺"],["rosa","ro-sa","🌹"],["cama","ca-ma","🛏️"],["leche","le-che","🥛"],["queso","que-so","🧀"],["libro","li-bro","📚"],["lapiz","la-piz","✏️"],["arbol","ar-bol","🌳"],["nieve","nie-ve","❄️"],["playa","pla-ya","🏖️"],["barco","bar-co","🚢"],["moto","mo-to","🏍️"],["silla","si-lla","🪑"],["carro","ca-rro","🚗"]]},
-{t:"C) 25 TRISILABAS - 3 silabas",c:"#dcfce7",l:[["pelota","pe-lo-ta","⚽"],["manzana","man-za-na","🍎"],["tomate","to-ma-te","🍅"],["paloma","pa-lo-ma","🕊️"],["camisa","ca-mi-sa","👕"],["ventana","ven-ta-na","🪟"],["caballo","ca-ba-llo","🐴"],["cuchara","cu-cha-ra","🥄"],["familia","fa-mi-lia","👨‍👩‍👧‍👦"],["cometa","co-me-ta","🪁"],["estrella","es-tre-lla","⭐"],["jirafa","ji-ra-fa","🦒"],["helado","he-la-do","🍦"],["cascada","cas-ca-da","🌊"],["pintura","pin-tu-ra","🎨"],["guitarra","gui-ta-rra","🎸"],["mochila","mo-chi-la","🎒"],["tortuga","tor-tu-ga","🐢"],["pescado","pes-ca-do","🐟"],["medico","me-di-co","👨‍⚕️"],["pajaro","pa-ja-ro","🐦"],["circulo","cir-cu-lo","⭕"],["platano","pla-ta-no","🍌"],["naranja","na-ran-ja","🍊"],["zapato","za-pa-to","👟"]]},
-{t:"D) 25 POLISILABAS - 4 o mas silabas",c:"#fce7f3",l:[["mariposa","ma-ri-po-sa","🦋"],["bicicleta","bi-ci-cle-ta","🚲"],["elefante","e-le-fan-te","🐘"],["chocolate","cho-co-la-te","🍫"],["caramelo","ca-ra-me-lo","🍬"],["murcielago","mur-cie-la-go","🦇"],["hipopotamo","hi-po-po-ta-mo","🦛"],["cocodrilo","co-co-dri-lo","🐊"],["universidad","u-ni-ver-si-dad","🎓"],["supermercado","su-per-mer-ca-do","🛒"],["semaforo","se-ma-fo-ro","🚦"],["computadora","com-pu-ta-do-ra","💻"],["helicoptero","he-li-cop-te-ro","🚁"],["ambulancia","am-bu-lan-cia","🚑"],["telescopio","te-les-co-pio","🔭"],["microscopio","mi-cros-co-pio","🔬"],["escalera","es-ca-le-ra","🪜"],["calabaza","ca-la-ba-za","🎃"],["zanahoria","za-na-ho-ria","🥕"],["oruga","o-ru-ga","🐛"],["carniceria","car-ni-ce-ri-a","🥩"],["panaderia","pa-na-de-ri-a","🥖"],["ferrocarril","fe-rro-ca-rril","🚃"],["paraguas","pa-ra-guas","☂️"],["biblioteca","bi-blio-te-ca","📚"]]}
-];
-let htmlP="";
-palabrasPorTipo.forEach(b=>{
- htmlP+=`<div class="barra sub" style="background:${b.c}">${b.t}</div><div class="grid">`;
- b.l.forEach(x=>{
-   htmlP+=`<div class="tarjeta" onclick="hablar('${x[0]}')"><span class="emoji">${x[2]}</span><p><b>${x[0]}</b></p><p class="sep">${x[1]}</p><span class="num">${x[1].split("-").length} silaba${x[1].split("-").length>1?"s":""}</span>🔊</div>`;
- });
- htmlP+=`</div>`;
-});
-document.getElementById("grid-palabras").innerHTML=htmlP;
-
-document.getElementById("grid-oraciones").innerHTML=[
-["Mama ama la casa","ma-ma a-ma la ca-sa","👩🏠"],["El sol brilla mucho","el sol bri-lla mu-cho","☀️✨"],["Mi perro corre rapido","mi pe-rro co-rre ra-pi-do","🐶💨"]
-].map(a=>`<div class="tarjeta" style="min-height:120px" onclick="hablar('${a[0]}')"><span class="emoji">${a[2]}</span><p><b>${a[0]}</b></p><p class="sep">${a[1]}</p>🔊</div>`).join("");
+function hablar(texto){
+  try{ speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(texto); u.lang='es-ES'; u.rate=0.85; speechSynthesis.speak(u);}catch(e){}
+}
 </script>
 </body>
 </html>
