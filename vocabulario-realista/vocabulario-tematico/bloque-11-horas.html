@@ -9,13 +9,14 @@
 body{font-family:Arial,sans-serif;margin:0;background:#eef2ff;color:#333}
 header{background:#fff;padding:15px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 5px rgba(0,0,0,.1)}
 header h1{color:#1a3a8f;margin:0;font-size:22px}
-.wrap{max-width:1000px;margin:auto;padding:12px}
+.wrap{max-width:1100px;margin:auto;padding:12px}
 .card{background:#fff;border-radius:15px;padding:18px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
 h2{color:#1a3a8f;margin:0 0 10px;font-size:19px}
+h3{color:#123a6b;background:#eef4ff;padding:8px 12px;border-radius:8px}
 .pregunta{text-align:center;font-size:21px;font-weight:bold;color:#123a6b;margin:12px 0}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:600px){.grid{grid-template-columns:1fr}}
-.opcion{background:#eef4ff;border:3px solid #dbe4ff;border-radius:15px;padding:12px;text-align:center;cursor:pointer;position:relative}
+.opcion{background:#eef4ff;border:3px solid #dbe4ff;border-radius:15px;padding:12px;text-align:center;cursor:pointer}
 .opcion:hover{border-color:#1a3a8f}
 .opcion.correcta{border-color:#2e7d32;background:#e8f5e9}
 .opcion.fallo{border-color:#d32f2f;background:#ffebee}
@@ -25,95 +26,80 @@ button.btn{background:#123a6b;color:#fff;border:none;padding:12px 22px;border-ra
 button.audioBtn{background:#ffcc00;color:#123a6b;border:none;padding:8px 16px;border-radius:20px;font-size:16px;font-weight:bold;cursor:pointer;margin:6px}
 .centro{text-align:center;margin-top:12px}
 .puntos{font-size:18px;font-weight:bold;color:#e6a700}
-.lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
-.item{background:#f7f9ff;border-radius:12px;padding:10px;text-align:center}
+.lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:10px}
+.item{background:#f7f9ff;border-radius:12px;padding:10px;text-align:center;cursor:pointer}
 .item b{color:#1a3a8f}
+.item:hover{transform:scale(1.03)}
 </style>
 </head>
 <body>
 <header><h1>📚 VOCABULARIO REALISTA - 11. HORAS 24H - 00:00 a 00:00 día siguiente</h1></header>
 <div class="wrap">
 
+<!-- VOCABULARIO COMPLETO RECUPERADO -->
 <div class="card">
-<h2>🕐 Las horas - Mira y escucha</h2>
+<h2>🕐 Las horas - Mira, escucha y repite</h2>
 <p style="text-align:center">Pulsa en cada reloj para escuchar la hora.</p>
-<div class="lista" id="listaVocab"></div>
+
+<h3>🕛 Las horas en punto - 00:00 a 23:00</h3>
+<div class="lista" id="listaEnPunto"></div>
+
+<h3>🕐 Y cuarto, y media, menos cuarto</h3>
+<div class="lista" id="listaCuartos"></div>
+
+<h3>🕐 Y 5, y 10, y 20, menos 20, menos 10, menos 5</h3>
+<div class="lista" id="listaMinutos"></div>
+
+<h3>🌙 De noche - De día - Mediodía - Medianoche</h3>
+<div class="lista" id="listaDiaNoche"></div>
 </div>
 
-<!-- JUEGO 1 ARREGLADO -->
+<!-- JUEGO 1 -->
 <div class="card">
 <h2>🎮 JUEGO 1: Escucha la HORA y elige el DIGITAL 24H</h2>
 <div class="pregunta" id="pregunta1">¿Dónde está...?</div>
-<div class="centro">
-<button class="audioBtn" onclick="repetirAudio1()">🔊 Escuchar de nuevo</button>
-</div>
+<div class="centro"><button class="audioBtn" onclick="repetirAudio1()">🔊 Escuchar de nuevo</button></div>
 <div class="grid" id="juego1"></div>
-<div class="centro">
-<button class="btn" onclick="siguienteJuego1()">Siguiente ▶</button>
-<span class="puntos" id="puntos1">⭐ 0</span>
-</div>
-<p style="text-align:center;color:#666;font-size:14px">Pulsa en un reloj para escuchar su hora. Pulsa en la etiqueta 07:30 para elegirla.</p>
+<div class="centro"><button class="btn" onclick="siguienteJuego1()">Siguiente ▶</button> <span class="puntos" id="puntos1">⭐ 0</span></div>
+<p style="text-align:center;color:#666;font-size:14px">Pulsa el reloj para oír su hora. Pulsa la etiqueta 08:40 para elegir.</p>
 </div>
 
 <!-- JUEGO 2 -->
 <div class="card">
 <h2>🎮 JUEGO 2: Mira el RELOJ y elige la HORA escrita</h2>
 <div class="pregunta" id="pregunta2">¿Qué hora es?</div>
-<div class="centro">
-<button class="audioBtn" onclick="repetirAudio2()">🔊 Escuchar pregunta</button>
-</div>
+<div class="centro"><button class="audioBtn" onclick="repetirAudio2()">🔊 Escuchar pregunta</button></div>
 <div class="centro" id="relojJuego2" style="margin-bottom:12px"></div>
 <div class="grid" id="juego2"></div>
-<div class="centro">
-<button class="btn" onclick="siguienteJuego2()">Siguiente ▶</button>
-<span class="puntos" id="puntos2">⭐ 0</span>
-</div>
+<div class="centro"><button class="btn" onclick="siguienteJuego2()">Siguiente ▶</button> <span class="puntos" id="puntos2">⭐ 0</span></div>
 </div>
 
 </div>
 <script>
-function hablar(t){
-  try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}catch(e){}
-}
+function hablar(t){ try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}catch(e){} }
 
-// --- RELOJ NUEVO, MISMO PARA JUEGO 1, JUEGO 2 Y VOCABULARIO ---
+// RELOJ ARREGLADO - MISMO PARA TODO
 function crearReloj(h,m,tamano){
-  tamano = tamano || 150;
-  var svg = '<svg width="'+tamano+'" height="'+tamano+'" viewBox="0 0 150 150">';
-  svg += '<circle cx="75" cy="75" r="70" fill="#fff" stroke="#0097d6" stroke-width="3"/>';
+  tamano=tamano||150;
+  var svg='<svg width="'+tamano+'" height="'+tamano+'" viewBox="0 0 150 150">';
+  svg+='<circle cx="75" cy="75" r="70" fill="#fff" stroke="#0097d6" stroke-width="3"/>';
   for(var i=0;i<60;i++){
     var ang=i*6*Math.PI/180;
     var x1=75+Math.sin(ang)*64, y1=75-Math.cos(ang)*64;
     var x2=75+Math.sin(ang)*(i%5==0?58:61), y2=75-Math.cos(ang)*(i%5==0?58:61);
     svg+='<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+(i%5==0?'#1a3a8f':'#aaa')+'" stroke-width="'+(i%5==0?2:1)+'"/>';
   }
-  // 1-12 azul fuera
-  for(var n=1;n<=12;n++){
-    var a=n*30*Math.PI/180;
-    var x=75+Math.sin(a)*52, y=75-Math.cos(a)*52+4;
-    svg+='<text x="'+x+'" y="'+y+'" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a8f">'+n+'</text>';
-  }
-  // 13-24 rojo dentro, pequeño y separado
-  for(var n2=13;n2<=24;n2++){
-    var a2=(n2-12)*30*Math.PI/180;
-    var x2=75+Math.sin(a2)*36, y2=75-Math.cos(a2)*36+3;
-    svg+='<text x="'+x2+'" y="'+y2+'" text-anchor="middle" font-size="9" font-weight="bold" fill="#d32f2f">'+n2+'</text>';
-  }
-  // MANECILLAS GORDAS, POR ENCIMA, CON BORDE BLANCO
-  var hora12 = h % 12;
-  var angH = ((hora12 + m/60)*30)*Math.PI/180;
-  var angM = (m*6)*Math.PI/180;
-  var hx = 75+Math.sin(angH)*28, hy = 75-Math.cos(angH)*28;
-  var mx = 75+Math.sin(angM)*45, my = 75-Math.cos(angM)*45;
+  for(var n=1;n<=12;n++){ var a=n*30*Math.PI/180; var x=75+Math.sin(a)*52, y=75-Math.cos(a)*52+4; svg+='<text x="'+x+'" y="'+y+'" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a8f">'+n+'</text>'; }
+  for(var n2=13;n2<=24;n2++){ var a2=(n2-12)*30*Math.PI/180; var x2=75+Math.sin(a2)*36, y2=75-Math.cos(a2)*36+3; svg+='<text x="'+x2+'" y="'+y2+'" text-anchor="middle" font-size="9" font-weight="bold" fill="#d32f2f">'+n2+'</text>'; }
+  var hora12=h%12; var angH=((hora12+m/60)*30)*Math.PI/180; var angM=(m*6)*Math.PI/180;
+  var hx=75+Math.sin(angH)*28, hy=75-Math.cos(angH)*28; var mx=75+Math.sin(angM)*45, my=75-Math.cos(angM)*45;
   svg+='<line x1="75" y1="75" x2="'+hx+'" y2="'+hy+'" stroke="#fff" stroke-width="9" stroke-linecap="round"/>';
   svg+='<line x1="75" y1="75" x2="'+mx+'" y2="'+my+'" stroke="#fff" stroke-width="7" stroke-linecap="round"/>';
   svg+='<line x1="75" y1="75" x2="'+hx+'" y2="'+hy+'" stroke="#111" stroke-width="6" stroke-linecap="round"/>';
   svg+='<line x1="75" y1="75" x2="'+mx+'" y2="'+my+'" stroke="#0277bd" stroke-width="4" stroke-linecap="round"/>';
   svg+='<circle cx="75" cy="75" r="5" fill="#d32f2f" stroke="#fff" stroke-width="1.5"/>';
-  svg+='</svg>';
-  return svg;
+  svg+='</svg>'; return svg;
 }
-
 function horaEnLetras(h,m){
   var horas=["las doce de la noche","la una","las dos","las tres","las cuatro","las cinco","las seis","las siete","las ocho","las nueve","las diez","las once","las doce del mediodía","la una","las dos","las tres","las cuatro","las cinco","las seis","las siete","las ocho","las nueve","las diez","las once"];
   var base=horas[h];
@@ -125,39 +111,36 @@ function horaEnLetras(h,m){
   return base+" menos "+(60-m);
 }
 function fmt(h,m){ return String(h).padStart(2,'0')+":"+String(m).padStart(2,'0'); }
+function pintar(lista, array){
+  var el=document.getElementById(lista);
+  array.forEach(function(v){
+    var d=document.createElement('div'); d.className='item';
+    d.innerHTML=crearReloj(v[0],v[1],120)+'<br><b>'+fmt(v[0],v[1])+'</b><br>'+horaEnLetras(v[0],v[1])+' 🔊';
+    d.onclick=function(){ hablar(horaEnLetras(v[0],v[1])); };
+    el.appendChild(d);
+  });
+}
+// --- TODOS LOS RELOJES ANTERIORES RECUPERADOS ---
+var enPunto=[]; for(var h=0;h<24;h++){ enPunto.push([h,0]); }
+pintar('listaEnPunto', enPunto);
+pintar('listaCuartos', [[8,15],[9,30],[9,45],[10,15],[12,30],[13,15],[17,30],[18,45],[20,15],[21,30],[22,45],[7,15]]);
+pintar('listaMinutos', [[8,5],[8,10],[8,20],[8,25],[8,35],[8,40],[8,50],[8,55],[9,5],[10,10],[11,20],[19,25]]);
+pintar('listaDiaNoche', [[0,0],[6,0],[12,0],[14,0],[21,0],[23,0]]);
 
-// Vocabulario
-var vocab=[[0,0],[7,0],[9,30],[12,0],[14,20],[19,25],[21,45],[23,15]];
-var lv=document.getElementById('listaVocab');
-vocab.forEach(function(v){
-  var d=document.createElement('div'); d.className='item';
-  d.innerHTML='<div onclick="hablar(\''+horaEnLetras(v[0],v[1])+'\')">'+crearReloj(v[0],v[1],120)+'<br><b>'+fmt(v[0],v[1])+'</b><br>'+horaEnLetras(v[0],v[1])+' 🔊</div>';
-  lv.appendChild(d);
-});
-
-// --- JUEGO 1 - ARREGLADO + AUDIO ---
+// JUEGO 1
 var puntos1=0, resp1="", textoPregunta1="";
-var opciones1=[[19,25],[14,20],[0,30],[2,0],[9,15],[22,45],[6,10],[18,0],[8,40],[7,30],[20,55],[9,20]];
+var opciones1=[[19,25],[14,20],[0,30],[2,0],[9,15],[22,45],[6,10],[18,0],[8,40],[7,30],[20,55],[9,20],[12,0],[15,45],[23,15],[5,5]];
 function siguienteJuego1(){
   var shuffled=[...opciones1].sort(()=>Math.random()-.5).slice(0,4);
-  var correcta=shuffled[0];
-  resp1=fmt(correcta[0],correcta[1]);
-  textoPregunta1=horaEnLetras(correcta[0],correcta[1]);
+  var correcta=shuffled[0]; resp1=fmt(correcta[0],correcta[1]); textoPregunta1=horaEnLetras(correcta[0],correcta[1]);
   document.getElementById('pregunta1').textContent='¿Dónde está "'+textoPregunta1.charAt(0).toUpperCase()+textoPregunta1.slice(1)+'"? - '+resp1;
-  // AUDIO automático al cambiar de pregunta
-  setTimeout(function(){ hablar(textoPregunta1); }, 300);
+  setTimeout(function(){ hablar(textoPregunta1); },300);
   var cont=document.getElementById('juego1'); cont.innerHTML="";
   shuffled.forEach(function(o){
     var div=document.createElement('div'); div.className='opcion';
-    // Reloj nuevo + etiqueta. Si pulsa el reloj, suena su hora. Si pulsa la etiqueta, elige.
-    div.innerHTML='<div class="reloj-box" title="Pulsa para escuchar">'+crearReloj(o[0],o[1],150)+'</div><br><span class="etiqueta">'+fmt(o[0],o[1])+' 🔊</span><br><small style="color:#666">Pulsa el reloj para oír</small>';
-    // Audio al pulsar el reloj
+    div.innerHTML='<div class="reloj-box">'+crearReloj(o[0],o[1],150)+'</div><br><span class="etiqueta">'+fmt(o[0],o[1])+' 🔊</span><br><small style="color:#666">Pulsa el reloj para oír</small>';
     div.querySelector('.reloj-box').onclick=function(e){ e.stopPropagation(); hablar(horaEnLetras(o[0],o[1])); };
-    // Elegir al pulsar la tarjeta / etiqueta
-    div.onclick=function(){
-      if(fmt(o[0],o[1])===resp1){ div.classList.add('correcta'); puntos1++; document.getElementById('puntos1').textContent='⭐ '+puntos1; hablar('¡Muy bien! '+textoPregunta1); }
-      else{ div.classList.add('fallo'); hablar('Inténtalo otra vez. Esa es '+horaEnLetras(o[0],o[1])); }
-    };
+    div.onclick=function(){ if(fmt(o[0],o[1])===resp1){ div.classList.add('correcta'); puntos1++; document.getElementById('puntos1').textContent='⭐ '+puntos1; hablar('¡Muy bien! '+textoPregunta1); } else{ div.classList.add('fallo'); hablar('Inténtalo otra vez. Esa es '+horaEnLetras(o[0],o[1])); } };
     cont.appendChild(div);
   });
 }
@@ -166,30 +149,20 @@ function repetirAudio1(){ hablar(textoPregunta1); }
 // JUEGO 2
 var puntos2=0, resp2="";
 function siguienteJuego2(){
-  var h=Math.floor(Math.random()*24);
-  var mins=[0,15,30,45,10,20,25,40,50][Math.floor(Math.random()*9)];
+  var h=Math.floor(Math.random()*24); var mins=[0,15,30,45,10,20,25,40,50][Math.floor(Math.random()*9)];
   resp2=horaEnLetras(h,mins);
   document.getElementById('relojJuego2').innerHTML=crearReloj(h,mins,170)+'<br><span class="etiqueta">'+fmt(h,mins)+'</span>';
   var cont=document.getElementById('juego2'); cont.innerHTML="";
-  var opts=[resp2];
-  while(opts.length<4){
-    var hh=Math.floor(Math.random()*24); var mm=[0,15,30,45,10,20,25,40,50][Math.floor(Math.random()*9)];
-    var t=horaEnLetras(hh,mm);
-    if(!opts.includes(t)) opts.push(t);
-  }
+  var opts=[resp2]; while(opts.length<4){ var hh=Math.floor(Math.random()*24); var mm=[0,15,30,45,10,20,25,40,50][Math.floor(Math.random()*9)]; var t=horaEnLetras(hh,mm); if(!opts.includes(t)) opts.push(t); }
   opts.sort(()=>Math.random()-.5);
   opts.forEach(function(t){
     var div=document.createElement('div'); div.className='opcion'; div.style.fontSize='19px'; div.style.padding='18px'; div.textContent=t.charAt(0).toUpperCase()+t.slice(1);
-    div.onclick=function(){
-      if(t===resp2){ div.classList.add('correcta'); puntos2++; document.getElementById('puntos2').textContent='⭐ '+puntos2; hablar('¡Muy bien! '+t); }
-      else{ div.classList.add('fallo'); hablar('Inténtalo otra vez'); }
-    };
+    div.onclick=function(){ if(t===resp2){ div.classList.add('correcta'); puntos2++; document.getElementById('puntos2').textContent='⭐ '+puntos2; hablar('¡Muy bien! '+t); } else{ div.classList.add('fallo'); hablar('Inténtalo otra vez'); } };
     cont.appendChild(div);
   });
 }
 function repetirAudio2(){ hablar('¿Qué hora es? Mira el reloj'); }
-siguienteJuego1();
-siguienteJuego2();
+siguienteJuego1(); siguienteJuego2();
 </script>
 </body>
 </html>
