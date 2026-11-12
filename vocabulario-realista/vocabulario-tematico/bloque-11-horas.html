@@ -1,84 +1,188 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Caveat:wght@700&display=swap" rel="stylesheet">
-<title>BLOQUE 11 - HORAS 24H ORDENADO</title>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOCABULARIO REALISTA - 11. HORAS 24H</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}body{background:#f6f8fb;padding-bottom:40px}
-.header{background:white;padding:14px 2%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:11}.logo{font-weight:900;font-size:22px;color:#1e3a8a}
-nav{display:none !important;}
-.barra{background:#0ea5e9;color:white;font-weight:900;padding:12px 16px;border-radius:10px;margin:16px 1% 10px;font-size:18px}.barra.sub{font-size:15px;background:#e0f2fe;color:#0c4a6e;margin-top:18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;padding:0 1% 10px}
-.tarjeta{background:white;border-radius:18px;padding:14px 10px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.08);min-height:350px;position:relative;border:1px solid #e2e8f0}
-.reloj-box{display:flex;flex-direction:column;gap:8px;justify-content:center;align-items:center;margin-bottom:8px}
-.reloj-analog{width:160px;height:160px;background:#f0f9ff;border-radius:50%;border:3px solid #0ea5e9}
-.reloj-digital{background:#0c4a6e;color:#ffcc00;font-weight:900;font-size:20px;padding:6px 16px;border-radius:8px;min-width:110px;border:2px solid #ffcc00;letter-spacing:1px}
-.tarjeta b{color:#b02a5c;text-transform:uppercase;font-size:12px;display:block;min-height:30px;line-height:13px;margin-top:4px}
-.sep{font-family:'Dancing Script','Caveat',cursive;font-size:21px;color:#1e3a8a;font-weight:700;line-height:20px;margin-top:2px}
-.def{font-size:11px;color:#fff;background:#0ea5e9;padding:4px 8px;border-radius:8px;margin-top:6px;font-weight:800}
-.audio{position:absolute;top:8px;right:8px;background:#ffcc00;border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:14px;box-shadow:0 2px 4px rgba(0,0,0,.2)}
-.juego{background:white;margin:22px 1%;padding:18px;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.08)}.juego h3{color:#0c4a6e;margin-bottom:12px;font-size:18px}.opciones{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.opcion{border:2px solid #e2e8f0;border-radius:14px;padding:12px;cursor:pointer;background:#f8fafc;text-align:center;font-weight:800}.opcion.correcta{border-color:#22c55e;background:#dcfce7}.opcion.error{border-color:#ef4444;background:#fee2e2}.btn{background:#0c4a6e;color:white;border:none;padding:12px 22px;border-radius:22px;font-weight:800;cursor:pointer;margin-top:14px;font-size:15px}
-</style></head><body>
-<div class="header"><div class="logo">📚 VOCABULARIO REALISTA - 11. HORAS 24H - 00:00 a 00:00 día siguiente</div></div>
-<div class="barra">11. HORAS ORDENADAS - De 00:00 a 23:55 y 00:00 del día siguiente - Cada 5 minutos</div>
-<div class="barra sub">Orden perfecto: 00:00 medianoche inicio → 01:00 → 12:00 mediodía → 13:00 → 23:55 → 00:00 medianoche final</div>
-<div class="grid" id="gridTodo"></div>
-<div class="juego"><h3>🎮 JUEGO 1: Escucha la HORA y elige el DIGITAL 24H</h3><div id="pregunta1" style="font-size:22px;font-weight:900;color:#0c4a6e;text-align:center;margin-bottom:10px"></div><div class="opciones" id="opciones1"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego1()">Siguiente ▶️</button> <span id="puntos1"></span></div></div>
-<div class="juego"><h3>🎮 JUEGO 2: Ves el RELOJ 24H, elige la frase</h3><div id="pregunta2" style="text-align:center"></div><div class="opciones" id="opciones2"></div><div style="text-align:center"><button class="btn" onclick="nuevoJuego2()">Siguiente ▶️</button> <span id="puntos2"></span></div></div>
+*{box-sizing:border-box}
+body{font-family:Arial,sans-serif;margin:0;background:#eef2ff;color:#333}
+header{background:#fff;padding:15px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 5px rgba(0,0,0,.1)}
+header h1{color:#1a3a8f;margin:0;font-size:22px}
+.wrap{max-width:1000px;margin:auto;padding:12px}
+.card{background:#fff;border-radius:15px;padding:18px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+h2{color:#1a3a8f;margin:0 0 10px;font-size:19px}
+.pregunta{text-align:center;font-size:21px;font-weight:bold;color:#123a6b;margin:12px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.opcion{background:#eef4ff;border:3px solid #dbe4ff;border-radius:15px;padding:12px;text-align:center;cursor:pointer;position:relative}
+.opcion:hover{border-color:#1a3a8f}
+.opcion.correcta{border-color:#2e7d32;background:#e8f5e9}
+.opcion.fallo{border-color:#d32f2f;background:#ffebee}
+.reloj-box{display:flex;justify-content:center}
+.etiqueta{display:inline-block;background:#123a6b;color:#ffeb3b;font-weight:bold;padding:5px 12px;border-radius:8px;font-size:17px;margin-top:6px}
+button.btn{background:#123a6b;color:#fff;border:none;padding:12px 22px;border-radius:25px;font-size:17px;font-weight:bold;cursor:pointer}
+.centro{text-align:center;margin-top:12px}
+.puntos{font-size:18px;font-weight:bold;color:#e6a700}
+.lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.item{background:#f7f9ff;border-radius:12px;padding:10px;text-align:center}
+.item b{color:#1a3a8f}
+</style>
+</head>
+<body>
+<header><h1>📚 VOCABULARIO REALISTA - 11. HORAS 24H - 00:00 a 00:00 día siguiente</h1></header>
+<div class="wrap">
+
+<!-- VOCABULARIO -->
+<div class="card">
+<h2>🕐 Las horas - Mira y escucha</h2>
+<p style="text-align:center">Pulsa en cada reloj para escuchar la hora.</p>
+<div class="lista" id="listaVocab"></div>
+</div>
+
+<!-- JUEGO 1 -->
+<div class="card">
+<h2>🎮 JUEGO 1: Escucha la HORA y elige el DIGITAL 24H</h2>
+<div class="pregunta" id="pregunta1">¿Dónde está "Las siete y veinticinco"? - 19:25</div>
+<div class="grid" id="juego1"></div>
+<div class="centro">
+<button class="btn" onclick="siguienteJuego1()">Siguiente ▶</button>
+<span class="puntos" id="puntos1">⭐ 0</span>
+</div>
+</div>
+
+<!-- JUEGO 2 -->
+<div class="card">
+<h2>🎮 JUEGO 2: Mira el RELOJ y elige la HORA escrita</h2>
+<div class="pregunta" id="pregunta2">¿Qué hora es?</div>
+<div class="centro" id="relojJuego2" style="margin-bottom:12px"></div>
+<div class="grid" id="juego2"></div>
+<div class="centro">
+<button class="btn" onclick="siguienteJuego2()">Siguiente ▶</button>
+<span class="puntos" id="puntos2">⭐ 0</span>
+</div>
+</div>
+
+</div>
+
 <script>
-function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang="es-ES";u.rate=0.85;speechSynthesis.speak(u);}
-function drawClock(c,h,m){
- let x=c.getContext('2d'),r=c.width/2;
- x.clearRect(0,0,c.width,c.height);
- x.fillStyle='#fff';x.beginPath();x.arc(r,r,r-2,0,2*Math.PI);x.fill();
- x.strokeStyle='#0ea5e9';x.lineWidth=3;x.stroke();
- x.textAlign='center';x.textBaseline='middle';
- for(let i=1;i<=12;i++){
-  let a=(i*30-90)*Math.PI/180;
-  let xr=r+Math.cos(a)*(r-14);let yr=r+Math.sin(a)*(r-14);
-  x.fillStyle='#0c4a6e';x.font='bold 15px sans-serif';x.fillText(i,xr,yr);
-  let h24 = i===12 ? '00' : String(i+12);
-  let xr2=r+Math.cos(a)*(r-40);let yr2=r+Math.sin(a)*(r-40);
-  x.fillStyle='#e11d48';x.font='bold 12px sans-serif';x.fillText(h24,xr2,yr2);
- }
- let ha=(h%12+m/60)*30-90;let aH=ha*Math.PI/180;
- x.strokeStyle='#0c4a6e';x.lineWidth=5;x.beginPath();x.moveTo(r,r);x.lineTo(r+Math.cos(aH)*(r-54),r+Math.sin(aH)*(r-54));x.stroke();
- let aM=(m*6-90)*Math.PI/180;x.strokeStyle='#ef4444';x.lineWidth=3;x.beginPath();x.moveTo(r,r);x.lineTo(r+Math.cos(aM)*(r-38),r+Math.sin(aM)*(r-38));x.stroke();
- x.fillStyle='#0c4a6e';x.beginPath();x.arc(r,r,5,0,2*Math.PI);x.fill();
+function hablar(t){
+  try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}catch(e){}
 }
-const mapaMin={0:'en punto',5:'y cinco',10:'y diez',15:'y cuarto',20:'y veinte',25:'y veinticinco',30:'y media',35:'menos veinticinco',40:'menos veinte',45:'menos cuarto',50:'menos diez',55:'menos cinco'};
-function textoHora(hSpoken, txtMin){let h12=hSpoken%12;if(h12===0)h12=12;let nombres=['','una','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez','once','doce'];let art=h12===1?'La una':'Las '+nombres[h12];return art+' '+txtMin;}
-function sufijo(h, esFinal){
- if(esFinal) return '00:00 FIN - medianoche día siguiente';
- if(h===0) return 'medianoche 00:00 INICIO';
- if(h===12) return 'mediodía 12:00';
- if(h>=1&&h<=6) return 'madrugada';
- if(h<=11) return 'mañana';
- if(h<=20) return 'tarde';
- return 'noche';
+
+// --- DIBUJAR RELOJ CORRECTO ---
+// h = hora 0-23, m = minutos
+function crearReloj(h,m,tamano){
+  tamano = tamano || 150;
+  var c = 75, r = 68;
+  var svg = '<svg width="'+tamano+'" height="'+tamano+'" viewBox="0 0 150 150">';
+  svg += '<circle cx="75" cy="75" r="70" fill="#fff" stroke="#0097d6" stroke-width="3"/>';
+  // Marcas minutos
+  for(var i=0;i<60;i++){
+    var ang=i*6*Math.PI/180;
+    var x1=75+Math.sin(ang)*64, y1=75-Math.cos(ang)*64;
+    var x2=75+Math.sin(ang)*(i%5==0?58:61), y2=75-Math.cos(ang)*(i%5==0?58:61);
+    svg+='<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+(i%5==0?'#1a3a8f':'#aaa')+'" stroke-width="'+(i%5==0?2:1)+'"/>';
+  }
+  // Números 1-12 AZUL fuera
+  for(var n=1;n<=12;n++){
+    var a=n*30*Math.PI/180;
+    var x=75+Math.sin(a)*52, y=75-Math.cos(a)*52+4;
+    svg+='<text x="'+x+'" y="'+y+'" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a8f">'+n+'</text>';
+  }
+  // Números 13-24 ROJO dentro, pequeños y separados
+  for(var n2=13;n2<=24;n2++){
+    var a2=(n2-12)*30*Math.PI/180;
+    var x2=75+Math.sin(a2)*36, y2=75-Math.cos(a2)*36+3;
+    svg+='<text x="'+x2+'" y="'+y2+'" text-anchor="middle" font-size="9" font-weight="bold" fill="#d32f2f">'+n2+'</text>';
+  }
+  // MANECILLAS GRUESAS - siempre por encima de los números
+  var hora12 = h % 12;
+  var angH = ((hora12 + m/60)*30)*Math.PI/180;
+  var angM = (m*6)*Math.PI/180;
+  var hx = 75+Math.sin(angH)*28, hy = 75-Math.cos(angH)*28;
+  var mx = 75+Math.sin(angM)*45, my = 75-Math.cos(angM)*45;
+  // Sombra blanca detrás para que se vean aunque pasen por encima de un número
+  svg+='<line x1="75" y1="75" x2="'+hx+'" y2="'+hy+'" stroke="#fff" stroke-width="9" stroke-linecap="round"/>';
+  svg+='<line x1="75" y1="75" x2="'+mx+'" y2="'+my+'" stroke="#fff" stroke-width="7" stroke-linecap="round"/>';
+  svg+='<line x1="75" y1="75" x2="'+hx+'" y2="'+hy+'" stroke="#111" stroke-width="6" stroke-linecap="round"/>';
+  svg+='<line x1="75" y1="75" x2="'+mx+'" y2="'+my+'" stroke="#0277bd" stroke-width="4" stroke-linecap="round"/>';
+  svg+='<circle cx="75" cy="75" r="5" fill="#d32f2f" stroke="#fff" stroke-width="1.5"/>';
+  svg+='</svg>';
+  return svg;
 }
-const horas=[];
-// Generamos de 00:00 a 24:00 inclusive cada 5 minutos = 289 relojes ordenados
-for(let totalMin=0; totalMin<=1440; totalMin+=5){
- let hd = Math.floor(totalMin/60)%24;
- let md = totalMin%60;
- if(totalMin===1440){ hd=0; md=0; } // último es 00:00 del día siguiente
- let txtMin = mapaMin[md];
- let hSpoken = md<=30 ? (totalMin===1440?0:hd) : (hd+1)%24;
- if(totalMin===1440) hSpoken=0;
- let txt=textoHora(hSpoken,txtMin);
- if(totalMin===0) txt='Las doce en punto - medianoche INICIO';
- if(totalMin===720) txt='Las doce en punto - mediodía';
- if(totalMin===1440) txt='Las doce en punto - medianoche FIN - día siguiente';
- let esFinal = totalMin===1440;
- let digital = esFinal ? '00:00' : String(hd).padStart(2,'0')+':'+String(md).padStart(2,'0');
- let detalle = sufijo(hd, esFinal);
- let h12Vis = hd%12||12;
- let digitalLabel = esFinal ? '00:00 (24:00)' : digital;
- horas.push({totalMin, hd, md, h12:h12Vis, mReal:md, texto:txt, digital: digitalLabel, detalle, esFinal});
+
+function horaEnLetras(h,m){
+  var horas=["las doce de la noche","la una","las dos","las tres","las cuatro","las cinco","las seis","las siete","las ocho","las nueve","las diez","las once","las doce del mediodía","la una","las dos","las tres","las cuatro","las cinco","las seis","las siete","las ocho","las nueve","las diez","las once"];
+  var hh=h;
+  var base=horas[hh];
+  if(m==0) return base+" en punto";
+  if(m==15) return base+" y cuarto";
+  if(m==30) return base+" y media";
+  if(m==45) return base+" menos cuarto";
+  if(m<30) return base+" y "+m;
+  return base+" menos "+(60-m);
 }
-function crear(){const g=document.getElementById('gridTodo');horas.forEach((o,i)=>{let d=document.createElement('div');d.className='tarjeta';let cId='c'+i;d.innerHTML=`<button class="audio" onclick="hablar('${o.texto}')">🔊</button><div class="reloj-box"><canvas id="${cId}" width="160" height="160" class="reloj-analog"></canvas><div class="reloj-digital">${o.digital}</div></div><b>${o.texto.toUpperCase()}</b><div class="sep">${o.texto}</div><div class="def">${o.digital} - ${o.detalle}</div>`;g.appendChild(d);setTimeout(()=>{let cv=document.getElementById(cId);if(cv)drawClock(cv,o.h12,o.md);},5);});}
-crear();
-let p1=0,c1=null;function nuevoJuego1(){document.getElementById('opciones1').innerHTML='';let e=horas[Math.floor(Math.random()*horas.length)];c1=e;document.getElementById('pregunta1').innerText=`¿Dónde está "${e.texto}"? - ${e.digital}`;hablar(e.texto);let ops=[e];while(ops.length<4){let r=horas[Math.floor(Math.random()*horas.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>0.5-Math.random()).forEach(o=>{let div=document.createElement('div');div.className='opcion';let cvId='j1'+Math.random().toString(36).slice(2);div.innerHTML=`<canvas id="${cvId}" width="120" height="120" style="border-radius:50%"></canvas><div style="margin-top:6px;background:#0c4a6e;color:#ffcc00;border-radius:8px;padding:4px 10px;display:inline-block;font-size:16px">${o.digital}</div>`;div.onclick=()=>{if(o===c1){div.classList.add('correcta');p1++;}else{div.classList.add('error');}document.getElementById('puntos1').innerText='⭐ '+p1;};document.getElementById('opciones1').appendChild(div);setTimeout(()=>{let cv=document.getElementById(cvId);if(cv)drawClock(cv,o.h12,o.md);},20);});}
-let p2=0,c2=null;function nuevoJuego2(){document.getElementById('opciones2').innerHTML='';let e=horas[Math.floor(Math.random()*horas.length)];c2=e;document.getElementById('pregunta2').innerHTML=`<div style="display:flex;justify-content:center;gap:16px;align-items:center"><canvas id="preg2" width="140" height="140" style="border-radius:50%;border:3px solid #0ea5e9"></canvas><div style="font-size:30px;font-weight:900;background:#0c4a6e;color:#ffcc00;padding:10px 18px;border-radius:12px">${e.digital}</div></div>`;setTimeout(()=>{drawClock(document.getElementById('preg2'),e.h12,e.md);},20);let ops=[e];while(ops.length<4){let r=horas[Math.floor(Math.random()*horas.length)];if(!ops.includes(r))ops.push(r);}ops.sort(()=>0.5-Math.random()).forEach(o=>{let div=document.createElement('div');div.className='opcion';div.innerHTML=`<div style="font-family:'Dancing Script',cursive;font-size:20px">${o.texto}</div><div style="font-size:13px">${o.digital}</div>`;div.onclick=()=>{if(o===c2){div.classList.add('correcta');p2++;}else{div.classList.add('error');}document.getElementById('puntos2').innerText='⭐ '+p2;};document.getElementById('opciones2').appendChild(div);});}
-nuevoJuego1();nuevoJuego2();
-</script></body></html>
+function fmt(h,m){ return String(h).padStart(2,'0')+":"+String(m).padStart(2,'0'); }
+
+// Vocabulario ejemplo
+var vocab=[[0,0],[7,0],[9,30],[12,0],[14,20],[19,25],[21,45],[23,15]];
+var lv=document.getElementById('listaVocab');
+vocab.forEach(function(v){
+  var d=document.createElement('div'); d.className='item';
+  d.innerHTML='<div onclick="hablar(\''+horaEnLetras(v[0],v[1])+'\')">'+crearReloj(v[0],v[1],120)+'<br><b>'+fmt(v[0],v[1])+'</b><br>'+horaEnLetras(v[0],v[1])+' 🔊</div>';
+  lv.appendChild(d);
+});
+
+// JUEGO 1
+var puntos1=0, resp1="";
+var opciones1=[[19,25],[14,20],[0,30],[2,0],[9,15],[22,45],[6,10],[18,0]];
+function siguienteJuego1(){
+  var shuffled=[...opciones1].sort(()=>Math.random()-.5).slice(0,4);
+  var correcta=shuffled[0];
+  resp1=fmt(correcta[0],correcta[1]);
+  var txt=horaEnLetras(correcta[0],correcta[1]);
+  document.getElementById('pregunta1').textContent='¿Dónde está "'+txt.charAt(0).toUpperCase()+txt.slice(1)+'"? - '+resp1;
+  hablar(txt);
+  var cont=document.getElementById('juego1'); cont.innerHTML="";
+  shuffled.forEach(function(o){
+    var div=document.createElement('div'); div.className='opcion';
+    div.innerHTML='<div class="reloj-box">'+crearReloj(o[0],o[1],140)+'</div><br><span class="etiqueta">'+fmt(o[0],o[1])+'</span>';
+    div.onclick=function(){
+      if(fmt(o[0],o[1])===resp1){ div.classList.add('correcta'); puntos1++; document.getElementById('puntos1').textContent='⭐ '+puntos1; hablar('¡Muy bien! '+txt); }
+      else{ div.classList.add('fallo'); hablar('Inténtalo otra vez'); }
+    };
+    cont.appendChild(div);
+  });
+}
+
+// JUEGO 2
+var puntos2=0, resp2="";
+function siguienteJuego2(){
+  var h=Math.floor(Math.random()*24);
+  var mins=[0,15,30,45,10,20,25,40,50][Math.floor(Math.random()*9)];
+  resp2=horaEnLetras(h,mins);
+  document.getElementById('relojJuego2').innerHTML=crearReloj(h,mins,170)+'<br><span class="etiqueta">'+fmt(h,mins)+'</span>';
+  hablar('¿Qué hora es?');
+  var opts=[resp2];
+  while(opts.length<4){
+    var hh=Math.floor(Math.random()*24); var mm=[0,15,30,45,10,20,25,40,50][Math.floor(Math.random()*9)];
+    var t=horaEnLetras(hh,mm);
+    if(!opts.includes(t)) opts.push(t);
+  }
+  opts.sort(()=>Math.random()-.5);
+  var cont=document.getElementById('juego2'); cont.innerHTML="";
+  opts.forEach(function(t){
+    var div=document.createElement('div'); div.className='opcion'; div.style.fontSize='19px'; div.style.padding='18px'; div.textContent=t.charAt(0).toUpperCase()+t.slice(1);
+    div.onclick=function(){
+      if(t===resp2){ div.classList.add('correcta'); puntos2++; document.getElementById('puntos2').textContent='⭐ '+puntos2; hablar('¡Muy bien! '+t); }
+      else{ div.classList.add('fallo'); hablar('Inténtalo otra vez'); }
+    };
+    cont.appendChild(div);
+  });
+}
+siguienteJuego1();
+siguienteJuego2();
+</script>
+</body>
+</html>
