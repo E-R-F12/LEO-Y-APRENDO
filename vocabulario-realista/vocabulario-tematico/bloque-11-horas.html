@@ -102,13 +102,15 @@ function crearReloj(h,m,tamano){
 }
 function horaEnLetras(h,m){
   var horas=["las doce de la noche","la una","las dos","las tres","las cuatro","las cinco","las seis","las siete","las ocho","las nueve","las diez","las once","las doce del mediodía","la una","las dos","las tres","las cuatro","las cinco","las seis","las siete","las ocho","las nueve","las diez","las once"];
+  // Para el "menos" usamos la hora SIGUIENTE, sin "de la noche / del mediodía" para que suene natural
+  var horasSiguiente=["las doce","la una","las dos","las tres","las cuatro","las cinco","las seis","las siete","las ocho","las nueve","las diez","las once","las doce","la una","las dos","las tres","las cuatro","las cinco","las seis","las siete","las ocho","las nueve","las diez","las once"];
   var base=horas[h];
   if(m==0) return base+" en punto";
   if(m==15) return base+" y cuarto";
   if(m==30) return base+" y media";
-  if(m==45) return base+" menos cuarto";
+  if(m==45) return horasSiguiente[(h+1)%24]+" menos cuarto";
   if(m<30) return base+" y "+m;
-  return base+" menos "+(60-m);
+  return horasSiguiente[(h+1)%24]+" menos "+(60-m);
 }
 function fmt(h,m){ return String(h).padStart(2,'0')+":"+String(m).padStart(2,'0'); }
 function pintar(lista, array){
