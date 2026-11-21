@@ -104,6 +104,7 @@ function pintar(){
     img.src=RAW+encodeURI(p.file);
     img.alt=p.texto;
     const d1=document.createElement('div'); d1.className='palabra'; d1.textContent=p.texto;
+    const df=document.createElement('div'); df.className='frances'; df.textContent=TRAD[p.texto]||''; df.style.color='#2563eb'; df.style.fontWeight='bold'; df.style.marginTop='2px';
     const d2=document.createElement('div'); d2.className='silabas'; d2.innerHTML=`<button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button>`;
     card.appendChild(img); card.appendChild(d1); card.appendChild(d2);
     grid.appendChild(card);
