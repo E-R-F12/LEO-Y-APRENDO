@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloque 1 - Saludos</title>
+<style>
+body{font-family:Arial,sans-serif;background:#e3f2fd;margin:0;padding:10px}
+h1{text-align:center;color:#0d47a1}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;max-width:1100px;margin:15px auto}
+.card{background:#fff;border-radius:12px;padding:8px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.15);min-height:160px}
+.card img{width:100%;height:110px;object-fit:contain;border-radius:8px;background:#f5f5f5;display:block}
+.card p{margin:6px 0 4px;font-weight:bold;text-transform:uppercase;font-size:13px}
+.card button{background:#1565c0;color:#fff;border:none;border-radius:20px;padding:5px 14px;cursor:pointer}
+.seccion{max-width:1100px;margin:30px auto;background:#fff;border-radius:16px;padding:18px;box-shadow:0 3px 10px rgba(0,0,0,.1)}
+.btn-juego{background:#0d47a1;color:#fff;border:none;padding:10px 18px;border-radius:8px;margin:5px;cursor:pointer}
+.opcion{display:inline-block;margin:6px;padding:8px 12px;background:#e3f2fd;border-radius:8px;cursor:pointer;border:2px solid transparent}
+.opcion.correcta{border-color:#2e7d32;background:#c8e6c9}
+.opcion.incorrecta{border-color:#c62828;background:#ffcdd2}
+</style>
+</head>
+<body>
+<h1>👋 BLOQUE 1 - SALUDOS</h1>
+<div class="grid" id="grid"></div>
+
+<div class="seccion">
+<h2>🎧 Juego 1: Escucha y elige</h2>
+<div id="j1" style="text-align:center"></div>
+<button class="btn-juego" onclick="juegoEscucha()">▶️ Nuevo audio</button>
+</div>
+
+<div class="seccion">
+<h2>🧠 Juego 2: ¿Qué saludo es?</h2>
+<div id="j2" style="text-align:center"></div>
+<button class="btn-juego" onclick="juegoTest()">Siguiente ➡️</button>
+</div>
+
+<script>
+const palabras=[
+{id:'hola',nombre:'hola', alts:['hola']},
+{id:'adios',nombre:'adiós', alts:['adios','adiós']},
+{id:'buenos-dias',nombre:'buenos días', alts:['buenos-dias','buenos dias','buenos_dias','buenos días','buenos_días']},
+{id:'buenas-tardes',nombre:'buenas tardes', alts:['buenas-tardes','buenas tardes','buenas_tardes']},
+{id:'buenas-noches',nombre:'buenas noches', alts:['buenas-noches','buenas noches']},
+{id:'por-favor',nombre:'por favor', alts:['por-favor','por favor','por_favor']},
+{id:'gracias',nombre:'gracias', alts:['gracias']},
+{id:'de-nada',nombre:'de nada', alts:['de-nada','de nada']},
+{id:'perdon',nombre:'perdón', alts:['perdon','perdón']},
+{id:'lo-siento',nombre:'lo siento', alts:['lo-siento','lo siento']},
+{id:'como-estas',nombre:'¿cómo estás?', alts:['como-estas','como estas','cómo estás','como_estás','como estas']},
+{id:'muy-bien',nombre:'muy bien', alts:['muy-bien','muy bien']},
+{id:'hasta-luego',nombre:'hasta luego', alts:['hasta-luego','hasta luego']},
+{id:'hasta-manana',nombre:'hasta mañana', alts:['hasta-manana','hasta mañana','hasta-mañana']},
+{id:'bienvenido',nombre:'bienvenido', alts:['bienvenido']},
+{id:'encantado',nombre:'encantado', alts:['encantado']}
+];
+
+function hablar(t){const u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
+
+function crearImg(p, width='100%'){
+  const alt0 = p.alts[0];
+  // Genera lista de intentos: jpg, png, jpeg, webp con todos los alts
+  let intentos = [];
+  p.alts.forEach(a=>{
+    intentos.push(`../imagenes/bloque-1-saludos/${a}.jpg`);
+    intentos.push(`../imagenes/bloque-1-saludos/${a}.png`);
+    intentos.push(`../imagenes/bloque-1-saludos/${a}.jpeg`);
+    intentos.push(`../imagenes/bloque-1-saludos/${a}.webp`);
+  });
+  // Añade variantes con mayúsculas primera letra por si acaso
+  const img = document.createElement('img');
+  img.alt = p.nombre;
+  img.style.width = width;
+  img.style.height = width==='100%' ? '110px' : '60px';
+  img.style.objectFit = 'contain';
+  let idx=0;
+  img.src=intentos[0];
+  img.onerror=()=>{
+    idx++;
+    if(idx<intentos.length){ img.src=intentos[idx]; }
+    else { img.style.display='none'; } // si no hay nada, oculta roto
+  };
+  return img;
+}
+
+const grid=document.getElementById('grid');
+palabras.forEach(p=>{
+  const card=document.createElement('div'); card.className='card';
+  const img=crearImg(p);
+  const pp=document.createElement('p'); pp.textContent=p.nombre;
+  const btn=document.createElement('button'); btn.textContent='🔊'; btn.onclick=()=>hablar(p.nombre);
+  card.appendChild(img); card.appendChild(pp); card.appendChild(btn);
+  grid.appendChild(card);
+});
+
+let actual=null;
+function juegoEscucha(){
+ actual=palabras[Math.floor(Math.random()*palabras.length)];
+ hablar(actual.nombre);
+ const area=document.getElementById('j1'); area.innerHTML='';
+ const titulo=document.createElement('p'); titulo.innerHTML=`<b>¿Qué escuchaste?</b> <button onclick="hablar('${actual.nombre}')">🔊 Repetir</button>`; area.appendChild(titulo);
+ let ops=[...palabras].sort(()=>0.5-Math.random()).slice(0,6);
+ if(!ops.find(x=>x.id===actual.id)){ops[0]=actual;ops.sort(()=>0.5-Math.random())}
+ ops.forEach(o=>{
+   const div=document.createElement('div'); div.className='opcion';
+   const im=crearImg(o,'70px');
+   const sm=document.createElement('small'); sm.textContent=o.nombre; sm.style.display='block';
+   div.appendChild(im); div.appendChild(sm);
+   div.onclick=()=>{ if(o.id===actual.id){div.classList.add('correcta'); hablar('¡Muy bien!'); setTimeout(juegoEscucha,1000)} else{div.classList.add('incorrecta')} };
+   area.appendChild(div);
+ });
+}
+function juegoTest(){
+ const cor=palabras[Math.floor(Math.random()*palabras.length)];
+ const area=document.getElementById('j2'); area.innerHTML='';
+ const p=document.createElement('p'); p.textContent='¿Cómo se dice?'; area.appendChild(p);
+ const im=crearImg(cor,'180px'); im.style.height='120px'; im.style.borderRadius='10px'; area.appendChild(im);
+ area.appendChild(document.createElement('br'));
+ const br=document.createElement('br'); area.appendChild(br);
+ cor.alts.slice(0,1); // dummy
+ let ops=[...palabras].sort(()=>0.5-Math.random()).slice(0,4);
+ if(!ops.find(x=>x.id===cor.id)){ops[0]=cor;ops.sort(()=>0.5-Math.random())}
+ ops.forEach(o=>{
+   const div=document.createElement('div'); div.className='opcion'; div.textContent=o.nombre;
+   div.onclick=()=>{ if(o.id===cor.id){div.classList.add('correcta'); hablar('¡Correcto!')} else{div.classList.add('incorrecta'); hablar(cor.nombre)} };
+   area.appendChild(div);
+ });
+ const b=document.createElement('div'); b.innerHTML=`<br><button class="btn-juego" onclick="hablar('${cor.nombre}')">🔊 Escuchar</button>`; area.appendChild(b);
+}
+juegoEscucha();juegoTest();
+</script>
+</body>
+</html>
