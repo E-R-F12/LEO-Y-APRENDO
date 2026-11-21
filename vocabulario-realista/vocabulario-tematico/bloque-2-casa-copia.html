@@ -49,7 +49,43 @@ function hablar(t){ const u=new SpeechSynthesisUtterance(t); u.lang='es-ES'; u.r
 function limpiar(f){ return f.replace(/\.[^/.]+$/, "").replace(/[-_]/g," ").trim(); }
 
 let palabras=[];
-
+const TRAD={
+'ALFOMBRA':'tapis',
+'ALMOHADA':'oreiller',
+'ARMARIO':'armoire',
+'BAÑO':'salle de bain',
+'CAMA':'lit',
+'CEPILLO DIENES':'brosse à dents',
+'CEPILLO DIENTES':'brosse à dents',
+'COCINA':'cuisine',
+'CORTINA':'rideau',
+'CUCHARA':'cuillère',
+'CUCHILLO':'couteau',
+'DUCHA':'douche',
+'ESCALERA':'escalier',
+'ESPEJO':'miroir',
+'FREGADERO':'évier',
+'FRIGORIFICO':'réfrigérateur',
+'JABON':'savon',
+'LAMPARA':'lampe',
+'LLAVE':'robinet',
+'MANTA':'couverture',
+'MESA':'table',
+'MICROONDAS':'micro-ondes',
+'NEVERA':'frigo',
+'OLLA':'casserole',
+'PLATO':'assiette',
+'PUERTA':'porte',
+'SARTEN':'poêle',
+'SILLA':'chaise',
+'SOFA':'canapé',
+'TAZA':'tasse',
+'TELEVISION':'télévision',
+'TENEDOR':'fourchette',
+'TOALLA':'serviette',
+'VASO':'verre',
+'VENTANA':'fenêtre'
+};
 fetch(API)
 .then(r=>r.json())
 .then(files=>{
