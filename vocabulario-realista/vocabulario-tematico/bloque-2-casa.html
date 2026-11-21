@@ -37,7 +37,6 @@ function hablar(texto, lang){
   u.lang = lang; u.rate = 0.85;
   speechSynthesis.cancel(); speechSynthesis.speak(u);
 }
-// Si un icono falla, pone un emoji de respaldo y nunca queda en blanco
 function respaldo(img, emojiCode){
   img.onerror = null;
   img.src = "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/"+emojiCode+".png";
@@ -71,14 +70,14 @@ const PALABRAS = [
 {es:"GARAJE", fr:"Garage", img:"https://img.icons8.com/color/240/garage.png", icon:true, backup:"1f697"},
 {es:"PASILLO", fr:"Couloir", img:"https://img.icons8.com/color/240/corridor.png", icon:true, backup:"1f6aa"},
 {es:"PUERTA", fr:"Porte", img:"https://img.icons8.com/color/240/door.png", icon:true, backup:"1f6aa"},
-{es:"SILLÓN", fr:"Fauteuil", img:"https://img.icons8.com/color/240/armchair.png", icon:true, backup:"1f6cb-fe0f"},
+{es:"SILLÓN", fr:"Fauteuil", img:"https://img.icons8.com/color/240/armchair.png", icon:true, backup:"1f6cb"},
 {es:"TECHO", fr:"Plafond", img:"https://img.icons8.com/color/240/house.png", icon:true, backup:"1f3e0"},
 {es:"TERRAZA", fr:"Terrasse", img:"https://img.icons8.com/color/240/patio.png", icon:true, backup:"1f33f"},
 {es:"VENTANA", fr:"Fenêtre", img:"https://img.icons8.com/color/240/open-window.png", icon:true, backup:"1fa9f"},
-{es:"COJÍN", fr:"Coussin", img:"https://img.icons8.com/color/240/pillow.png", icon:true, backup:"1f6cf-fe0f"},
-{es:"MANTEL", fr:"Nappe", img:"https://img.icons8.com/color/240/tablecloth.png", icon:true, backup:"1f37d-fe0f"},
+{es:"COJÍN", fr:"Coussin", img:"https://img.icons8.com/color/240/pillow.png", icon:true, backup:"1f6cf"},
+{es:"MANTEL", fr:"Nappe", img:"https://img.icons8.com/color/240/tablecloth.png", icon:true, backup:"1f37d"},
 {es:"TOALLA", fr:"Serviette", img:"https://img.icons8.com/color/240/towel.png", icon:true, backup:"1f9f5"},
-{es:"SÁBANA", fr:"Drap", img:"https://img.icons8.com/color/240/blanket.png", icon:true, backup:"1f6cf-fe0f"},
+{es:"SÁBANA", fr:"Drap", img:"https://img.icons8.com/color/240/bed.png", icon:true, backup:"1f6cf"},
 ];
 
 const grid = document.getElementById('grid');
