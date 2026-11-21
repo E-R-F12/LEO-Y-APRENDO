@@ -11,74 +11,82 @@ a{color:#EA580C;text-decoration:none;font-weight:bold}
 header{text-align:center;padding:20px 10px}
 header h1{font-size:32px;color:#9A3412}
 header p{color:#666;margin-top:6px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;max-width:1000px;margin:20px auto}
-.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.1);text-align:center;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;max-width:1000px;margin:20px auto}
+.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.1);text-align:center}
 .card img{width:100%;height:130px;object-fit:cover;background:#fff;padding:8px}
 .card.icon img{object-fit:contain}
-.card h2{font-size:19px;padding:10px 6px 2px;text-transform:lowercase}
+.card h2{font-size:19px;padding:10px 6px 0;text-transform:lowercase}
 .card h2::first-letter{text-transform:uppercase}
-.card button{background:#EA580C;color:#fff;border:0;padding:8px 14px;border-radius:20px;margin:8px 0 14px;cursor:pointer;font-size:15px}
-.card button:hover{background:#C2410C}
+.card .fr{font-size:15px;color:#0E7490;font-style:italic;margin-top:3px;text-transform:lowercase}
+.card .fr::first-letter{text-transform:uppercase}
+.btns{display:flex;gap:6px;justify-content:center;padding:8px 0 14px}
+.btns button{background:#EA580C;color:#fff;border:0;padding:7px 10px;border-radius:20px;cursor:pointer;font-size:13px}
+.btns button.fr-btn{background:#0E7490}
 </style>
 </head>
 <body>
-
 <a href="../">← Volver</a>
 <header>
 <h1>🏠 Bloque 2 - En Casa</h1>
-<p>Toca la tarjeta para escuchar la palabra. 34 palabras.</p>
+<p>Toca para escuchar en español y en francés. 31 palabras.</p>
 </header>
-
 <div class="grid" id="grid"></div>
-
 <script>
-const PALABRAS = [
-// --- FOTOS ---
-{palabra:"ALMOHADA", img:"https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&q=80"},
-{palabra:"ARMARIO", img:"https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&q=80"},
-{palabra:"BAÑO", img:"https://images.unsplash.com/photo-1620626011761-996317b8d101?w=600&q=80"},
-{palabra:"CAMA", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&q=80"},
-{palabra:"COCINA", img:"https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&q=80"},
-{palabra:"COMEDOR", img:"https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80"},
-{palabra:"DORMITORIO", img:"https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&q=80"},
-{palabra:"HORNO", img:"https://images.unsplash.com/photo-1584267385494-9fdd9a71ad75?w=600&q=80"},
-{palabra:"LÁMPARA", img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&q=80"},
-{palabra:"LAVADORA", img:"https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=600&q=80"},
-{palabra:"MESA", img:"https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&q=80"},
-{palabra:"NEVERA", img:"https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=600&q=80"},
-{palabra:"SALÓN", img:"https://images.unsplash.com/photo-1554995207-c18c203602cb?w=600&q=80"},
-{palabra:"SILLA", img:"https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&q=80"},
-{palabra:"SOFÁ", img:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80"},
+function hablar(texto, lang){
+  const u = new SpeechSynthesisUtterance(texto);
+  u.lang = lang; u.rate = 0.85;
+  speechSynthesis.cancel(); speechSynthesis.speak(u);
+}
+// Si un icono falla, pone un emoji de respaldo y nunca queda en blanco
+function respaldo(img, emojiCode){
+  img.onerror = null;
+  img.src = "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/"+emojiCode+".png";
+  img.style.objectFit = "contain"; img.style.padding = "18px";
+}
 
-// --- ICONOS REPRESENTATIVOS ---
-{palabra:"BALCÓN", img:"https://img.icons8.com/color/240/balcony.png", icon:true},
-{palabra:"BAÑERA", img:"https://img.icons8.com/color/240/bath.png", icon:true},
-{palabra:"CORTINA", img:"https://img.icons8.com/color/240/curtains.png", icon:true},
-{palabra:"DUCHA", img:"https://img.icons8.com/color/240/shower.png", icon:true},
-{palabra:"ESPEJO", img:"https://img.icons8.com/color/240/mirror.png", icon:true},
-{palabra:"GARAJE", img:"https://img.icons8.com/color/240/garage.png", icon:true},
-{palabra:"PASILLO", img:"https://img.icons8.com/color/240/hallway.png", icon:true},
-{palabra:"PUERTA", img:"https://img.icons8.com/color/240/door.png", icon:true},
-{palabra:"SILLÓN", img:"https://img.icons8.com/color/240/armchair.png", icon:true},
-{palabra:"TECHO", img:"https://img.icons8.com/color/240/roof.png", icon:true},
-{palabra:"TERRAZA", img:"https://img.icons8.com/color/240/terrace.png", icon:true},
-{palabra:"VENTANA", img:"https://img.icons8.com/color/240/window.png", icon:true},
-{palabra:"COJÍN", img:"https://img.icons8.com/color/240/pillow.png", icon:true},
-{palabra:"MANTEL", img:"https://img.icons8.com/color/240/tablecloth.png", icon:true},
-{palabra:"TOALLA", img:"https://img.icons8.com/color/240/towel.png", icon:true},
-{palabra:"SÁBANA", img:"https://img.icons8.com/color/240/bed-sheets.png", icon:true},
+const PALABRAS = [
+// FOTOS
+{es:"ALMOHADA", fr:"Oreiller", img:"https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&q=80"},
+{es:"ARMARIO", fr:"Armoire", img:"https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&q=80"},
+{es:"BAÑO", fr:"Salle de bain", img:"https://images.unsplash.com/photo-1620626011761-996317b8d101?w=600&q=80"},
+{es:"CAMA", fr:"Lit", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&q=80"},
+{es:"COCINA", fr:"Cuisine", img:"https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&q=80"},
+{es:"COMEDOR", fr:"Salle à manger", img:"https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80"},
+{es:"DORMITORIO", fr:"Chambre", img:"https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&q=80"},
+{es:"HORNO", fr:"Four", img:"https://images.unsplash.com/photo-1584267385494-9fdd9a71ad75?w=600&q=80"},
+{es:"LÁMPARA", fr:"Lampe", img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&q=80"},
+{es:"LAVADORA", fr:"Machine à laver", img:"https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=600&q=80"},
+{es:"MESA", fr:"Table", img:"https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&q=80"},
+{es:"NEVERA", fr:"Réfrigérateur", img:"https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=600&q=80"},
+{es:"SALÓN", fr:"Salon", img:"https://images.unsplash.com/photo-1554995207-c18c203602cb?w=600&q=80"},
+{es:"SILLA", fr:"Chaise", img:"https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&q=80"},
+{es:"SOFÁ", fr:"Canapé", img:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80"},
+
+// ICONOS - con respaldo emoji
+{es:"BALCÓN", fr:"Balcon", img:"https://img.icons8.com/color/240/balcony.png", icon:true, backup:"1f3d9"},
+{es:"BAÑERA", fr:"Baignoire", img:"https://img.icons8.com/color/240/bath.png", icon:true, backup:"1f6c1"},
+{es:"CORTINA", fr:"Rideau", img:"https://img.icons8.com/color/240/curtains.png", icon:true, backup:"1fa9f"},
+{es:"DUCHA", fr:"Douche", img:"https://img.icons8.com/color/240/shower.png", icon:true, backup:"1f6bf"},
+{es:"ESPEJO", fr:"Miroir", img:"https://img.icons8.com/color/240/mirror.png", icon:true, backup:"1fa9e"},
+{es:"GARAJE", fr:"Garage", img:"https://img.icons8.com/color/240/garage.png", icon:true, backup:"1f697"},
+{es:"PASILLO", fr:"Couloir", img:"https://img.icons8.com/color/240/corridor.png", icon:true, backup:"1f6aa"},
+{es:"PUERTA", fr:"Porte", img:"https://img.icons8.com/color/240/door.png", icon:true, backup:"1f6aa"},
+{es:"SILLÓN", fr:"Fauteuil", img:"https://img.icons8.com/color/240/armchair.png", icon:true, backup:"1f6cb-fe0f"},
+{es:"TECHO", fr:"Plafond", img:"https://img.icons8.com/color/240/house.png", icon:true, backup:"1f3e0"},
+{es:"TERRAZA", fr:"Terrasse", img:"https://img.icons8.com/color/240/patio.png", icon:true, backup:"1f33f"},
+{es:"VENTANA", fr:"Fenêtre", img:"https://img.icons8.com/color/240/open-window.png", icon:true, backup:"1fa9f"},
+{es:"COJÍN", fr:"Coussin", img:"https://img.icons8.com/color/240/pillow.png", icon:true, backup:"1f6cf-fe0f"},
+{es:"MANTEL", fr:"Nappe", img:"https://img.icons8.com/color/240/tablecloth.png", icon:true, backup:"1f37d-fe0f"},
+{es:"TOALLA", fr:"Serviette", img:"https://img.icons8.com/color/240/towel.png", icon:true, backup:"1f9f5"},
+{es:"SÁBANA", fr:"Drap", img:"https://img.icons8.com/color/240/blanket.png", icon:true, backup:"1f6cf-fe0f"},
 ];
 
 const grid = document.getElementById('grid');
 PALABRAS.forEach(p => {
   const d = document.createElement('div');
   d.className = 'card' + (p.icon ? ' icon' : '');
-  d.innerHTML = `<img src="${p.img}" alt="${p.palabra}"><h2>${p.palabra}</h2><button>🔊 Escuchar</button>`;
-  d.onclick = () => {
-    const u = new SpeechSynthesisUtterance(p.palabra.toLowerCase());
-    u.lang = 'es-ES'; u.rate = 0.85;
-    speechSynthesis.cancel(); speechSynthesis.speak(u);
-  };
+  const backupAttr = p.backup ? `onerror="respaldo(this,'${p.backup}')"` : '';
+  d.innerHTML = `<img src="${p.img}" alt="${p.es}" ${backupAttr}><h2>${p.es}</h2><div class="fr">${p.fr}</div><div class="btns"><button onclick="hablar('${p.es.toLowerCase()}','es-ES')">🔊 ES</button><button class="fr-btn" onclick="hablar('${p.fr.toLowerCase()}','fr-FR')">🔊 FR</button></div>`;
   grid.appendChild(d);
 });
 </script>
