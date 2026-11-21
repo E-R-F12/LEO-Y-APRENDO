@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloque 4 - La Escuela | LEO Y APRENDO</title>
+<style>
+  body{font-family:Arial,sans-serif;background:#FFF8E1;margin:0;padding:20px;text-align:center}
+  h1{color:#E65100;font-size:2.2em}
+  .volver{display:inline-block;background:#FF9800;color:white;padding:12px 20px;border-radius:20px;text-decoration:none;font-weight:bold;margin-bottom:20px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;max-width:900px;margin:0 auto}
+  .card{background:white;border-radius:20px;padding:12px;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
+  .card img{width:100%;height:120px;object-fit:cover;border-radius:14px}
+  .palabra{font-size:1.4em;font-weight:bold;color:#333;margin:10px 0 5px}
+  button{background:#4CAF50;color:white;border:none;padding:10px 14px;border-radius:20px;font-size:1em;cursor:pointer}
+  button:hover{background:#388E3C}
+</style>
+</head>
+<body>
+
+<a class="volver" href="index.html">⬅ Volver</a>
+<h1>🏫 Bloque 4 - La Escuela</h1>
+<p>Pulsa el botón para escuchar la palabra</p>
+
+<div class="grid">
+
+<div class="card"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400" alt="Profesora"><div class="palabra">La profesora</div><button onclick="hablar('La profesora')">🔊 Escuchar</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400" alt="Pizarra"><div class="palabra">La pizarra</div><button onclick="hablar('La pizarra')">🔊 Escuchar</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400" alt="Pupitre"><div class="palabra">El pupitre</div><button onclick="hablar('El pupitre')">🔊 Escuchar</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400" alt="Mochila"><div class="palabra">La mochila</div><button onclick="hablar('La mochila')">🔊 Escuchar</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400" alt="Libro"><div class="palabra">El libro</div><button onclick="hablar('El libro')">🔊 Escuchar</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=400" alt="Lápiz"><div class="palabra">El lápiz</div><button onclick="hablar('El lápiz')">🔊 Escuchar</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400" alt="Goma"><div class="palabra">La goma</div><button onclick="hablar('La goma')">🔊 Escuchar</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400" alt="Tijeras"><div class="palabra">Las tijeras</div><button onclick="hablar('Las tijeras')">🔊 Escuchar</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1595757816292-ab4e5d1b1e3a?w=400" alt="Regla"><div class="palabra">La regla</div><button onclick="hablar('La regla')">🔊 Escuchar</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400" alt="Cuaderno"><div class="palabra">El cuaderno</div><button onclick="hablar('El cuaderno')">🔊 Escuchar</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=400" alt="Clase"><div class="palabra">La clase</div><button onclick="hablar('La clase')">🔊 Escuchar</button></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400" alt="Compañeros"><div class="palabra">Los compañeros</div><button onclick="hablar('Los compañeros')">🔊 Escuchar</button></div>
+
+</div>
+
+<script>
+function hablar(texto){
+  const u = new SpeechSynthesisUtterance(texto);
+  u.lang = 'es-ES';
+  u.rate = 0.85;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+</script>
+
+</body>
+</html>
