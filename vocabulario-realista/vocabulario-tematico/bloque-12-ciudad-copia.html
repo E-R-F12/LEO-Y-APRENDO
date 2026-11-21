@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloque 12 - La Ciudad</title>
+<style>
+body{font-family:sans-serif;background:#f0f7ff;margin:0;padding:20px;text-align:center}
+h1{color:#1a5fb4}
+.menu button{margin:5px;padding:12px 20px;font-size:16px;border-radius:12px;border:0;background:#1a5fb4;color:white;cursor:pointer}
+.card{background:white;border-radius:16px;padding:20px;margin:20px auto;max-width:700px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+img.juego-img{max-width:100%;max-height:320px;border-radius:12px}
+.opciones{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}
+.opciones button{padding:14px;font-size:18px;border-radius:10px;border:2px solid #1a5fb4;background:white;cursor:pointer}
+#inputRespuesta{padding:12px;font-size:20px;width:80%;border-radius:8px;border:2px solid #1a5fb4;text-align:center}
+.frase{font-style:italic;color:#555;margin-top:10px}
+</style>
+</head>
+<body>
+<h1>🏙️ Bloque 12 - La Ciudad</h1>
+<div class="menu">
+<button onclick="iniciarJuego(1)">1️⃣ Imagen → Palabra</button>
+<button onclick="iniciarJuego(2)">2️⃣ Escribe</button>
+<button onclick="iniciarJuego(3)">3️⃣ Escucha 🔊</button>
+<button onclick="iniciarJuego(4)">4️⃣ Memoria 🧠</button>
+</div>
+<div id="juego" class="card"><p>Elige un juego</p></div>
+<script>
+let datos=[]; let actual=null;
+fetch('../datos-bloque-12-ciudad.json').then(r=>r.json()).then(j=>{datos=j;});
+function aleatorio(a){return a[Math.floor(Math.random()*a.length)];}
+function iniciarJuego(t){window.tipoJuego=t; siguiente();}
+function siguiente(){
+ actual=aleatorio(datos);
+ let d=document.getElementById('juego');
+ if(window.tipoJuego==1){
+  let ops=[actual.palabra]; while(ops.length<4){let o=aleatorio(datos).palabra; if(!ops.includes(o)) ops.push(o);} ops=ops.sort(()=>Math.random()-0.5);
+  d.innerHTML=`<img class="juego-img" src="../${actual.imagen}"><p class="frase">${actual.frase}</p><div class="opciones">${ops.map(o=>`<button onclick="comprobar('${o.replace(/'/g,"\\'")}')">${o}</button>`).join('')}</div><p><button onclick="hablar('${actual.palabra}')">🔊 Escuchar</button></p>`;
+ } else if(window.tipoJuego==2){
+  d.innerHTML=`<img class="juego-img" src="../${actual.imagen}"><p class="frase">${actual.frase}</p><p><input id="inputRespuesta" placeholder="Escribe" onkeydown="if(event.key==='Enter') comprobarTexto()"></p><button onclick="comprobarTexto()">Comprobar</button> <button onclick="hablar('${actual.palabra}')">🔊</button>`;
+ } else if(window.tipoJuego==3){
+  let ops=[actual.palabra]; while(ops.length<4){let o=aleatorio(datos).palabra; if(!ops.includes(o)) ops.push(o);} ops=ops.sort(()=>Math.random()-0.5);
+  d.innerHTML=`<h2>🔊 Escucha</h2><button onclick="hablar('${actual.palabra}')" style="font-size:30px;padding:20px;">🔊 Reproducir</button><div class="opciones" style="margin-top:20px;">${ops.map(o=>`<button onclick="comprobar('${o.replace(/'/g,"\\'")}')">${o}</button>`).join('')}</div><p class="frase">${actual.frase}</p>`; setTimeout(()=>hablar(actual.palabra),500);
+ } else {
+  d.innerHTML=`<img class="juego-img" src="../${actual.imagen}" id="imgMem"><p id="palMem" style="display:none;font-size:28px;font-weight:bold;">${actual.palabra}</p><p class="frase">${actual.frase}</p><button onclick="document.getElementById('palMem').style.display='block'">Mostrar palabra</button><br><br><button onclick="siguiente()">Siguiente ➡️</button>`;
+ }
+}
+function comprobar(r){ if(r.toLowerCase().trim()===actual.palabra.toLowerCase().trim()){ alert('¡Correcto! ✅ '+actual.palabra); siguiente(); } else { alert('Era: '+actual.palabra); } }
+function comprobarTexto(){ comprobar(document.getElementById('inputRespuesta').value); }
+function hablar(t){ let u=new SpeechSynthesisUtterance(t); u.lang='es-ES'; u.rate=0.9; speechSynthesis.speak(u); }
+</script>
+</body>
+</html>
 
