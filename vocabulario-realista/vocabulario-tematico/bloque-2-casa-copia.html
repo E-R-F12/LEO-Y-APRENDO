@@ -105,7 +105,10 @@ function pintar(){
     const d1=document.createElement('div'); d1.className='palabra'; d1.textContent=p.texto;
     const df=document.createElement('div'); df.className='frances'; df.textContent=TRAD[p.texto.toUpperCase()]||''; df.style.color='#2563eb'; df.style.fontWeight='bold'; df.style.marginTop='2px';const fr=TRAD[p.texto.toUpperCase()]||'';
     const fr=TRAD[p.texto.toUpperCase()]||'';
-const d2=document.createElement('div'); d2.className='silabas'; d2.innerHTML=`<button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button> <button class="btn-audio" onclick="hablar('${fr}','fr-FR')">🔊🇫🇷</button>`;
+const d2=document.createElement('div'); d2.className='silabas';
+const b1=document.createElement('button'); b1.className='btn-audio'; b1.textContent='🔊'; b1.onclick=()=>hablar(p.texto);
+const b2=document.createElement('button'); b2.className='btn-audio'; b2.textContent='🔊🇫🇷'; b2.onclick=()=>hablar(fr,'fr-FR');
+d2.appendChild(b1); d2.appendChild(b2);
     card.appendChild(img); card.appendChild(d1); card.appendChild(df); card.appendChild(d2);
     grid.appendChild(card);
   });
