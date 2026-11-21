@@ -3,91 +3,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloque 2 - Casa | Leo y Aprendo</title>
+<title>BLOQUE 2 - CASA</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f7ff;padding:15px}
-.header{text-align:center;margin-bottom:20px}
-.header h1{color:#1a5fb4;font-size:28px}
-.header a{color:#1a5fb4;text-decoration:none;font-weight:bold}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px;max-width:1100px;margin:0 auto}
-.card{background:white;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.1);overflow:hidden;text-align:center;padding-bottom:12px}
-.card img{width:100%;height:140px;object-fit:contain;background:white;padding:10px;display:block}
-.palabra{font-size:15px;font-weight:bold;color:#333;text-transform:uppercase;margin-top:5px}
-.silabas{font-size:12px;color:#666;margin:4px 0}
-.btn-audio{background:#1a5fb4;color:white;border:none;border-radius:50%;width:24px;height:24px;cursor:pointer;margin-left:6px}
-.games{max-width:1100px;margin:30px auto;background:white;border-radius:16px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.game-btn{background:#ffd60a;border:none;padding:10px 18px;border-radius:20px;font-weight:bold;cursor:pointer;margin:5px}
-.choice{display:inline-block;background:#eef5ff;border:2px solid #1a5fb4;border-radius:12px;padding:8px 14px;margin:6px;cursor:pointer;font-weight:bold}
+body{font-family:Arial,sans-serif;margin:0;background:#f2f6ff;color:#222;text-align:center}
+header{background:#1565c0;color:#fff;padding:16px}
+header h1{margin:0;font-size:24px}
+header p{margin:4px 0 0;opacity:.9}
+.menu{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:12px}
+.menu button{border:0;background:#fff;padding:10px 14px;border-radius:20px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.15);font-weight:bold}
+.menu button.activo{background:#1565c0;color:#fff}
+#contenido{max-width:1000px;margin:auto;padding:10px 12px 30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.card{background:#fff;border-radius:14px;padding:8px;box-shadow:0 2px 6px rgba(0,0,0,.1);cursor:pointer}
+.card img{width:100%;height:100px;object-fit:cover;border-radius:10px}
+.btn-audio{border:0;background:#e3f2fd;font-size:18px;border-radius:50%;width:36px;height:36px;cursor:pointer}
+.juego{background:#fff;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.juego button{margin:4px;padding:10px 14px;border-radius:10px;border:0;background:#1565c0;color:#fff;font-weight:bold;cursor:pointer}
+.juego input{padding:10px;border-radius:10px;border:1px solid #ccc;width:80%;max-width:300px;font-size:16px}
+.memoria{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:500px;margin:auto}
+.carta-mem{background:#bbdefb;height:70px;display:flex;align-items:center;justify-content:center;border-radius:10px;font-weight:bold;cursor:pointer}
+.sopa{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;max-width:400px;margin:auto}
+.sopa div{background:#e3f2fd;padding:10px 0;border-radius:6px;font-weight:bold;cursor:pointer}
 </style>
 </head>
 <body>
-<div class="header">
-<h1>🏠 BLOQUE 2 - CASA</h1>
-<p><a href="../../index.html">← Volver al inicio</a></p>
-<p id="contador" style="font-size:13px;color:gray;margin-top:8px"></p>
-</div>
-<div class="grid" id="grid"></div>
-
-<div class="games">
-<h2>🎮 JUEGO 1: ¿Qué objeto es?</h2>
-<button class="game-btn" onclick="juego1()">¡Jugar!</button>
-<div id="j1"></div>
-</div>
-
-<div class="games">
-<h2>🔊 JUEGO 2: Escucha y elige</h2>
-<button class="game-btn" onclick="juego2()">¡Escuchar!</button>
-<div id="j2"></div>
-</div>
-
+<header><h1>🏠 BLOQUE 2 - CASA</h1><p>Español - Français • Pulsa 🔊 para escuchar</p></header>
+<div class="menu" id="menu"></div>
+<div id="contenido"></div>
 <script>
-const RAW = "https://raw.githubusercontent.com/e-r-f12/LEO-Y-APRENDO/main/vocabulario-realista/imagenes/bloque-2-casa/";
-const API = "https://api.github.com/repos/e-r-f12/LEO-Y-APRENDO/contents/vocabulario-realista/imagenes/bloque-2-casa";
-
-function hablar(t){ const u=new SpeechSynthesisUtterance(t); u.lang='es-ES'; u.rate=0.8; speechSynthesis.speak(u); }
-function limpiar(f){ return f.replace(/\.[^/.]+$/, "").replace(/[-_]/g," ").trim(); }
-
-let palabras=[];
-
-fetch(API)
-.then(r=>r.json())
-.then(files=>{
-  let lista=files.filter(f=>f.type==='file' && /\.(jpg|jpeg|png|webp)$/i.test(f.name)).map(f=>f.name);
-  document.getElementById('contador').textContent=`¡Perfecto! ${lista.length} fotos encontradas`;
-  palabras=lista.map(file=>({file:file, texto:limpiar(file)}));
-  pintar();
+const TRAD={"ALFOMBRA":"tapis","ARMARIO":"armoire","BALCÓN":"balcon","BAÑO":"salle de bain","BAÑERA":"baignoire","CAMA":"lit","COCINA":"cuisine","COMEDOR":"salle à manger","CORTINA":"rideau","DORMITORIO":"chambre","DUCHA":"douche","ESCALERA":"escalier","ESPEJO":"miroir","GARAJE":"garage","HABITACIÓN":"chambre","JARDÍN":"jardin","LÁMPARA":"lampe","LAVADORA":"machine à laver","MESA":"table","NEVERA":"frigo","PASILLO":"couloir","PUERTA":"porte","SILLA":"chaise","SILLÓN":"fauteuil","SOFÁ":"canapé","TECHO":"plafond","TELEVISIÓN":"télévision","TERRAZA":"terrasse","VENTANA":"fenêtre","CASA":"maison","COJÍN":"coussin","MANTEL":"nappe","TOALLA":"serviette","SÁBANA":"drap"};
+const PALABRAS=[
+{texto:"ALFOMBRA",img:"https://images.unsplash.com/photo-1600166898405-da9535204843?w=400"},
+{texto:"ARMARIO",img:"https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400"},
+{texto:"BALCÓN",img:"https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400"},
+{texto:"BAÑO",img:"https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400"},
+{texto:"BAÑERA",img:"https://images.unsplash.com/photo-1576695444267-40cdd214f06e?w=400"},
+{texto:"CAMA",img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400"},
+{texto:"COCINA",img:"https://images.unsplash.com/photo-1556911220-bff31c812dba?w=400"},
+{texto:"COMEDOR",img:"https://images.unsplash.com/photo-1617806118233-18e1de247200?w=400"},
+{texto:"CORTINA",img:"https://images.unsplash.com/photo-1513694203232-719a280e022f?w=400"},
+{texto:"DORMITORIO",img:"https://images.unsplash.com/photo-1540518614846-7eded433c457?w=400"},
+{texto:"DUCHA",img:"https://images.unsplash.com/photo-1620626011761-996317b8d101?w=400"},
+{texto:"ESCALERA",img:"https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=400"},
+{texto:"ESPEJO",img:"https://images.unsplash.com/photo-1618220179428-22790b461013?w=400"},
+{texto:"GARAJE",img:"https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400"},
+{texto:"HABITACIÓN",img:"https://images.unsplash.com/photo-1540518614846-7eded433c457?w=400"},
+{texto:"JARDÍN",img:"https://images.unsplash.com/photo-1558904541-efa843a96f01?w=400"},
+{texto:"LÁMPARA",img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400"},
+{texto:"LAVADORA",img:"https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=400"},
+{texto:"MESA",img:"https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400"},
+{texto:"NEVERA",img:"https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400"},
+{texto:"PASILLO",img:"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400"},
+{texto:"PUERTA",img:"https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400"},
+{texto:"SILLA",img:"https://images.unsplash.com/photo-1592078615290-033ee584e267?w=400"},
+{texto:"SILLÓN",img:"https://images.unsplash.com/photo-1592078615290-033ee584e267?w=400"},
+{texto:"SOFÁ",img:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"},
+{texto:"TECHO",img:"https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=400"},
+{texto:"TELEVISIÓN",img:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400"},
+{texto:"TERRAZA",img:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400"},
+{texto:"VENTANA",img:"https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=400"},
+{texto:"CASA",img:"https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400"},
+{texto:"COJÍN",img:"https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400"},
+{texto:"MANTEL",img:"https://images.unsplash.com/photo-1617806118233-18e1de247200?w=400"},
+{texto:"TOALLA",img:"https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=400"},
+{texto:"SÁBANA",img:"https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=400"}
+];
+function hablar(texto, idioma){
+  if(!texto) return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(texto);
+  u.lang=idioma||'es-ES';
+  speechSynthesis.speak(u);
+}
+const contenido=document.getElementById('contenido');
+const menu=document.getElementById('menu');
+const JUEGOS=['Vocabulario','Memoria','Intruso','Sopa','Quiz','Ahorcado','Bingo','Dictado','Ruleta'];
+JUEGOS.forEach(j=>{
+  const b=document.createElement('button'); b.textContent=j;
+  b.onclick=()=>{document.querySelectorAll('.menu button').forEach(x=>x.classList.remove('activo')); b.classList.add('activo'); mostrar(j);};
+  if(j==='Vocabulario') b.classList.add('activo');
+  menu.appendChild(b);
 });
-
-function pintar(){
-  const grid=document.getElementById('grid');
-  grid.innerHTML='';
-  palabras.forEach(p=>{
+function mostrar(juego){
+  contenido.innerHTML='';
+  if(juego==='Vocabulario') mostrarVocab();
+  if(juego==='Memoria') juegoMemoria();
+  if(juego==='Intruso') juegoIntruso();
+  if(juego==='Sopa') juegoSopa();
+  if(juego==='Quiz') juegoQuiz();
+  if(juego==='Ahorcado') juegoAhorcado();
+  if(juego==='Bingo') juegoBingo();
+  if(juego==='Dictado') juegoDictado();
+  if(juego==='Ruleta') juegoRuleta();
+}
+function mostrarVocab(){
+  const grid=document.createElement('div'); grid.className='grid';
+  PALABRAS.forEach(p=>{
     const card=document.createElement('div'); card.className='card';
-    const img=document.createElement('img');
-    img.src=RAW+encodeURI(p.file);
-    img.alt=p.texto;
-    const d1=document.createElement('div'); d1.className='palabra'; d1.textContent=p.texto;
-    const d2=document.createElement('div'); d2.className='silabas'; d2.innerHTML=`<button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button> <button class="btn-audio" onclick="hablar('${TRAD[p.texto]||p.texto}','fr-FR')">🔊🇫🇷</button>`;
-    card.appendChild(img); card.appendChild(d1); card.appendChild(d2);
+    const img=document.createElement('img'); img.src=p.img; img.alt=p.texto;
+    img.onerror=()=>{img.src='https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400';};
+    img.onclick=()=>hablar(p.texto);
+    card.appendChild(img);
+    const fr2=TRAD[p.texto.toUpperCase()]||'';
+    const d1=document.createElement('div');
+    const r1=document.createElement('div'); r1.style.display='flex'; r1.style.justifyContent='space-between'; r1.style.alignItems='center'; r1.style.padding='2px 12px';
+    const s1=document.createElement('b'); s1.textContent=p.texto;
+    const b1=document.createElement('button'); b1.className='btn-audio'; b1.textContent='🔊'; b1.onclick=()=>hablar(p.texto);
+    r1.appendChild(s1); r1.appendChild(b1);
+    const r2=document.createElement('div'); r2.style.display='flex'; r2.style.justifyContent='space-between'; r2.style.alignItems='center'; r2.style.padding='2px 12px';
+    const s2=document.createElement('span'); s2.textContent=fr2; s2.style.color='#1565c0'; s2.style.fontWeight='bold';
+    const b2=document.createElement('button'); b2.className='btn-audio'; b2.textContent='🔊'; b2.onclick=()=>hablar(fr2,'fr-FR');
+    r2.appendChild(s2); r2.appendChild(b2);
+    d1.appendChild(r1); d1.appendChild(r2);
+    card.appendChild(d1);
     grid.appendChild(card);
   });
+  contenido.appendChild(grid);
 }
-
-function juego1(){
- const c=document.getElementById('j1'); if(!palabras.length) return;
- let actual=palabras[Math.floor(Math.random()*palabras.length)];
- let ops=[actual]; while(ops.length<4){ let r=palabras[Math.floor(Math.random()*palabras.length)]; if(!ops.includes(r)) ops.push(r);} ops.sort(()=>Math.random()-0.5);
- c.innerHTML=`<p>¿Dónde está <b>${actual.texto.toUpperCase()}</b>?</p>`;
- ops.forEach(o=>{ let d=document.createElement('div'); d.className='choice'; d.textContent=o.texto.toUpperCase(); d.onclick=()=>{ if(o===actual){ d.style.background='#c8f7c5'; hablar(actual.texto); } else d.style.background='#ffcdd2'; }; c.appendChild(d); });
+function juegoMemoria(){
+  const div=document.createElement('div'); div.className='juego';
+  div.innerHTML='<h2>🧠 Memoria</h2><p>Toca dos cartas. Une ESP con FR.</p>';
+  const pares=PALABRAS.slice(0,6).flatMap(p=>[{t:p.texto},{t:TRAD[p.texto]}]);
+  pares.sort(()=>Math.random()-.5);
+  const grid=document.createElement('div'); grid.className='memoria';
+  let sel=[];
+  pares.forEach(o=>{
+    const c=document.createElement('div'); c.className='carta-mem'; c.textContent='?';
+    c.onclick=()=>{
+      if(sel.includes(c)||sel.length>=2) return;
+      c.textContent=o.t; sel.push({c,o});
+      if(sel.length===2){
+        setTimeout(()=>{
+          const [a,b]=sel;
+          const ok=(TRAD[a.o.t]===b.o.t)||(TRAD[b.o.t]===a.o.t);
+          if(ok){a.c.style.background='#a5d6a7'; b.c.style.background='#a5d6a7';}
+          else{a.c.textContent='?'; b.c.textContent='?';}
+          sel=[];
+        },800);
+      }
+    };
+    grid.appendChild(c);
+  });
+  div.appendChild(grid); contenido.appendChild(div);
 }
-function juego2(){
- const c=document.getElementById('j2'); if(!palabras.length) return;
- let actual=palabras[Math.floor(Math.random()*palabras.length)]; hablar(actual.texto);
- let ops=[actual]; while(ops.length<4){ let r=palabras[Math.floor(Math.random()*palabras.length)]; if(!ops.includes(r)) ops.push(r);} ops.sort(()=>Math.random()-0.5);
- c.innerHTML=`<button class="game-btn" onclick="hablar('${actual.texto}')">🔊 Repetir</button><br><br>`;
- ops.forEach(o=>{ let d=document.createElement('div'); d.className='choice'; d.textContent=o.texto.toUpperCase(); d.onclick=()=>{ if(o===actual) d.style.background='#c8f7c5'; else d.style.background='#ffcdd2'; }; c.appendChild(d); });
+function juegoIntruso(){
+  const div=document.createElement('div'); div.className='juego';
+  const buenas=PALABRAS.slice(0,3).map(p=>p.texto);
+  const opciones=[...buenas,'COCHE'];
+  opciones.sort(()=>Math.random()-.5);
+  div.innerHTML='<h2>👀 Intruso</h2><p>¿Cuál NO es de la casa?</p>';
+  opciones.forEach(o=>{
+    const b=document.createElement('button'); b.textContent=o;
+    b.onclick=()=>{b.style.background=o==='COCHE'?'#66bb6a':'#ef5350'; hablar(o);};
+    div.appendChild(b);
+  });
+  contenido.appendChild(div);
 }
+function juegoSopa(){
+  const div=document.createElement('div'); div.className='juego';
+  div.innerHTML='<h2>🔍 Sopa</h2><p>Encuentra: CAMA, MESA, SOFA, PUERTA</p>';
+  const letras='CAMAMESASOFAPUERTAXYZABC'.split('');
+  const grid=document.createElement('div'); grid.className='sopa';
+  letras.slice(0,32).forEach(l=>{
+    const d=document.createElement('div'); d.textContent=l;
+    d.onclick=()=>{d.style.background='#66bb6a'; hablar(l);};
+    grid.appendChild(d);
+  });
+  div.appendChild(grid); contenido.appendChild(div);
+}
+let quizIndex=0, quizPuntos=0;
+function juegoQuiz(){ quizIndex=0; quizPuntos=0; pintarQuiz(); }
+function pintarQuiz(){
+  const div=document.createElement('div'); div.className='juego';
+  if(quizIndex>=5){div.innerHTML=`<h2>🎉 Fin</h2><p>Has acertado ${quizPuntos} de 5</p>`; contenido.innerHTML=''; contenido.appendChild(div); return;}
+  const p=PALABRAS[quizIndex];
+  const correcta=TRAD[p.texto];
+  const falsas=PALABRAS.filter(x=>x.texto!==p.texto).slice(0,3).map(x=>TRAD[x.texto]);
+  const ops=[correcta,...falsas].sort(()=>Math.random()-.5);
+  div.innerHTML=`<h2>❓ Quiz ${quizIndex+1}/5</h2><p>¿Cómo se dice <b>${p.texto}</b> en francés?</p><p>Puntos: ${quizPuntos}</p>`;
+  ops.forEach(o=>{
+    const b=document.createElement('button'); b.textContent=o;
+    b.onclick=()=>{if(o===correcta){quizPuntos++; hablar('¡Muy bien!');} else hablar(o,'fr-FR'); quizIndex++; pintarQuiz();};
+    div.appendChild(b);
+  });
+  contenido.innerHTML=''; contenido.appendChild(div);
+}
+function juegoAhorcado(){
+  const div=document.createElement('div'); div.className='juego';
+  const palabra='CASA'; let letrasOk=[];
+  div.innerHTML='<h2>🎯 Ahorcado</h2><p>Adivina la palabra: C _ S _</p>';
+  'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('').forEach(l=>{
+    const b=document.createElement('button'); b.textContent=l; b.style.padding='8px';
+    b.onclick=()=>{b.disabled=true; hablar(l); if(palabra.includes(l)){letrasOk.push(l); if(letrasOk.includes('A')) div.querySelector('p').textContent='¡Has ganado! La palabra es CASA';}};
+    div.appendChild(b);
+  });
+  contenido.appendChild(div);
+}
+function juegoBingo(){
+  const div=document.createElement('div'); div.className='juego';
+  div.innerHTML='<h2>🎲 Bingo</h2><p>Pulsa para escuchar una palabra y táchala</p>';
+  const b=document.createElement('button'); b.textContent='Sacar palabra 🔊';
+  b.onclick=()=>{const p=PALABRAS[Math.floor(Math.random()*PALABRAS.length)]; hablar(p.texto); hablar(TRAD[p.texto],'fr-FR');};
+  div.appendChild(b); contenido.appendChild(div);
+}
+function juegoDictado(){
+  const div=document.createElement('div'); div.className='juego';
+  const p=PALABRAS[Math.floor(Math.random()*PALABRAS.length)];
+  div.innerHTML=`<h2>✍️ Dictado</h2><p>Escucha y escribe en español</p>`;
+  const b=document.createElement('button'); b.textContent='Escuchar 🔊'; b.onclick=()=>hablar(p.texto);
+  const inp=document.createElement('input'); inp.placeholder='Escribe aquí...';
+  const btn=document.createElement('button'); btn.textContent='Comprobar';
+  btn.onclick=()=>{alert(inp.value.toUpperCase().trim()===p.texto?'¡Muy bien! 🎉':'Era: '+p.texto);};
+  div.append(b,document.createElement('br'),inp,document.createElement('br'),btn); contenido.appendChild(div);
+}
+function juegoRuleta(){
+  const div=document.createElement('div'); div.className='juego';
+  div.innerHTML='<h2>🎡 Ruleta</h2><p>Gira y di la palabra en francés</p>';
+  const b=document.createElement('button'); b.textContent='¡Girar!';
+  const res=document.createElement('h2');
+  b.onclick=()=>{const p=PALABRAS[Math.floor(Math.random()*PALABRAS.length)]; res.textContent=p.texto+' = '+TRAD[p.texto]; hablar(p.texto); setTimeout(()=>hablar(TRAD[p.texto],'fr-FR'),800);};
+  div.append(b,res); contenido.appendChild(div);
+}
+mostrar('Vocabulario');
 </script>
 </body>
 </html>
