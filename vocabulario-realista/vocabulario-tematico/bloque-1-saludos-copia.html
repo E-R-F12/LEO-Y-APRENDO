@@ -3,83 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloque 1 - Saludos</title>
+<title>Bloque 1 - Saludos | LEO Y APRENDO</title>
 <style>
-body{font-family:Arial,sans-serif;background:#e3f2fd;margin:0;padding:10px}
-h1{text-align:center;color:#0d47a1}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;max-width:1100px;margin:15px auto}
-.card{background:#fff;border-radius:12px;padding:8px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.15);min-height:160px}
-.card img{width:100%;height:110px;object-fit:contain;border-radius:8px;background:#f5f5f5;display:block}
-.card p{margin:6px 0 4px;font-weight:bold;text-transform:uppercase;font-size:13px}
-.card button{background:#1565c0;color:#fff;border:none;border-radius:20px;padding:5px 14px;cursor:pointer}
-.seccion{max-width:1100px;margin:30px auto;background:#fff;border-radius:16px;padding:18px;box-shadow:0 3px 10px rgba(0,0,0,.1)}
-.btn-juego{background:#0d47a1;color:#fff;border:none;padding:10px 18px;border-radius:8px;margin:5px;cursor:pointer}
-.opcion{display:inline-block;margin:6px;padding:8px 12px;background:#e3f2fd;border-radius:8px;cursor:pointer;border:2px solid transparent}
-.opcion.correcta{border-color:#2e7d32;background:#c8e6c9}
-.opcion.incorrecta{border-color:#c62828;background:#ffcdd2}
+  body{font-family:Arial,sans-serif;background:#FFF8E1;margin:0;padding:20px;text-align:center}
+  h1{color:#E65100}
+  .volver{display:inline-block;background:#FF9800;color:white;padding:12px 20px;border-radius:20px;text-decoration:none;font-weight:bold;margin-bottom:15px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;max-width:950px;margin:0 auto}
+  .card{background:white;border-radius:20px;padding:12px;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
+  .card img{width:100%;height:120px;object-fit:contain;border-radius:14px;background:#f5f5f5}
+  .pp{font-size:1.35em;font-weight:bold;margin:10px 0 2px;color:#333}
+  .fr{font-size:1.15em;color:#1565C0;font-style:italic;margin:0 0 10px}
+  .btns{display:flex;gap:6px;justify-content:center}
+  button{border:none;padding:9px 10px;border-radius:20px;font-size:0.95em;cursor:pointer;color:white}
+  .es{background:#4CAF50}
+  .frb{background:#1E88E5}
 </style>
 </head>
 <body>
-<h1>👋 BLOQUE 1 - SALUDOS</h1>
+
+<a class="volver" href="../index.html">⬅ Volver</a>
+<h1>👋 Bloque 1 - Saludos</h1>
+<p>Español + Français - Pulsa para escuchar</p>
+<p><button class="es" onclick="juegoEscucha()">🎧 Juego: Escucha y adivina</button></p>
+
 <div class="grid" id="grid"></div>
 
-<div class="seccion">
-<h2>🎧 Juego 1: Escucha y elige</h2>
-<div id="j1" style="text-align:center"></div>
-<button class="btn-juego" onclick="juegoEscucha()">▶️ Nuevo audio</button>
-</div>
-
-<div class="seccion">
-<h2>🧠 Juego 2: ¿Qué saludo es?</h2>
-<div id="j2" style="text-align:center"></div>
-<button class="btn-juego" onclick="juegoTest()">Siguiente ➡️</button>
-</div>
-
 <script>
+function hablar(texto, idioma){
+  const u = new SpeechSynthesisUtterance(texto);
+  u.lang = idioma || 'es-ES';
+  u.rate = 0.85;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+
+// --- PALABRAS ---
 const palabras=[
-{id:'hola',nombre:'hola', alts:['hola']},
-{id:'adios',nombre:'adiós', alts:['adios','adiós']},
-{id:'buenos-dias',nombre:'buenos días', alts:['buenos-dias','buenos dias','buenos_dias','buenos días','buenos_días']},
-{id:'buenas-tardes',nombre:'buenas tardes', alts:['buenas-tardes','buenas tardes','buenas_tardes']},
-{id:'buenas-noches',nombre:'buenas noches', alts:['buenas-noches','buenas noches']},
-{id:'por-favor',nombre:'por favor', alts:['por-favor','por favor','por_favor']},
-{id:'gracias',nombre:'gracias', alts:['gracias']},
-{id:'de-nada',nombre:'de nada', alts:['de-nada','de nada']},
-{id:'perdon',nombre:'perdón', alts:['perdon','perdón']},
-{id:'lo-siento',nombre:'lo siento', alts:['lo-siento','lo siento']},
-{id:'como-estas',nombre:'¿cómo estás?', alts:['como-estas','como estas','cómo estás','como_estás','como estas']},
-{id:'muy-bien',nombre:'muy bien', alts:['muy-bien','muy bien']},
-{id:'hasta-luego',nombre:'hasta luego', alts:['hasta-luego','hasta luego']},
-{id:'hasta-manana',nombre:'hasta mañana', alts:['hasta-manana','hasta mañana','hasta-mañana']},
-{id:'bienvenido',nombre:'bienvenido', alts:['bienvenido']},
-{id:'encantado',nombre:'encantado', alts:['encantado']}
+{id:'hola', nombre:'¡Hola!', frances:'Bonjour !', alts:['https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400','https://cdn.pixabay.com/photo/2017/09/25/13/12/cocker-spaniel-2785074_640.jpg']},
+{id:'buenos-dias', nombre:'Buenos días', frances:'Bonjour', alts:['https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=400']},
+{id:'buenas-tardes', nombre:'Buenas tardes', frances:'Bon après-midi', alts:['https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400']},
+{id:'buenas-noches', nombre:'Buenas noches', frances:'Bonne nuit', alts:['https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400']},
+{id:'adios', nombre:'Adiós', frances:'Au revoir', alts:['https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400']},
+{id:'hasta-luego', nombre:'Hasta luego', frances:'À plus tard', alts:['https://images.unsplash.com/photo-1517842645767-c639042777db?w=400']},
+{id:'como-estas', nombre:'¿Cómo estás?', frances:'Comment vas-tu ?', alts:['https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400']},
+{id:'muy-bien', nombre:'Muy bien', frances:'Très bien', alts:['https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400']},
+{id:'gracias', nombre:'Gracias', frances:'Merci', alts:['https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=400']},
+{id:'por-favor', nombre:'Por favor', frances:"S'il te plaît", alts:['https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400']},
+{id:'perdon', nombre:'Perdón', frances:'Pardon', alts:['https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400']},
+{id:'de-nada', nombre:'De nada', frances:'De rien', alts:['https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400']},
+{id:'encantado', nombre:'¡Encantado!', frances:'Enchanté !', alts:['https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400']}
 ];
 
-function hablar(t){const u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
-
-function crearImg(p, width='100%'){
-  const alt0 = p.alts[0];
-  // Genera lista de intentos: jpg, png, jpeg, webp con todos los alts
-  let intentos = [];
-  p.alts.forEach(a=>{
-    intentos.push(`../imagenes/bloque-1-saludos/${a}.jpg`);
-    intentos.push(`../imagenes/bloque-1-saludos/${a}.png`);
-    intentos.push(`../imagenes/bloque-1-saludos/${a}.jpeg`);
-    intentos.push(`../imagenes/bloque-1-saludos/${a}.webp`);
-  });
-  // Añade variantes con mayúsculas primera letra por si acaso
-  const img = document.createElement('img');
-  img.alt = p.nombre;
-  img.style.width = width;
-  img.style.height = width==='100%' ? '110px' : '60px';
-  img.style.objectFit = 'contain';
+function crearImg(p){
+  const img=document.createElement('img');
+  const intentos=(p.alts||[]).slice();
   let idx=0;
   img.src=intentos[0];
-  img.onerror=()=>{
-    idx++;
-    if(idx<intentos.length){ img.src=intentos[idx]; }
-    else { img.style.display='none'; } // si no hay nada, oculta roto
-  };
+  img.onerror=()=>{ idx++; if(idx<intentos.length){img.src=intentos[idx];} else {img.style.display='none';} };
   return img;
 }
 
@@ -87,47 +67,20 @@ const grid=document.getElementById('grid');
 palabras.forEach(p=>{
   const card=document.createElement('div'); card.className='card';
   const img=crearImg(p);
-  const pp=document.createElement('p'); pp.textContent=p.nombre;
-  const btn=document.createElement('button'); btn.textContent='🔊'; btn.onclick=()=>hablar(p.nombre);
-  card.appendChild(img); card.appendChild(pp); card.appendChild(btn);
+  const pp=document.createElement('p'); pp.className='pp'; pp.textContent=p.nombre;
+  const pf=document.createElement('p'); pf.className='fr'; pf.textContent=p.frances;
+  const divBtn=document.createElement('div'); divBtn.className='btns';
+  const btn=document.createElement('button'); btn.className='es'; btn.textContent='🔊 Español'; btn.onclick=()=>hablar(p.nombre,'es-ES');
+  const btnFr=document.createElement('button'); btnFr.className='frb'; btnFr.textContent='🇫🇷 Français'; btnFr.onclick=()=>hablar(p.frances,'fr-FR');
+  divBtn.appendChild(btn); divBtn.appendChild(btnFr);
+  card.appendChild(img); card.appendChild(pp); card.appendChild(pf); card.appendChild(divBtn);
   grid.appendChild(card);
 });
 
 let actual=null;
 function juegoEscucha(){
- actual=palabras[Math.floor(Math.random()*palabras.length)];
- hablar(actual.nombre);
- const area=document.getElementById('j1'); area.innerHTML='';
- const titulo=document.createElement('p'); titulo.innerHTML=`<b>¿Qué escuchaste?</b> <button onclick="hablar('${actual.nombre}')">🔊 Repetir</button>`; area.appendChild(titulo);
- let ops=[...palabras].sort(()=>0.5-Math.random()).slice(0,6);
- if(!ops.find(x=>x.id===actual.id)){ops[0]=actual;ops.sort(()=>0.5-Math.random())}
- ops.forEach(o=>{
-   const div=document.createElement('div'); div.className='opcion';
-   const im=crearImg(o,'70px');
-   const sm=document.createElement('small'); sm.textContent=o.nombre; sm.style.display='block';
-   div.appendChild(im); div.appendChild(sm);
-   div.onclick=()=>{ if(o.id===actual.id){div.classList.add('correcta'); hablar('¡Muy bien!'); setTimeout(juegoEscucha,1000)} else{div.classList.add('incorrecta')} };
-   area.appendChild(div);
- });
+  hablar(palabras[Math.floor(Math.random()*palabras.length)].nombre,'es-ES');
 }
-function juegoTest(){
- const cor=palabras[Math.floor(Math.random()*palabras.length)];
- const area=document.getElementById('j2'); area.innerHTML='';
- const p=document.createElement('p'); p.textContent='¿Cómo se dice?'; area.appendChild(p);
- const im=crearImg(cor,'180px'); im.style.height='120px'; im.style.borderRadius='10px'; area.appendChild(im);
- area.appendChild(document.createElement('br'));
- const br=document.createElement('br'); area.appendChild(br);
- cor.alts.slice(0,1); // dummy
- let ops=[...palabras].sort(()=>0.5-Math.random()).slice(0,4);
- if(!ops.find(x=>x.id===cor.id)){ops[0]=cor;ops.sort(()=>0.5-Math.random())}
- ops.forEach(o=>{
-   const div=document.createElement('div'); div.className='opcion'; div.textContent=o.nombre;
-   div.onclick=()=>{ if(o.id===cor.id){div.classList.add('correcta'); hablar('¡Correcto!')} else{div.classList.add('incorrecta'); hablar(cor.nombre)} };
-   area.appendChild(div);
- });
- const b=document.createElement('div'); b.innerHTML=`<br><button class="btn-juego" onclick="hablar('${cor.nombre}')">🔊 Escuchar</button>`; area.appendChild(b);
-}
-juegoEscucha();juegoTest();
 </script>
 </body>
 </html>
