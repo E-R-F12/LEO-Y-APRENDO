@@ -108,7 +108,7 @@ const trad={
 document.querySelectorAll('.card').forEach(card=>{
   const titulo=card.querySelector('.pp');
   if(!titulo) return;
-  const esp=titulo.textContent.trim().toUpperCase();
+  const esp=titulo.textContent.trim().toUpperCase().replace(/[¡!¿?]/g,'').trim();
   const fr=trad[esp];
   if(!fr) return;
   if(card.querySelector('.fr')) return;
