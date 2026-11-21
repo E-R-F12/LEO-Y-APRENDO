@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bloque 3 - Comida</title>
+<style>
+body{font-family:Segoe UI,Arial;background:#fef9f2;margin:0;padding:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;max-width:1100px;margin:20px auto}
+.card{background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.1);text-align:center;padding:12px;cursor:pointer;position:relative}
+.card img{width:110px;height:110px;object-fit:contain;background:#e6f0ff;border-radius:50%;padding:10px;margin:0 auto 6px;display:block}
+.palabra{font-weight:bold;text-transform:uppercase;font-size:13px}
+.audio-ico{position:absolute;top:6px;right:6px;background:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.juegos{max-width:900px;margin:40px auto;background:#fff;padding:20px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.juego{margin:20px 0;padding:15px;border:2px dashed #ff8c42;border-radius:12px}
+.opciones{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px}
+.opciones img,.opciones button{cursor:pointer;border-radius:12px}
+.opciones img{width:90px;height:90px;object-fit:contain;background:#eef6ff;padding:8px;border:3px solid transparent}
+.opciones img.sel{border-color:#27ae60}
+.opciones button{padding:10px 14px;border:none;background:#eee;border-radius:8px;font-weight:bold}
+.opciones button.ok{background:#27ae60;color:#fff}
+.opciones button.bad{background:#e74c3c;color:#fff}
+</style>
+</head>
+<body>
+<h1 style="text-align:center;color:#d35400">🍎 BLOQUE 3 - COMIDA</h1>
+<p style="text-align:center"><a href="../../index.html">← Volver</a></p>
+<p id="contador" style="text-align:center;color:gray">Cargando...</p>
+<div class="grid" id="grid"></div>
 
+<div class="juegos">
+<h2 style="text-align:center">🎮 Juegos finales</h2>
+
+<div class="juego" id="juegoAudio">
+<h3>1️⃣ 🔊 Adivina por el AUDIO</h3>
+<p id="instrAudio">Pulsa 🔊 para escuchar y elige la imagen</p>
+<button onclick="nuevoAudio()" style="background:#d35400;color:#fff;padding:10px 16px;border:none;border-radius:8px;font-weight:bold">🔊 Escuchar</button>
+<div class="opciones" id="optAudio"></div>
+<p id="resAudio"></p>
+</div>
+
+<div class="juego" id="juegoImagen">
+<h3>2️⃣ 🖼️ Adivina por la IMAGEN</h3>
+<div id="imgGrande" style="text-align:center"></div>
+<div class="opciones" id="optImagen"></div>
+<p id="resImagen"></p>
+<button onclick="nuevaImagen()" style="margin-top:10px;background:#d35400;color:#fff;padding:10px 16px;border:none;border-radius:8px;font-weight:bold">Siguiente ▶️</button>
+</div>
+
+<div style="text-align:center;margin-top:15px">
+<button onclick="location.reload()">🔄 Mezclar todo</button>
+</div>
+</div>
+
+<script>
+const RAW="https://raw.githubusercontent.com/e-r-f12/LEO-Y-APRENDO/main/vocabulario-realista/imagenes/bloque-3-comida/";
+const API="https://api.github.com/repos/e-r-f12/LEO-Y-APRENDO/contents/vocabulario-realista/imagenes/bloque-3-comida";
+function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t.toLowerCase());u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
+let listaGlobal=[]; let actualAudio=null; let actualImagen=null;
+
+fetch(API).then(r=>r.json()).then(files=>{
+  let lista=files.filter(f=>f.type==='file' && /\.(jpe?g|png|webp)$/i.test(f.name)).sort((a,b)=>a.name.localeCompare(b.name));
+  listaGlobal=lista.map(f=>{return {file:f.name, texto:f.name.replace(/\.[^/.]+$/,'').replace(/[-_]/g,' ')}});
+  document.getElementById('contador').textContent=`¡Perfecto! ${lista.length} fotos encontradas`;
+  const grid=document.getElementById('grid');
+  listaGlobal.forEach(o=>{
+    let div=document.createElement('div');div.className='card';
+    div.innerHTML=`<div class="audio-ico">🔊</div><img src="${RAW+encodeURI(o.file)}" loading="lazy"><div class="palabra">${o.texto}</div>`;
+    div.onclick=()=>hablar(o.texto);
+    grid.appendChild(div);
+  });
+  nuevoAudio(); nuevaImagen();
+});
+
+function mezclar(a){return a.sort(()=>Math.random()-0.5)}
+
+function nuevoAudio(){
+  if(!listaGlobal.length) return;
+  let opciones=mezclar([...listaGlobal]).slice(0,4);
+  actualAudio=opciones[Math.floor(Math.random()*4)];
+  hablar(actualAudio.texto);
+  let cont=document.getElementById('optAudio'); cont.innerHTML=''; document.getElementById('resAudio').textContent='';
+  opciones.forEach(o=>{
+    let img=document.createElement('img'); img.src=RAW+encodeURI(o.file);
+    img.onclick=()=>{
+      if(o.file===actualAudio.file){document.getElementById('resAudio').textContent='✅ ¡Correcto! Es '+actualAudio.texto; hablar('correcto '+actualAudio.texto); setTimeout(nuevoAudio,1500)}
+      else{document.getElementById('resAudio').textContent='❌ Prueba otra'; hablar('intenta de nuevo')}
+    };
+    cont.appendChild(img);
+  });
+}
+
+function nuevaImagen(){
+  if(!listaGlobal.length) return;
+  let opciones=mezclar([...listaGlobal]).slice(0,4);
+  actualImagen=opciones[Math.floor(Math.random()*4)];
+  document.getElementById('imgGrande').innerHTML=`<img src="${RAW+encodeURI(actualImagen.file)}" style="width:140px;height:140px;background:#e6f0ff;border-radius:50%;padding:10px"><p><button onclick="hablar('${actualImagen.texto}')">🔊 Escuchar palabra</button></p>`;
+  let cont=document.getElementById('optImagen'); cont.innerHTML=''; document.getElementById('resImagen').textContent='';
+  mezclar(opciones).forEach(o=>{
+    let btn=document.createElement('button'); btn.textContent=o.texto.toUpperCase();
+    btn.onclick=()=>{
+      if(o.file===actualImagen.file){btn.classList.add('ok'); document.getElementById('resImagen').textContent='✅ ¡Muy bien!'; hablar('muy bien')}
+      else{btn.classList.add('bad'); document.getElementById('resImagen').textContent='❌ Era '+actualImagen.texto.toUpperCase()}
+    };
+    cont.appendChild(btn);
+  });
+}
+</script>
+</body>
+</html>
