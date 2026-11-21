@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloque 2 - Casa | Leo y Aprendo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f7ff;padding:15px}
+.header{text-align:center;margin-bottom:20px}
+.header h1{color:#1a5fb4;font-size:28px}
+.header a{color:#1a5fb4;text-decoration:none;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px;max-width:1100px;margin:0 auto}
+.card{background:white;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.1);overflow:hidden;text-align:center;padding-bottom:12px}
+.card img{width:100%;height:140px;object-fit:contain;background:white;padding:10px;display:block}
+.palabra{font-size:15px;font-weight:bold;color:#333;text-transform:uppercase;margin-top:5px}
+.silabas{font-size:12px;color:#666;margin:4px 0}
+.btn-audio{background:#1a5fb4;color:white;border:none;border-radius:50%;width:24px;height:24px;cursor:pointer;margin-left:6px}
+.games{max-width:1100px;margin:30px auto;background:white;border-radius:16px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.game-btn{background:#ffd60a;border:none;padding:10px 18px;border-radius:20px;font-weight:bold;cursor:pointer;margin:5px}
+.choice{display:inline-block;background:#eef5ff;border:2px solid #1a5fb4;border-radius:12px;padding:8px 14px;margin:6px;cursor:pointer;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>🏠 BLOQUE 2 - CASA</h1>
+<p><a href="../../index.html">← Volver al inicio</a></p>
+<p id="contador" style="font-size:13px;color:gray;margin-top:8px"></p>
+</div>
+<div class="grid" id="grid"></div>
+
+<div class="games">
+<h2>🎮 JUEGO 1: ¿Qué objeto es?</h2>
+<button class="game-btn" onclick="juego1()">¡Jugar!</button>
+<div id="j1"></div>
+</div>
+
+<div class="games">
+<h2>🔊 JUEGO 2: Escucha y elige</h2>
+<button class="game-btn" onclick="juego2()">¡Escuchar!</button>
+<div id="j2"></div>
+</div>
+
+<script>
+const RAW = "https://raw.githubusercontent.com/e-r-f12/LEO-Y-APRENDO/main/vocabulario-realista/imagenes/bloque-2-casa/";
+const API = "https://api.github.com/repos/e-r-f12/LEO-Y-APRENDO/contents/vocabulario-realista/imagenes/bloque-2-casa";
+
+function hablar(t){ const u=new SpeechSynthesisUtterance(t); u.lang='es-ES'; u.rate=0.8; speechSynthesis.speak(u); }
+function limpiar(f){ return f.replace(/\.[^/.]+$/, "").replace(/[-_]/g," ").trim(); }
+
+let palabras=[];
+
+fetch(API)
+.then(r=>r.json())
+.then(files=>{
+  let lista=files.filter(f=>f.type==='file' && /\.(jpg|jpeg|png|webp)$/i.test(f.name)).map(f=>f.name);
+  document.getElementById('contador').textContent=`¡Perfecto! ${lista.length} fotos encontradas`;
+  palabras=lista.map(file=>({file:file, texto:limpiar(file)}));
+  pintar();
+});
+
+function pintar(){
+  const grid=document.getElementById('grid');
+  grid.innerHTML='';
+  palabras.forEach(p=>{
+    const card=document.createElement('div'); card.className='card';
+    const img=document.createElement('img');
+    img.src=RAW+encodeURI(p.file);
+    img.alt=p.texto;
+    const d1=document.createElement('div'); d1.className='palabra'; d1.textContent=p.texto;
+    const d2=document.createElement('div'); d2.className='silabas'; d2.innerHTML=`<button class="btn-audio" onclick="hablar('${p.texto}')">🔊</button>`;
+    card.appendChild(img); card.appendChild(d1); card.appendChild(d2);
+    grid.appendChild(card);
+  });
+}
+
+function juego1(){
+ const c=document.getElementById('j1'); if(!palabras.length) return;
+ let actual=palabras[Math.floor(Math.random()*palabras.length)];
+ let ops=[actual]; while(ops.length<4){ let r=palabras[Math.floor(Math.random()*palabras.length)]; if(!ops.includes(r)) ops.push(r);} ops.sort(()=>Math.random()-0.5);
+ c.innerHTML=`<p>¿Dónde está <b>${actual.texto.toUpperCase()}</b>?</p>`;
+ ops.forEach(o=>{ let d=document.createElement('div'); d.className='choice'; d.textContent=o.texto.toUpperCase(); d.onclick=()=>{ if(o===actual){ d.style.background='#c8f7c5'; hablar(actual.texto); } else d.style.background='#ffcdd2'; }; c.appendChild(d); });
+}
+function juego2(){
+ const c=document.getElementById('j2'); if(!palabras.length) return;
+ let actual=palabras[Math.floor(Math.random()*palabras.length)]; hablar(actual.texto);
+ let ops=[actual]; while(ops.length<4){ let r=palabras[Math.floor(Math.random()*palabras.length)]; if(!ops.includes(r)) ops.push(r);} ops.sort(()=>Math.random()-0.5);
+ c.innerHTML=`<button class="game-btn" onclick="hablar('${actual.texto}')">🔊 Repetir</button><br><br>`;
+ ops.forEach(o=>{ let d=document.createElement('div'); d.className='choice'; d.textContent=o.texto.toUpperCase(); d.onclick=()=>{ if(o===actual) d.style.background='#c8f7c5'; else d.style.background='#ffcdd2'; }; c.appendChild(d); });
+}
+</script>
+</body>
+</html>
