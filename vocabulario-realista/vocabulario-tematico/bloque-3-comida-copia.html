@@ -23,7 +23,6 @@ header p{color:#666;margin-top:6px}
 .btns{display:flex;gap:6px;justify-content:center;padding:8px 0 14px}
 .btns button{background:#EA580C;color:#fff;border:0;padding:7px 10px;border-radius:20px;cursor:pointer;font-size:13px}
 .btns button.fr-btn{background:#0E7490}
-/* JUEGOS */
 .juegos{max-width:1000px;margin:30px auto;background:#fff;border-radius:20px;padding:22px;box-shadow:0 4px 14px rgba(0,0,0,.1)}
 .juegos h2{text-align:center;color:#9A3412;font-size:24px}
 .juegos h2 span{display:block;color:#0E7490;font-size:16px;font-style:italic;margin-top:4px}
@@ -35,7 +34,6 @@ header p{color:#666;margin-top:6px}
 .juego button.fr-btn{background:#0E7490}
 .juego .opciones{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
 .juego .opciones button{background:#fff;color:#333;border:2px solid #FDBA74}
-.juego .opciones button:hover{background:#FFF7ED}
 #quiz-img{width:140px;height:140px;object-fit:cover;border-radius:16px;margin:12px auto;display:block;background:#fff;padding:6px}
 #memoria{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:500px;margin:14px auto}
 #memoria button{height:70px;font-size:28px;background:#FED7AA;color:#333;border-radius:14px}
@@ -54,7 +52,6 @@ header p{color:#666;margin-top:6px}
 
 <div class="juegos">
 <h2>🎮 Juegos Finales<span>Jeux finaux</span></h2>
-
 <div class="juego">
 <h3>1. 🔊 Escucha y elige <i>1. Écoute et choisis</i></h3>
 <p>Pulsa el altavoz, escucha y elige la imagen correcta.</p>
@@ -63,7 +60,6 @@ header p{color:#666;margin-top:6px}
 <div class="opciones" id="escucha-opciones"></div>
 <div id="escucha-resultado"></div>
 </div>
-
 <div class="juego">
 <h3>2. ❓ ¿Qué es? <i>2. Qu'est-ce que c'est ?</i></h3>
 <p>Mira la imagen y adivina la palabra.</p>
@@ -72,7 +68,6 @@ header p{color:#666;margin-top:6px}
 <div id="quiz-resultado"></div>
 <button onclick="nuevoQuiz()">🔄 Otra / Autre</button>
 </div>
-
 <div class="juego">
 <h3>3. 🧠 Memoria <i>3. Mémoire</i></h3>
 <p>Encuentra las parejas iguales.</p>
@@ -80,7 +75,6 @@ header p{color:#666;margin-top:6px}
 <div id="memoria-resultado"></div>
 <button onclick="nuevaMemoria()">🔄 Jugar otra vez / Rejouer</button>
 </div>
-
 </div>
 
 <script>
@@ -103,7 +97,7 @@ const PALABRAS = [
 {es:"PERA", fr:"Poire", img:"https://img.icons8.com/color/240/pear.png", icon:true, backup:"1f350"},
 {es:"LIMÓN", fr:"Citron", img:"https://images.unsplash.com/photo-1590502593747-42a996133562?w=600&q=80"},
 {es:"SANDÍA", fr:"Pastèque", img:"https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600&q=80"},
-{es:"ZANAHORIA", fr:"Carotte", img:"https://images.unsplash.com/photo-1598170845058-32b9d6a5b9f4?w=600&q=80"},
+{es:"ZANAHORIA", fr:"Carotte", img:"https://img.icons8.com/color/240/carrot.png", icon:true, backup:"1f955"},
 {es:"PATATA", fr:"Pomme de terre", img:"https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600&q=80"},
 {es:"TOMATE", fr:"Tomate", img:"https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=600&q=80"},
 {es:"LECHUGA", fr:"Salade", img:"https://img.icons8.com/color/240/lettuce.png", icon:true, backup:"1f96c"},
@@ -136,8 +130,6 @@ PALABRAS.forEach(p => {
   d.innerHTML = `<img src="${p.img}" alt="${p.es}" ${backupAttr}><h2>${p.es}</h2><div class="fr">${p.fr}</div><div class="btns"><button onclick="hablar('${p.es.toLowerCase()}','es-ES')">🔊 ES</button><button class="fr-btn" onclick="hablar('${p.fr.toLowerCase()}','fr-FR')">🔊 FR</button></div>`;
   grid.appendChild(d);
 });
-
-// JUEGO 1 - ESCUCHA
 let escuchaCorrecta = null;
 function nuevaEscucha(lang){
   const mezcladas = [...PALABRAS].sort(()=>Math.random()-0.5).slice(0,4);
@@ -157,7 +149,6 @@ function nuevaEscucha(lang){
     cont.appendChild(b);
   });
 }
-// JUEGO 2 - QUIZ
 let quizCorrecta = null;
 function nuevoQuiz(){
   const mezcladas = [...PALABRAS].sort(()=>Math.random()-0.5).slice(0,4);
@@ -180,7 +171,6 @@ function nuevoQuiz(){
   });
 }
 nuevoQuiz();
-// JUEGO 3 - MEMORIA
 let memoriaPrimera = null, memoriaBloqueo = false, aciertos = 0;
 function nuevaMemoria(){
   const elegidas = [...PALABRAS].sort(()=>Math.random()-0.5).slice(0,4);
