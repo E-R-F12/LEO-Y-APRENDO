@@ -1,109 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bloque 3 - Comida</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloque 3 - La Comida | LEO Y APRENDO</title>
 <style>
-body{font-family:Segoe UI,Arial;background:#fef9f2;margin:0;padding:15px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;max-width:1100px;margin:20px auto}
-.card{background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.1);text-align:center;padding:12px;cursor:pointer;position:relative}
-.card img{width:110px;height:110px;object-fit:contain;background:#e6f0ff;border-radius:50%;padding:10px;margin:0 auto 6px;display:block}
-.palabra{font-weight:bold;text-transform:uppercase;font-size:13px}
-.audio-ico{position:absolute;top:6px;right:6px;background:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.2)}
-.juegos{max-width:900px;margin:40px auto;background:#fff;padding:20px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.juego{margin:20px 0;padding:15px;border:2px dashed #ff8c42;border-radius:12px}
-.opciones{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px}
-.opciones img,.opciones button{cursor:pointer;border-radius:12px}
-.opciones img{width:90px;height:90px;object-fit:contain;background:#eef6ff;padding:8px;border:3px solid transparent}
-.opciones img.sel{border-color:#27ae60}
-.opciones button{padding:10px 14px;border:none;background:#eee;border-radius:8px;font-weight:bold}
-.opciones button.ok{background:#27ae60;color:#fff}
-.opciones button.bad{background:#e74c3c;color:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#FFF7ED;padding:16px}
+a{color:#EA580C;text-decoration:none;font-weight:bold}
+header{text-align:center;padding:20px 10px}
+header h1{font-size:32px;color:#9A3412}
+header h1 span{color:#0E7490;font-size:22px;display:block;margin-top:4px;font-style:italic}
+header p{color:#666;margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;max-width:1000px;margin:20px auto}
+.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.1);text-align:center}
+.card img{width:100%;height:130px;object-fit:cover;background:#fff;padding:8px}
+.card.icon img{object-fit:contain}
+.card h2{font-size:19px;padding:10px 6px 0;text-transform:lowercase}
+.card h2::first-letter{text-transform:uppercase}
+.card .fr{font-size:15px;color:#0E7490;font-style:italic;margin-top:3px;text-transform:lowercase}
+.card .fr::first-letter{text-transform:uppercase}
+.btns{display:flex;gap:6px;justify-content:center;padding:8px 0 14px}
+.btns button{background:#EA580C;color:#fff;border:0;padding:7px 10px;border-radius:20px;cursor:pointer;font-size:13px}
+.btns button.fr-btn{background:#0E7490}
 </style>
 </head>
 <body>
-<h1 style="text-align:center;color:#d35400">🍎 BLOQUE 3 - COMIDA</h1>
-<p style="text-align:center"><a href="../../index.html">← Volver</a></p>
-<p id="contador" style="text-align:center;color:gray">Cargando...</p>
+<a href="../">← Volver / Retour</a>
+<header>
+<h1>🍎 Bloque 3 - La Comida<span>Bloc 3 - La Nourriture</span></h1>
+<p>Toca para escuchar en español y en francés. 31 palabras. / Touche pour écouter en espagnol et en français. 31 mots.</p>
+</header>
 <div class="grid" id="grid"></div>
-
-<div class="juegos">
-<h2 style="text-align:center">🎮 Juegos finales</h2>
-
-<div class="juego" id="juegoAudio">
-<h3>1️⃣ 🔊 Adivina por el AUDIO</h3>
-<p id="instrAudio">Pulsa 🔊 para escuchar y elige la imagen</p>
-<button onclick="nuevoAudio()" style="background:#d35400;color:#fff;padding:10px 16px;border:none;border-radius:8px;font-weight:bold">🔊 Escuchar</button>
-<div class="opciones" id="optAudio"></div>
-<p id="resAudio"></p>
-</div>
-
-<div class="juego" id="juegoImagen">
-<h3>2️⃣ 🖼️ Adivina por la IMAGEN</h3>
-<div id="imgGrande" style="text-align:center"></div>
-<div class="opciones" id="optImagen"></div>
-<p id="resImagen"></p>
-<button onclick="nuevaImagen()" style="margin-top:10px;background:#d35400;color:#fff;padding:10px 16px;border:none;border-radius:8px;font-weight:bold">Siguiente ▶️</button>
-</div>
-
-<div style="text-align:center;margin-top:15px">
-<button onclick="location.reload()">🔄 Mezclar todo</button>
-</div>
-</div>
-
 <script>
-const RAW="https://raw.githubusercontent.com/e-r-f12/LEO-Y-APRENDO/main/vocabulario-realista/imagenes/bloque-3-comida/";
-const API="https://api.github.com/repos/e-r-f12/LEO-Y-APRENDO/contents/vocabulario-realista/imagenes/bloque-3-comida";
-function hablar(t){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t.toLowerCase());u.lang='es-ES';u.rate=0.85;speechSynthesis.speak(u);}
-let listaGlobal=[]; let actualAudio=null; let actualImagen=null;
+function hablar(texto, lang){
+  const u = new SpeechSynthesisUtterance(texto);
+  u.lang = lang; u.rate = 0.85;
+  speechSynthesis.cancel(); speechSynthesis.speak(u);
+}
+function respaldo(img, emojiCode){
+  img.onerror = null;
+  img.src = "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/"+emojiCode+".png";
+  img.style.objectFit = "contain"; img.style.padding = "18px";
+}
 
-fetch(API).then(r=>r.json()).then(files=>{
-  let lista=files.filter(f=>f.type==='file' && /\.(jpe?g|png|webp)$/i.test(f.name)).sort((a,b)=>a.name.localeCompare(b.name));
-  listaGlobal=lista.map(f=>{return {file:f.name, texto:f.name.replace(/\.[^/.]+$/,'').replace(/[-_]/g,' ')}});
-  document.getElementById('contador').textContent=`¡Perfecto! ${lista.length} fotos encontradas`;
-  const grid=document.getElementById('grid');
-  listaGlobal.forEach(o=>{
-    let div=document.createElement('div');div.className='card';
-    div.innerHTML=`<div class="audio-ico">🔊</div><img src="${RAW+encodeURI(o.file)}" loading="lazy"><div class="palabra">${o.texto}</div>`;
-    div.onclick=()=>hablar(o.texto);
-    grid.appendChild(div);
-  });
-  nuevoAudio(); nuevaImagen();
+const PALABRAS = [
+// FOTOS
+{es:"MANZANA", fr:"Pomme", img:"https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=600&q=80"},
+{es:"PLÁTANO", fr:"Banane", img:"https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=600&q=80"},
+{es:"NARANJA", fr:"Orange", img:"https://images.unsplash.com/photo-1547514701-427821fd4ff6?w=600&q=80"},
+{es:"FRESA", fr:"Fraise", img:"https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=600&q=80"},
+{es:"UVA", fr:"Raisin", img:"https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=600&q=80"},
+{es:"PERA", fr:"Poire", img:"https://images.unsplash.com/photo-1514756327036-96654aeb5e9f?w=600&q=80"},
+{es:"LIMÓN", fr:"Citron", img:"https://images.unsplash.com/photo-1590502593747-42a996133562?w=600&q=80"},
+{es:"SANDÍA", fr:"Pastèque", img:"https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600&q=80"},
+{es:"ZANAHORIA", fr:"Carotte", img:"https://images.unsplash.com/photo-1598170845058-32b9d6a5b9f4?w=600&q=80"},
+{es:"PATATA", fr:"Pomme de terre", img:"https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600&q=80"},
+{es:"TOMATE", fr:"Tomate", img:"https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=600&q=80"},
+{es:"LECHUGA", fr:"Salade", img:"https://images.unsplash.com/photo-1622206151226-18ca2c9ab4ed?w=600&q=80"},
+{es:"PAN", fr:"Pain", img:"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80"},
+{es:"ARROZ", fr:"Riz", img:"https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600&q=80"},
+{es:"PASTA", fr:"Pâtes", img:"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80"},
+{es:"HUEVO", fr:"Oeuf", img:"https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=600&q=80"},
+{es:"LECHE", fr:"Lait", img:"https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600&q=80"},
+{es:"QUESO", fr:"Fromage", img:"https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=600&q=80"},
+{es:"YOGUR", fr:"Yaourt", img:"https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80"},
+{es:"CARNE", fr:"Viande", img:"https://images.unsplash.com/photo-1602470520998-f4a52199a3d6?w=600&q=80"},
+{es:"POLLO", fr:"Poulet", img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=600&q=80"},
+{es:"PESCADO", fr:"Poisson", img:"https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80"},
+{es:"AGUA", fr:"Eau", img:"https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600&q=80"},
+{es:"ZUMO", fr:"Jus", img:"https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600&q=80"},
+{es:"CAFÉ", fr:"Café", img:"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80"},
+{es:"HELADO", fr:"Glace", img:"https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80"},
+{es:"CHOCOLATE", fr:"Chocolat", img:"https://images.unsplash.com/photo-1511381939415-e44015466834?w=600&q=80"},
+
+// ICONOS - con respaldo emoji
+{es:"CEBOLLA", fr:"Oignon", img:"https://img.icons8.com/color/240/onion.png", icon:true, backup:"1f9c1"},
+{es:"MANTEQUILLA", fr:"Beurre", img:"https://img.icons8.com/color/240/butter.png", icon:true, backup:"1f9c8"},
+{es:"TÉ", fr:"Thé", img:"https://img.icons8.com/color/240/tea.png", icon:true, backup:"1f375"},
+{es:"AZÚCAR", fr:"Sucre", img:"https://img.icons8.com/color/240/sugar.png", icon:true, backup:"1f9c2"},
+{es:"SAL", fr:"Sel", img:"https://img.icons8.com/color/240/salt.png", icon:true, backup:"1f9c2"},
+];
+
+const grid = document.getElementById('grid');
+PALABRAS.forEach(p => {
+  const d = document.createElement('div');
+  d.className = 'card' + (p.icon ? ' icon' : '');
+  const backupAttr = p.backup ? `onerror="respaldo(this,'${p.backup}')"` : '';
+  d.innerHTML = `<img src="${p.img}" alt="${p.es}" ${backupAttr}><h2>${p.es}</h2><div class="fr">${p.fr}</div><div class="btns"><button onclick="hablar('${p.es.toLowerCase()}','es-ES')">🔊 ES</button><button class="fr-btn" onclick="hablar('${p.fr.toLowerCase()}','fr-FR')">🔊 FR</button></div>`;
+  grid.appendChild(d);
 });
-
-function mezclar(a){return a.sort(()=>Math.random()-0.5)}
-
-function nuevoAudio(){
-  if(!listaGlobal.length) return;
-  let opciones=mezclar([...listaGlobal]).slice(0,4);
-  actualAudio=opciones[Math.floor(Math.random()*4)];
-  hablar(actualAudio.texto);
-  let cont=document.getElementById('optAudio'); cont.innerHTML=''; document.getElementById('resAudio').textContent='';
-  opciones.forEach(o=>{
-    let img=document.createElement('img'); img.src=RAW+encodeURI(o.file);
-    img.onclick=()=>{
-      if(o.file===actualAudio.file){document.getElementById('resAudio').textContent='✅ ¡Correcto! Es '+actualAudio.texto; hablar('correcto '+actualAudio.texto); setTimeout(nuevoAudio,1500)}
-      else{document.getElementById('resAudio').textContent='❌ Prueba otra'; hablar('intenta de nuevo')}
-    };
-    cont.appendChild(img);
-  });
-}
-
-function nuevaImagen(){
-  if(!listaGlobal.length) return;
-  let opciones=mezclar([...listaGlobal]).slice(0,4);
-  actualImagen=opciones[Math.floor(Math.random()*4)];
-  document.getElementById('imgGrande').innerHTML=`<img src="${RAW+encodeURI(actualImagen.file)}" style="width:140px;height:140px;background:#e6f0ff;border-radius:50%;padding:10px"><p><button onclick="hablar('${actualImagen.texto}')">🔊 Escuchar palabra</button></p>`;
-  let cont=document.getElementById('optImagen'); cont.innerHTML=''; document.getElementById('resImagen').textContent='';
-  mezclar(opciones).forEach(o=>{
-    let btn=document.createElement('button'); btn.textContent=o.texto.toUpperCase();
-    btn.onclick=()=>{
-      if(o.file===actualImagen.file){btn.classList.add('ok'); document.getElementById('resImagen').textContent='✅ ¡Muy bien!'; hablar('muy bien')}
-      else{btn.classList.add('bad'); document.getElementById('resImagen').textContent='❌ Era '+actualImagen.texto.toUpperCase()}
-    };
-    cont.appendChild(btn);
-  });
-}
 </script>
 </body>
 </html>
