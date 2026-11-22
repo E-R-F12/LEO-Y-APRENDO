@@ -3,173 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloque 6 - Mi Árbol Genealógico - LEO Y APRENDO</title>
+<title>Bloque 6 - La Familia | LEO Y APRENDO</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
-body{background:#fffdf7;color:#1e293b;padding:8px}
-a.volver{display:inline-block;margin:8px 0 10px 8px;text-decoration:none;background:white;padding:10px 18px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.08);color:#ea580c;font-weight:bold;font-size:1.1rem}
-h1{text-align:center;font-size:2.4rem}
-p.sub{text-align:center;color:#64748b;margin:8px 0 12px;font-size:1.15rem}
-.contenedor{max-width:1200px;margin:0 auto}
-.tarjeta{background:white;border:4px solid #fde68a;border-radius:24px;padding:10px 10px 16px;margin:16px 0;box-shadow:0 4px 16px rgba(0,0,0,.08);cursor:pointer;text-align:center}
-.tarjeta.seleccionado{border:6px solid red}
-.tarjeta img{width:100%;max-width:1150px;height:auto;border-radius:16px;display:block;margin:0 auto;background:white}
-.tarjeta b{display:inline-block;margin-top:14px;font-size:1.8rem;background:#fde68a;padding:8px 32px;border-radius:20px}
-.tarjeta.seleccionado b{background:red;color:white}
-.tarjeta small{display:block;color:#64748b;margin:8px 0 12px;font-size:1.15rem}
-.btn-escuchar{background:#ea580c;color:white;border:none;padding:14px 36px;border-radius:24px;cursor:pointer;font-weight:bold;font-size:1.2rem}
-.btn-grande{display:block;margin:20px auto;background:#ea580c;color:white;border:none;padding:16px 32px;border-radius:24px;font-weight:bold;cursor:pointer;font-size:1.3rem}
-/* JUEGOS */
-.juegos{max-width:1200px;margin:28px auto 0}
-.juegos h2{text-align:center;font-size:2rem;margin-bottom:14px}
-.juego{background:white;border:4px solid #bbf7d0;border-radius:24px;padding:18px;margin:16px 0;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.08)}
-.juego h3{font-size:1.6rem;margin-bottom:8px}
-.juego p{color:#64748b;margin-bottom:12px;font-size:1.1rem}
-.juego img{width:100%;max-width:800px;border-radius:16px;margin:0 auto 12px;display:block}
-.opciones{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.opciones button{background:#fef3c7;border:3px solid #fcd34d;padding:14px 28px;border-radius:20px;font-size:1.3rem;font-weight:bold;cursor:pointer}
-.opciones button.correcto{background:#22c55e;color:white;border-color:#22c55e}
-.opciones button.mal{background:#ef4444;color:white;border-color:#ef4444}
-.marcador{font-size:1.3rem;font-weight:bold;margin:10px 0}
-.btn-juego{background:#16a34a;color:white;border:none;padding:14px 30px;border-radius:24px;font-size:1.2rem;font-weight:bold;cursor:pointer;margin:8px}
-.btn-azul{background:#2563eb;color:white;border:none;padding:14px 30px;border-radius:24px;font-size:1.2rem;font-weight:bold;cursor:pointer;margin:8px}
-.parejas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.parejas button{background:white;border:3px solid #e2e8f0;padding:14px 20px;border-radius:16px;font-size:1.2rem;font-weight:bold;cursor:pointer;min-width:140px}
-.parejas button.seleccionado{border-color:#2563eb;background:#dbeafe}
-.parejas button.acertado{background:#22c55e;color:white;border-color:#22c55e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#FDF2F8;padding:16px}
+a{color:#BE185D;text-decoration:none;font-weight:bold}
+header{text-align:center;padding:20px 10px}
+header h1{font-size:32px;color:#9D174D}
+header h1 span{color:#0E7490;font-size:22px;display:block;margin-top:4px;font-style:italic}
+header p{color:#666;margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;max-width:1000px;margin:20px auto}
+.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.1);text-align:center}
+.card img{width:100%;height:130px;object-fit:cover;background:#fff;padding:8px}
+.card.icon img{object-fit:contain}
+.card h2{font-size:19px;padding:10px 6px 0;text-transform:lowercase}
+.card h2::first-letter{text-transform:uppercase}
+.card .fr{font-size:15px;color:#0E7490;font-style:italic;margin-top:3px;text-transform:lowercase}
+.card .fr::first-letter{text-transform:uppercase}
+.btns{display:flex;gap:6px;justify-content:center;padding:8px 0 14px}
+.btns button{background:#BE185D;color:#fff;border:0;padding:7px 10px;border-radius:20px;cursor:pointer;font-size:13px}
+.btns button.fr-btn{background:#0E7490}
+.juegos{max-width:1000px;margin:30px auto;background:#fff;border-radius:20px;padding:22px;box-shadow:0 4px 14px rgba(0,0,0,.1)}
+.juegos h2{text-align:center;color:#9D174D;font-size:24px}
+.juegos h2 span{display:block;color:#0E7490;font-size:16px;font-style:italic;margin-top:4px}
+.juego{margin-top:22px;border-top:2px dashed #FBCFE8;padding-top:18px;text-align:center}
+.juego h3{font-size:19px;color:#333}
+.juego h3 i{color:#0E7490;font-size:14px;display:block;margin-top:3px}
+.juego p{color:#666;font-size:14px;margin-top:6px}
+.juego button{background:#BE185D;color:#fff;border:0;padding:10px 16px;border-radius:20px;cursor:pointer;font-weight:bold;margin:8px 4px;font-size:14px}
+.juego button.fr-btn{background:#0E7490}
+.juego .opciones{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
+.juego .opciones button{background:#fff;color:#333;border:2px solid #F9A8D4}
+#quiz-img{width:140px;height:140px;object-fit:cover;border-radius:16px;margin:12px auto;display:block;background:#fff;padding:6px}
+#memoria{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:500px;margin:14px auto}
+#memoria button{height:70px;font-size:28px;background:#FBCFE8;color:#333;border-radius:14px}
+#memoria button.destapada{background:#fff;border:2px solid #BE185D}
+#memoria button.acertada{background:#FCE7F3;border-color:#BE185D}
 </style>
 </head>
 <body>
-<a class="volver" href="index.html">Volver</a>
-<h1>MI ÁRBOL GENEALÓGICO</h1>
-<p class="sub">Pulsa en cada imagen para marcarla en rojo. Pulsa en Escuchar para oír el nombre.</p>
-<div class="contenedor">
-<div class="tarjeta" onclick="seleccionar(this,'Abuelo')"><img src="../imagenes/bloque-6-familia/abuelo.jpg"><b>ABUELO</b><small>El papá de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuelo')">Escuchar</button></div>
-<div class="tarjeta" onclick="seleccionar(this,'Abuela')"><img src="../imagenes/bloque-6-familia/abuela.jpg"><b>ABUELA</b><small>La mamá de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Abuela')">Escuchar</button></div>
-<div class="tarjeta" onclick="seleccionar(this,'Papá')"><img src="../imagenes/bloque-6-familia/papa.jpg"><b>PAPÁ</b><small>Mi padre</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Papá')">Escuchar</button></div>
-<div class="tarjeta" onclick="seleccionar(this,'Mamá')"><img src="../imagenes/bloque-6-familia/mama.jpg"><b>MAMÁ</b><small>Mi madre</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Mamá')">Escuchar</button></div>
-<div class="tarjeta" onclick="seleccionar(this,'Tío')"><img src="../imagenes/bloque-6-familia/tio.jpg"><b>TÍO</b><small>Hermano de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tío')">Escuchar</button></div>
-<div class="tarjeta" onclick="seleccionar(this,'Tía')"><img src="../imagenes/bloque-6-familia/tia.jpg"><b>TÍA</b><small>Hermana de Papá</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Tía')">Escuchar</button></div>
-<div class="tarjeta" onclick="seleccionar(this,'Hijo')"><img src="../imagenes/bloque-6-familia/hijo.jpg"><b>HIJO</b><small>Mi hijo</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hijo')">Escuchar</button></div>
-<div class="tarjeta" onclick="seleccionar(this,'Hija')"><img src="../imagenes/bloque-6-familia/hija.jpg"><b>HIJA</b><small>Mi hija</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Hija')">Escuchar</button></div>
-<div class="tarjeta" onclick="seleccionar(this,'Bebé')"><img src="../imagenes/bloque-6-familia/bebe.jpg"><b>BEBÉ</b><small>El bebé</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Bebé')">Escuchar</button></div>
-<div class="tarjeta" onclick="seleccionar(this,'Primo')"><img src="../imagenes/bloque-6-familia/primo.jpg"><b>PRIMO</b><small>Hijo de mi tío</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Primo')">Escuchar</button></div>
-<div class="tarjeta" onclick="seleccionar(this,'Prima')"><img src="../imagenes/bloque-6-familia/prima.jpg"><b>PRIMA</b><small>Hija de mi tía</small><button class="btn-escuchar" onclick="event.stopPropagation();hablar('Prima')">Escuchar</button></div>
-<button class="btn-grande" onclick="hablar('Este es mi árbol genealógico. Abuelo, abuela, papá, mamá, tío, tía, hijo, hija, bebé, primo y prima.')">Escuchar todo el árbol</button>
-</div>
-
-<!-- JUEGOS FINALES -->
+<a href="../">← Volver / Retour</a>
+<header>
+<h1>👨‍👩‍👧 Bloque 6 - La Familia<span>Bloc 6 - La Famille</span></h1>
+<p>Toca para escuchar en español y en francés. 30 palabras. / Touche pour écouter en espagnol et en français. 30 mots.</p>
+</header>
+<div class="grid" id="grid"></div>
 <div class="juegos">
-<h2>🎮 JUEGOS FINALES</h2>
-
-<!-- JUEGO 1: ¿QUIÉN ES? -->
+<h2>🎮 Juegos Finales<span>Jeux finaux</span></h2>
 <div class="juego">
-<h3>Juego 1 - ¿Quién es?</h3>
-<p>Mira la imagen grande y pulsa el nombre correcto. ¡Ganas puntos!</p>
-<div class="marcador">Puntos: <span id="puntos1">0</span> / 5</div>
-<img id="img-quiz" src="../imagenes/bloque-6-familia/bebe.jpg">
-<div class="opciones" id="opciones-quiz"></div>
-<p id="mensaje-quiz" style="font-weight:bold;font-size:1.2rem"></p>
-<button class="btn-juego" onclick="siguienteQuiz()">Siguiente ➡️</button>
+<h3>1. 🔊 Escucha y elige <i>1. Écoute et choisis</i></h3>
+<p>Pulsa el altavoz, escucha y elige la imagen correcta.</p>
+<button onclick="nuevaEscucha('es-ES')">🔊 Escuchar en ESPAÑOL</button>
+<button class="fr-btn" onclick="nuevaEscucha('fr-FR')">🔊 Écouter en FRANÇAIS</button>
+<div class="opciones" id="escucha-opciones"></div>
+<div id="escucha-resultado"></div>
 </div>
-
-<!-- JUEGO 2: ESCUCHA Y PULSA -->
 <div class="juego">
-<h3>Juego 2 - Escucha y pulsa</h3>
-<p>Pulsa Escuchar, oye el nombre y pulsa la imagen correcta de abajo.</p>
-<button class="btn-azul" onclick="jugarEscucha()">🔊 Escuchar</button>
-<div class="marcador">Puntos: <span id="puntos2">0</span> / 5 &nbsp; | &nbsp; <span id="palabra-escucha">Pulsa Escuchar</span></div>
-<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px">
-<button class="btn-escuchar" style="background:#fef3c7;color:#1e293b;border:3px solid #fcd34d" onclick="comprobarEscucha('Abuelo')">ABUELO</button>
-<button class="btn-escuchar" style="background:#fef3c7;color:#1e293b;border:3px solid #fcd34d" onclick="comprobarEscucha('Mamá')">MAMÁ</button>
-<button class="btn-escuchar" style="background:#fef3c7;color:#1e293b;border:3px solid #fcd34d" onclick="comprobarEscucha('Bebé')">BEBÉ</button>
-<button class="btn-escuchar" style="background:#fef3c7;color:#1e293b;border:3px solid #fcd34d" onclick="comprobarEscucha('Primo')">PRIMO</button>
-<button class="btn-escuchar" style="background:#fef3c7;color:#1e293b;border:3px solid #fcd34d" onclick="comprobarEscucha('Tía')">TÍA</button>
+<h3>2. ❓ ¿Quién es? <i>2. Qui est-ce ?</i></h3>
+<p>Mira la imagen y adivina la palabra.</p>
+<img id="quiz-img" src="">
+<div class="opciones" id="quiz-opciones"></div>
+<div id="quiz-resultado"></div>
+<button onclick="nuevoQuiz()">🔄 Otra / Autre</button>
 </div>
-<p id="mensaje-escucha" style="font-weight:bold;font-size:1.2rem;margin-top:10px"></p>
-</div>
-
-<!-- JUEGO 3: UNE LA PAREJA -->
 <div class="juego">
-<h3>Juego 3 - Une la pareja</h3>
-<p>Pulsa una palabra y luego su imagen. ¡Únelas todas!</p>
-<div class="marcador">Parejas acertadas: <span id="puntos3">0</span> / 4</div>
-<div class="parejas" id="parejas-palabras">
-<button onclick="elegirPalabra(this,'Abuela')">ABUELA</button>
-<button onclick="elegirPalabra(this,'Papá')">PAPÁ</button>
-<button onclick="elegirPalabra(this,'Hija')">HIJA</button>
-<button onclick="elegirPalabra(this,'Primo')">PRIMO</button>
+<h3>3. 🧠 Memoria <i>3. Mémoire</i></h3>
+<p>Encuentra las parejas iguales.</p>
+<div id="memoria"></div>
+<div id="memoria-resultado"></div>
+<button onclick="nuevaMemoria()">🔄 Jugar otra vez / Rejouer</button>
 </div>
-<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px">
-<img src="../imagenes/bloque-6-familia/primo.jpg" style="width:150px;cursor:pointer;border:4px solid #e2e8f0;border-radius:14px" onclick="elegirImagen(this,'Primo')">
-<img src="../imagenes/bloque-6-familia/abuela.jpg" style="width:150px;cursor:pointer;border:4px solid #e2e8f0;border-radius:14px" onclick="elegirImagen(this,'Abuela')">
-<img src="../imagenes/bloque-6-familia/hija.jpg" style="width:150px;cursor:pointer;border:4px solid #e2e8f0;border-radius:14px" onclick="elegirImagen(this,'Hija')">
-<img src="../imagenes/bloque-6-familia/papa.jpg" style="width:150px;cursor:pointer;border:4px solid #e2e8f0;border-radius:14px" onclick="elegirImagen(this,'Papá')">
 </div>
-<p id="mensaje-parejas" style="font-weight:bold;font-size:1.2rem;margin-top:10px"></p>
-<button class="btn-juego" onclick="reiniciarParejas()">Volver a jugar 🔄</button>
-</div>
-
-<!-- JUEGO 4: MI FRASE -->
-<div class="juego">
-<h3>Juego 4 - Di mi frase</h3>
-<p>Pulsa y repite en voz alta: “Mi ___ se llama ___”</p>
-<button class="btn-azul" onclick="hablar('Mi abuelo se llama abuelo. Mi mamá se llama mamá. Mi primo se llama primo.')">🔊 Escuchar frase</button>
-<button class="btn-juego" onclick="hablar('¡Muy bien! ¡Lo has hecho genial!')">🏆 ¡Lo conseguí!</button>
-</div>
-
-</div>
-
 <script>
-function hablar(t){ try{ speechSynthesis.cancel(); let u=new SpeechSynthesisUtterance(t); u.lang='es-ES'; u.rate=0.9; speechSynthesis.speak(u);}catch(e){} }
-function seleccionar(el,nombre){ document.querySelectorAll('.tarjeta').forEach(n=>n.classList.remove('seleccionado')); el.classList.add('seleccionado'); el.scrollIntoView({behavior:'smooth',block:'center'}); hablar(nombre); }
-
-// JUEGO 1
-let quiz=[
-{img:'../imagenes/bloque-6-familia/bebe.jpg',correcta:'Bebé',opciones:['Bebé','Abuelo','Primo']},
-{img:'../imagenes/bloque-6-familia/abuelo.jpg',correcta:'Abuelo',opciones:['Papá','Abuelo','Tío']},
-{img:'../imagenes/bloque-6-familia/mama.jpg',correcta:'Mamá',opciones:['Tía','Mamá','Hija']},
-{img:'../imagenes/bloque-6-familia/primo.jpg',correcta:'Primo',opciones:['Hijo','Primo','Bebé']},
-{img:'../imagenes/bloque-6-familia/tia.jpg',correcta:'Tía',opciones:['Tía','Abuela','Mamá']}
+function hablar(texto, lang){const u=new SpeechSynthesisUtterance(texto);u.lang=lang;u.rate=0.85;speechSynthesis.cancel();speechSynthesis.speak(u);}
+function respaldo(img, emojiCode){img.onerror=null;img.src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/"+emojiCode+".png";img.style.objectFit="contain";img.style.padding="18px";}
+const PALABRAS=[
+{es:"MAMÁ", fr:"Maman", img:"https://img.icons8.com/color/240/mother.png", icon:true, backup:"1f469"},
+{es:"PAPÁ", fr:"Papa", img:"https://img.icons8.com/color/240/father.png", icon:true, backup:"1f468"},
+{es:"HIJO", fr:"Fils", img:"https://img.icons8.com/color/240/son.png", icon:true, backup:"1f466"},
+{es:"HIJA", fr:"Fille", img:"https://img.icons8.com/color/240/daughter.png", icon:true, backup:"1f467"},
+{es:"HERMANO", fr:"Frère", img:"https://img.icons8.com/color/240/brother.png", icon:true, backup:"1f466"},
+{es:"HERMANA", fr:"Sœur", img:"https://img.icons8.com/color/240/sister.png", icon:true, backup:"1f467"},
+{es:"ABUELO", fr:"Grand-père", img:"https://img.icons8.com/color/240/grandfather.png", icon:true, backup:"1f474"},
+{es:"ABUELA", fr:"Grand-mère", img:"https://img.icons8.com/color/240/grandmother.png", icon:true, backup:"1f475"},
+{es:"TÍO", fr:"Oncle", img:"https://img.icons8.com/color/240/uncle.png", icon:true, backup:"1f468"},
+{es:"TÍA", fr:"Tante", img:"https://img.icons8.com/color/240/aunt.png", icon:true, backup:"1f469"},
+{es:"PRIMO", fr:"Cousin", img:"https://img.icons8.com/color/240/cousin.png", icon:true, backup:"1f466"},
+{es:"PRIMA", fr:"Cousine", img:"https://img.icons8.com/color/240/cousin-female.png", icon:true, backup:"1f467"},
+{es:"BEBÉ", fr:"Bébé", img:"https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&q=80"},
+{es:"NIÑO", fr:"Garçon", img:"https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80"},
+{es:"NIÑA", fr:"Fille", img:"https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=600&q=80"},
+{es:"HOMBRE", fr:"Homme", img:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"},
+{es:"MUJER", fr:"Femme", img:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80"},
+{es:"AMIGO", fr:"Ami", img:"https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80"},
+{es:"AMIGA", fr:"Amie", img:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80"},
+{es:"FAMILIA", fr:"Famille", img:"https://images.unsplash.com/photo-1511895426328-dc8714191300?w=600&q=80"},
+{es:"PADRES", fr:"Parents", img:"https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=600&q=80"},
+{es:"HIJOS", fr:"Enfants", img:"https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=600&q=80"},
+{es:"ABUELOS", fr:"Grands-parents", img:"https://images.unsplash.com/photo-1543342384-1f1350e27861?w=600&q=80"},
+{es:"NIETO", fr:"Petit-fils", img:"https://img.icons8.com/color/240/grandson.png", icon:true, backup:"1f466"},
+{es:"NIETA", fr:"Petite-fille", img:"https://img.icons8.com/color/240/granddaughter.png", icon:true, backup:"1f467"},
+{es:"SOBRINO", fr:"Neveu", img:"https://img.icons8.com/color/240/nephew.png", icon:true, backup:"1f466"},
+{es:"SOBRINA", fr:"Nièce", img:"https://img.icons8.com/color/240/niece.png", icon:true, backup:"1f467"},
+{es:"CUÑADO", fr:"Beau-frère", img:"https://img.icons8.com/color/240/brother-in-law.png", icon:true, backup:"1f468"},
+{es:"CUÑADA", fr:"Belle-sœur", img:"https://img.icons8.com/color/240/sister-in-law.png", icon:true, backup:"1f469"},
+{es:"SUEGRO", fr:"Beau-père", img:"https://img.icons8.com/color/240/father-in-law.png", icon:true, backup:"1f474"},
 ];
-let qi=0, puntos1=0;
-function cargarQuiz(){
-  let q=quiz[qi];
-  document.getElementById('img-quiz').src=q.img;
-  document.getElementById('mensaje-quiz').textContent='';
-  let cont=document.getElementById('opciones-quiz'); cont.innerHTML='';
-  q.opciones.forEach(op=>{
-    let b=document.createElement('button'); b.textContent=op;
-    b.onclick=()=>{
-      if(op===q.correcta){ b.classList.add('correcto'); document.getElementById('mensaje-quiz').textContent='¡Muy bien! 🎉'; puntos1++; document.getElementById('puntos1').textContent=puntos1; hablar('¡Muy bien! Es '+op); }
-      else{ b.classList.add('mal'); document.getElementById('mensaje-quiz').textContent='Inténtalo otra vez'; hablar('Inténtalo otra vez'); }
-    };
-    cont.appendChild(b);
-  });
-}
-function siguienteQuiz(){ qi=(qi+1)%quiz.length; cargarQuiz(); }
-cargarQuiz();
-
-// JUEGO 2
-let listaEscucha=['Abuelo','Mamá','Bebé','Primo','Tía'];
-let actualEscucha='', puntos2=0;
-function jugarEscucha(){ actualEscucha=listaEscucha[Math.floor(Math.random()*listaEscucha.length)]; document.getElementById('palabra-escucha').textContent='Escucha...'; hablar(actualEscucha); }
-function comprobarEscucha(respuesta){
-  if(!actualEscucha){ hablar('Primero pulsa Escuchar'); return; }
-  if(respuesta===actualEscucha){ document.getElementById('mensaje-escucha').textContent='¡Correcto! Era '+actualEscucha+' 🎉'; puntos2++; document.getElementById('puntos2').textContent=puntos2; hablar('¡Correcto!'); }
-  else{ document.getElementById('mensaje-escucha').textContent='Esa no es, escucha otra vez'; hablar('Esa no es'); }
-}
-
-// JUEGO 3
-let palabraSel=null, puntos3=0;
-function elegirPalabra(btn,pal){ document.querySelectorAll('#parejas-palabras button').forEach(b=>b.classList.remove('seleccionado')); btn.classList.add('seleccionado'); palabraSel=pal; hablar(pal); }
-function elegirImagen(img,pal){
-  if(!palabraSel){ document.getElementById('mensaje-parejas').textContent='Primero pulsa una palabra'; return; }
-  if(pal===palabraSel){ img.style.border='4px solid #22c55e'; document.getElementById('mensaje-parejas').textContent='¡Pareja correcta! '+pal+' 🎉'; puntos3++; document.getElementById('puntos3').textContent=puntos3; hablar('¡Muy bien!'); palabraSel=null; }
-  else{ document.getElementById('mensaje-parejas').textContent='Esa no es su pareja'; hablar('Esa no es'); }
-}
-function reiniciarParejas(){ puntos3=0; document.getElementById('puntos3').textContent='0'; document.getElementById('mensaje-parejas').textContent=''; palabraSel=null; document.querySelectorAll('img').forEach(i=>i.style.border='4px solid #e2e8f0'); document.querySelectorAll('#parejas-palabras button').forEach(b=>b.classList.remove('seleccionado')); }
+const grid=document.getElementById('grid');
+PALABRAS.forEach(p=>{const d=document.createElement('div');d.className='card'+(p.icon?' icon':'');const backupAttr=p.backup?`onerror="respaldo(this,'${p.backup}')"`:'';
+d.innerHTML=`<img src="${p.img}" alt="${p.es}" ${backupAttr}><h2>${p.es}</h2><div class="fr">${p.fr}</div><div class="btns"><button onclick="hablar('${p.es.toLowerCase()}','es-ES')">🔊 ES</button><button class="fr-btn" onclick="hablar('${p.fr.toLowerCase()}','fr-FR')">🔊 FR</button></div>`;grid.appendChild(d);});
+let escuchaCorrecta=null;
+function nuevaEscucha(lang){const mezcladas=[...PALABRAS].sort(()=>Math.random()-0.5).slice(0,4);escuchaCorrecta=mezcladas[0];const texto=lang==='fr-FR'?escuchaCorrecta.fr:escuchaCorrecta.es;hablar(texto.toLowerCase(),lang);const cont=document.getElementById('escucha-opciones');cont.innerHTML='';document.getElementById('escucha-resultado').textContent='';mezcladas.forEach(p=>{const b=document.createElement('button');b.innerHTML=`<img src="${p.img}" style="width:80px;height:70px;object-fit:cover;border-radius:10px;display:block;margin:0 auto 4px" onerror="respaldo(this,'${p.backup||'1f46a'}')"><span>${p.es} / ${p.fr}</span>`;b.onclick=()=>{if(p===escuchaCorrecta){document.getElementById('escucha-resultado').textContent='✅ ¡Muy bien! / Très bien !';hablar('Muy bien','es-ES');}else{document.getElementById('escucha-resultado').textContent='❌ Inténtalo otra vez / Essaie encore';}};cont.appendChild(b);});}
+let quizCorrecta=null;
+function nuevoQuiz(){const mezcladas=[...PALABRAS].sort(()=>Math.random()-0.5).slice(0,4);quizCorrecta=mezcladas[0];const img=document.getElementById('quiz-img');img.src=quizCorrecta.img;if(quizCorrecta.backup)img.onerror=()=>respaldo(img,quizCorrecta.backup);else img.onerror=null;const cont=document.getElementById('quiz-opciones');cont.innerHTML='';document.getElementById('quiz-resultado').textContent='';mezcladas.sort(()=>Math.random()-0.5).forEach(p=>{const b=document.createElement('button');b.textContent=p.es+' / '+p.fr;b.onclick=()=>{if(p===quizCorrecta){document.getElementById('quiz-resultado').textContent='✅ ¡Correcto! / Correct !';hablar(quizCorrecta.es.toLowerCase(),'es-ES');}else{document.getElementById('quiz-resultado').textContent='❌ No, es otra persona / Non, c’est une autre personne';}};cont.appendChild(b);});}
+nuevoQuiz();
+let memoriaPrimera=null, memoriaBloqueo=false, aciertos=0;
+function nuevaMemoria(){const elegidas=[...PALABRAS].sort(()=>Math.random()-0.5).slice(0,4);const parejas=[...elegidas,...elegidas].sort(()=>Math.random()-0.5);const cont=document.getElementById('memoria');cont.innerHTML='';document.getElementById('memoria-resultado').textContent='';memoriaPrimera=null;aciertos=0;parejas.forEach(p=>{const b=document.createElement('button');b.textContent='❓';b.onclick=()=>{if(memoriaBloqueo||b.classList.contains('destapada'))return;b.innerHTML=`<img src="${p.img}" style="width:100%;height:100%;object-fit:cover;border-radius:10px" onerror="respaldo(this,'${p.backup||'1f46a'}')">`;b.classList.add('destapada');if(!memoriaPrimera){memoriaPrimera={btn:b,palabra:p};}else{if(memoriaPrimera.palabra===p){b.classList.add('acertada');memoriaPrimera.btn.classList.add('acertada');aciertos++;hablar(p.es.toLowerCase(),'es-ES');if(aciertos===4)document.getElementById('memoria-resultado').textContent='🎉 ¡Has ganado! / Tu as gagné !';memoriaPrimera=null;}else{memoriaBloqueo=true;const anterior=memoriaPrimera.btn;setTimeout(()=>{b.textContent='❓';b.classList.remove('destapada');anterior.textContent='❓';anterior.classList.remove('destapada');memoriaBloqueo=false;},900);memoriaPrimera=null;}}};cont.appendChild(b);});}
+nuevaMemoria();
 </script>
 </body>
 </html>
-
