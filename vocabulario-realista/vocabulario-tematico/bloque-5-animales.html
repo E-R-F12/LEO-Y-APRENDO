@@ -10,117 +10,74 @@ body{font-family:Arial,sans-serif;background:#ECFDF5;padding:16px}
 a{color:#059669;text-decoration:none;font-weight:bold}
 header{text-align:center;padding:20px 10px}
 header h1{font-size:32px;color:#065F46}
-header h1 span{color:#0E7490;font-size:22px;display:block;margin-top:4px;font-style:italic}
 header p{color:#666;margin-top:6px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;max-width:1000px;margin:20px auto}
 .card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.1);text-align:center}
 .card img{width:100%;height:130px;object-fit:cover;background:#fff;padding:8px}
-.card.icon img{object-fit:contain}
 .card h2{font-size:19px;padding:10px 6px 0;text-transform:lowercase}
 .card h2::first-letter{text-transform:uppercase}
-.card .fr{font-size:15px;color:#0E7490;font-style:italic;margin-top:3px;text-transform:lowercase}
-.card .fr::first-letter{text-transform:uppercase}
 .btns{display:flex;gap:6px;justify-content:center;padding:8px 0 14px}
 .btns button{background:#059669;color:#fff;border:0;padding:7px 10px;border-radius:20px;cursor:pointer;font-size:13px}
-.btns button.fr-btn{background:#0E7490}
-.juegos{max-width:1000px;margin:30px auto;background:#fff;border-radius:20px;padding:22px;box-shadow:0 4px 14px rgba(0,0,0,.1)}
-.juegos h2{text-align:center;color:#065F46;font-size:24px}
-.juegos h2 span{display:block;color:#0E7490;font-size:16px;font-style:italic;margin-top:4px}
-.juego{margin-top:22px;border-top:2px dashed #A7F3D0;padding-top:18px;text-align:center}
-.juego h3{font-size:19px;color:#333}
-.juego h3 i{color:#0E7490;font-size:14px;display:block;margin-top:3px}
-.juego p{color:#666;font-size:14px;margin-top:6px}
-.juego button{background:#059669;color:#fff;border:0;padding:10px 16px;border-radius:20px;cursor:pointer;font-weight:bold;margin:8px 4px;font-size:14px}
-.juego button.fr-btn{background:#0E7490}
-.juego .opciones{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
-.juego .opciones button{background:#fff;color:#333;border:2px solid #6EE7B7}
-#quiz-img{width:140px;height:140px;object-fit:cover;border-radius:16px;margin:12px auto;display:block;background:#fff;padding:6px}
-#memoria{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:500px;margin:14px auto}
-#memoria button{height:70px;font-size:28px;background:#A7F3D0;color:#333;border-radius:14px}
-#memoria button.destapada{background:#fff;border:2px solid #059669}
-#memoria button.acertada{background:#DCFCE7;border-color:#16A34A}
 </style>
 </head>
 <body>
-<a href="../">← Volver / Retour</a>
+<a href="../">← Volver</a>
 <header>
-<h1>🐶 Bloque 5 - Los Animales<span>Bloc 5 - Les Animaux</span></h1>
-<p>Toca para escuchar en español y en francés. 31 palabras. / Touche pour écouter en espagnol et en français. 31 mots.</p>
+<h1>🐶 Bloque 5 - Los Animales</h1>
+<p>Toca para escuchar en español. 30 palabras.</p>
 </header>
 <div class="grid" id="grid"></div>
-<div class="juegos">
-<h2>🎮 Juegos Finales<span>Jeux finaux</span></h2>
-<div class="juego">
-<h3>1. 🔊 Escucha y elige <i>1. Écoute et choisis</i></h3>
-<p>Pulsa el altavoz, escucha y elige la imagen correcta.</p>
-<button onclick="nuevaEscucha('es-ES')">🔊 Escuchar en ESPAÑOL</button>
-<button class="fr-btn" onclick="nuevaEscucha('fr-FR')">🔊 Écouter en FRANÇAIS</button>
-<div class="opciones" id="escucha-opciones"></div>
-<div id="escucha-resultado"></div>
-</div>
-<div class="juego">
-<h3>2. ❓ ¿Qué es? <i>2. Qu'est-ce que c'est ?</i></h3>
-<p>Mira la imagen y adivina la palabra.</p>
-<img id="quiz-img" src="">
-<div class="opciones" id="quiz-opciones"></div>
-<div id="quiz-resultado"></div>
-<button onclick="nuevoQuiz()">🔄 Otra / Autre</button>
-</div>
-<div class="juego">
-<h3>3. 🧠 Memoria <i>3. Mémoire</i></h3>
-<p>Encuentra las parejas iguales.</p>
-<div id="memoria"></div>
-<div id="memoria-resultado"></div>
-<button onclick="nuevaMemoria()">🔄 Jugar otra vez / Rejouer</button>
-</div>
-</div>
 <script>
-function hablar(texto, lang){const u=new SpeechSynthesisUtterance(texto);u.lang=lang;u.rate=0.85;speechSynthesis.cancel();speechSynthesis.speak(u);}
-function respaldo(img, emojiCode){img.onerror=null;img.src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/"+emojiCode+".png";img.style.objectFit="contain";img.style.padding="18px";}
-const PALABRAS=[
-{es:"PERRO", fr:"Chien", img:"https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600&q=80"},
-{es:"GATO", fr:"Chat", img:"https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80"},
-{es:"CABALLO", fr:"Cheval", img:"https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=600&q=80"},
-{es:"VACA", fr:"Vache", img:"https://img.icons8.com/color/240/cow.png", icon:true, backup:"1f404"},
-{es:"CERDO", fr:"Cochon", img:"https://img.icons8.com/color/240/pig.png", icon:true, backup:"1f437"},
-{es:"OVEJA", fr:"Mouton", img:"https://img.icons8.com/color/240/sheep.png", icon:true, backup:"1f411"},
-{es:"CABRA", fr:"Chèvre", img:"https://img.icons8.com/color/240/goat.png", icon:true, backup:"1f410"},
-{es:"GALLINA", fr:"Poule", img:"https://img.icons8.com/color/240/hen.png", icon:true, backup:"1f414"},
-{es:"GALLO", fr:"Coq", img:"https://img.icons8.com/color/240/rooster.png", icon:true, backup:"1f413"},
-{es:"PATO", fr:"Canard", img:"https://img.icons8.com/color/240/duck.png", icon:true, backup:"1f986"},
-{es:"CONEJO", fr:"Lapin", img:"https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=600&q=80"},
-{es:"RATÓN", fr:"Souris", img:"https://img.icons8.com/color/240/mouse.png", icon:true, backup:"1f42d"},
-{es:"PÁJARO", fr:"Oiseau", img:"https://images.unsplash.com/photo-1444464666168-49d633b86797?w=600&q=80"},
-{es:"PEZ", fr:"Poisson", img:"https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=600&q=80"},
-{es:"TORTUGA", fr:"Tortue", img:"https://img.icons8.com/color/240/turtle.png", icon:true, backup:"1f422"},
-{es:"SERPIENTE", fr:"Serpent", img:"https://img.icons8.com/color/240/snake.png", icon:true, backup:"1f40d"},
-{es:"LEÓN", fr:"Lion", img:"https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=600&q=80"},
-{es:"TIGRE", fr:"Tigre", img:"https://images.unsplash.com/photo-1561731216-c3a4d99437d5?w=600&q=80"},
-{es:"ELEFANTE", fr:"Éléphant", img:"https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=600&q=80"},
-{es:"MONO", fr:"Singe", img:"https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80"},
-{es:"OSO", fr:"Ours", img:"https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?w=600&q=80"},
-{es:"LOBO", fr:"Loup", img:"https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=600&q=80"},
-{es:"ZORRO", fr:"Renard", img:"https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=600&q=80"},
-{es:"CIERVO", fr:"Cerf", img:"https://images.unsplash.com/photo-1484406566174-9da000fda645?w=600&q=80"},
-{es:"RANA", fr:"Grenouille", img:"https://img.icons8.com/color/240/frog.png", icon:true, backup:"1f438"},
-{es:"MARIPOSA", fr:"Papillon", img:"https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=600&q=80"},
-{es:"ABEJA", fr:"Abeille", img:"https://img.icons8.com/color/240/bee.png", icon:true, backup:"1f41d"},
-{es:"ARAÑA", fr:"Araignée", img:"https://img.icons8.com/color/240/spider.png", icon:true, backup:"1f577"},
-{es:"POLLITO", fr:"Poussin", img:"https://img.icons8.com/color/240/chick.png", icon:true, backup:"1f424"},
-{es:"BURRO", fr:"Âne", img:"https://img.icons8.com/color/240/donkey.png", icon:true, backup:"1f40e"},
-{es:"CANGURO", fr:"Kangourou", img:"https://img.icons8.com/color/240/kangaroo.png", icon:true, backup:"1f998"},
+function hablar(texto, lang){
+  const u = new SpeechSynthesisUtterance(texto);
+  u.lang = lang; u.rate = 0.85;
+  speechSynthesis.cancel(); speechSynthesis.speak(u);
+}
+function respaldo(img, emojiCode){
+  img.onerror = null;
+  img.src = "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/"+emojiCode+".png";
+  img.style.objectFit = "contain"; img.style.padding = "18px";
+}
+const PALABRAS = [
+{es:"PERRO", img:"https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600&q=80"},
+{es:"GATO", img:"https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80"},
+{es:"CABALLO", img:"https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=600&q=80"},
+{es:"VACA", img:"https://img.icons8.com/color/240/cow.png", backup:"1f404"},
+{es:"CERDO", img:"https://img.icons8.com/color/240/pig.png", backup:"1f437"},
+{es:"OVEJA", img:"https://img.icons8.com/color/240/sheep.png", backup:"1f411"},
+{es:"CABRA", img:"https://img.icons8.com/color/240/goat.png", backup:"1f410"},
+{es:"GALLINA", img:"https://img.icons8.com/color/240/hen.png", backup:"1f414"},
+{es:"GALLO", img:"https://img.icons8.com/color/240/rooster.png", backup:"1f413"},
+{es:"PATO", img:"https://img.icons8.com/color/240/duck.png", backup:"1f986"},
+{es:"CONEJO", img:"https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=600&q=80"},
+{es:"RATÓN", img:"https://img.icons8.com/color/240/mouse.png", backup:"1f42d"},
+{es:"PÁJARO", img:"https://images.unsplash.com/photo-1444464666168-49d633b86797?w=600&q=80"},
+{es:"PEZ", img:"https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=600&q=80"},
+{es:"TORTUGA", img:"https://img.icons8.com/color/240/turtle.png", backup:"1f422"},
+{es:"SERPIENTE", img:"https://img.icons8.com/color/240/snake.png", backup:"1f40d"},
+{es:"LEÓN", img:"https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=600&q=80"},
+{es:"TIGRE", img:"https://images.unsplash.com/photo-1561731216-c3a4d99437d5?w=600&q=80"},
+{es:"ELEFANTE", img:"https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=600&q=80"},
+{es:"MONO", img:"https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80"},
+{es:"OSO", img:"https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?w=600&q=80"},
+{es:"LOBO", img:"https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=600&q=80"},
+{es:"ZORRO", img:"https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=600&q=80"},
+{es:"CIERVO", img:"https://images.unsplash.com/photo-1484406566174-9da000fda645?w=600&q=80"},
+{es:"RANA", img:"https://img.icons8.com/color/240/frog.png", backup:"1f438"},
+{es:"MARIPOSA", img:"https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=600&q=80"},
+{es:"ABEJA", img:"https://img.icons8.com/color/240/bee.png", backup:"1f41d"},
+{es:"ARAÑA", img:"https://img.icons8.com/color/240/spider.png", backup:"1f577"},
+{es:"POLLITO", img:"https://img.icons8.com/color/240/chick.png", backup:"1f424"},
+{es:"BURRO", img:"https://img.icons8.com/color/240/donkey.png", backup:"1f40e"},
 ];
-const grid=document.getElementById('grid');
-PALABRAS.forEach(p=>{const d=document.createElement('div');d.className='card'+(p.icon?' icon':'');const backupAttr=p.backup?`onerror="respaldo(this,'${p.backup}')"`:'';
-d.innerHTML=`<img src="${p.img}" alt="${p.es}" ${backupAttr}><h2>${p.es}</h2><div class="fr">${p.fr}</div><div class="btns"><button onclick="hablar('${p.es.toLowerCase()}','es-ES')">🔊 ES</button><button class="fr-btn" onclick="hablar('${p.fr.toLowerCase()}','fr-FR')">🔊 FR</button></div>`;grid.appendChild(d);});
-let escuchaCorrecta=null;
-function nuevaEscucha(lang){const mezcladas=[...PALABRAS].sort(()=>Math.random()-0.5).slice(0,4);escuchaCorrecta=mezcladas[0];const texto=lang==='fr-FR'?escuchaCorrecta.fr:escuchaCorrecta.es;hablar(texto.toLowerCase(),lang);const cont=document.getElementById('escucha-opciones');cont.innerHTML='';document.getElementById('escucha-resultado').textContent='';mezcladas.forEach(p=>{const b=document.createElement('button');b.innerHTML=`<img src="${p.img}" style="width:80px;height:70px;object-fit:cover;border-radius:10px;display:block;margin:0 auto 4px" onerror="respaldo(this,'${p.backup||'1f43e'}')"><span>${p.es} / ${p.fr}</span>`;b.onclick=()=>{if(p===escuchaCorrecta){document.getElementById('escucha-resultado').textContent='✅ ¡Muy bien! / Très bien !';hablar('Muy bien','es-ES');}else{document.getElementById('escucha-resultado').textContent='❌ Inténtalo otra vez / Essaie encore';}};cont.appendChild(b);});}
-let quizCorrecta=null;
-function nuevoQuiz(){const mezcladas=[...PALABRAS].sort(()=>Math.random()-0.5).slice(0,4);quizCorrecta=mezcladas[0];const img=document.getElementById('quiz-img');img.src=quizCorrecta.img;if(quizCorrecta.backup)img.onerror=()=>respaldo(img,quizCorrecta.backup);else img.onerror=null;const cont=document.getElementById('quiz-opciones');cont.innerHTML='';document.getElementById('quiz-resultado').textContent='';mezcladas.sort(()=>Math.random()-0.5).forEach(p=>{const b=document.createElement('button');b.textContent=p.es+' / '+p.fr;b.onclick=()=>{if(p===quizCorrecta){document.getElementById('quiz-resultado').textContent='✅ ¡Correcto! / Correct !';hablar(quizCorrecta.es.toLowerCase(),'es-ES');}else{document.getElementById('quiz-resultado').textContent='❌ No, es otra / Non, c’est une autre';}};cont.appendChild(b);});}
-nuevoQuiz();
-let memoriaPrimera=null, memoriaBloqueo=false, aciertos=0;
-function nuevaMemoria(){const elegidas=[...PALABRAS].sort(()=>Math.random()-0.5).slice(0,4);const parejas=[...elegidas,...elegidas].sort(()=>Math.random()-0.5);const cont=document.getElementById('memoria');cont.innerHTML='';document.getElementById('memoria-resultado').textContent='';memoriaPrimera=null;aciertos=0;parejas.forEach(p=>{const b=document.createElement('button');b.textContent='❓';b.onclick=()=>{if(memoriaBloqueo||b.classList.contains('destapada'))return;b.innerHTML=`<img src="${p.img}" style="width:100%;height:100%;object-fit:cover;border-radius:10px" onerror="respaldo(this,'${p.backup||'1f43e'}')">`;b.classList.add('destapada');if(!memoriaPrimera){memoriaPrimera={btn:b,palabra:p};}else{if(memoriaPrimera.palabra===p){b.classList.add('acertada');memoriaPrimera.btn.classList.add('acertada');aciertos++;hablar(p.es.toLowerCase(),'es-ES');if(aciertos===4)document.getElementById('memoria-resultado').textContent='🎉 ¡Has ganado! / Tu as gagné !';memoriaPrimera=null;}else{memoriaBloqueo=true;const anterior=memoriaPrimera.btn;setTimeout(()=>{b.textContent='❓';b.classList.remove('destapada');anterior.textContent='❓';anterior.classList.remove('destapada');memoriaBloqueo=false;},900);memoriaPrimera=null;}}};cont.appendChild(b);});}
-nuevaMemoria();
+const grid = document.getElementById('grid');
+PALABRAS.forEach(p => {
+  const d = document.createElement('div');
+  d.className = 'card';
+  const backupAttr = p.backup ? `onerror="respaldo(this,'${p.backup}')"` : '';
+  d.innerHTML = `<img src="${p.img}" alt="${p.es}" ${backupAttr}><h2>${p.es}</h2><div class="btns"><button onclick="hablar('${p.es.toLowerCase()}','es-ES')">🔊 ESCUCHAR</button></div>`;
+  grid.appendChild(d);
+});
 </script>
 </body>
 </html>
